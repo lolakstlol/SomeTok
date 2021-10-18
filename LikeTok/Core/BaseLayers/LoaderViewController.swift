@@ -35,7 +35,7 @@ final class MGActivityIndicator: UIView {
     }
     
     /// Цвет индикатора. По-умолчанию голубой.
-    var indicatorColor: UIColor = Color.red {
+    var indicatorColor: UIColor = UIColor.red {
         didSet { indicatorLayer.strokeColor = indicatorColor.cgColor }
     }
     

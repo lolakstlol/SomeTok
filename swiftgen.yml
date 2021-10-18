@@ -1,0 +1,21 @@
+# 1
+input_dir: LikeTok/
+# 2
+output_dir: LikeTok/Generated/
+
+xcassets:
+  inputs:
+    - Resources/Assets.xcassets
+  outputs:
+    templateName: swift5
+    output: XCAssets+Generated.swift
+
+strings:
+  inputs:
+    - Resources/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      params:
+        publicAccess: true
+        enumName: Strings
+      output: Strings+Generated.swift
