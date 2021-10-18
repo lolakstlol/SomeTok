@@ -12,7 +12,6 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SentryManager.breadcrumbCapture(message: "Load Screen: \(String(describing: self))")
     }
     private lazy var spinner = LoaderViewController()
     

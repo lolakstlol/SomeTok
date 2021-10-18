@@ -1,0 +1,26 @@
+//
+//  {{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import Foundation
+
+final class {{ module_info.name }}Presenter {
+    private unowned let view: {{ module_info.name }}PresenterOutput
+
+    init(_ view: {{ module_info.name }}PresenterOutput) {
+        self.view = view
+    }
+
+    func viewDidLoad() {
+     
+    }
+
+}
+
+extension {{ module_info.name }}Presenter: {{ module_info.name }}PresenterInput {
+
+}

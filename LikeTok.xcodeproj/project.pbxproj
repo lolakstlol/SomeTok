@@ -7,15 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05D6F856BC9F000C56FCBF8D /* ModuleNamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F788FF990E6E663CC87C66D /* ModuleNamePresenter.swift */; };
+		0DC0E5474FAF1880360C5DD4 /* ModuleNameAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FF837683C2A35DCDCC65AA /* ModuleNameAssembler.swift */; };
 		17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097382271D7B4200134ED7 /* AppDelegate.swift */; };
 		17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097384271D7B4200134ED7 /* SceneDelegate.swift */; };
 		17097387271D7B4200134ED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097386271D7B4200134ED7 /* ViewController.swift */; };
 		1709738A271D7B4200134ED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17097388271D7B4200134ED7 /* Main.storyboard */; };
 		1709738C271D7B4400134ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1709738B271D7B4400134ED7 /* Assets.xcassets */; };
 		1709738F271D7B4400134ED7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1709738D271D7B4400134ED7 /* LaunchScreen.storyboard */; };
+		170973A1271D915600134ED7 /* BaseRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097399271D915600134ED7 /* BaseRouting.swift */; };
+		170973A2271D915600134ED7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709739A271D915600134ED7 /* BaseViewController.swift */; };
+		170973A4271D915600134ED7 /* BaseViewControllerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709739C271D915600134ED7 /* BaseViewControllerInput.swift */; };
+		170973A5271D915600134ED7 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709739D271D915600134ED7 /* BaseRouter.swift */; };
+		170973A6271D915600134ED7 /* BaseXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709739E271D915600134ED7 /* BaseXibView.swift */; };
+		170973A7271D915600134ED7 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709739F271D915600134ED7 /* BaseNavigationController.swift */; };
+		170973A8271D915600134ED7 /* BasePresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170973A0271D915600134ED7 /* BasePresenting.swift */; };
+		170973AA271D91F300134ED7 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170973A9271D91F300134ED7 /* LoaderViewController.swift */; };
+		170973AF271D967A00134ED7 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 170973AE271D967A00134ED7 /* swiftgen.yml */; };
+		170973B1271D973900134ED7 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170973B0271D973900134ED7 /* XCAssets+Generated.swift */; };
+		170973B4271D97B500134ED7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 170973B6271D97B500134ED7 /* Localizable.strings */; };
+		253340B092D1C80171582102 /* Pods_LikeTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5905415E0F4C501AA97D5BF4 /* Pods_LikeTok.framework */; };
+		88F7B57266FFC9432742D723 /* ModuleNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08B0E3DC8DCADCC5A98AA15 /* ModuleNameViewController.swift */; };
+		B61258F332D01C22F09EA73D /* ModuleNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289DE73CF8952DCAF1603466 /* ModuleNameViewController.xib */; };
+		DFDEBAE1173D23F6430283BC /* ModuleNamePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A2D59F788F2655598D0646 /* ModuleNamePresenterInput.swift */; };
+		E3B681543A0FB1F69E4CA1FA /* ModuleNamePresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE688EF5B535CF2263A80FE /* ModuleNamePresenterOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02A2D59F788F2655598D0646 /* ModuleNamePresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNamePresenterInput.swift; sourceTree = "<group>"; };
+		0EE688EF5B535CF2263A80FE /* ModuleNamePresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNamePresenterOutput.swift; sourceTree = "<group>"; };
 		1709737F271D7B4200134ED7 /* LikeTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17097382271D7B4200134ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17097384271D7B4200134ED7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +44,24 @@
 		1709738B271D7B4400134ED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1709738E271D7B4400134ED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17097390271D7B4400134ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17097399271D915600134ED7 /* BaseRouting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouting.swift; sourceTree = "<group>"; };
+		1709739A271D915600134ED7 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		1709739C271D915600134ED7 /* BaseViewControllerInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewControllerInput.swift; sourceTree = "<group>"; };
+		1709739D271D915600134ED7 /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		1709739E271D915600134ED7 /* BaseXibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseXibView.swift; sourceTree = "<group>"; };
+		1709739F271D915600134ED7 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		170973A0271D915600134ED7 /* BasePresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenting.swift; sourceTree = "<group>"; };
+		170973A9271D91F300134ED7 /* LoaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
+		170973AE271D967A00134ED7 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		170973B0271D973900134ED7 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		170973B5271D97B500134ED7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		289DE73CF8952DCAF1603466 /* ModuleNameViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = ModuleNameViewController.xib; sourceTree = "<group>"; };
+		3F788FF990E6E663CC87C66D /* ModuleNamePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNamePresenter.swift; sourceTree = "<group>"; };
+		56FF837683C2A35DCDCC65AA /* ModuleNameAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNameAssembler.swift; sourceTree = "<group>"; };
+		5905415E0F4C501AA97D5BF4 /* Pods_LikeTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB4F24B4F7A5A73C66EE709C /* Pods-LikeTok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.release.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.release.xcconfig"; sourceTree = "<group>"; };
+		B08B0E3DC8DCADCC5A98AA15 /* ModuleNameViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNameViewController.swift; sourceTree = "<group>"; };
+		C0F66AAFB4B69DF6A6557C73 /* Pods-LikeTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.debug.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				253340B092D1C80171582102 /* Pods_LikeTok.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +79,11 @@
 		17097376271D7B4200134ED7 = {
 			isa = PBXGroup;
 			children = (
+				170973AE271D967A00134ED7 /* swiftgen.yml */,
 				17097381271D7B4200134ED7 /* LikeTok */,
 				17097380271D7B4200134ED7 /* Products */,
+				714882604AD2C953196A7E23 /* Pods */,
+				D7BE4EB32FB6222B6A80375E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +98,120 @@
 		17097381271D7B4200134ED7 /* LikeTok */ = {
 			isa = PBXGroup;
 			children = (
-				17097382271D7B4200134ED7 /* AppDelegate.swift */,
-				17097384271D7B4200134ED7 /* SceneDelegate.swift */,
-				17097386271D7B4200134ED7 /* ViewController.swift */,
+				170973AD271D949500134ED7 /* Resources */,
+				170973AC271D944B00134ED7 /* Generated */,
+				17097397271D913E00134ED7 /* Core */,
+				17097396271D8AA900134ED7 /* Modules */,
 				17097388271D7B4200134ED7 /* Main.storyboard */,
-				1709738B271D7B4400134ED7 /* Assets.xcassets */,
 				1709738D271D7B4400134ED7 /* LaunchScreen.storyboard */,
 				17097390271D7B4400134ED7 /* Info.plist */,
 			);
 			path = LikeTok;
+			sourceTree = "<group>";
+		};
+		17097396271D8AA900134ED7 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				5577E4ED791A1B2E6F0C00E4 /* ModuleName */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		17097397271D913E00134ED7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				17097382271D7B4200134ED7 /* AppDelegate.swift */,
+				17097384271D7B4200134ED7 /* SceneDelegate.swift */,
+				17097386271D7B4200134ED7 /* ViewController.swift */,
+				17097398271D915600134ED7 /* BaseLayers */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		17097398271D915600134ED7 /* BaseLayers */ = {
+			isa = PBXGroup;
+			children = (
+				170973A9271D91F300134ED7 /* LoaderViewController.swift */,
+				17097399271D915600134ED7 /* BaseRouting.swift */,
+				1709739A271D915600134ED7 /* BaseViewController.swift */,
+				1709739C271D915600134ED7 /* BaseViewControllerInput.swift */,
+				1709739D271D915600134ED7 /* BaseRouter.swift */,
+				1709739E271D915600134ED7 /* BaseXibView.swift */,
+				1709739F271D915600134ED7 /* BaseNavigationController.swift */,
+				170973A0271D915600134ED7 /* BasePresenting.swift */,
+			);
+			path = BaseLayers;
+			sourceTree = "<group>";
+		};
+		170973AC271D944B00134ED7 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				170973B0271D973900134ED7 /* XCAssets+Generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		170973AD271D949500134ED7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1709738B271D7B4400134ED7 /* Assets.xcassets */,
+				170973B6271D97B500134ED7 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5577E4ED791A1B2E6F0C00E4 /* ModuleName */ = {
+			isa = PBXGroup;
+			children = (
+				E3EF1D71EA21C992299CC94C /* View */,
+				B0B81FE809154D53AC8F9C1C /* Presenter */,
+				751BCB37FF7C5097B396E0DD /* Assembler */,
+			);
+			path = ModuleName;
+			sourceTree = "<group>";
+		};
+		714882604AD2C953196A7E23 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C0F66AAFB4B69DF6A6557C73 /* Pods-LikeTok.debug.xcconfig */,
+				AB4F24B4F7A5A73C66EE709C /* Pods-LikeTok.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		751BCB37FF7C5097B396E0DD /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				56FF837683C2A35DCDCC65AA /* ModuleNameAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		B0B81FE809154D53AC8F9C1C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				02A2D59F788F2655598D0646 /* ModuleNamePresenterInput.swift */,
+				0EE688EF5B535CF2263A80FE /* ModuleNamePresenterOutput.swift */,
+				3F788FF990E6E663CC87C66D /* ModuleNamePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		D7BE4EB32FB6222B6A80375E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5905415E0F4C501AA97D5BF4 /* Pods_LikeTok.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3EF1D71EA21C992299CC94C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B08B0E3DC8DCADCC5A98AA15 /* ModuleNameViewController.swift */,
+				289DE73CF8952DCAF1603466 /* ModuleNameViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +221,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17097393271D7B4400134ED7 /* Build configuration list for PBXNativeTarget "LikeTok" */;
 			buildPhases = (
+				B809ACCBEA6F254E9E438C00 /* [CP] Check Pods Manifest.lock */,
 				1709737B271D7B4200134ED7 /* Sources */,
 				1709737C271D7B4200134ED7 /* Frameworks */,
 				1709737D271D7B4200134ED7 /* Resources */,
+				170973AB271D93E500134ED7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -126,12 +275,57 @@
 			buildActionMask = 2147483647;
 			files = (
 				1709738F271D7B4400134ED7 /* LaunchScreen.storyboard in Resources */,
+				170973AF271D967A00134ED7 /* swiftgen.yml in Resources */,
 				1709738C271D7B4400134ED7 /* Assets.xcassets in Resources */,
 				1709738A271D7B4200134ED7 /* Main.storyboard in Resources */,
+				B61258F332D01C22F09EA73D /* ModuleNameViewController.xib in Resources */,
+				170973B4271D97B500134ED7 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		170973AB271D93E500134ED7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi \n";
+		};
+		B809ACCBEA6F254E9E438C00 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LikeTok-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1709737B271D7B4200134ED7 /* Sources */ = {
@@ -139,8 +333,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				17097387271D7B4200134ED7 /* ViewController.swift in Sources */,
+				170973A1271D915600134ED7 /* BaseRouting.swift in Sources */,
 				17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */,
 				17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */,
+				170973A6271D915600134ED7 /* BaseXibView.swift in Sources */,
+				170973A4271D915600134ED7 /* BaseViewControllerInput.swift in Sources */,
+				170973A7271D915600134ED7 /* BaseNavigationController.swift in Sources */,
+				170973A8271D915600134ED7 /* BasePresenting.swift in Sources */,
+				170973A5271D915600134ED7 /* BaseRouter.swift in Sources */,
+				170973A2271D915600134ED7 /* BaseViewController.swift in Sources */,
+				88F7B57266FFC9432742D723 /* ModuleNameViewController.swift in Sources */,
+				170973AA271D91F300134ED7 /* LoaderViewController.swift in Sources */,
+				DFDEBAE1173D23F6430283BC /* ModuleNamePresenterInput.swift in Sources */,
+				E3B681543A0FB1F69E4CA1FA /* ModuleNamePresenterOutput.swift in Sources */,
+				05D6F856BC9F000C56FCBF8D /* ModuleNamePresenter.swift in Sources */,
+				170973B1271D973900134ED7 /* XCAssets+Generated.swift in Sources */,
+				0DC0E5474FAF1880360C5DD4 /* ModuleNameAssembler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +369,14 @@
 				1709738E271D7B4400134ED7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		170973B6271D97B500134ED7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				170973B5271D97B500134ED7 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -284,6 +500,7 @@
 		};
 		17097394271D7B4400134ED7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0F66AAFB4B69DF6A6557C73 /* Pods-LikeTok.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +529,7 @@
 		};
 		17097395271D7B4400134ED7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB4F24B4F7A5A73C66EE709C /* Pods-LikeTok.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
