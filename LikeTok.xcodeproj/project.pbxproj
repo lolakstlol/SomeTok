@@ -8,7 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		05D6F856BC9F000C56FCBF8D /* ModuleNamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F788FF990E6E663CC87C66D /* ModuleNamePresenter.swift */; };
+		098AFF776E356795A9010F51 /* OnboardingPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041674C2564D97B9E2A6F20B /* OnboardingPresenterOutput.swift */; };
 		0DC0E5474FAF1880360C5DD4 /* ModuleNameAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FF837683C2A35DCDCC65AA /* ModuleNameAssembler.swift */; };
+		0F27EC19D3FF004B8A540DAC /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */; };
+		1558C5D9271F91C40051436E /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C5D7271F91C40051436E /* OnboardingCollectionViewCell.swift */; };
+		1558C5DA271F91C40051436E /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5D8271F91C40051436E /* OnboardingCollectionViewCell.xib */; };
+		1558C5E927216B1E0051436E /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5DD27216B1E0051436E /* Roboto-ThinItalic.ttf */; };
+		1558C5EA27216B1E0051436E /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5DE27216B1E0051436E /* Roboto-Medium.ttf */; };
+		1558C5EB27216B1E0051436E /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5DF27216B1E0051436E /* Roboto-LightItalic.ttf */; };
+		1558C5EC27216B1E0051436E /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5E027216B1E0051436E /* Roboto-Italic.ttf */; };
+		1558C5ED27216B1E0051436E /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5E127216B1E0051436E /* Roboto-Black.ttf */; };
+		1558C5EE27216B1E0051436E /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5E227216B1E0051436E /* Roboto-Thin.ttf */; };
+		1558C5EF27216B1E0051436E /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5E327216B1E0051436E /* Roboto-Regular.ttf */; };
+		1558C5F027216B1E0051436E /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5E427216B1E0051436E /* Roboto-Light.ttf */; };
+		1558C5F127216B1E0051436E /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5E527216B1E0051436E /* Roboto-Bold.ttf */; };
+		1558C5F227216B1E0051436E /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5E627216B1E0051436E /* Roboto-MediumItalic.ttf */; };
+		1558C5F327216B1E0051436E /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5E727216B1E0051436E /* Roboto-BlackItalic.ttf */; };
+		1558C5F427216B1E0051436E /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5E827216B1E0051436E /* Roboto-BoldItalic.ttf */; };
+		1558C5F627216FAA0051436E /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C5F527216FAA0051436E /* OnboardingModel.swift */; };
+		1558C6002721B0B70051436E /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C5FF2721B0B70051436E /* Strings+Generated.swift */; };
+		1558C60B2721D80A0051436E /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C6092721D80A0051436E /* XCAssets+Generated.swift */; };
 		17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097382271D7B4200134ED7 /* AppDelegate.swift */; };
 		17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097384271D7B4200134ED7 /* SceneDelegate.swift */; };
 		17097387271D7B4200134ED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097386271D7B4200134ED7 /* ViewController.swift */; };
@@ -24,18 +43,43 @@
 		170973A8271D915600134ED7 /* BasePresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170973A0271D915600134ED7 /* BasePresenting.swift */; };
 		170973AA271D91F300134ED7 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170973A9271D91F300134ED7 /* LoaderViewController.swift */; };
 		170973AF271D967A00134ED7 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 170973AE271D967A00134ED7 /* swiftgen.yml */; };
-		170973B1271D973900134ED7 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170973B0271D973900134ED7 /* XCAssets+Generated.swift */; };
 		170973B4271D97B500134ED7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 170973B6271D97B500134ED7 /* Localizable.strings */; };
 		253340B092D1C80171582102 /* Pods_LikeTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5905415E0F4C501AA97D5BF4 /* Pods_LikeTok.framework */; };
+		53B0ABC6AFD0C97685059F24 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */; };
+		5E819C2B19C05F53AA221BEB /* OnboardingPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */; };
 		88F7B57266FFC9432742D723 /* ModuleNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08B0E3DC8DCADCC5A98AA15 /* ModuleNameViewController.swift */; };
 		B61258F332D01C22F09EA73D /* ModuleNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289DE73CF8952DCAF1603466 /* ModuleNameViewController.xib */; };
+		C171F81CD9D2034DB44A4B20 /* OnboardingAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1083B8D05564BED0CAB3EB66 /* OnboardingAssembler.swift */; };
+		C200B260DF37B93761CD25EA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F873800BB8201A173933EA2 /* OnboardingViewController.swift */; };
 		DFDEBAE1173D23F6430283BC /* ModuleNamePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A2D59F788F2655598D0646 /* ModuleNamePresenterInput.swift */; };
 		E3B681543A0FB1F69E4CA1FA /* ModuleNamePresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE688EF5B535CF2263A80FE /* ModuleNamePresenterOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		02A2D59F788F2655598D0646 /* ModuleNamePresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNamePresenterInput.swift; sourceTree = "<group>"; };
+		041674C2564D97B9E2A6F20B /* OnboardingPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterOutput.swift; sourceTree = "<group>"; };
 		0EE688EF5B535CF2263A80FE /* ModuleNamePresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNamePresenterOutput.swift; sourceTree = "<group>"; };
+		1083B8D05564BED0CAB3EB66 /* OnboardingAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingAssembler.swift; sourceTree = "<group>"; };
+		1558C5D7271F91C40051436E /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		1558C5D8271F91C40051436E /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
+		1558C5DD27216B1E0051436E /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		1558C5DE27216B1E0051436E /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		1558C5DF27216B1E0051436E /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		1558C5E027216B1E0051436E /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		1558C5E127216B1E0051436E /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		1558C5E227216B1E0051436E /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		1558C5E327216B1E0051436E /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		1558C5E427216B1E0051436E /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		1558C5E527216B1E0051436E /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		1558C5E627216B1E0051436E /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		1558C5E727216B1E0051436E /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		1558C5E827216B1E0051436E /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		1558C5F527216FAA0051436E /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		1558C5FA2721AC1D0051436E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		1558C5FB2721AC1D0051436E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1558C5FC2721AC1D0051436E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1558C5FF2721B0B70051436E /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
+		1558C6092721D80A0051436E /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		1709737F271D7B4200134ED7 /* LikeTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17097382271D7B4200134ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17097384271D7B4200134ED7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,15 +97,18 @@
 		170973A0271D915600134ED7 /* BasePresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenting.swift; sourceTree = "<group>"; };
 		170973A9271D91F300134ED7 /* LoaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
 		170973AE271D967A00134ED7 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
-		170973B0271D973900134ED7 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		170973B5271D97B500134ED7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		289DE73CF8952DCAF1603466 /* ModuleNameViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = ModuleNameViewController.xib; sourceTree = "<group>"; };
 		3F788FF990E6E663CC87C66D /* ModuleNamePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNamePresenter.swift; sourceTree = "<group>"; };
 		56FF837683C2A35DCDCC65AA /* ModuleNameAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNameAssembler.swift; sourceTree = "<group>"; };
 		5905415E0F4C501AA97D5BF4 /* Pods_LikeTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F873800BB8201A173933EA2 /* OnboardingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AB4F24B4F7A5A73C66EE709C /* Pods-LikeTok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.release.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.release.xcconfig"; sourceTree = "<group>"; };
 		B08B0E3DC8DCADCC5A98AA15 /* ModuleNameViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNameViewController.swift; sourceTree = "<group>"; };
 		C0F66AAFB4B69DF6A6557C73 /* Pods-LikeTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.debug.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.debug.xcconfig"; sourceTree = "<group>"; };
+		DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterInput.swift; sourceTree = "<group>"; };
+		E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +123,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1019280A1C490A6A53F5CF75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6F873800BB8201A173933EA2 /* OnboardingViewController.swift */,
+				E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1558C5DB271F91C90051436E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1558C5D7271F91C40051436E /* OnboardingCollectionViewCell.swift */,
+				1558C5D8271F91C40051436E /* OnboardingCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1558C5DC27216ADF0051436E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1558C5E127216B1E0051436E /* Roboto-Black.ttf */,
+				1558C5E727216B1E0051436E /* Roboto-BlackItalic.ttf */,
+				1558C5E527216B1E0051436E /* Roboto-Bold.ttf */,
+				1558C5E827216B1E0051436E /* Roboto-BoldItalic.ttf */,
+				1558C5E027216B1E0051436E /* Roboto-Italic.ttf */,
+				1558C5E427216B1E0051436E /* Roboto-Light.ttf */,
+				1558C5DF27216B1E0051436E /* Roboto-LightItalic.ttf */,
+				1558C5DE27216B1E0051436E /* Roboto-Medium.ttf */,
+				1558C5E627216B1E0051436E /* Roboto-MediumItalic.ttf */,
+				1558C5E327216B1E0051436E /* Roboto-Regular.ttf */,
+				1558C5E227216B1E0051436E /* Roboto-Thin.ttf */,
+				1558C5DD27216B1E0051436E /* Roboto-ThinItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1558C5F727216FBD0051436E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1558C5F527216FAA0051436E /* OnboardingModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		17097376271D7B4200134ED7 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				5577E4ED791A1B2E6F0C00E4 /* ModuleName */,
+				59EDDE1320CEBC28974F186E /* Onboarding */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -146,7 +239,8 @@
 		170973AC271D944B00134ED7 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				170973B0271D973900134ED7 /* XCAssets+Generated.swift */,
+				1558C6092721D80A0051436E /* XCAssets+Generated.swift */,
+				1558C5FF2721B0B70051436E /* Strings+Generated.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -154,10 +248,21 @@
 		170973AD271D949500134ED7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1558C5DC27216ADF0051436E /* Fonts */,
 				1709738B271D7B4400134ED7 /* Assets.xcassets */,
 				170973B6271D97B500134ED7 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		36C64282D73002FD377176F6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */,
+				041674C2564D97B9E2A6F20B /* OnboardingPresenterOutput.swift */,
+				257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		5577E4ED791A1B2E6F0C00E4 /* ModuleName */ = {
@@ -168,6 +273,18 @@
 				751BCB37FF7C5097B396E0DD /* Assembler */,
 			);
 			path = ModuleName;
+			sourceTree = "<group>";
+		};
+		59EDDE1320CEBC28974F186E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				1019280A1C490A6A53F5CF75 /* View */,
+				36C64282D73002FD377176F6 /* Presenter */,
+				B9101C544950F9ED4CB4432E /* Assembler */,
+				1558C5DB271F91C90051436E /* Cell */,
+				1558C5F727216FBD0051436E /* Model */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		714882604AD2C953196A7E23 /* Pods */ = {
@@ -195,6 +312,14 @@
 				3F788FF990E6E663CC87C66D /* ModuleNamePresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B9101C544950F9ED4CB4432E /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				1083B8D05564BED0CAB3EB66 /* OnboardingAssembler.swift */,
+			);
+			path = Assembler;
 			sourceTree = "<group>";
 		};
 		D7BE4EB32FB6222B6A80375E /* Frameworks */ = {
@@ -258,6 +383,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 17097376271D7B4200134ED7;
 			productRefGroup = 17097380271D7B4200134ED7 /* Products */;
@@ -274,12 +400,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1558C5EE27216B1E0051436E /* Roboto-Thin.ttf in Resources */,
+				1558C5EA27216B1E0051436E /* Roboto-Medium.ttf in Resources */,
+				1558C5EC27216B1E0051436E /* Roboto-Italic.ttf in Resources */,
+				1558C5EB27216B1E0051436E /* Roboto-LightItalic.ttf in Resources */,
 				1709738F271D7B4400134ED7 /* LaunchScreen.storyboard in Resources */,
 				170973AF271D967A00134ED7 /* swiftgen.yml in Resources */,
+				1558C5F127216B1E0051436E /* Roboto-Bold.ttf in Resources */,
+				1558C5F027216B1E0051436E /* Roboto-Light.ttf in Resources */,
+				1558C5F327216B1E0051436E /* Roboto-BlackItalic.ttf in Resources */,
 				1709738C271D7B4400134ED7 /* Assets.xcassets in Resources */,
 				1709738A271D7B4200134ED7 /* Main.storyboard in Resources */,
 				B61258F332D01C22F09EA73D /* ModuleNameViewController.xib in Resources */,
 				170973B4271D97B500134ED7 /* Localizable.strings in Resources */,
+				1558C5ED27216B1E0051436E /* Roboto-Black.ttf in Resources */,
+				1558C5E927216B1E0051436E /* Roboto-ThinItalic.ttf in Resources */,
+				1558C5EF27216B1E0051436E /* Roboto-Regular.ttf in Resources */,
+				1558C5DA271F91C40051436E /* OnboardingCollectionViewCell.xib in Resources */,
+				1558C5F227216B1E0051436E /* Roboto-MediumItalic.ttf in Resources */,
+				1558C5F427216B1E0051436E /* Roboto-BoldItalic.ttf in Resources */,
+				53B0ABC6AFD0C97685059F24 /* OnboardingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,9 +472,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1558C6002721B0B70051436E /* Strings+Generated.swift in Sources */,
 				17097387271D7B4200134ED7 /* ViewController.swift in Sources */,
 				170973A1271D915600134ED7 /* BaseRouting.swift in Sources */,
 				17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */,
+				1558C5D9271F91C40051436E /* OnboardingCollectionViewCell.swift in Sources */,
 				17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */,
 				170973A6271D915600134ED7 /* BaseXibView.swift in Sources */,
 				170973A4271D915600134ED7 /* BaseViewControllerInput.swift in Sources */,
@@ -346,9 +488,15 @@
 				170973AA271D91F300134ED7 /* LoaderViewController.swift in Sources */,
 				DFDEBAE1173D23F6430283BC /* ModuleNamePresenterInput.swift in Sources */,
 				E3B681543A0FB1F69E4CA1FA /* ModuleNamePresenterOutput.swift in Sources */,
+				1558C5F627216FAA0051436E /* OnboardingModel.swift in Sources */,
 				05D6F856BC9F000C56FCBF8D /* ModuleNamePresenter.swift in Sources */,
-				170973B1271D973900134ED7 /* XCAssets+Generated.swift in Sources */,
 				0DC0E5474FAF1880360C5DD4 /* ModuleNameAssembler.swift in Sources */,
+				C200B260DF37B93761CD25EA /* OnboardingViewController.swift in Sources */,
+				1558C60B2721D80A0051436E /* XCAssets+Generated.swift in Sources */,
+				5E819C2B19C05F53AA221BEB /* OnboardingPresenterInput.swift in Sources */,
+				098AFF776E356795A9010F51 /* OnboardingPresenterOutput.swift in Sources */,
+				0F27EC19D3FF004B8A540DAC /* OnboardingPresenter.swift in Sources */,
+				C171F81CD9D2034DB44A4B20 /* OnboardingAssembler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +507,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				17097389271D7B4200134ED7 /* Base */,
+				1558C5FA2721AC1D0051436E /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -367,6 +516,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1709738E271D7B4400134ED7 /* Base */,
+				1558C5FB2721AC1D0051436E /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -375,6 +525,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				170973B5271D97B500134ED7 /* en */,
+				1558C5FC2721AC1D0051436E /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -386,6 +537,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -447,6 +599,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

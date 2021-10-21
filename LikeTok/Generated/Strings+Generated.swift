@@ -17,6 +17,13 @@ public enum Strings {
       public static let title = Strings.tr("Localizable", "DrinkList.Navigation.Title")
     }
   }
+
+  public enum Onboarding {
+    /// Next
+    public static let next = Strings.tr("Localizable", "Onboarding.Next")
+    /// Skip
+    public static let skip = Strings.tr("Localizable", "Onboarding.Skip")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

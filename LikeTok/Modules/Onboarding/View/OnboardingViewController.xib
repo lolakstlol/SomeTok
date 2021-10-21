@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnboardingViewController" customModule="LikeTok" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="vKG-OB-Bfl" id="fm6-Hl-o5Q"/>
+                <outlet property="nextButton" destination="Wds-xM-jVy" id="AfA-Nh-nBq"/>
+                <outlet property="pageControl" destination="U5p-6Y-rES" id="BLq-sa-G3h"/>
+                <outlet property="skipButton" destination="qq9-Ov-jBn" id="d0T-7b-gic"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vKG-OB-Bfl">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="CVr-ZP-tkS">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0F-wy-zkM">
+                    <rect key="frame" x="0.0" y="804" width="414" height="92"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="left" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sPL-MP-TxD">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="35.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qq9-Ov-jBn">
+                                    <rect key="frame" x="0.0" y="0.0" width="143" height="35.5"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Пропустить">
+                                        <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="onSkipButtonTap:" destination="-1" eventType="touchUpInside" id="V54-fA-zkC"/>
+                                    </connections>
+                                </button>
+                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="U5p-6Y-rES">
+                                    <rect key="frame" x="143" y="5" width="181.5" height="26"/>
+                                    <color key="pageIndicatorTintColor" systemColor="systemGray3Color"/>
+                                    <color key="currentPageIndicatorTintColor" systemColor="systemPinkColor"/>
+                                    <connections>
+                                        <action selector="onPageChanged:" destination="-1" eventType="valueChanged" id="pNO-5e-VOV"/>
+                                    </connections>
+                                </pageControl>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wds-xM-jVy">
+                                    <rect key="frame" x="324.5" y="0.0" width="89.5" height="35.5"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button">
+                                        <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="onNextButtonTap:" destination="-1" eventType="touchUpInside" id="m0m-Mo-kuO"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="92" id="Fy1-aC-VUH"/>
+                        <constraint firstAttribute="trailing" secondItem="sPL-MP-TxD" secondAttribute="trailing" id="N9a-WZ-PnF"/>
+                        <constraint firstItem="sPL-MP-TxD" firstAttribute="leading" secondItem="K0F-wy-zkM" secondAttribute="leading" id="iUI-kO-oNN"/>
+                        <constraint firstItem="sPL-MP-TxD" firstAttribute="top" secondItem="K0F-wy-zkM" secondAttribute="top" id="o0P-38-1f8"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="vKG-OB-Bfl" secondAttribute="trailing" id="2Qo-J0-rvS"/>
+                <constraint firstAttribute="trailing" secondItem="K0F-wy-zkM" secondAttribute="trailing" id="TsP-aQ-8iB"/>
+                <constraint firstItem="K0F-wy-zkM" firstAttribute="top" secondItem="vKG-OB-Bfl" secondAttribute="bottom" id="Vse-nh-dJp"/>
+                <constraint firstItem="vKG-OB-Bfl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WE0-GH-8AO"/>
+                <constraint firstItem="vKG-OB-Bfl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gVz-7S-65a"/>
+                <constraint firstAttribute="bottom" secondItem="K0F-wy-zkM" secondAttribute="bottom" id="lf6-tV-som"/>
+                <constraint firstItem="K0F-wy-zkM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="n0r-Wc-BiT"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="114.50892857142857"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
