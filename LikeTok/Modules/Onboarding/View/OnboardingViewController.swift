@@ -20,9 +20,7 @@ final class OnboardingViewController: BaseViewController {
             pageControl.numberOfPages = data.count
         }
     }
-    
-    var onCompleteOnboarding: (() -> ())?
-    
+        
     var presenter: OnboardingPresenterInput!
 
 	override func viewDidLoad() {
@@ -43,6 +41,11 @@ final class OnboardingViewController: BaseViewController {
         skipButton.setTitleColor(Assets.darkGrayText.color, for: .normal)
         skipButton.tintColor = Assets.darkGrayText.color
         
+        if let title = skipButton.title(for: .normal) {
+            let attributedTitle = NSAttributedString(string: title, attributes: [.kern : -0.4])
+            skipButton.setAttributedTitle(attributedTitle, for: .normal)
+        }
+        
         nextButton.setTitleColor(Assets.blackText.color, for: .normal)
         nextButton.tintColor = Assets.blackText.color
         nextButton.setTitle(Strings.Onboarding.next, for: .normal)
@@ -59,12 +62,12 @@ final class OnboardingViewController: BaseViewController {
     }
     
     @IBAction private func onSkipButtonTap(_ sender: Any) {
-        onCompleteOnboarding?()
+        presenter.completeOnboarding()
     }
     
     @IBAction private func onNextButtonTap(_ sender: Any) {
         if pageControl.currentPage == data.count - 1 {
-            onCompleteOnboarding?()
+            presenter.completeOnboarding()
         } else {
             pageControl.currentPage += 1
             scrollToNextPage()
@@ -95,11 +98,10 @@ extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let item = Int(targetContentOffset.pointee.x / scrollView.frame.width)
         if item == data.count - 1 {
-            onCompleteOnboarding?()
-        } else {
-            pageControl.currentPage = item
-            scrollToNextPage()
+            presenter.completeOnboarding()
         }
+        pageControl.currentPage = item
+        scrollToNextPage()
     }
 }
 

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol OnboardingPresenterInput: BasePresenting {
-
+    func completeOnboarding()
 }
