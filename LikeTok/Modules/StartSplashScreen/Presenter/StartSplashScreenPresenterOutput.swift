@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol StartSplashScreenPresenterOutput: class {
-
+protocol StartSplashScreenPresenterOutput: AnyObject {
+    func setupView()
+    func showAuthModule()
 }

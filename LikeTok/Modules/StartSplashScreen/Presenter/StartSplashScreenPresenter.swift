@@ -16,11 +16,13 @@ final class StartSplashScreenPresenter {
     }
 
     func viewDidLoad() {
-     
+        view.setupView()
     }
 
 }
 
 extension StartSplashScreenPresenter: StartSplashScreenPresenterInput {
-
+    func didTapBeginButton() {
+        view.showAuthModule()
+    }
 }

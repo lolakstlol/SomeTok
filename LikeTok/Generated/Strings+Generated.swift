@@ -11,18 +11,16 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum Strings {
 
-  public enum DrinkList {
-    public enum Navigation {
-      /// Drinks
-      public static let title = Strings.tr("Localizable", "DrinkList.Navigation.Title")
-    }
-  }
-
   public enum Onboarding {
     /// Next
     public static let next = Strings.tr("Localizable", "Onboarding.Next")
     /// Skip
     public static let skip = Strings.tr("Localizable", "Onboarding.Skip")
+  }
+
+  public enum SplashScreen {
+    /// Начать
+    public static let begin = Strings.tr("Localizable", "SplashScreen.begin")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
