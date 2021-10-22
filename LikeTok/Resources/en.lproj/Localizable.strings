@@ -2,3 +2,8 @@
 "Onboarding.Next" = "Next";
 
 "SplashScreen.begin" = "Начать";
+
+"ResetPassword.title" = "Восстановление пароля";
+"ResetPassword.text" = "На ваш электронный адрес будет отправлен код подтверждения";
+"ResetPassword.resume" = "Продолжить";
+

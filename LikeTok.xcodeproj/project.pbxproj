@@ -10,6 +10,8 @@
 		098AFF776E356795A9010F51 /* OnboardingPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041674C2564D97B9E2A6F20B /* OnboardingPresenterOutput.swift */; };
 		0D0450D36C619482ED7CBC50 /* SignUpAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C01C69EA5CC3C4B348427E /* SignUpAssembler.swift */; };
 		0F27EC19D3FF004B8A540DAC /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */; };
+		15414A2E27233781007AA93D /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15414A2D27233781007AA93D /* InsetTextField.swift */; };
+		15414A30272346CC007AA93D /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15414A2F272346CC007AA93D /* KeyboardObserver.swift */; };
 		1558C5D9271F91C40051436E /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C5D7271F91C40051436E /* OnboardingCollectionViewCell.swift */; };
 		1558C5DA271F91C40051436E /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5D8271F91C40051436E /* OnboardingCollectionViewCell.xib */; };
 		1558C5E927216B1E0051436E /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5DD27216B1E0051436E /* Roboto-ThinItalic.ttf */; };
@@ -47,18 +49,24 @@
 		17C66E11272305130032F5F3 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C66E10272305130032F5F3 /* AccountManager.swift */; };
 		18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE8EDA9EAD07A247DB4F98D0 /* SignUpViewController.xib */; };
 		2EDDD73BBF6E223384272200 /* StartSplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E79256EF973072B0A9CABD /* StartSplashScreenPresenter.swift */; };
+		3FC4BE4728AC28828A3658ED /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7D0DF5E63F8CA247190EA /* ResetPasswordViewController.swift */; };
+		51308A5B5FAA524BAF47676A /* ResetPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D416F2994198E6029261AF5 /* ResetPasswordPresenter.swift */; };
 		53B0ABC6AFD0C97685059F24 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */; };
 		5E819C2B19C05F53AA221BEB /* OnboardingPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */; };
 		636858968F02AFE63D0020CA /* Pods_LikeTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F979E01E7B50A15EC31F8E75 /* Pods_LikeTok.framework */; };
 		6D089E666AFBBEAA7EC50D30 /* SignUpPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8651B45B181B0B85AA0CAF90 /* SignUpPresenterInput.swift */; };
+		766F7AD3BAC630F2C8674261 /* ResetPasswordPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3059A40E4CA1336D6D06E1 /* ResetPasswordPresenterInput.swift */; };
 		7CD457E3F84E96672ECFF689 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96BF1DFD3FE31BB2FD4143 /* SignUpPresenter.swift */; };
 		8CCF3EAF44ED239B8DC135E2 /* StartSplashScreenPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97D9B79B2A3AEC421721266 /* StartSplashScreenPresenterOutput.swift */; };
 		8E445F9A648A75D5369C11F0 /* StartSplashScreenPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D22963DB671E1856D93D4C /* StartSplashScreenPresenterInput.swift */; };
 		9908C11211654A50BF6ECD9A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA0530364F4E12FC7465D1 /* SignUpViewController.swift */; };
 		ABE6EA2FE68D11FC321FD228 /* StartSplashScreenAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE6AECD766D26F4DA2E42B /* StartSplashScreenAssembler.swift */; };
+		BB780BBE28F5CA9CC77499CB /* ResetPasswordPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4BF2D128DA48B16FAFA3AA /* ResetPasswordPresenterOutput.swift */; };
 		BFFDB7611EFD9494736FB1ED /* StartSplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE358886ACD576C56BFF9E2A /* StartSplashScreenViewController.swift */; };
 		C171F81CD9D2034DB44A4B20 /* OnboardingAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1083B8D05564BED0CAB3EB66 /* OnboardingAssembler.swift */; };
 		C200B260DF37B93761CD25EA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F873800BB8201A173933EA2 /* OnboardingViewController.swift */; };
+		C80CE8A5E39AF8CB4E83A1A0 /* ResetPasswordAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47CA8839063D1226CD399F /* ResetPasswordAssembler.swift */; };
+		CF70D3E4E3B7FD5BFE6A9F6F /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC4CDE74F6B40A800C97BB80 /* ResetPasswordViewController.xib */; };
 		D681C28A5D6C3CAE25ECCFAF /* SignUpPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1408B8CE54322DAEF7CA052D /* SignUpPresenterOutput.swift */; };
 		F8ECE119F95ADC193B0B527D /* StartSplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7C99FA8AC97F1766DEB84B /* StartSplashScreenViewController.xib */; };
 /* End PBXBuildFile section */
@@ -68,6 +76,8 @@
 		1083B8D05564BED0CAB3EB66 /* OnboardingAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingAssembler.swift; sourceTree = "<group>"; };
 		13C01C69EA5CC3C4B348427E /* SignUpAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpAssembler.swift; sourceTree = "<group>"; };
 		1408B8CE54322DAEF7CA052D /* SignUpPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpPresenterOutput.swift; sourceTree = "<group>"; };
+		15414A2D27233781007AA93D /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
+		15414A2F272346CC007AA93D /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyboardObserver.swift; path = ../../../../../Downloads/KeyboardObserver.swift; sourceTree = "<group>"; };
 		1558C5D7271F91C40051436E /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		1558C5D8271F91C40051436E /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		1558C5DD27216B1E0051436E /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
@@ -108,15 +118,21 @@
 		17C66E0B2723034E0032F5F3 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		17C66E0D2723043F0032F5F3 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		17C66E10272305130032F5F3 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		1A4BF2D128DA48B16FAFA3AA /* ResetPasswordPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordPresenterOutput.swift; sourceTree = "<group>"; };
 		257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		3BCA0530364F4E12FC7465D1 /* SignUpViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4A47CA8839063D1226CD399F /* ResetPasswordAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordAssembler.swift; sourceTree = "<group>"; };
 		53E79256EF973072B0A9CABD /* StartSplashScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenter.swift; sourceTree = "<group>"; };
 		5E7C99FA8AC97F1766DEB84B /* StartSplashScreenViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = StartSplashScreenViewController.xib; sourceTree = "<group>"; };
 		6F873800BB8201A173933EA2 /* OnboardingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		7B3059A40E4CA1336D6D06E1 /* ResetPasswordPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordPresenterInput.swift; sourceTree = "<group>"; };
 		7B96BF1DFD3FE31BB2FD4143 /* SignUpPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		7D416F2994198E6029261AF5 /* ResetPasswordPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordPresenter.swift; sourceTree = "<group>"; };
 		8651B45B181B0B85AA0CAF90 /* SignUpPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpPresenterInput.swift; sourceTree = "<group>"; };
 		B97D9B79B2A3AEC421721266 /* StartSplashScreenPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenterOutput.swift; sourceTree = "<group>"; };
+		B9D7D0DF5E63F8CA247190EA /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		B9E93828B256A556479F5F37 /* Pods-LikeTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.debug.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.debug.xcconfig"; sourceTree = "<group>"; };
+		BC4CDE74F6B40A800C97BB80 /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		BE358886ACD576C56BFF9E2A /* StartSplashScreenViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenViewController.swift; sourceTree = "<group>"; };
 		CDCE6AECD766D26F4DA2E42B /* StartSplashScreenAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenAssembler.swift; sourceTree = "<group>"; };
 		D5D22963DB671E1856D93D4C /* StartSplashScreenPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenterInput.swift; sourceTree = "<group>"; };
@@ -163,6 +179,15 @@
 				E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		15414A2C2723376B007AA93D /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				15414A2D27233781007AA93D /* InsetTextField.swift */,
+				15414A2F272346CC007AA93D /* KeyboardObserver.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		1558C5DB271F91C90051436E /* Cell */ = {
@@ -250,6 +275,7 @@
 				59EDDE1320CEBC28974F186E /* Onboarding */,
 				7F23483C02604C23A0D1268C /* StartSplashScreen */,
 				D83BCA7B772E72F15776F726 /* SignUp */,
+				CD143EBA4B9EFD863FFB64A3 /* ResetPassword */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -257,6 +283,7 @@
 		17097397271D913E00134ED7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				15414A2C2723376B007AA93D /* Custom */,
 				1558C60D2721F9880051436E /* Extensions */,
 				17097382271D7B4200134ED7 /* AppDelegate.swift */,
 				17097384271D7B4200134ED7 /* SceneDelegate.swift */,
@@ -321,7 +348,15 @@
 				3BCA0530364F4E12FC7465D1 /* SignUpViewController.swift */,
 				FE8EDA9EAD07A247DB4F98D0 /* SignUpViewController.xib */,
 			);
-			name = View;
+			path = View;
+			sourceTree = "<group>";
+		};
+		345B2D5EE36847617245A3AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B9D7D0DF5E63F8CA247190EA /* ResetPasswordViewController.swift */,
+				BC4CDE74F6B40A800C97BB80 /* ResetPasswordViewController.xib */,
+			);
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -343,6 +378,14 @@
 			path = Assembler;
 			sourceTree = "<group>";
 		};
+		579FE5DB8753E5EC67098D62 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				4A47CA8839063D1226CD399F /* ResetPasswordAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
 		59EDDE1320CEBC28974F186E /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +396,16 @@
 				1558C5F727216FBD0051436E /* Model */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		5ED90370B8278A554EB41177 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				7B3059A40E4CA1336D6D06E1 /* ResetPasswordPresenterInput.swift */,
+				1A4BF2D128DA48B16FAFA3AA /* ResetPasswordPresenterOutput.swift */,
+				7D416F2994198E6029261AF5 /* ResetPasswordPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		714882604AD2C953196A7E23 /* Pods */ = {
@@ -371,7 +424,6 @@
 				1408B8CE54322DAEF7CA052D /* SignUpPresenterOutput.swift */,
 				7B96BF1DFD3FE31BB2FD4143 /* SignUpPresenter.swift */,
 			);
-			name = Presenter;
 			path = Presenter;
 			sourceTree = "<group>";
 		};
@@ -390,7 +442,6 @@
 			children = (
 				13C01C69EA5CC3C4B348427E /* SignUpAssembler.swift */,
 			);
-			name = Assembler;
 			path = Assembler;
 			sourceTree = "<group>";
 		};
@@ -412,6 +463,16 @@
 			path = Assembler;
 			sourceTree = "<group>";
 		};
+		CD143EBA4B9EFD863FFB64A3 /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				345B2D5EE36847617245A3AC /* View */,
+				5ED90370B8278A554EB41177 /* Presenter */,
+				579FE5DB8753E5EC67098D62 /* Assembler */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
 		D83BCA7B772E72F15776F726 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,7 +480,6 @@
 				798BD655E21B8F1F41791E5E /* Presenter */,
 				A456B240393A04958559898E /* Assembler */,
 			);
-			name = SignUp;
 			path = SignUp;
 			sourceTree = "<group>";
 		};
@@ -506,6 +566,7 @@
 				53B0ABC6AFD0C97685059F24 /* OnboardingViewController.xib in Resources */,
 				F8ECE119F95ADC193B0B527D /* StartSplashScreenViewController.xib in Resources */,
 				18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */,
+				CF70D3E4E3B7FD5BFE6A9F6F /* ResetPasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,8 +637,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1558C6002721B0B70051436E /* Strings+Generated.swift in Sources */,
+				15414A30272346CC007AA93D /* KeyboardObserver.swift in Sources */,
 				17097387271D7B4200134ED7 /* ViewController.swift in Sources */,
 				17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */,
+				15414A2E27233781007AA93D /* InsetTextField.swift in Sources */,
 				1558C5D9271F91C40051436E /* OnboardingCollectionViewCell.swift in Sources */,
 				17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */,
 				170973A6271D915600134ED7 /* BaseXibView.swift in Sources */,
@@ -607,6 +670,11 @@
 				D681C28A5D6C3CAE25ECCFAF /* SignUpPresenterOutput.swift in Sources */,
 				7CD457E3F84E96672ECFF689 /* SignUpPresenter.swift in Sources */,
 				0D0450D36C619482ED7CBC50 /* SignUpAssembler.swift in Sources */,
+				3FC4BE4728AC28828A3658ED /* ResetPasswordViewController.swift in Sources */,
+				766F7AD3BAC630F2C8674261 /* ResetPasswordPresenterInput.swift in Sources */,
+				BB780BBE28F5CA9CC77499CB /* ResetPasswordPresenterOutput.swift in Sources */,
+				51308A5B5FAA524BAF47676A /* ResetPasswordPresenter.swift in Sources */,
+				C80CE8A5E39AF8CB4E83A1A0 /* ResetPasswordAssembler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,7 +837,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ARQSKUXCN2;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -783,7 +851,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Holod.zalupa.LikeTok;
+				PRODUCT_BUNDLE_IDENTIFIER = Holod.zalupa1.LikeTok;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -799,7 +867,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ARQSKUXCN2;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -813,7 +881,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Holod.zalupa.LikeTok;
+				PRODUCT_BUNDLE_IDENTIFIER = Holod.zalupa1.LikeTok;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

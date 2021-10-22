@@ -1,3 +1,7 @@
 "DrinkList.Navigation.Title" = "Напитки";
 "Onboarding.Skip" = "Пропустить";
 "Onboarding.Next" = "Далее";
+
+"ResetPassword.title" = "Password recovery";
+"ResetPassword.text" = "A confirmation code will be sent to your email address";
+"ResetPassword.resume" = "Resume";
