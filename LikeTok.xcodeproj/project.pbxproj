@@ -46,10 +46,10 @@
 		17C66E0E2723043F0032F5F3 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C66E0D2723043F0032F5F3 /* Api.swift */; };
 		17C66E11272305130032F5F3 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C66E10272305130032F5F3 /* AccountManager.swift */; };
 		18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE8EDA9EAD07A247DB4F98D0 /* SignUpViewController.xib */; };
-		253340B092D1C80171582102 /* Pods_LikeTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5905415E0F4C501AA97D5BF4 /* Pods_LikeTok.framework */; };
 		2EDDD73BBF6E223384272200 /* StartSplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E79256EF973072B0A9CABD /* StartSplashScreenPresenter.swift */; };
 		53B0ABC6AFD0C97685059F24 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */; };
 		5E819C2B19C05F53AA221BEB /* OnboardingPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */; };
+		636858968F02AFE63D0020CA /* Pods_LikeTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F979E01E7B50A15EC31F8E75 /* Pods_LikeTok.framework */; };
 		6D089E666AFBBEAA7EC50D30 /* SignUpPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8651B45B181B0B85AA0CAF90 /* SignUpPresenterInput.swift */; };
 		7CD457E3F84E96672ECFF689 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96BF1DFD3FE31BB2FD4143 /* SignUpPresenter.swift */; };
 		8CCF3EAF44ED239B8DC135E2 /* StartSplashScreenPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97D9B79B2A3AEC421721266 /* StartSplashScreenPresenterOutput.swift */; };
@@ -111,19 +111,19 @@
 		257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		3BCA0530364F4E12FC7465D1 /* SignUpViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		53E79256EF973072B0A9CABD /* StartSplashScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenter.swift; sourceTree = "<group>"; };
-		5905415E0F4C501AA97D5BF4 /* Pods_LikeTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7C99FA8AC97F1766DEB84B /* StartSplashScreenViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = StartSplashScreenViewController.xib; sourceTree = "<group>"; };
 		6F873800BB8201A173933EA2 /* OnboardingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		7B96BF1DFD3FE31BB2FD4143 /* SignUpPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		8651B45B181B0B85AA0CAF90 /* SignUpPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpPresenterInput.swift; sourceTree = "<group>"; };
-		AB4F24B4F7A5A73C66EE709C /* Pods-LikeTok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.release.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.release.xcconfig"; sourceTree = "<group>"; };
 		B97D9B79B2A3AEC421721266 /* StartSplashScreenPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenterOutput.swift; sourceTree = "<group>"; };
+		B9E93828B256A556479F5F37 /* Pods-LikeTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.debug.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.debug.xcconfig"; sourceTree = "<group>"; };
 		BE358886ACD576C56BFF9E2A /* StartSplashScreenViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenViewController.swift; sourceTree = "<group>"; };
-		C0F66AAFB4B69DF6A6557C73 /* Pods-LikeTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.debug.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.debug.xcconfig"; sourceTree = "<group>"; };
 		CDCE6AECD766D26F4DA2E42B /* StartSplashScreenAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenAssembler.swift; sourceTree = "<group>"; };
 		D5D22963DB671E1856D93D4C /* StartSplashScreenPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenterInput.swift; sourceTree = "<group>"; };
 		DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterInput.swift; sourceTree = "<group>"; };
 		E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		F979E01E7B50A15EC31F8E75 /* Pods_LikeTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9871D1368F1CAF476B65F8A /* Pods-LikeTok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.release.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.release.xcconfig"; sourceTree = "<group>"; };
 		FE8EDA9EAD07A247DB4F98D0 /* SignUpViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				253340B092D1C80171582102 /* Pods_LikeTok.framework in Frameworks */,
+				636858968F02AFE63D0020CA /* Pods_LikeTok.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +146,14 @@
 				5E7C99FA8AC97F1766DEB84B /* StartSplashScreenViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		02A9DD3651C27698193631C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F979E01E7B50A15EC31F8E75 /* Pods_LikeTok.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		1019280A1C490A6A53F5CF75 /* View */ = {
@@ -208,7 +216,7 @@
 				17097381271D7B4200134ED7 /* LikeTok */,
 				17097380271D7B4200134ED7 /* Products */,
 				714882604AD2C953196A7E23 /* Pods */,
-				D7BE4EB32FB6222B6A80375E /* Frameworks */,
+				02A9DD3651C27698193631C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -350,8 +358,8 @@
 		714882604AD2C953196A7E23 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C0F66AAFB4B69DF6A6557C73 /* Pods-LikeTok.debug.xcconfig */,
-				AB4F24B4F7A5A73C66EE709C /* Pods-LikeTok.release.xcconfig */,
+				B9E93828B256A556479F5F37 /* Pods-LikeTok.debug.xcconfig */,
+				F9871D1368F1CAF476B65F8A /* Pods-LikeTok.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -404,14 +412,6 @@
 			path = Assembler;
 			sourceTree = "<group>";
 		};
-		D7BE4EB32FB6222B6A80375E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5905415E0F4C501AA97D5BF4 /* Pods_LikeTok.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		D83BCA7B772E72F15776F726 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,12 +430,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17097393271D7B4400134ED7 /* Build configuration list for PBXNativeTarget "LikeTok" */;
 			buildPhases = (
-				B809ACCBEA6F254E9E438C00 /* [CP] Check Pods Manifest.lock */,
+				018EF4159965144C4E0B62C8 /* [CP] Check Pods Manifest.lock */,
 				1709737B271D7B4200134ED7 /* Sources */,
 				1709737C271D7B4200134ED7 /* Frameworks */,
 				1709737D271D7B4200134ED7 /* Resources */,
 				170973AB271D93E500134ED7 /* ShellScript */,
-				53631DD4464FE77E265DBBFE /* [CP] Embed Pods Frameworks */,
+				650D4E5FD745FE3886553CD2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -512,41 +512,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		170973AB271D93E500134ED7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi \n";
-		};
-		53631DD4464FE77E265DBBFE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LikeTok/Pods-LikeTok-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-LikeTok/Pods-LikeTok-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LikeTok/Pods-LikeTok-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B809ACCBEA6F254E9E438C00 /* [CP] Check Pods Manifest.lock */ = {
+		018EF4159965144C4E0B62C8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -566,6 +532,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		170973AB271D93E500134ED7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi \n";
+		};
+		650D4E5FD745FE3886553CD2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LikeTok/Pods-LikeTok-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LikeTok/Pods-LikeTok-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LikeTok/Pods-LikeTok-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -763,7 +763,7 @@
 		};
 		17097394271D7B4400134ED7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0F66AAFB4B69DF6A6557C73 /* Pods-LikeTok.debug.xcconfig */;
+			baseConfigurationReference = B9E93828B256A556479F5F37 /* Pods-LikeTok.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -793,7 +793,7 @@
 		};
 		17097395271D7B4400134ED7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB4F24B4F7A5A73C66EE709C /* Pods-LikeTok.release.xcconfig */;
+			baseConfigurationReference = F9871D1368F1CAF476B65F8A /* Pods-LikeTok.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
