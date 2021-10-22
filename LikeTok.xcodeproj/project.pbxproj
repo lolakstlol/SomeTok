@@ -11,6 +11,7 @@
 		098AFF776E356795A9010F51 /* OnboardingPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041674C2564D97B9E2A6F20B /* OnboardingPresenterOutput.swift */; };
 		0DC0E5474FAF1880360C5DD4 /* ModuleNameAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FF837683C2A35DCDCC65AA /* ModuleNameAssembler.swift */; };
 		0F27EC19D3FF004B8A540DAC /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */; };
+		15414A2A27230D15007AA93D /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15414A2927230D15007AA93D /* InsetTextField.swift */; };
 		1558C5D9271F91C40051436E /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C5D7271F91C40051436E /* OnboardingCollectionViewCell.swift */; };
 		1558C5DA271F91C40051436E /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5D8271F91C40051436E /* OnboardingCollectionViewCell.xib */; };
 		1558C5E927216B1E0051436E /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5DD27216B1E0051436E /* Roboto-ThinItalic.ttf */; };
@@ -46,14 +47,20 @@
 		170973AF271D967A00134ED7 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 170973AE271D967A00134ED7 /* swiftgen.yml */; };
 		170973B4271D97B500134ED7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 170973B6271D97B500134ED7 /* Localizable.strings */; };
 		253340B092D1C80171582102 /* Pods_LikeTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5905415E0F4C501AA97D5BF4 /* Pods_LikeTok.framework */; };
+		3B06B714C1CD775EB6E5CDB8 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5EA6DA8FC19F0F147F06C0 /* ResetPasswordViewController.swift */; };
+		4120B411A3783D48996EF526 /* ResetPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588A1C1421B3A7B158DF3270 /* ResetPasswordPresenter.swift */; };
+		4E30967BEE8CF0F1A34D3F5C /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47B880104ED4F33DC3C60417 /* ResetPasswordViewController.xib */; };
 		53B0ABC6AFD0C97685059F24 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */; };
 		5E819C2B19C05F53AA221BEB /* OnboardingPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */; };
+		648F84FCCDF90F1EE0F946D3 /* ResetPasswordPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE954F1ADE96890CE23DFCE6 /* ResetPasswordPresenterOutput.swift */; };
 		88F7B57266FFC9432742D723 /* ModuleNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08B0E3DC8DCADCC5A98AA15 /* ModuleNameViewController.swift */; };
 		B61258F332D01C22F09EA73D /* ModuleNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289DE73CF8952DCAF1603466 /* ModuleNameViewController.xib */; };
 		C171F81CD9D2034DB44A4B20 /* OnboardingAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1083B8D05564BED0CAB3EB66 /* OnboardingAssembler.swift */; };
 		C200B260DF37B93761CD25EA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F873800BB8201A173933EA2 /* OnboardingViewController.swift */; };
+		D076BC6F35CAD0C838A13EE6 /* ResetPasswordPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B03DE0DA9C400824FA5D259 /* ResetPasswordPresenterInput.swift */; };
 		DFDEBAE1173D23F6430283BC /* ModuleNamePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A2D59F788F2655598D0646 /* ModuleNamePresenterInput.swift */; };
 		E3B681543A0FB1F69E4CA1FA /* ModuleNamePresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE688EF5B535CF2263A80FE /* ModuleNamePresenterOutput.swift */; };
+		E8A28D59DAE2DB7840443AF1 /* ResetPasswordAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3A7ACDF0597106015427F /* ResetPasswordAssembler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +68,7 @@
 		041674C2564D97B9E2A6F20B /* OnboardingPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterOutput.swift; sourceTree = "<group>"; };
 		0EE688EF5B535CF2263A80FE /* ModuleNamePresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNamePresenterOutput.swift; sourceTree = "<group>"; };
 		1083B8D05564BED0CAB3EB66 /* OnboardingAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingAssembler.swift; sourceTree = "<group>"; };
+		15414A2927230D15007AA93D /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
 		1558C5D7271F91C40051436E /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		1558C5D8271F91C40051436E /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		1558C5DD27216B1E0051436E /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
@@ -102,15 +110,21 @@
 		170973B5271D97B500134ED7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		289DE73CF8952DCAF1603466 /* ModuleNameViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = ModuleNameViewController.xib; sourceTree = "<group>"; };
+		2B03DE0DA9C400824FA5D259 /* ResetPasswordPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordPresenterInput.swift; sourceTree = "<group>"; };
 		3F788FF990E6E663CC87C66D /* ModuleNamePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNamePresenter.swift; sourceTree = "<group>"; };
+		47B880104ED4F33DC3C60417 /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		56FF837683C2A35DCDCC65AA /* ModuleNameAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNameAssembler.swift; sourceTree = "<group>"; };
+		588A1C1421B3A7B158DF3270 /* ResetPasswordPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordPresenter.swift; sourceTree = "<group>"; };
 		5905415E0F4C501AA97D5BF4 /* Pods_LikeTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F873800BB8201A173933EA2 /* OnboardingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AB4F24B4F7A5A73C66EE709C /* Pods-LikeTok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.release.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.release.xcconfig"; sourceTree = "<group>"; };
 		B08B0E3DC8DCADCC5A98AA15 /* ModuleNameViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModuleNameViewController.swift; sourceTree = "<group>"; };
+		B6C3A7ACDF0597106015427F /* ResetPasswordAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordAssembler.swift; sourceTree = "<group>"; };
+		BE5EA6DA8FC19F0F147F06C0 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		C0F66AAFB4B69DF6A6557C73 /* Pods-LikeTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.debug.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.debug.xcconfig"; sourceTree = "<group>"; };
 		DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterInput.swift; sourceTree = "<group>"; };
 		E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		EE954F1ADE96890CE23DFCE6 /* ResetPasswordPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordPresenterOutput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +146,14 @@
 				E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		15414A2B27230D1A007AA93D /* CustomClasses */ = {
+			isa = PBXGroup;
+			children = (
+				15414A2927230D15007AA93D /* InsetTextField.swift */,
+			);
+			path = CustomClasses;
 			sourceTree = "<group>";
 		};
 		1558C5DB271F91C90051436E /* Cell */ = {
@@ -216,6 +238,7 @@
 			children = (
 				5577E4ED791A1B2E6F0C00E4 /* ModuleName */,
 				59EDDE1320CEBC28974F186E /* Onboarding */,
+				7F654D448810DC9099A34EB4 /* ResetPassword */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -228,6 +251,7 @@
 				17097384271D7B4200134ED7 /* SceneDelegate.swift */,
 				17097386271D7B4200134ED7 /* ViewController.swift */,
 				17097398271D915600134ED7 /* BaseLayers */,
+				15414A2B27230D1A007AA93D /* CustomClasses */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -266,12 +290,31 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		26A29A2F15A685209B793D21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE5EA6DA8FC19F0F147F06C0 /* ResetPasswordViewController.swift */,
+				47B880104ED4F33DC3C60417 /* ResetPasswordViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		36C64282D73002FD377176F6 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */,
 				041674C2564D97B9E2A6F20B /* OnboardingPresenterOutput.swift */,
 				257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3F0B8638FE817CE77E67995D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2B03DE0DA9C400824FA5D259 /* ResetPasswordPresenterInput.swift */,
+				EE954F1ADE96890CE23DFCE6 /* ResetPasswordPresenterOutput.swift */,
+				588A1C1421B3A7B158DF3270 /* ResetPasswordPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -311,6 +354,24 @@
 			isa = PBXGroup;
 			children = (
 				56FF837683C2A35DCDCC65AA /* ModuleNameAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		7F654D448810DC9099A34EB4 /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				26A29A2F15A685209B793D21 /* View */,
+				3F0B8638FE817CE77E67995D /* Presenter */,
+				8D85CC5559ED090D4228A0B8 /* Assembler */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		8D85CC5559ED090D4228A0B8 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				B6C3A7ACDF0597106015427F /* ResetPasswordAssembler.swift */,
 			);
 			path = Assembler;
 			sourceTree = "<group>";
@@ -431,6 +492,7 @@
 				1558C5F227216B1E0051436E /* Roboto-MediumItalic.ttf in Resources */,
 				1558C5F427216B1E0051436E /* Roboto-BoldItalic.ttf in Resources */,
 				53B0ABC6AFD0C97685059F24 /* OnboardingViewController.xib in Resources */,
+				4E30967BEE8CF0F1A34D3F5C /* ResetPasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +571,12 @@
 				098AFF776E356795A9010F51 /* OnboardingPresenterOutput.swift in Sources */,
 				0F27EC19D3FF004B8A540DAC /* OnboardingPresenter.swift in Sources */,
 				C171F81CD9D2034DB44A4B20 /* OnboardingAssembler.swift in Sources */,
+				3B06B714C1CD775EB6E5CDB8 /* ResetPasswordViewController.swift in Sources */,
+				15414A2A27230D15007AA93D /* InsetTextField.swift in Sources */,
+				D076BC6F35CAD0C838A13EE6 /* ResetPasswordPresenterInput.swift in Sources */,
+				648F84FCCDF90F1EE0F946D3 /* ResetPasswordPresenterOutput.swift in Sources */,
+				4120B411A3783D48996EF526 /* ResetPasswordPresenter.swift in Sources */,
+				E8A28D59DAE2DB7840443AF1 /* ResetPasswordAssembler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

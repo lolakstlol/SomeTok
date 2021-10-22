@@ -24,6 +24,17 @@ public enum Strings {
     /// Skip
     public static let skip = Strings.tr("Localizable", "Onboarding.Skip")
   }
+
+  public enum ResetPassword {
+    /// E-mail
+    public static let email = Strings.tr("Localizable", "ResetPassword.Email")
+    /// Resume
+    public static let resume = Strings.tr("Localizable", "ResetPassword.Resume")
+    /// The confirmation code will be sent to your email address
+    public static let text = Strings.tr("Localizable", "ResetPassword.Text")
+    /// Reset password
+    public static let title = Strings.tr("Localizable", "ResetPassword.Title")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

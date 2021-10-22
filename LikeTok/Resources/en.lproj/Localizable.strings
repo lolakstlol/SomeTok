@@ -1,3 +1,7 @@
 "DrinkList.Navigation.Title" = "Drinks";
 "Onboarding.Skip" = "Skip";
 "Onboarding.Next" = "Next";
+"ResetPassword.Title" = "Reset password";
+"ResetPassword.Text" = "The confirmation code will be sent to your email address";
+"ResetPassword.Email" = "E-mail";
+"ResetPassword.Resume" = "Resume";
