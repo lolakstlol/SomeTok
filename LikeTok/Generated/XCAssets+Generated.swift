@@ -20,8 +20,15 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 // MARK: - Asset Catalogs
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
-internal enum Asset {
+internal enum Assets {
   internal static let accentColor = ColorAsset(name: "AccentColor")
+  internal static let blackText = ColorAsset(name: "BlackText")
+  internal static let darkBlueText = ColorAsset(name: "DarkBlueText")
+  internal static let darkGrayText = ColorAsset(name: "DarkGrayText")
+  internal static let darkRedPageControll = ColorAsset(name: "DarkRedPageControll")
+  internal static let onb1 = ImageAsset(name: "onb1")
+  internal static let onb2 = ImageAsset(name: "onb2")
+  internal static let onb3 = ImageAsset(name: "onb3")
   internal static let barcodeScanner = ImageAsset(name: "barcode-scanner")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
