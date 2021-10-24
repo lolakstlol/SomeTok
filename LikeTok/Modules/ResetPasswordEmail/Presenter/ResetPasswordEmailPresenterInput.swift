@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ResetPasswordPresenterInput: BasePresenting {
+protocol ResetPasswordEmailPresenterInput: BasePresenting {
     func resetPassword(_ email: String)
 }

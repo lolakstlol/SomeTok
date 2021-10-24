@@ -48,25 +48,31 @@
 		17C66E0E2723043F0032F5F3 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C66E0D2723043F0032F5F3 /* Api.swift */; };
 		17C66E11272305130032F5F3 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C66E10272305130032F5F3 /* AccountManager.swift */; };
 		18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE8EDA9EAD07A247DB4F98D0 /* SignUpViewController.xib */; };
+		24276C267034F8D4D276B900 /* ResetPasswordNewPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343B60FC3FBA2837D30D2094 /* ResetPasswordNewPasswordViewController.xib */; };
 		2EDDD73BBF6E223384272200 /* StartSplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E79256EF973072B0A9CABD /* StartSplashScreenPresenter.swift */; };
-		3FC4BE4728AC28828A3658ED /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7D0DF5E63F8CA247190EA /* ResetPasswordViewController.swift */; };
-		51308A5B5FAA524BAF47676A /* ResetPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D416F2994198E6029261AF5 /* ResetPasswordPresenter.swift */; };
+		3FC4BE4728AC28828A3658ED /* ResetPasswordEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7D0DF5E63F8CA247190EA /* ResetPasswordEmailViewController.swift */; };
+		51308A5B5FAA524BAF47676A /* ResetPasswordEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D416F2994198E6029261AF5 /* ResetPasswordEmailPresenter.swift */; };
 		53B0ABC6AFD0C97685059F24 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */; };
+		55ECB4EC9BF8CFFECA4FC804 /* ResetPasswordNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B0FD279667E21658BA4985 /* ResetPasswordNewPasswordViewController.swift */; };
 		5E819C2B19C05F53AA221BEB /* OnboardingPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */; };
 		636858968F02AFE63D0020CA /* Pods_LikeTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F979E01E7B50A15EC31F8E75 /* Pods_LikeTok.framework */; };
 		6D089E666AFBBEAA7EC50D30 /* SignUpPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8651B45B181B0B85AA0CAF90 /* SignUpPresenterInput.swift */; };
-		766F7AD3BAC630F2C8674261 /* ResetPasswordPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3059A40E4CA1336D6D06E1 /* ResetPasswordPresenterInput.swift */; };
+		766F7AD3BAC630F2C8674261 /* ResetPasswordEmailPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3059A40E4CA1336D6D06E1 /* ResetPasswordEmailPresenterInput.swift */; };
 		7CD457E3F84E96672ECFF689 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96BF1DFD3FE31BB2FD4143 /* SignUpPresenter.swift */; };
+		7EC8DB21FDD698ECEF3B5FB1 /* ResetPasswordNewPasswordPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C2C0CA8F993F8A6EF565A /* ResetPasswordNewPasswordPresenterInput.swift */; };
+		80A44D7850A9816EBFA54395 /* ResetPasswordNewPasswordAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E4D7E36E008F0FF8453916 /* ResetPasswordNewPasswordAssembler.swift */; };
 		8CCF3EAF44ED239B8DC135E2 /* StartSplashScreenPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97D9B79B2A3AEC421721266 /* StartSplashScreenPresenterOutput.swift */; };
 		8E445F9A648A75D5369C11F0 /* StartSplashScreenPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D22963DB671E1856D93D4C /* StartSplashScreenPresenterInput.swift */; };
 		9908C11211654A50BF6ECD9A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCA0530364F4E12FC7465D1 /* SignUpViewController.swift */; };
+		A61CB9393EEE6EA81E760A5E /* ResetPasswordNewPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AA86950EA7001FD001B459 /* ResetPasswordNewPasswordPresenter.swift */; };
 		ABE6EA2FE68D11FC321FD228 /* StartSplashScreenAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCE6AECD766D26F4DA2E42B /* StartSplashScreenAssembler.swift */; };
-		BB780BBE28F5CA9CC77499CB /* ResetPasswordPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4BF2D128DA48B16FAFA3AA /* ResetPasswordPresenterOutput.swift */; };
+		AF052CFB648D99B02ED4C34F /* ResetPasswordNewPasswordPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFC12D44BA3282442DFA91E /* ResetPasswordNewPasswordPresenterOutput.swift */; };
+		BB780BBE28F5CA9CC77499CB /* ResetPasswordEmailPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4BF2D128DA48B16FAFA3AA /* ResetPasswordEmailPresenterOutput.swift */; };
 		BFFDB7611EFD9494736FB1ED /* StartSplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE358886ACD576C56BFF9E2A /* StartSplashScreenViewController.swift */; };
 		C171F81CD9D2034DB44A4B20 /* OnboardingAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1083B8D05564BED0CAB3EB66 /* OnboardingAssembler.swift */; };
 		C200B260DF37B93761CD25EA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F873800BB8201A173933EA2 /* OnboardingViewController.swift */; };
-		C80CE8A5E39AF8CB4E83A1A0 /* ResetPasswordAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47CA8839063D1226CD399F /* ResetPasswordAssembler.swift */; };
-		CF70D3E4E3B7FD5BFE6A9F6F /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC4CDE74F6B40A800C97BB80 /* ResetPasswordViewController.xib */; };
+		C80CE8A5E39AF8CB4E83A1A0 /* ResetPasswordEmailAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47CA8839063D1226CD399F /* ResetPasswordEmailAssembler.swift */; };
+		CF70D3E4E3B7FD5BFE6A9F6F /* ResetPasswordEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC4CDE74F6B40A800C97BB80 /* ResetPasswordEmailViewController.xib */; };
 		D681C28A5D6C3CAE25ECCFAF /* SignUpPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1408B8CE54322DAEF7CA052D /* SignUpPresenterOutput.swift */; };
 		F8ECE119F95ADC193B0B527D /* StartSplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7C99FA8AC97F1766DEB84B /* StartSplashScreenViewController.xib */; };
 /* End PBXBuildFile section */
@@ -118,25 +124,31 @@
 		17C66E0B2723034E0032F5F3 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		17C66E0D2723043F0032F5F3 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		17C66E10272305130032F5F3 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
-		1A4BF2D128DA48B16FAFA3AA /* ResetPasswordPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordPresenterOutput.swift; sourceTree = "<group>"; };
+		1A4BF2D128DA48B16FAFA3AA /* ResetPasswordEmailPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailPresenterOutput.swift; sourceTree = "<group>"; };
+		20B0FD279667E21658BA4985 /* ResetPasswordNewPasswordViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordViewController.swift; sourceTree = "<group>"; };
 		257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		343B60FC3FBA2837D30D2094 /* ResetPasswordNewPasswordViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = ResetPasswordNewPasswordViewController.xib; sourceTree = "<group>"; };
 		3BCA0530364F4E12FC7465D1 /* SignUpViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		4A47CA8839063D1226CD399F /* ResetPasswordAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordAssembler.swift; sourceTree = "<group>"; };
+		4A47CA8839063D1226CD399F /* ResetPasswordEmailAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailAssembler.swift; sourceTree = "<group>"; };
 		53E79256EF973072B0A9CABD /* StartSplashScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenter.swift; sourceTree = "<group>"; };
 		5E7C99FA8AC97F1766DEB84B /* StartSplashScreenViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = StartSplashScreenViewController.xib; sourceTree = "<group>"; };
 		6F873800BB8201A173933EA2 /* OnboardingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		7B3059A40E4CA1336D6D06E1 /* ResetPasswordPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordPresenterInput.swift; sourceTree = "<group>"; };
+		722C2C0CA8F993F8A6EF565A /* ResetPasswordNewPasswordPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordPresenterInput.swift; sourceTree = "<group>"; };
+		7B3059A40E4CA1336D6D06E1 /* ResetPasswordEmailPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailPresenterInput.swift; sourceTree = "<group>"; };
 		7B96BF1DFD3FE31BB2FD4143 /* SignUpPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
-		7D416F2994198E6029261AF5 /* ResetPasswordPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordPresenter.swift; sourceTree = "<group>"; };
+		7D416F2994198E6029261AF5 /* ResetPasswordEmailPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailPresenter.swift; sourceTree = "<group>"; };
 		8651B45B181B0B85AA0CAF90 /* SignUpPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpPresenterInput.swift; sourceTree = "<group>"; };
+		96AA86950EA7001FD001B459 /* ResetPasswordNewPasswordPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordPresenter.swift; sourceTree = "<group>"; };
 		B97D9B79B2A3AEC421721266 /* StartSplashScreenPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenterOutput.swift; sourceTree = "<group>"; };
-		B9D7D0DF5E63F8CA247190EA /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		B9D7D0DF5E63F8CA247190EA /* ResetPasswordEmailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailViewController.swift; sourceTree = "<group>"; };
 		B9E93828B256A556479F5F37 /* Pods-LikeTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.debug.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.debug.xcconfig"; sourceTree = "<group>"; };
-		BC4CDE74F6B40A800C97BB80 /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
+		BC4CDE74F6B40A800C97BB80 /* ResetPasswordEmailViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = ResetPasswordEmailViewController.xib; sourceTree = "<group>"; };
 		BE358886ACD576C56BFF9E2A /* StartSplashScreenViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenViewController.swift; sourceTree = "<group>"; };
 		CDCE6AECD766D26F4DA2E42B /* StartSplashScreenAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenAssembler.swift; sourceTree = "<group>"; };
+		D2E4D7E36E008F0FF8453916 /* ResetPasswordNewPasswordAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordAssembler.swift; sourceTree = "<group>"; };
 		D5D22963DB671E1856D93D4C /* StartSplashScreenPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenterInput.swift; sourceTree = "<group>"; };
 		DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterInput.swift; sourceTree = "<group>"; };
+		DCFC12D44BA3282442DFA91E /* ResetPasswordNewPasswordPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordPresenterOutput.swift; sourceTree = "<group>"; };
 		E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		F979E01E7B50A15EC31F8E75 /* Pods_LikeTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9871D1368F1CAF476B65F8A /* Pods-LikeTok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.release.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.release.xcconfig"; sourceTree = "<group>"; };
@@ -275,7 +287,8 @@
 				59EDDE1320CEBC28974F186E /* Onboarding */,
 				7F23483C02604C23A0D1268C /* StartSplashScreen */,
 				D83BCA7B772E72F15776F726 /* SignUp */,
-				CD143EBA4B9EFD863FFB64A3 /* ResetPassword */,
+				CD143EBA4B9EFD863FFB64A3 /* ResetPasswordEmail */,
+				8C24F992BFC8E47A88054938 /* ResetPasswordNewPassword */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -354,8 +367,8 @@
 		345B2D5EE36847617245A3AC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B9D7D0DF5E63F8CA247190EA /* ResetPasswordViewController.swift */,
-				BC4CDE74F6B40A800C97BB80 /* ResetPasswordViewController.xib */,
+				B9D7D0DF5E63F8CA247190EA /* ResetPasswordEmailViewController.swift */,
+				BC4CDE74F6B40A800C97BB80 /* ResetPasswordEmailViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -381,7 +394,7 @@
 		579FE5DB8753E5EC67098D62 /* Assembler */ = {
 			isa = PBXGroup;
 			children = (
-				4A47CA8839063D1226CD399F /* ResetPasswordAssembler.swift */,
+				4A47CA8839063D1226CD399F /* ResetPasswordEmailAssembler.swift */,
 			);
 			path = Assembler;
 			sourceTree = "<group>";
@@ -401,11 +414,20 @@
 		5ED90370B8278A554EB41177 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				7B3059A40E4CA1336D6D06E1 /* ResetPasswordPresenterInput.swift */,
-				1A4BF2D128DA48B16FAFA3AA /* ResetPasswordPresenterOutput.swift */,
-				7D416F2994198E6029261AF5 /* ResetPasswordPresenter.swift */,
+				7B3059A40E4CA1336D6D06E1 /* ResetPasswordEmailPresenterInput.swift */,
+				1A4BF2D128DA48B16FAFA3AA /* ResetPasswordEmailPresenterOutput.swift */,
+				7D416F2994198E6029261AF5 /* ResetPasswordEmailPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		6CF60EC7DB74C368A6E33434 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20B0FD279667E21658BA4985 /* ResetPasswordNewPasswordViewController.swift */,
+				343B60FC3FBA2837D30D2094 /* ResetPasswordNewPasswordViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		714882604AD2C953196A7E23 /* Pods */ = {
@@ -437,6 +459,24 @@
 			path = StartSplashScreen;
 			sourceTree = "<group>";
 		};
+		8C24F992BFC8E47A88054938 /* ResetPasswordNewPassword */ = {
+			isa = PBXGroup;
+			children = (
+				6CF60EC7DB74C368A6E33434 /* View */,
+				C8C568DA380705F2EF755106 /* Presenter */,
+				932599743D9E449CB002F607 /* Assembler */,
+			);
+			path = ResetPasswordNewPassword;
+			sourceTree = "<group>";
+		};
+		932599743D9E449CB002F607 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				D2E4D7E36E008F0FF8453916 /* ResetPasswordNewPasswordAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
 		A456B240393A04958559898E /* Assembler */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,14 +503,24 @@
 			path = Assembler;
 			sourceTree = "<group>";
 		};
-		CD143EBA4B9EFD863FFB64A3 /* ResetPassword */ = {
+		C8C568DA380705F2EF755106 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				722C2C0CA8F993F8A6EF565A /* ResetPasswordNewPasswordPresenterInput.swift */,
+				DCFC12D44BA3282442DFA91E /* ResetPasswordNewPasswordPresenterOutput.swift */,
+				96AA86950EA7001FD001B459 /* ResetPasswordNewPasswordPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		CD143EBA4B9EFD863FFB64A3 /* ResetPasswordEmail */ = {
 			isa = PBXGroup;
 			children = (
 				345B2D5EE36847617245A3AC /* View */,
 				5ED90370B8278A554EB41177 /* Presenter */,
 				579FE5DB8753E5EC67098D62 /* Assembler */,
 			);
-			path = ResetPassword;
+			path = ResetPasswordEmail;
 			sourceTree = "<group>";
 		};
 		D83BCA7B772E72F15776F726 /* SignUp */ = {
@@ -566,7 +616,8 @@
 				53B0ABC6AFD0C97685059F24 /* OnboardingViewController.xib in Resources */,
 				F8ECE119F95ADC193B0B527D /* StartSplashScreenViewController.xib in Resources */,
 				18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */,
-				CF70D3E4E3B7FD5BFE6A9F6F /* ResetPasswordViewController.xib in Resources */,
+				CF70D3E4E3B7FD5BFE6A9F6F /* ResetPasswordEmailViewController.xib in Resources */,
+				24276C267034F8D4D276B900 /* ResetPasswordNewPasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,11 +721,16 @@
 				D681C28A5D6C3CAE25ECCFAF /* SignUpPresenterOutput.swift in Sources */,
 				7CD457E3F84E96672ECFF689 /* SignUpPresenter.swift in Sources */,
 				0D0450D36C619482ED7CBC50 /* SignUpAssembler.swift in Sources */,
-				3FC4BE4728AC28828A3658ED /* ResetPasswordViewController.swift in Sources */,
-				766F7AD3BAC630F2C8674261 /* ResetPasswordPresenterInput.swift in Sources */,
-				BB780BBE28F5CA9CC77499CB /* ResetPasswordPresenterOutput.swift in Sources */,
-				51308A5B5FAA524BAF47676A /* ResetPasswordPresenter.swift in Sources */,
-				C80CE8A5E39AF8CB4E83A1A0 /* ResetPasswordAssembler.swift in Sources */,
+				3FC4BE4728AC28828A3658ED /* ResetPasswordEmailViewController.swift in Sources */,
+				766F7AD3BAC630F2C8674261 /* ResetPasswordEmailPresenterInput.swift in Sources */,
+				BB780BBE28F5CA9CC77499CB /* ResetPasswordEmailPresenterOutput.swift in Sources */,
+				51308A5B5FAA524BAF47676A /* ResetPasswordEmailPresenter.swift in Sources */,
+				C80CE8A5E39AF8CB4E83A1A0 /* ResetPasswordEmailAssembler.swift in Sources */,
+				55ECB4EC9BF8CFFECA4FC804 /* ResetPasswordNewPasswordViewController.swift in Sources */,
+				7EC8DB21FDD698ECEF3B5FB1 /* ResetPasswordNewPasswordPresenterInput.swift in Sources */,
+				AF052CFB648D99B02ED4C34F /* ResetPasswordNewPasswordPresenterOutput.swift in Sources */,
+				A61CB9393EEE6EA81E760A5E /* ResetPasswordNewPasswordPresenter.swift in Sources */,
+				80A44D7850A9816EBFA54395 /* ResetPasswordNewPasswordAssembler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

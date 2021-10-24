@@ -1,28 +1,26 @@
 //
-//  ResetPasswordResetPasswordViewController.swift
+//  ResetPasswordNewPasswordResetPasswordNewPasswordViewController.swift
 //  LikeTok
 //
-//  Created by Danik on 22/10/2021.
+//  Created by Danik on 24/10/2021.
 //  Copyright © 2021 LikeTok. All rights reserved.
 //
 
 import UIKit
 
-final class ResetPasswordViewController: BaseViewController {
+final class ResetPasswordNewPasswordViewController: BaseViewController {
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var textLabel: UILabel!
+    @IBOutlet private weak var enterPasswordTextField: InsetTextField!
+    @IBOutlet private weak var confrimPasswordTextField: InsetTextField!
     @IBOutlet private weak var resumeButton: UIButton!
-    @IBOutlet private weak var emailTextField: InsetTextField!
-
-    @IBOutlet var resumeBottomConstraint: NSLayoutConstraint!
-    @IBOutlet var imageViewTopConstraint: NSLayoutConstraint!
     
     private let keyboardObserver = KeyboardObserver()
     private var isKeyboardAppears: Bool = false
     private lazy var tapWhenKeyboardAppears = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
     
-    var presenter: ResetPasswordPresenterInput!
+    var presenter: ResetPasswordNewPasswordPresenterInput!
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,16 +47,19 @@ final class ResetPasswordViewController: BaseViewController {
 
     
     private func configure() {
-        titleLabel.text = Strings.ResetPassword.title
+        titleLabel.text = Strings.ResetPassword.NewPassword.title
         titleLabel.textColor = Assets.blackText.color
         
-        textLabel.text = Strings.ResetPassword.text
+        textLabel.text = Strings.ResetPassword.NewPassword.text
         textLabel.textColor = Assets.darkGrayText.color
         
-        emailTextField.backgroundColor = Assets.lightGray.color
-        emailTextField.textColor = Assets.blackText.color
+        enterPasswordTextField.backgroundColor = Assets.lightGray.color
+        enterPasswordTextField.textColor = Assets.blackText.color
         
-        resumeButton.setTitle(Strings.ResetPassword.resume, for: .normal)
+        confrimPasswordTextField.backgroundColor = Assets.lightGray.color
+        confrimPasswordTextField.textColor = Assets.blackText.color
+        
+        resumeButton.setTitle(Strings.ResetPassword.NewPassword.resume, for: .normal)
         resumeButton.setTitleColor(Assets.whiteText.color, for: .normal)
         resumeButton.tintColor = Assets.whiteText.color
         resumeButton.backgroundColor = Assets.mainRed.color
@@ -90,18 +91,18 @@ final class ResetPasswordViewController: BaseViewController {
              }
          }
      }
-
-
+    
     @IBAction func onResumeButtonTap(_ sender: Any) {
-        guard let email = emailTextField.text else {
+        guard let passwordOne = enterPasswordTextField.text,
+              let passwordTwo = confrimPasswordTextField.text, passwordOne == passwordTwo
+        else {
             return
         }
-        presenter.resetPassword(email)
+        presenter.resetPassword(passwordOne)
     }
+    
 }
 
-extension ResetPasswordViewController: ResetPasswordPresenterOutput {
-    func onResetPassword() {
-        
-    }
+extension ResetPasswordNewPasswordViewController: ResetPasswordNewPasswordPresenterOutput {
+
 }

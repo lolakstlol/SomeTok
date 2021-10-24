@@ -2,6 +2,12 @@
 "Onboarding.Skip" = "Пропустить";
 "Onboarding.Next" = "Далее";
 
-"ResetPassword.title" = "Password recovery";
-"ResetPassword.text" = "A confirmation code will be sent to your email address";
-"ResetPassword.resume" = "Resume";
+"ResetPassword.Email.title" = "Password recovery";
+"ResetPassword.Email.text" = "A confirmation code will be sent to your email address";
+"ResetPassword.Email.resume" = "Resume";
+
+"ResetPassword.NewPassword.title" = "Password recovery";
+"ResetPassword.NewPassword.text" = "Enter a new password";
+"ResetPassword.NewPassword.enterThePassword" = "Enter the password";
+"ResetPassword.NewPassword.confrimThePassword" = "Enter the password again";
+"ResetPassword.NewPassword.resume" = "Resume";

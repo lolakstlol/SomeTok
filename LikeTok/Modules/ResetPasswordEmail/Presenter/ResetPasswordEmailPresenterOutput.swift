@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ResetPasswordPresenterOutput: AnyObject {
+protocol ResetPasswordEmailPresenterOutput: AnyObject {
     func onResetPassword()
 }

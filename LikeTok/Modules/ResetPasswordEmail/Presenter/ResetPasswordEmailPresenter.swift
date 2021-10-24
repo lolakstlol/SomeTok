@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class ResetPasswordPresenter {
-    private unowned let view: ResetPasswordPresenterOutput
+final class ResetPasswordEmailPresenter {
+    private unowned let view: ResetPasswordEmailPresenterOutput
 
-    init(_ view: ResetPasswordPresenterOutput) {
+    init(_ view: ResetPasswordEmailPresenterOutput) {
         self.view = view
     }
 
@@ -21,7 +21,7 @@ final class ResetPasswordPresenter {
 
 }
 
-extension ResetPasswordPresenter: ResetPasswordPresenterInput {
+extension ResetPasswordEmailPresenter: ResetPasswordEmailPresenterInput {
 
     func resetPassword(_ email: String) {
         

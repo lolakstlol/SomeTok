@@ -19,12 +19,26 @@ public enum Strings {
   }
 
   public enum ResetPassword {
-    /// Продолжить
-    public static let resume = Strings.tr("Localizable", "ResetPassword.resume")
-    /// На ваш электронный адрес будет отправлен код подтверждения
-    public static let text = Strings.tr("Localizable", "ResetPassword.text")
-    /// Восстановление пароля
-    public static let title = Strings.tr("Localizable", "ResetPassword.title")
+    public enum Email {
+      /// Продолжить
+      public static let resume = Strings.tr("Localizable", "ResetPassword.Email.resume")
+      /// На ваш электронный адрес будет отправлен код подтверждения
+      public static let text = Strings.tr("Localizable", "ResetPassword.Email.text")
+      /// Восстановление пароля
+      public static let title = Strings.tr("Localizable", "ResetPassword.Email.title")
+    }
+    public enum NewPassword {
+      /// Введите пароль повторно
+      public static let confrimThePassword = Strings.tr("Localizable", "ResetPassword.NewPassword.confrimThePassword")
+      /// Введите пароль
+      public static let enterThePassword = Strings.tr("Localizable", "ResetPassword.NewPassword.enterThePassword")
+      /// Продолжить
+      public static let resume = Strings.tr("Localizable", "ResetPassword.NewPassword.resume")
+      /// Введите новый пароль
+      public static let text = Strings.tr("Localizable", "ResetPassword.NewPassword.text")
+      /// Восстановление пароля
+      public static let title = Strings.tr("Localizable", "ResetPassword.NewPassword.title")
+    }
   }
 
   public enum SplashScreen {
