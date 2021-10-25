@@ -22,5 +22,8 @@ final class ResetPasswordNewPasswordPresenter {
 }
 
 extension ResetPasswordNewPasswordPresenter: ResetPasswordNewPasswordPresenterInput {
+    func resetPassword(_ password: String) {
+    
+    }
 
 }
