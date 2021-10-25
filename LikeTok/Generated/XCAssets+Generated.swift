@@ -22,14 +22,16 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Assets {
   internal static let accentColor = ColorAsset(name: "AccentColor")
+  internal static let authMainLogo = ImageAsset(name: "authMainLogo")
+  internal static let authSplashScreen = ImageAsset(name: "authSplashScreen")
   internal static let blackText = ColorAsset(name: "BlackText")
   internal static let darkBlueText = ColorAsset(name: "DarkBlueText")
   internal static let darkGrayText = ColorAsset(name: "DarkGrayText")
   internal static let darkRedPageControll = ColorAsset(name: "DarkRedPageControll")
+  internal static let mainRed = ColorAsset(name: "MainRed")
   internal static let onb1 = ImageAsset(name: "onb1")
   internal static let onb2 = ImageAsset(name: "onb2")
   internal static let onb3 = ImageAsset(name: "onb3")
-  internal static let barcodeScanner = ImageAsset(name: "barcode-scanner")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
@@ -51,6 +53,17 @@ internal final class ColorAsset {
     }
     return color
   }()
+
+  #if os(iOS) || os(tvOS)
+  @available(iOS 11.0, tvOS 11.0, *)
+  internal func color(compatibleWith traitCollection: UITraitCollection) -> Color {
+    let bundle = BundleToken.bundle
+    guard let color = Color(named: name, in: bundle, compatibleWith: traitCollection) else {
+      fatalError("Unable to load color asset named \(name).")
+    }
+    return color
+  }
+  #endif
 
   fileprivate init(name: String) {
     self.name = name
@@ -80,6 +93,7 @@ internal struct ImageAsset {
   internal typealias Image = UIImage
   #endif
 
+  @available(iOS 8.0, tvOS 9.0, watchOS 2.0, macOS 10.7, *)
   internal var image: Image {
     let bundle = BundleToken.bundle
     #if os(iOS) || os(tvOS)
@@ -95,9 +109,21 @@ internal struct ImageAsset {
     }
     return result
   }
+
+  #if os(iOS) || os(tvOS)
+  @available(iOS 8.0, tvOS 9.0, *)
+  internal func image(compatibleWith traitCollection: UITraitCollection) -> Image {
+    let bundle = BundleToken.bundle
+    guard let result = Image(named: name, in: bundle, compatibleWith: traitCollection) else {
+      fatalError("Unable to load image asset named \(name).")
+    }
+    return result
+  }
+  #endif
 }
 
 internal extension ImageAsset.Image {
+  @available(iOS 8.0, tvOS 9.0, watchOS 2.0, *)
   @available(macOS, deprecated,
     message: "This initializer is unsafe on macOS, please use the ImageAsset.image property")
   convenience init?(asset: ImageAsset) {
