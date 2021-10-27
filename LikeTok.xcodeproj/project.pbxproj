@@ -30,6 +30,7 @@
 		1558C60B2721D80A0051436E /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C6092721D80A0051436E /* XCAssets+Generated.swift */; };
 		1558C60F2721F9F60051436E /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C60E2721F9F50051436E /* UIButton+Ext.swift */; };
 		158C8CEA2726FE26001614D0 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CE92726FE26001614D0 /* KeyboardObserver.swift */; };
+		158C8CFB2729E1C4001614D0 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CFA2729E1C4001614D0 /* String+Ext.swift */; };
 		17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097382271D7B4200134ED7 /* AppDelegate.swift */; };
 		17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097384271D7B4200134ED7 /* SceneDelegate.swift */; };
 		17097387271D7B4200134ED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097386271D7B4200134ED7 /* ViewController.swift */; };
@@ -105,6 +106,7 @@
 		1558C6092721D80A0051436E /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		1558C60E2721F9F50051436E /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		158C8CE92726FE26001614D0 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
+		158C8CFA2729E1C4001614D0 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		1709737F271D7B4200134ED7 /* LikeTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17097382271D7B4200134ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17097384271D7B4200134ED7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,7 +142,7 @@
 		8651B45B181B0B85AA0CAF90 /* SignUpPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpPresenterInput.swift; sourceTree = "<group>"; };
 		96AA86950EA7001FD001B459 /* ResetPasswordNewPasswordPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordPresenter.swift; sourceTree = "<group>"; };
 		B97D9B79B2A3AEC421721266 /* StartSplashScreenPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenterOutput.swift; sourceTree = "<group>"; };
-		B9D7D0DF5E63F8CA247190EA /* ResetPasswordEmailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailViewController.swift; sourceTree = "<group>"; };
+		B9D7D0DF5E63F8CA247190EA /* ResetPasswordEmailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailViewController.swift; sourceTree = "<group>"; };
 		B9E93828B256A556479F5F37 /* Pods-LikeTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.debug.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.debug.xcconfig"; sourceTree = "<group>"; };
 		BC4CDE74F6B40A800C97BB80 /* ResetPasswordEmailViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = ResetPasswordEmailViewController.xib; sourceTree = "<group>"; };
 		BE358886ACD576C56BFF9E2A /* StartSplashScreenViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				1558C60E2721F9F50051436E /* UIButton+Ext.swift */,
+				158C8CFA2729E1C4001614D0 /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				1558C5F627216FAA0051436E /* OnboardingModel.swift in Sources */,
 				C200B260DF37B93761CD25EA /* OnboardingViewController.swift in Sources */,
 				1558C60B2721D80A0051436E /* XCAssets+Generated.swift in Sources */,
+				158C8CFB2729E1C4001614D0 /* String+Ext.swift in Sources */,
 				5E819C2B19C05F53AA221BEB /* OnboardingPresenterInput.swift in Sources */,
 				098AFF776E356795A9010F51 /* OnboardingPresenterOutput.swift in Sources */,
 				0F27EC19D3FF004B8A540DAC /* OnboardingPresenter.swift in Sources */,

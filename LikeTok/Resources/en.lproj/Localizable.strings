@@ -3,14 +3,17 @@
 
 "SplashScreen.begin" = "Начать";
 
-"ResetPassword.Email.title" = "Восстановление пароля";
-"ResetPassword.Email.text" = "На ваш электронный адрес будет отправлен код подтверждения";
-"ResetPassword.Email.resume" = "Продолжить";
+"ResetPassword.Email.title" = "Password recovery";
+"ResetPassword.Email.text" = "A confirmation code will be sent to your email address";
+"ResetPassword.Email.resume" = "Resume";
+"ResetPassword.Email.error" = "Check the correctness of your mail";
 
-"ResetPassword.NewPassword.title" = "Восстановление пароля";
-"ResetPassword.NewPassword.text" = "Введите новый пароль";
-"ResetPassword.NewPassword.enterThePassword" = "Введите пароль";
-"ResetPassword.NewPassword.confrimThePassword" = "Введите пароль повторно";
-"ResetPassword.NewPassword.resume" = "Продолжить";
+"ResetPassword.Error" = "Error";
+
+"ResetPassword.NewPassword.title" = "Password recovery";
+"ResetPassword.NewPassword.text" = "Enter a new password";
+"ResetPassword.NewPassword.enterThePassword" = "Enter the password";
+"ResetPassword.NewPassword.confrimThePassword" = "Enter the password again";
+"ResetPassword.NewPassword.resume" = "Resume";
 
 

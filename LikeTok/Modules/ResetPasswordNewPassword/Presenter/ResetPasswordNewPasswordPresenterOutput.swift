@@ -7,7 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ResetPasswordNewPasswordPresenterOutput: AnyObject {
-
+    func onViewDidLoad()
+    func onResetPasswordSucess()
+    func onResetPasswordFailure()
+    func onShowAlert(_ alert: UIAlertController)
+    func onShowKeyboard(_ insets: UIEdgeInsets)
+    func onHideKeyboard(_ insets: UIEdgeInsets)
 }
