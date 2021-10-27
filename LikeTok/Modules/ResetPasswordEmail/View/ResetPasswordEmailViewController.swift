@@ -47,18 +47,18 @@ final class ResetPasswordEmailViewController: BaseViewController {
     
     private func configure() {
         titleLabel.text = Strings.ResetPassword.Email.title
-        titleLabel.textColor = Assets.blackText.color
+        titleLabel.textColor = Assets.Colors.blackText.color
         
         textLabel.text = Strings.ResetPassword.Email.text
-        textLabel.textColor = Assets.darkGrayText.color
+        textLabel.textColor = Assets.Colors.darkGrayText.color
         
-        emailTextField.backgroundColor = Assets.lightGray.color
-        emailTextField.textColor = Assets.blackText.color
+        emailTextField.backgroundColor = Assets.Colors.lightGray.color
+        emailTextField.textColor = Assets.Colors.blackText.color
         
         resumeButton.setTitle(Strings.ResetPassword.Email.resume, for: .normal)
-        resumeButton.setTitleColor(Assets.whiteText.color, for: .normal)
-        resumeButton.tintColor = Assets.whiteText.color
-        resumeButton.backgroundColor = Assets.mainRed.color
+        resumeButton.setTitleColor(Assets.Colors.whiteText.color, for: .normal)
+        resumeButton.tintColor = Assets.Colors.whiteText.color
+        resumeButton.backgroundColor = Assets.Colors.mainRed.color
         resumeButton.layer.cornerRadius = 10
     }
     

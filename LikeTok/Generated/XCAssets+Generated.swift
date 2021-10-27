@@ -22,18 +22,30 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Assets {
   internal static let accentColor = ColorAsset(name: "AccentColor")
-  internal static let authMainLogo = ImageAsset(name: "authMainLogo")
-  internal static let authSplashScreen = ImageAsset(name: "authSplashScreen")
-  internal static let blackText = ColorAsset(name: "BlackText")
-  internal static let darkBlueText = ColorAsset(name: "DarkBlueText")
-  internal static let darkGrayText = ColorAsset(name: "DarkGrayText")
-  internal static let darkRedPageControll = ColorAsset(name: "DarkRedPageControll")
-  internal static let lightGray = ColorAsset(name: "LightGray")
-  internal static let mainRed = ColorAsset(name: "MainRed")
-  internal static let whiteText = ColorAsset(name: "WhiteText")
-  internal static let onb1 = ImageAsset(name: "onb1")
-  internal static let onb2 = ImageAsset(name: "onb2")
-  internal static let onb3 = ImageAsset(name: "onb3")
+  internal enum Auth {
+    internal static let authMainLogo = ImageAsset(name: "Auth/authMainLogo")
+    internal static let authSplashScreen = ImageAsset(name: "Auth/authSplashScreen")
+  }
+  internal enum Colors {
+    internal static let blackText = ColorAsset(name: "Colors/BlackText")
+    internal static let darkBlueText = ColorAsset(name: "Colors/DarkBlueText")
+    internal static let darkGrayText = ColorAsset(name: "Colors/DarkGrayText")
+    internal static let darkRedPageControll = ColorAsset(name: "Colors/DarkRedPageControll")
+    internal static let lightGray = ColorAsset(name: "Colors/LightGray")
+    internal static let mainRed = ColorAsset(name: "Colors/MainRed")
+    internal static let whiteText = ColorAsset(name: "Colors/WhiteText")
+  }
+  internal enum Onboarding {
+    internal static let onb1 = ImageAsset(name: "Onboarding/onb1")
+    internal static let onb2 = ImageAsset(name: "Onboarding/onb2")
+    internal static let onb3 = ImageAsset(name: "Onboarding/onb3")
+  }
+  internal enum TabBar {
+    internal static let chat = ImageAsset(name: "TabBar/chat")
+    internal static let home = ImageAsset(name: "TabBar/home")
+    internal static let new = ImageAsset(name: "TabBar/new")
+    internal static let search = ImageAsset(name: "TabBar/search")
+  }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

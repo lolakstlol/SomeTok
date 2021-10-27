@@ -35,19 +35,19 @@ final class OnboardingViewController: BaseViewController {
     
     private func configure() {
         
-        pageControl.currentPageIndicatorTintColor = Assets.darkRedPageControll.color
+        pageControl.currentPageIndicatorTintColor = Assets.Colors.darkRedPageControll.color
         
         skipButton.setTitle(Strings.Onboarding.skip, for: .normal)
-        skipButton.setTitleColor(Assets.darkGrayText.color, for: .normal)
-        skipButton.tintColor = Assets.darkGrayText.color
+        skipButton.setTitleColor(Assets.Colors.darkGrayText.color, for: .normal)
+        skipButton.tintColor = Assets.Colors.darkGrayText.color
         
         if let title = skipButton.title(for: .normal) {
             let attributedTitle = NSAttributedString(string: title, attributes: [.kern : -0.4])
             skipButton.setAttributedTitle(attributedTitle, for: .normal)
         }
         
-        nextButton.setTitleColor(Assets.blackText.color, for: .normal)
-        nextButton.tintColor = Assets.blackText.color
+        nextButton.setTitleColor(Assets.Colors.blackText.color, for: .normal)
+        nextButton.tintColor = Assets.Colors.blackText.color
         nextButton.setTitle(Strings.Onboarding.next, for: .normal)
         
         collectionView.backgroundColor = .white

@@ -48,21 +48,21 @@ final class ResetPasswordNewPasswordViewController: BaseViewController {
     
     private func configure() {
         titleLabel.text = Strings.ResetPassword.NewPassword.title
-        titleLabel.textColor = Assets.blackText.color
+        titleLabel.textColor = Assets.Colors.blackText.color
         
         textLabel.text = Strings.ResetPassword.NewPassword.text
-        textLabel.textColor = Assets.darkGrayText.color
+        textLabel.textColor = Assets.Colors.darkGrayText.color
         
-        enterPasswordTextField.backgroundColor = Assets.lightGray.color
-        enterPasswordTextField.textColor = Assets.blackText.color
+        enterPasswordTextField.backgroundColor = Assets.Colors.lightGray.color
+        enterPasswordTextField.textColor = Assets.Colors.blackText.color
         
-        confrimPasswordTextField.backgroundColor = Assets.lightGray.color
-        confrimPasswordTextField.textColor = Assets.blackText.color
+        confrimPasswordTextField.backgroundColor = Assets.Colors.lightGray.color
+        confrimPasswordTextField.textColor = Assets.Colors.blackText.color
         
         resumeButton.setTitle(Strings.ResetPassword.NewPassword.resume, for: .normal)
-        resumeButton.setTitleColor(Assets.whiteText.color, for: .normal)
-        resumeButton.tintColor = Assets.whiteText.color
-        resumeButton.backgroundColor = Assets.mainRed.color
+        resumeButton.setTitleColor(Assets.Colors.whiteText.color, for: .normal)
+        resumeButton.tintColor = Assets.Colors.whiteText.color
+        resumeButton.backgroundColor = Assets.Colors.mainRed.color
         resumeButton.layer.cornerRadius = 10
     }
     

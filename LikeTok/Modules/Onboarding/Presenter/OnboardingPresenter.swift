@@ -14,9 +14,9 @@ final class OnboardingPresenter {
 
     var onCompleteOnboarding: (() -> ())?
     
-    let data: [OnboardingPage] = [OnboardingPage(image: Assets.onb1.image, title: "Делись событиями из жизни ", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."),
-                                  OnboardingPage(image: Assets.onb2.image, title: "Зарабатывай деньги", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."),
-                                  OnboardingPage(image: Assets.onb3.image, title: "Беседуй с друзьями", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.")]
+    let data: [OnboardingPage] = [OnboardingPage(image: Assets.Onboarding.onb1.image, title: "Делись событиями из жизни ", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."),
+                                  OnboardingPage(image: Assets.Onboarding.onb2.image, title: "Зарабатывай деньги", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."),
+                                  OnboardingPage(image: Assets.Onboarding.onb3.image, title: "Беседуй с друзьями", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.")]
     
     init(_ view: OnboardingPresenterOutput) {
         self.view = view

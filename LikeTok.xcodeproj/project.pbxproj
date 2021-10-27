@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		098AFF776E356795A9010F51 /* OnboardingPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041674C2564D97B9E2A6F20B /* OnboardingPresenterOutput.swift */; };
 		0D0450D36C619482ED7CBC50 /* SignUpAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C01C69EA5CC3C4B348427E /* SignUpAssembler.swift */; };
+		0D3C3CDCF2FFF09774522F62 /* TabBarPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C12E3FD4391A73C1FAF11AA /* TabBarPresenterOutput.swift */; };
 		0F27EC19D3FF004B8A540DAC /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */; };
 		15414A2E27233781007AA93D /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15414A2D27233781007AA93D /* InsetTextField.swift */; };
 		1558C5D9271F91C40051436E /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C5D7271F91C40051436E /* OnboardingCollectionViewCell.swift */; };
@@ -30,6 +31,12 @@
 		1558C60B2721D80A0051436E /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C6092721D80A0051436E /* XCAssets+Generated.swift */; };
 		1558C60F2721F9F60051436E /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C60E2721F9F50051436E /* UIButton+Ext.swift */; };
 		158C8CEA2726FE26001614D0 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CE92726FE26001614D0 /* KeyboardObserver.swift */; };
+		158C8CED27289FCD001614D0 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CEC27289FCD001614D0 /* CustomTabBarView.swift */; };
+		158C8CF02728A030001614D0 /* CustomTabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CEF2728A030001614D0 /* CustomTabBarItemView.swift */; };
+		158C8CF22728A0CA001614D0 /* CustomTabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CF12728A0CA001614D0 /* CustomTabBarDelegate.swift */; };
+		158C8CF52728A69F001614D0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CF32728A69F001614D0 /* TabBarViewController.swift */; };
+		158C8CF62728A69F001614D0 /* TabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158C8CF42728A69F001614D0 /* TabBarViewController.xib */; };
+		158C8CF92728B577001614D0 /* TabBarControllerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CF82728B576001614D0 /* TabBarControllerItem.swift */; };
 		17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097382271D7B4200134ED7 /* AppDelegate.swift */; };
 		17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097384271D7B4200134ED7 /* SceneDelegate.swift */; };
 		17097387271D7B4200134ED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097386271D7B4200134ED7 /* ViewController.swift */; };
@@ -50,7 +57,9 @@
 		18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE8EDA9EAD07A247DB4F98D0 /* SignUpViewController.xib */; };
 		24276C267034F8D4D276B900 /* ResetPasswordNewPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343B60FC3FBA2837D30D2094 /* ResetPasswordNewPasswordViewController.xib */; };
 		2EDDD73BBF6E223384272200 /* StartSplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E79256EF973072B0A9CABD /* StartSplashScreenPresenter.swift */; };
+		3F621FFB4EB596CBCE57EF95 /* TabBarPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3BF6431F206F357A261044 /* TabBarPresenterInput.swift */; };
 		3FC4BE4728AC28828A3658ED /* ResetPasswordEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7D0DF5E63F8CA247190EA /* ResetPasswordEmailViewController.swift */; };
+		41FFDA2CF52CDE3E107B3644 /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB2D1D69DA2C6936C30CD14 /* TabBarPresenter.swift */; };
 		51308A5B5FAA524BAF47676A /* ResetPasswordEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D416F2994198E6029261AF5 /* ResetPasswordEmailPresenter.swift */; };
 		53B0ABC6AFD0C97685059F24 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */; };
 		55ECB4EC9BF8CFFECA4FC804 /* ResetPasswordNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B0FD279667E21658BA4985 /* ResetPasswordNewPasswordViewController.swift */; };
@@ -72,6 +81,7 @@
 		C171F81CD9D2034DB44A4B20 /* OnboardingAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1083B8D05564BED0CAB3EB66 /* OnboardingAssembler.swift */; };
 		C200B260DF37B93761CD25EA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F873800BB8201A173933EA2 /* OnboardingViewController.swift */; };
 		C80CE8A5E39AF8CB4E83A1A0 /* ResetPasswordEmailAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47CA8839063D1226CD399F /* ResetPasswordEmailAssembler.swift */; };
+		C845FEEAD3231CDC22C30D91 /* TabBarAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB71EAFEEF67C2DF495BD2A /* TabBarAssembler.swift */; };
 		CF70D3E4E3B7FD5BFE6A9F6F /* ResetPasswordEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC4CDE74F6B40A800C97BB80 /* ResetPasswordEmailViewController.xib */; };
 		D681C28A5D6C3CAE25ECCFAF /* SignUpPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1408B8CE54322DAEF7CA052D /* SignUpPresenterOutput.swift */; };
 		F8ECE119F95ADC193B0B527D /* StartSplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7C99FA8AC97F1766DEB84B /* StartSplashScreenViewController.xib */; };
@@ -105,6 +115,12 @@
 		1558C6092721D80A0051436E /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		1558C60E2721F9F50051436E /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		158C8CE92726FE26001614D0 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
+		158C8CEC27289FCD001614D0 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		158C8CEF2728A030001614D0 /* CustomTabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarItemView.swift; sourceTree = "<group>"; };
+		158C8CF12728A0CA001614D0 /* CustomTabBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarDelegate.swift; sourceTree = "<group>"; };
+		158C8CF32728A69F001614D0 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		158C8CF42728A69F001614D0 /* TabBarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarViewController.xib; sourceTree = "<group>"; };
+		158C8CF82728B576001614D0 /* TabBarControllerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerItem.swift; sourceTree = "<group>"; };
 		1709737F271D7B4200134ED7 /* LikeTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17097382271D7B4200134ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17097384271D7B4200134ED7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +147,8 @@
 		3BCA0530364F4E12FC7465D1 /* SignUpViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4A47CA8839063D1226CD399F /* ResetPasswordEmailAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailAssembler.swift; sourceTree = "<group>"; };
 		53E79256EF973072B0A9CABD /* StartSplashScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenter.swift; sourceTree = "<group>"; };
+		5C12E3FD4391A73C1FAF11AA /* TabBarPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarPresenterOutput.swift; sourceTree = "<group>"; };
+		5C3BF6431F206F357A261044 /* TabBarPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarPresenterInput.swift; sourceTree = "<group>"; };
 		5E7C99FA8AC97F1766DEB84B /* StartSplashScreenViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = StartSplashScreenViewController.xib; sourceTree = "<group>"; };
 		6F873800BB8201A173933EA2 /* OnboardingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		722C2C0CA8F993F8A6EF565A /* ResetPasswordNewPasswordPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordPresenterInput.swift; sourceTree = "<group>"; };
@@ -139,6 +157,7 @@
 		7D416F2994198E6029261AF5 /* ResetPasswordEmailPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailPresenter.swift; sourceTree = "<group>"; };
 		8651B45B181B0B85AA0CAF90 /* SignUpPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpPresenterInput.swift; sourceTree = "<group>"; };
 		96AA86950EA7001FD001B459 /* ResetPasswordNewPasswordPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordPresenter.swift; sourceTree = "<group>"; };
+		9EB71EAFEEF67C2DF495BD2A /* TabBarAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarAssembler.swift; sourceTree = "<group>"; };
 		B97D9B79B2A3AEC421721266 /* StartSplashScreenPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenterOutput.swift; sourceTree = "<group>"; };
 		B9D7D0DF5E63F8CA247190EA /* ResetPasswordEmailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailViewController.swift; sourceTree = "<group>"; };
 		B9E93828B256A556479F5F37 /* Pods-LikeTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.debug.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +169,7 @@
 		DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterInput.swift; sourceTree = "<group>"; };
 		DCFC12D44BA3282442DFA91E /* ResetPasswordNewPasswordPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordPresenterOutput.swift; sourceTree = "<group>"; };
 		E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		EEB2D1D69DA2C6936C30CD14 /* TabBarPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		F979E01E7B50A15EC31F8E75 /* Pods_LikeTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9871D1368F1CAF476B65F8A /* Pods-LikeTok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.release.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.release.xcconfig"; sourceTree = "<group>"; };
 		FE8EDA9EAD07A247DB4F98D0 /* SignUpViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
@@ -191,15 +211,6 @@
 				E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		15414A2C2723376B007AA93D /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-				15414A2D27233781007AA93D /* InsetTextField.swift */,
-				158C8CE92726FE26001614D0 /* KeyboardObserver.swift */,
-			);
-			path = Custom;
 			sourceTree = "<group>";
 		};
 		1558C5DB271F91C90051436E /* Cell */ = {
@@ -246,6 +257,34 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		158C8CEB27289E88001614D0 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				15414A2D27233781007AA93D /* InsetTextField.swift */,
+				158C8CE92726FE26001614D0 /* KeyboardObserver.swift */,
+				158C8CEE2728A012001614D0 /* CustomTabBar */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		158C8CEE2728A012001614D0 /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				158C8CEC27289FCD001614D0 /* CustomTabBarView.swift */,
+				158C8CEF2728A030001614D0 /* CustomTabBarItemView.swift */,
+				158C8CF12728A0CA001614D0 /* CustomTabBarDelegate.swift */,
+			);
+			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		158C8CF72728B562001614D0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				158C8CF82728B576001614D0 /* TabBarControllerItem.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		17097376271D7B4200134ED7 = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +307,8 @@
 		17097381271D7B4200134ED7 /* LikeTok */ = {
 			isa = PBXGroup;
 			children = (
+				1558C60D2721F9880051436E /* Extensions */,
+				158C8CEB27289E88001614D0 /* UI */,
 				17C66E0F272305030032F5F3 /* Services */,
 				17C66E0A272302C60032F5F3 /* NetworkLayer */,
 				170973AD271D949500134ED7 /* Resources */,
@@ -289,6 +330,7 @@
 				D83BCA7B772E72F15776F726 /* SignUp */,
 				CD143EBA4B9EFD863FFB64A3 /* ResetPasswordEmail */,
 				8C24F992BFC8E47A88054938 /* ResetPasswordNewPassword */,
+				C77F109B151953362397489A /* TabBar */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -296,8 +338,7 @@
 		17097397271D913E00134ED7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				15414A2C2723376B007AA93D /* Custom */,
-				1558C60D2721F9880051436E /* Extensions */,
+				158C8CF72728B562001614D0 /* Protocols */,
 				17097382271D7B4200134ED7 /* AppDelegate.swift */,
 				17097384271D7B4200134ED7 /* SceneDelegate.swift */,
 				17097386271D7B4200134ED7 /* ViewController.swift */,
@@ -364,6 +405,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		24F80E97754305703FFF228D /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				9EB71EAFEEF67C2DF495BD2A /* TabBarAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
 		345B2D5EE36847617245A3AC /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +428,16 @@
 				DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */,
 				041674C2564D97B9E2A6F20B /* OnboardingPresenterOutput.swift */,
 				257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		470128D022A407A8C28B07CD /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5C3BF6431F206F357A261044 /* TabBarPresenterInput.swift */,
+				5C12E3FD4391A73C1FAF11AA /* TabBarPresenterOutput.swift */,
+				EEB2D1D69DA2C6936C30CD14 /* TabBarPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -469,6 +528,15 @@
 			path = ResetPasswordNewPassword;
 			sourceTree = "<group>";
 		};
+		90DC8125D951C9A5E346002A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				158C8CF32728A69F001614D0 /* TabBarViewController.swift */,
+				158C8CF42728A69F001614D0 /* TabBarViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		932599743D9E449CB002F607 /* Assembler */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +569,16 @@
 				1083B8D05564BED0CAB3EB66 /* OnboardingAssembler.swift */,
 			);
 			path = Assembler;
+			sourceTree = "<group>";
+		};
+		C77F109B151953362397489A /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				90DC8125D951C9A5E346002A /* View */,
+				470128D022A407A8C28B07CD /* Presenter */,
+				24F80E97754305703FFF228D /* Assembler */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		C8C568DA380705F2EF755106 /* Presenter */ = {
@@ -599,6 +677,7 @@
 				1558C5EA27216B1E0051436E /* Roboto-Medium.ttf in Resources */,
 				1558C5EC27216B1E0051436E /* Roboto-Italic.ttf in Resources */,
 				1558C5EB27216B1E0051436E /* Roboto-LightItalic.ttf in Resources */,
+				158C8CF62728A69F001614D0 /* TabBarViewController.xib in Resources */,
 				1709738F271D7B4400134ED7 /* LaunchScreen.storyboard in Resources */,
 				170973AF271D967A00134ED7 /* swiftgen.yml in Resources */,
 				1558C5F127216B1E0051436E /* Roboto-Bold.ttf in Resources */,
@@ -690,14 +769,17 @@
 				1558C6002721B0B70051436E /* Strings+Generated.swift in Sources */,
 				17097387271D7B4200134ED7 /* ViewController.swift in Sources */,
 				158C8CEA2726FE26001614D0 /* KeyboardObserver.swift in Sources */,
+				158C8CF92728B577001614D0 /* TabBarControllerItem.swift in Sources */,
 				17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */,
 				15414A2E27233781007AA93D /* InsetTextField.swift in Sources */,
 				1558C5D9271F91C40051436E /* OnboardingCollectionViewCell.swift in Sources */,
 				17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */,
+				158C8CF22728A0CA001614D0 /* CustomTabBarDelegate.swift in Sources */,
 				170973A6271D915600134ED7 /* BaseXibView.swift in Sources */,
 				170973A4271D915600134ED7 /* BaseViewControllerInput.swift in Sources */,
 				170973A7271D915600134ED7 /* BaseNavigationController.swift in Sources */,
 				1558C60F2721F9F60051436E /* UIButton+Ext.swift in Sources */,
+				158C8CED27289FCD001614D0 /* CustomTabBarView.swift in Sources */,
 				170973A8271D915600134ED7 /* BasePresenting.swift in Sources */,
 				170973A2271D915600134ED7 /* BaseViewController.swift in Sources */,
 				170973AA271D91F300134ED7 /* LoaderViewController.swift in Sources */,
@@ -716,10 +798,12 @@
 				8CCF3EAF44ED239B8DC135E2 /* StartSplashScreenPresenterOutput.swift in Sources */,
 				2EDDD73BBF6E223384272200 /* StartSplashScreenPresenter.swift in Sources */,
 				ABE6EA2FE68D11FC321FD228 /* StartSplashScreenAssembler.swift in Sources */,
+				158C8CF02728A030001614D0 /* CustomTabBarItemView.swift in Sources */,
 				9908C11211654A50BF6ECD9A /* SignUpViewController.swift in Sources */,
 				6D089E666AFBBEAA7EC50D30 /* SignUpPresenterInput.swift in Sources */,
 				D681C28A5D6C3CAE25ECCFAF /* SignUpPresenterOutput.swift in Sources */,
 				7CD457E3F84E96672ECFF689 /* SignUpPresenter.swift in Sources */,
+				158C8CF52728A69F001614D0 /* TabBarViewController.swift in Sources */,
 				0D0450D36C619482ED7CBC50 /* SignUpAssembler.swift in Sources */,
 				3FC4BE4728AC28828A3658ED /* ResetPasswordEmailViewController.swift in Sources */,
 				766F7AD3BAC630F2C8674261 /* ResetPasswordEmailPresenterInput.swift in Sources */,
@@ -731,6 +815,10 @@
 				AF052CFB648D99B02ED4C34F /* ResetPasswordNewPasswordPresenterOutput.swift in Sources */,
 				A61CB9393EEE6EA81E760A5E /* ResetPasswordNewPasswordPresenter.swift in Sources */,
 				80A44D7850A9816EBFA54395 /* ResetPasswordNewPasswordAssembler.swift in Sources */,
+				3F621FFB4EB596CBCE57EF95 /* TabBarPresenterInput.swift in Sources */,
+				0D3C3CDCF2FFF09774522F62 /* TabBarPresenterOutput.swift in Sources */,
+				41FFDA2CF52CDE3E107B3644 /* TabBarPresenter.swift in Sources */,
+				C845FEEAD3231CDC22C30D91 /* TabBarAssembler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
