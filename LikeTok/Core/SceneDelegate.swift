@@ -10,14 +10,25 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    
+    private var applicationCoordinator: Coordinator?
+    
+    private var deepLinkService = DeepLinkService.shared
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = ResetPasswordNewPasswordAssembler.createModule()
-        self.window = window
-        window.makeKeyAndVisible()
+
+        initializeRootView(windowScene: windowScene)
+        applicationCoordinator = makeCoordinator(window: window)
+        deepLinkService.coordinator = applicationCoordinator
+        applicationCoordinator?.start()
+        
+//        guard let windowScene = (scene as? UIWindowScene) else { return }
+//        let window = UIWindow(windowScene: windowScene)
+//        window.rootViewController = SignInAssembler.createModule()
+//        self.window = window
+//        window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -51,3 +62,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+private extension SceneDelegate {
+    
+    func initializeRootView(windowScene: UIWindowScene) {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.windowScene = windowScene
+        window?.overrideUserInterfaceStyle = .light
+        window?.rootViewController = UIViewController()
+        window?.makeKeyAndVisible()
+    }
+    
+    func makeCoordinator(window: UIWindow?) -> Coordinator {
+        let coordinatorFactory = CoordinatorFactory()
+        let router = MainRouter(window: window)
+        return ApplicationCoordinator(coordinatorFactory: coordinatorFactory, router: router)
+    }
+}

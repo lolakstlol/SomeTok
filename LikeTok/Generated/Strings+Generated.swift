@@ -11,6 +11,15 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum Strings {
 
+  public enum AuthCode {
+    /// Получить новый код
+    public static let getNewCode = Strings.tr("Localizable", "AuthCode.getNewCode")
+    /// Подтверждение
+    public static let navigationTitle = Strings.tr("Localizable", "AuthCode.navigationTitle")
+    /// Мы отправили код на e-mail, введите его в поле ниже
+    public static let title = Strings.tr("Localizable", "AuthCode.title")
+  }
+
   public enum Onboarding {
     /// Next
     public static let next = Strings.tr("Localizable", "Onboarding.Next")
@@ -38,6 +47,36 @@ public enum Strings {
       public static let text = Strings.tr("Localizable", "ResetPassword.NewPassword.text")
       /// Восстановление пароля
       public static let title = Strings.tr("Localizable", "ResetPassword.NewPassword.title")
+    }
+  }
+
+  public enum SignIn {
+    /// Создать аккаунт
+    public static let createAccount = Strings.tr("Localizable", "SignIn.createAccount")
+    /// Забыли пароль?
+    public static let resetPassword = Strings.tr("Localizable", "SignIn.resetPassword")
+    /// Авторизация
+    public static let title = Strings.tr("Localizable", "SignIn.title")
+  }
+
+  public enum SignUP {
+    /// Продолжить
+    public static let continueButton = Strings.tr("Localizable", "SignUP.continueButton")
+    /// Уже зарегистрированы?
+    public static let loginButton = Strings.tr("Localizable", "SignUP.loginButton")
+    /// Согласен с Политикой обработки персональных данных
+    public static let privacy = Strings.tr("Localizable", "SignUP.privacy")
+    /// Политикой обработки персональных данных
+    public static let privacyDetected = Strings.tr("Localizable", "SignUP.privacyDetected")
+    /// Регистрация
+    public static let title = Strings.tr("Localizable", "SignUP.title")
+    public enum PlaceHolder {
+      /// Логин
+      public static let login = Strings.tr("Localizable", "SignUP.placeHolder.login")
+      /// E-mail
+      public static let mail = Strings.tr("Localizable", "SignUP.placeHolder.mail")
+      /// Пароль
+      public static let password = Strings.tr("Localizable", "SignUP.placeHolder.password")
     }
   }
 
