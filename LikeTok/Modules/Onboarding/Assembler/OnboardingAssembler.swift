@@ -9,8 +9,7 @@
 import Foundation
 
 enum OnboardingAssembler {
-    
-    static func createModule(onCompleteOnboarding: @escaping (() -> ())) -> OnboardingViewController {
+    static func createModule(onCompleteOnboarding: @escaping (() -> Void)) -> OnboardingViewController {
         let viewController = OnboardingViewController()
         let presenter = OnboardingPresenter(viewController)
         presenter.onCompleteOnboarding = onCompleteOnboarding

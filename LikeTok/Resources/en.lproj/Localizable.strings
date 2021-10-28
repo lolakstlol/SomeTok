@@ -16,4 +16,19 @@
 "ResetPassword.NewPassword.confrimThePassword" = "Enter the password again";
 "ResetPassword.NewPassword.resume" = "Resume";
 
+"SignUP.placeHolder.mail" = "E-mail";
+"SignUP.placeHolder.login" = "Логин";
+"SignUP.placeHolder.password" = "Пароль";
+"SignUP.title" = "Регистрация";
+"SignUP.privacy" = "Согласен с Политикой обработки персональных данных";
+"SignUP.privacyDetected" = "Политикой обработки персональных данных";
+"SignUP.continueButton" = "Продолжить";
+"SignUP.loginButton" = "Уже зарегистрированы?";
 
+"AuthCode.title" = "Мы отправили код на e-mail, введите его в поле ниже";
+"AuthCode.getNewCode" = "Получить новый код";
+"AuthCode.navigationTitle" = "Подтверждение";
+
+"SignIn.title" = "Авторизация";
+"SignIn.createAccount" = "Создать аккаунт";
+"SignIn.resetPassword" = "Забыли пароль?";
