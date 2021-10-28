@@ -10,7 +10,9 @@ import Foundation
 
 final class SignInPresenter {
     private unowned let view: SignInPresenterOutput
-
+    let apiWorker = AuthApiWorker()
+    var finishFlow: EmptyClosure? = nil
+    
     init(_ view: SignInPresenterOutput) {
         self.view = view
     }
@@ -22,5 +24,23 @@ final class SignInPresenter {
 }
 
 extension SignInPresenter: SignInPresenterInput {
+    func loginDidTap(email: String, pass: String) {
+        apiWorker.signIn(username: email, password: pass) { result in
+            switch result {
+            case .success(let response):
+                if let token = response?.data.token,
+                   let userId = response?.data.uuid {
+                    AccountManager.saveUserId(userId: userId)
+                    AccountManager.saveAccount(token: token)
+                    self.finishFlow?()
+                } else {
+                    // something went wrong
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
 
 }

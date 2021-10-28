@@ -11,9 +11,14 @@ import Foundation
 final class AuthCodePresenter {
     private unowned let view: AuthCodePresenterOutput
     private var timer: BaseTimerInput?
+    private let apiWorker = AuthApiWorker()
+    private let signUpModel: SignUpUserModel
+    var finishFlow: EmptyClosure? = nil
 
-    init(_ view: AuthCodePresenterOutput) {
+    init(_ view: AuthCodePresenterOutput,
+         signUpModel: SignUpUserModel) {
         self.view = view
+        self.signUpModel = signUpModel
         timer = BaseTimer(output: self)
     }
 
@@ -51,11 +56,42 @@ extension AuthCodePresenter: BaseTimerOutput {
 
 extension AuthCodePresenter: AuthCodePresenterInput {
     func codeReceived(code: String) {
-        // HANDLE CODE
+        apiWorker.confirmMail(code: code, mail: signUpModel.email) { result in
+            switch result {
+            case .success(let response):
+                if response?.result.status == true {
+                    self.apiWorker.signIn(username: self.signUpModel.name, password: self.signUpModel.pass) { result in
+                        switch result {
+                        case .success(let response):
+                            if let token = response?.data.token,
+                               let userId = response?.data.uuid {
+                                AccountManager.saveUserId(userId: userId)
+                                AccountManager.saveAccount(token: token)
+                                // open more data VC
+                            } else {
+                                // something went wrong
+                            }
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+                }
+            case .failure(let error):
+                print("error code")
+            }
+        }
     }
     
     func getNewCode() {
-        timer?.startTimer(counter: 60)
-        // SEND NEW CODE
+        apiWorker.repeatCode(mail: signUpModel.email) { result in
+            switch result {
+            case .success(let response):
+                if response?.result.status == true {
+                    self.timer?.startTimer(counter: 60)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

@@ -9,9 +9,10 @@
 import Foundation
 
 enum AuthCodeAssembler {
-    static func createModule() -> AuthCodeViewController {
+    static func createModule(model: SignUpUserModel, completion: @escaping EmptyClosure) -> AuthCodeViewController {
         let viewController = AuthCodeViewController()
-        let presenter = AuthCodePresenter(viewController)
+        let presenter = AuthCodePresenter(viewController, signUpModel: model)
+        presenter.finishFlow = completion
         viewController.presenter = presenter
         return viewController
     }

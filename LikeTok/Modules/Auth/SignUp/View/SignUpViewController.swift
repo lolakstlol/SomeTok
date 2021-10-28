@@ -26,13 +26,42 @@ final class SignUpViewController: BaseViewController {
         presenter.viewDidLoad()
     }
 
+    @IBAction func signUpDidTap(_ sender: Any) {
+        if let name = loginTextField.text,
+           let mail = emailTextField.text,
+           let password = passwordTextField.text {
+            presenter.signUP(email: mail, name: name, pass: password)
+        } else {
+            // HANDLE
+        }
+    }
+    
     @IBAction func securityButtonDidTap(_ sender: UIButton) {
         passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
         sender.setImage( passwordTextField.isSecureTextEntry ? UIImage(named: "password") : UIImage(named: "password") , for: .normal)
     }
+    
+    @IBAction func loginDidTap(_ sender: Any) {
+        presenter.loginDidTap()
+    }
+    
 }
 
 extension SignUpViewController: SignUpPresenterOutput {
+    func showCodeConfirm(model: SignUpUserModel, completion: @escaping EmptyClosure) {
+        let vc = AuthCodeAssembler.createModule(model: model) {
+            completion()
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func signIn(completion: @escaping EmptyClosure) {
+        let vc = SignInAssembler.createModule {
+            completion()
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func setupView() {
         privacySwitch.isOn = false
         emailTextField.placeholder = Strings.SignUP.PlaceHolder.mail

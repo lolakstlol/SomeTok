@@ -9,5 +9,6 @@
 import Foundation
 
 protocol SignUpPresenterInput: BasePresenting {
-
+    func signUP(email: String, name: String, pass: String)
+    func loginDidTap()
 }

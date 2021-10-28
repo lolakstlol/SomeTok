@@ -10,4 +10,6 @@ import Foundation
 
 protocol SignUpPresenterOutput: AnyObject {
     func setupView()
+    func showCodeConfirm(model: SignUpUserModel ,completion: @escaping EmptyClosure)
+    func signIn(completion: @escaping EmptyClosure)
 }

@@ -9,10 +9,11 @@
 import Foundation
 
 enum SignInAssembler {
-    static func createModule() -> SignInViewController {
+    static func createModule(onCompleteAuth: @escaping (() -> Void)) -> SignInViewController {
         let viewController = SignInViewController()
         let presenter = SignInPresenter(viewController)
         viewController.presenter = presenter
+        presenter.finishFlow = onCompleteAuth
         return viewController
     }
 }
