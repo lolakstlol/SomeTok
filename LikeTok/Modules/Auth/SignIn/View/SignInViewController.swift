@@ -21,6 +21,12 @@ final class SignInViewController: BaseViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
     
     @IBAction func securyButtonDidTap(_ sender: Any) {
@@ -28,7 +34,12 @@ final class SignInViewController: BaseViewController {
     }
     
     @IBAction func loginDidTap(_ sender: Any) {
-        
+        if let mail = loginTextField.text,
+           let pass = passwordTextField.text {
+        presenter.loginDidTap(email: mail, pass: pass)
+        } else {
+           // handle
+        }
     }
     
     @IBAction func createAccountDidTap(_ sender: Any) {

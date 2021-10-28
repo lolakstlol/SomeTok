@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class AuthCoordinator: BaseCoordinator {
     
@@ -34,7 +34,8 @@ extension AuthCoordinator {
             let vc = SignUpAssembler.createModule {
                 self?.finishFlow?()
             }
-            self?.router.setRootModule(vc, windowBackgroundColor: .white)
+            let nav = UINavigationController(rootViewController: vc)
+            self?.router.setRootModule(nav, windowBackgroundColor: .white)
         }
         router.setRootModule(vc, windowBackgroundColor: .white)
     }

@@ -67,10 +67,15 @@
 		17C66E0C2723034E0032F5F3 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C66E0B2723034E0032F5F3 /* Method.swift */; };
 		17C66E0E2723043F0032F5F3 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C66E0D2723043F0032F5F3 /* Api.swift */; };
 		17C66E11272305130032F5F3 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C66E10272305130032F5F3 /* AccountManager.swift */; };
+		17E71F93272ADE0D001B2CF0 /* AuthApiWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E71F92272ADE0D001B2CF0 /* AuthApiWorker.swift */; };
+		17E71F96272ADEF6001B2CF0 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E71F95272ADEF6001B2CF0 /* SignUpResponse.swift */; };
+		17E71F98272AF5A6001B2CF0 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E71F97272AF5A6001B2CF0 /* SignInResponse.swift */; };
 		18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE8EDA9EAD07A247DB4F98D0 /* SignUpViewController.xib */; };
 		20BBB01AB7F016534D91547E /* AuthCodePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B34057DF19D8B1537D177A /* AuthCodePresenterInput.swift */; };
 		24276C267034F8D4D276B900 /* ResetPasswordNewPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343B60FC3FBA2837D30D2094 /* ResetPasswordNewPasswordViewController.xib */; };
 		2EDDD73BBF6E223384272200 /* StartSplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E79256EF973072B0A9CABD /* StartSplashScreenPresenter.swift */; };
+		35F61DE4A10A3926683EED8E /* DeletePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45292FFFAD36DD0AECCF8AF7 /* DeletePresenterInput.swift */; };
+		376DBBA31FE17358ADEE667F /* DeletePresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A507F84B20878979C592217 /* DeletePresenterOutput.swift */; };
 		3F80D80C7E764C2F521C1CB6 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17DDBE297FA3B0B6430F8FB0 /* SignInViewController.xib */; };
 		3FC4BE4728AC28828A3658ED /* ResetPasswordEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D7D0DF5E63F8CA247190EA /* ResetPasswordEmailViewController.swift */; };
 		51308A5B5FAA524BAF47676A /* ResetPasswordEmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D416F2994198E6029261AF5 /* ResetPasswordEmailPresenter.swift */; };
@@ -82,6 +87,7 @@
 		766F7AD3BAC630F2C8674261 /* ResetPasswordEmailPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3059A40E4CA1336D6D06E1 /* ResetPasswordEmailPresenterInput.swift */; };
 		7CD457E3F84E96672ECFF689 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96BF1DFD3FE31BB2FD4143 /* SignUpPresenter.swift */; };
 		7EC8DB21FDD698ECEF3B5FB1 /* ResetPasswordNewPasswordPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C2C0CA8F993F8A6EF565A /* ResetPasswordNewPasswordPresenterInput.swift */; };
+		7FC1B168B5DFD50CED782EAB /* DeletePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB32244917F2195C932EF85 /* DeletePresenter.swift */; };
 		80A44D7850A9816EBFA54395 /* ResetPasswordNewPasswordAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E4D7E36E008F0FF8453916 /* ResetPasswordNewPasswordAssembler.swift */; };
 		8110DFA7ABCF252DE443A41D /* AuthCodeAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2909B36877A81EC0333E17 /* AuthCodeAssembler.swift */; };
 		8CCF3EAF44ED239B8DC135E2 /* StartSplashScreenPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97D9B79B2A3AEC421721266 /* StartSplashScreenPresenterOutput.swift */; };
@@ -97,6 +103,7 @@
 		C171F81CD9D2034DB44A4B20 /* OnboardingAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1083B8D05564BED0CAB3EB66 /* OnboardingAssembler.swift */; };
 		C200B260DF37B93761CD25EA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F873800BB8201A173933EA2 /* OnboardingViewController.swift */; };
 		C80CE8A5E39AF8CB4E83A1A0 /* ResetPasswordEmailAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47CA8839063D1226CD399F /* ResetPasswordEmailAssembler.swift */; };
+		CA7080CE9BB5F69724ED4097 /* DeleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AAE2AC114AA365277A68E02 /* DeleteViewController.xib */; };
 		CDB3F0037C4A4F7CB25A9A44 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6406FE345ADD6A017B90CAFA /* SignInViewController.swift */; };
 		CF70D3E4E3B7FD5BFE6A9F6F /* ResetPasswordEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC4CDE74F6B40A800C97BB80 /* ResetPasswordEmailViewController.xib */; };
 		D034D4725C27C51BE38A6FA4 /* SignInPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D7AF7819A81E35498386C3 /* SignInPresenterInput.swift */; };
@@ -106,6 +113,8 @@
 		EC5A914BF337C4762CE5240C /* SignInAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45DAE7D2D83CC3EEE0F0494 /* SignInAssembler.swift */; };
 		F8ECE119F95ADC193B0B527D /* StartSplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E7C99FA8AC97F1766DEB84B /* StartSplashScreenViewController.xib */; };
 		F9410D481A551E8331C2DC76 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CDD1DB815F4CB0E0E9A7C3 /* SignInPresenter.swift */; };
+		FA11C1534543F680AAF1A468 /* DeleteAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA7722F4E301D28167B4EEF /* DeleteAssembler.swift */; };
+		FB634C9CCBB6588CC922B0AD /* DeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED464DE746B91118B2DC1B2 /* DeleteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,12 +184,19 @@
 		17C66E0D2723043F0032F5F3 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		17C66E10272305130032F5F3 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		17DDBE297FA3B0B6430F8FB0 /* SignInViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		17E71F92272ADE0D001B2CF0 /* AuthApiWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApiWorker.swift; sourceTree = "<group>"; };
+		17E71F95272ADEF6001B2CF0 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
+		17E71F97272AF5A6001B2CF0 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
 		187BBBD7EF12A4608D9A1861 /* AuthCodeViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = AuthCodeViewController.xib; sourceTree = "<group>"; };
 		1A4BF2D128DA48B16FAFA3AA /* ResetPasswordEmailPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailPresenterOutput.swift; sourceTree = "<group>"; };
+		1AAE2AC114AA365277A68E02 /* DeleteViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DeleteViewController.xib; sourceTree = "<group>"; };
 		20B0FD279667E21658BA4985 /* ResetPasswordNewPasswordViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordViewController.swift; sourceTree = "<group>"; };
 		257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		2A507F84B20878979C592217 /* DeletePresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeletePresenterOutput.swift; sourceTree = "<group>"; };
+		2BA7722F4E301D28167B4EEF /* DeleteAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeleteAssembler.swift; sourceTree = "<group>"; };
 		343B60FC3FBA2837D30D2094 /* ResetPasswordNewPasswordViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = ResetPasswordNewPasswordViewController.xib; sourceTree = "<group>"; };
 		3BCA0530364F4E12FC7465D1 /* SignUpViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		45292FFFAD36DD0AECCF8AF7 /* DeletePresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeletePresenterInput.swift; sourceTree = "<group>"; };
 		4A47CA8839063D1226CD399F /* ResetPasswordEmailAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordEmailAssembler.swift; sourceTree = "<group>"; };
 		53E79256EF973072B0A9CABD /* StartSplashScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenter.swift; sourceTree = "<group>"; };
 		5E7C99FA8AC97F1766DEB84B /* StartSplashScreenViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = StartSplashScreenViewController.xib; sourceTree = "<group>"; };
@@ -203,6 +219,7 @@
 		C3B2CA03C6E46D5F372773B8 /* SignInPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInPresenterOutput.swift; sourceTree = "<group>"; };
 		C9B34057DF19D8B1537D177A /* AuthCodePresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthCodePresenterInput.swift; sourceTree = "<group>"; };
 		CDCE6AECD766D26F4DA2E42B /* StartSplashScreenAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenAssembler.swift; sourceTree = "<group>"; };
+		CEB32244917F2195C932EF85 /* DeletePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeletePresenter.swift; sourceTree = "<group>"; };
 		D202AEF967C6F4971420B1AD /* AuthCodePresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthCodePresenterOutput.swift; sourceTree = "<group>"; };
 		D2E4D7E36E008F0FF8453916 /* ResetPasswordNewPasswordAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordAssembler.swift; sourceTree = "<group>"; };
 		D3D7AF7819A81E35498386C3 /* SignInPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInPresenterInput.swift; sourceTree = "<group>"; };
@@ -210,6 +227,7 @@
 		DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterInput.swift; sourceTree = "<group>"; };
 		DCFC12D44BA3282442DFA91E /* ResetPasswordNewPasswordPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetPasswordNewPasswordPresenterOutput.swift; sourceTree = "<group>"; };
 		E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		EED464DE746B91118B2DC1B2 /* DeleteViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeleteViewController.swift; sourceTree = "<group>"; };
 		F45DAE7D2D83CC3EEE0F0494 /* SignInAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInAssembler.swift; sourceTree = "<group>"; };
 		F979E01E7B50A15EC31F8E75 /* Pods_LikeTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9871D1368F1CAF476B65F8A /* Pods-LikeTok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.release.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.release.xcconfig"; sourceTree = "<group>"; };
@@ -350,6 +368,7 @@
 			children = (
 				17AA6C1F2729D56700CE276E /* Auth */,
 				59EDDE1320CEBC28974F186E /* Onboarding */,
+				6FB6F9524B941BD0E3429FDC /* Delete */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -444,6 +463,7 @@
 		17AA6C1F2729D56700CE276E /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				17E71F91272AC782001B2CF0 /* AuthApiWorker */,
 				80EB453C103AC20A7EE05581 /* SignIn */,
 				7F23483C02604C23A0D1268C /* StartSplashScreen */,
 				D83BCA7B772E72F15776F726 /* SignUp */,
@@ -474,6 +494,24 @@
 				17C66E10272305130032F5F3 /* AccountManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		17E71F91272AC782001B2CF0 /* AuthApiWorker */ = {
+			isa = PBXGroup;
+			children = (
+				17E71F94272ADEE7001B2CF0 /* Models */,
+				17E71F92272ADE0D001B2CF0 /* AuthApiWorker.swift */,
+			);
+			path = AuthApiWorker;
+			sourceTree = "<group>";
+		};
+		17E71F94272ADEE7001B2CF0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				17E71F95272ADEF6001B2CF0 /* SignUpResponse.swift */,
+				17E71F97272AF5A6001B2CF0 /* SignInResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		22EBB1B6D39FC23B6E1095C8 /* View */ = {
@@ -529,6 +567,14 @@
 			path = Assembler;
 			sourceTree = "<group>";
 		};
+		58B28CA066C5F2E6DBD0623C /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				2BA7722F4E301D28167B4EEF /* DeleteAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
 		59EDDE1320CEBC28974F186E /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,6 +605,16 @@
 				343B60FC3FBA2837D30D2094 /* ResetPasswordNewPasswordViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6FB6F9524B941BD0E3429FDC /* Delete */ = {
+			isa = PBXGroup;
+			children = (
+				F2A43FADCC7DFC9D2AD4CDC5 /* View */,
+				CAC7951AF28BB212C306BFE3 /* Presenter */,
+				58B28CA066C5F2E6DBD0623C /* Assembler */,
+			);
+			path = Delete;
 			sourceTree = "<group>";
 		};
 		714882604AD2C953196A7E23 /* Pods */ = {
@@ -689,6 +745,16 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		CAC7951AF28BB212C306BFE3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				45292FFFAD36DD0AECCF8AF7 /* DeletePresenterInput.swift */,
+				2A507F84B20878979C592217 /* DeletePresenterOutput.swift */,
+				CEB32244917F2195C932EF85 /* DeletePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		CD143EBA4B9EFD863FFB64A3 /* ResetPasswordEmail */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,6 +794,15 @@
 				C2CDD1DB815F4CB0E0E9A7C3 /* SignInPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F2A43FADCC7DFC9D2AD4CDC5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EED464DE746B91118B2DC1B2 /* DeleteViewController.swift */,
+				1AAE2AC114AA365277A68E02 /* DeleteViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -817,6 +892,7 @@
 				24276C267034F8D4D276B900 /* ResetPasswordNewPasswordViewController.xib in Resources */,
 				A0BC0BEE6D373A553E47F5BB /* AuthCodeViewController.xib in Resources */,
 				3F80D80C7E764C2F521C1CB6 /* SignInViewController.xib in Resources */,
+				CA7080CE9BB5F69724ED4097 /* DeleteViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,6 +996,7 @@
 				17AA6C132729804D00CE276E /* BaseCoordinator.swift in Sources */,
 				17AA6C142729804D00CE276E /* Presentable.swift in Sources */,
 				BFFDB7611EFD9494736FB1ED /* StartSplashScreenViewController.swift in Sources */,
+				17E71F93272ADE0D001B2CF0 /* AuthApiWorker.swift in Sources */,
 				17AA6BEE2729690600CE276E /* BaseTimer.swift in Sources */,
 				8E445F9A648A75D5369C11F0 /* StartSplashScreenPresenterInput.swift in Sources */,
 				8CCF3EAF44ED239B8DC135E2 /* StartSplashScreenPresenterOutput.swift in Sources */,
@@ -936,6 +1013,7 @@
 				17AA6BED2729690600CE276E /* BaseTimerInput.swift in Sources */,
 				766F7AD3BAC630F2C8674261 /* ResetPasswordEmailPresenterInput.swift in Sources */,
 				17AA6BF327297C6000CE276E /* ApplicationCoordinator.swift in Sources */,
+				17E71F98272AF5A6001B2CF0 /* SignInResponse.swift in Sources */,
 				BB780BBE28F5CA9CC77499CB /* ResetPasswordEmailPresenterOutput.swift in Sources */,
 				51308A5B5FAA524BAF47676A /* ResetPasswordEmailPresenter.swift in Sources */,
 				C80CE8A5E39AF8CB4E83A1A0 /* ResetPasswordEmailAssembler.swift in Sources */,
@@ -953,12 +1031,18 @@
 				8110DFA7ABCF252DE443A41D /* AuthCodeAssembler.swift in Sources */,
 				CDB3F0037C4A4F7CB25A9A44 /* SignInViewController.swift in Sources */,
 				17AA6C1E27298DA200CE276E /* Closures.swift in Sources */,
+				17E71F96272ADEF6001B2CF0 /* SignUpResponse.swift in Sources */,
 				D034D4725C27C51BE38A6FA4 /* SignInPresenterInput.swift in Sources */,
 				100F1F745E97FF68AD0A5786 /* SignInPresenterOutput.swift in Sources */,
 				17AA6C18272980B100CE276E /* BundleExtentsion.swift in Sources */,
 				F9410D481A551E8331C2DC76 /* SignInPresenter.swift in Sources */,
 				17AA6BF227297C6000CE276E /* DeepLinkOption.swift in Sources */,
 				EC5A914BF337C4762CE5240C /* SignInAssembler.swift in Sources */,
+				FB634C9CCBB6588CC922B0AD /* DeleteViewController.swift in Sources */,
+				35F61DE4A10A3926683EED8E /* DeletePresenterInput.swift in Sources */,
+				376DBBA31FE17358ADEE667F /* DeletePresenterOutput.swift in Sources */,
+				7FC1B168B5DFD50CED782EAB /* DeletePresenter.swift in Sources */,
+				FA11C1534543F680AAF1A468 /* DeleteAssembler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

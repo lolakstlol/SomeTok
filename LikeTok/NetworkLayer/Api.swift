@@ -62,7 +62,11 @@ enum Api {
     
     enum auth: ApiMethod {
         case signup(email: String, name: String, pass: String),
-             login (login: String, pass: String)
+             login (login: String, pass: String),
+             confirmEmail(email: String, code: String),
+             repeatCode(email: String),
+             resetPass(email: String),
+             confirmResetPass(email:String, pass: String, code: String)
         public var request: DataRequest {
             switch self {
             case let .signup(email, name, pass):
@@ -70,13 +74,37 @@ enum Api {
                 params["email"] = email
                 params["password"] = pass
                 params["username"] = name
+                params["type"] = "user"
                 let request = Alamofire.request("\(API.server)/auth/signup", method: .post, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
                 return request.validate()
             case let .login(login, pass):
                 var params:Parameters = Parameters()
-                params["email"] = login
+                params["login_or_email"] = login
                 params["password"] = pass
                 let request = Alamofire.request("\(API.server)/auth/login", method: .post, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
+                return request.validate()
+            case .confirmEmail(email: let email, code: let code):
+                var params:Parameters = Parameters()
+                params["email"] = email
+                params["code_confirm"] = code
+                let request = Alamofire.request("\(API.server)/auth/confirm", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
+                return request.validate()
+            case .repeatCode(email: let email):
+                var params:Parameters = Parameters()
+                params["email"] = email
+                let request = Alamofire.request("\(API.server)/auth/signup/code-repeat", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
+                return request.validate()
+            case .resetPass(email: let email):
+                var params:Parameters = Parameters()
+                params["email"] = email
+                let request = Alamofire.request("\(API.server)/auth/forgot", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
+                return request.validate()
+            case .confirmResetPass(email: let email, pass: let pass, code: let code):
+                var params:Parameters = Parameters()
+                params["email"] = email
+                params["password"] = pass
+                params["code_confirm"] = code
+                let request = Alamofire.request("\(API.server)/auth/password", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
                 return request.validate()
             }
         }

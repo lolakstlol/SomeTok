@@ -47,6 +47,9 @@
                         <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                         <color key="baseForegroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="loginDidTap:" destination="-1" eventType="touchUpInside" id="b1Z-Sw-bX8"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6j-KB-0Tp">
                     <rect key="frame" x="16" y="719" width="382" height="54"/>
@@ -59,6 +62,9 @@
                         <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="signUpDidTap:" destination="-1" eventType="touchUpInside" id="666-KT-38P"/>
+                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XDH-AK-TKi">
                     <rect key="frame" x="16" y="316.5" width="382" height="263"/>
