@@ -32,7 +32,11 @@ public enum Strings {
     public static let error = Strings.tr("Localizable", "ResetPassword.Error")
     public enum Email {
       /// Check the correctness of your mail
-      public static let error = Strings.tr("Localizable", "ResetPassword.Email.error")
+      public static let badEmail = Strings.tr("Localizable", "ResetPassword.Email.badEmail")
+      /// There is no such user. Please check the correctness of the mail.
+      public static let noUserError = Strings.tr("Localizable", "ResetPassword.Email.noUserError")
+      /// Server error. Check your internet connection.
+      public static let responseError = Strings.tr("Localizable", "ResetPassword.Email.responseError")
       /// Resume
       public static let resume = Strings.tr("Localizable", "ResetPassword.Email.resume")
       /// A confirmation code will be sent to your email address
@@ -41,8 +45,8 @@ public enum Strings {
       public static let title = Strings.tr("Localizable", "ResetPassword.Email.title")
     }
     public enum NewPassword {
-      /// Enter the password again
-      public static let confrimThePassword = Strings.tr("Localizable", "ResetPassword.NewPassword.confrimThePassword")
+      /// Enter the code from the email
+      public static let code = Strings.tr("Localizable", "ResetPassword.NewPassword.code")
       /// Enter the password
       public static let enterThePassword = Strings.tr("Localizable", "ResetPassword.NewPassword.enterThePassword")
       /// Resume

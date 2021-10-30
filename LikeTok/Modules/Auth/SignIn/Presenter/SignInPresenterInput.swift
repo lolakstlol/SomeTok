@@ -10,4 +10,5 @@ import Foundation
 
 protocol SignInPresenterInput: BasePresenting {
     func loginDidTap(email: String, pass: String)
+    func onPasswordRecoveryTap()
 }

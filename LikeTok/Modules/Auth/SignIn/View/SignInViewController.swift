@@ -9,6 +9,7 @@
 import UIKit
 
 final class SignInViewController: BaseViewController {
+    
     @IBOutlet weak var loginTextField: InsetTextField!
     @IBOutlet weak var passwordTextField: InsetTextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -16,6 +17,7 @@ final class SignInViewController: BaseViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var createAccountbutton: UIButton!
     @IBOutlet weak var recoveryPassButton: UIButton!
+    
     var presenter: SignInPresenterInput!
 
 	override func viewDidLoad() {
@@ -46,12 +48,19 @@ final class SignInViewController: BaseViewController {
         
     }
     
-    @IBAction func ressetPassDidTap(_ sender: Any) {
-        
+    @IBAction func onPasswordRecoveryTap(_ sender: Any) {
+        presenter.onPasswordRecoveryTap()
     }
 }
 
 extension SignInViewController: SignInPresenterOutput {
+    func showPasswordRecovery(completion: @escaping EmptyClosure) {
+        let vc = PasswordRecoveryFirstAssembler.createModule {
+            completion()
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func setupView() {
         passwordTextField.placeholder = Strings.SignUP.PlaceHolder.password
         loginTextField.placeholder = Strings.SignUP.PlaceHolder.login

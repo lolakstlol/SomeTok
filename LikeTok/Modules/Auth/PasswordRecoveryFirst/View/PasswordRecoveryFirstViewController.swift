@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ResetPasswordEmailViewController: BaseViewController {
+final class PasswordRecoveryFirstViewController: BaseViewController {
     
      @IBOutlet private weak var titleLabel: UILabel!
      @IBOutlet private weak var textLabel: UILabel!
@@ -19,7 +19,7 @@ final class ResetPasswordEmailViewController: BaseViewController {
      private let keyboardObserver = KeyboardObserver()
      private lazy var tapWhenKeyboardAppears = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
      
-     var presenter: ResetPasswordEmailPresenterInput!
+     var presenter: PasswordRecoveryFirstPresenterInput!
 
       override func viewDidLoad() {
          super.viewDidLoad()
@@ -59,7 +59,12 @@ final class ResetPasswordEmailViewController: BaseViewController {
     }
 }
 
-extension ResetPasswordEmailViewController: ResetPasswordEmailPresenterOutput {
+extension PasswordRecoveryFirstViewController: PasswordRecoveryFirstPresenterOutput {
+     
+     func onResetPasswordFailure(_ error: NetworkError) {
+//          presenter.showAlert(error)
+          presenter.onComplete()
+     }
      
      func onViewDidLoad() {
           titleLabel.text = Strings.ResetPassword.Email.title
@@ -78,14 +83,13 @@ extension ResetPasswordEmailViewController: ResetPasswordEmailPresenterOutput {
           resumeButton.layer.cornerRadius = 10
      }
      
-     func onResetPasswordSucess() {
-         resumeButton.isEnabled = true
+     func onResetPasswordSucess(completion: @escaping EmptyClosure) {
+          let vc = PasswordRecoverySecondAssembler.createModule {
+               completion()
+          }
+          navigationController?.pushViewController(vc, animated: true)
      }
-     
-     func onResetPasswordFailure() {
-         presenter.showAlert()
-     }
-     
+
      func onShowAlert(_ alert: UIAlertController) {
          self.present(alert, animated: true, completion: nil)
      }

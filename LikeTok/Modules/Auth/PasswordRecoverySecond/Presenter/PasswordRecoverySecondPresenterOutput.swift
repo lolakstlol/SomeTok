@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol ResetPasswordNewPasswordPresenterOutput: AnyObject {
+protocol PasswordRecoverySecondPresenterOutput: AnyObject {
     func onViewDidLoad()
     func onResetPasswordSucess()
     func onResetPasswordFailure()

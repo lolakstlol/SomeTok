@@ -1,20 +1,21 @@
 //
-//  ResetPasswordResetPasswordPresenter.swift
+//  ResetPasswordNewPasswordResetPasswordNewPasswordPresenter.swift
 //  LikeTok
 //
-//  Created by Danik on 22/10/2021.
+//  Created by Danik on 24/10/2021.
 //  Copyright © 2021 LikeTok. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-final class ResetPasswordEmailPresenter {
+final class PasswordRecoverySecondPresenter {
     
-    private unowned let view: ResetPasswordEmailPresenterOutput
+    private unowned let view: PasswordRecoverySecondPresenterOutput
     private var isKeyboardAppears: Bool = false
-
-    init(_ view: ResetPasswordEmailPresenterOutput) {
+    var onFinishFlow: EmptyClosure? = nil
+    
+    init(_ view: PasswordRecoverySecondPresenterOutput) {
         self.view = view
     }
 
@@ -24,14 +25,18 @@ final class ResetPasswordEmailPresenter {
 
 }
 
-extension ResetPasswordEmailPresenter: ResetPasswordEmailPresenterInput {
-
-    func resetPassword(_ email: String) {
-        email.isValidEmail ? view.onResetPasswordSucess() : view.onResetPasswordFailure()
+extension PasswordRecoverySecondPresenter: PasswordRecoverySecondPresenterInput {
+    
+    func resetPassword(_ password: String, code: String) {
+        if password.isValidPassword {
+            
+        } else {
+            view.onResetPasswordFailure()
+        }
     }
     
     func showAlert() {
-        let alert = UIAlertController(title: Strings.ResetPassword.error, message: Strings.ResetPassword.Email.error, preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: Strings.ResetPassword.error, message: Strings.ResetPassword.Email.badEmail, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         view.onShowAlert(alert)
     }
@@ -53,4 +58,5 @@ extension ResetPasswordEmailPresenter: ResetPasswordEmailPresenterInput {
             view.onHideKeyboard(insets)
         }
     }
+
 }

@@ -12,7 +12,7 @@ import UIKit
 final class OnboardingPresenter {
     private unowned let view: OnboardingPresenterOutput
 
-    var onCompleteOnboarding: (() -> ())?
+    var onCompleteOnboarding: EmptyClosure?
     
     let data: [OnboardingPage] = [OnboardingPage(image: Assets.onb1.image, title: "Делись событиями из жизни ", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."),
                                   OnboardingPage(image: Assets.onb2.image, title: "Зарабатывай деньги", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore."),

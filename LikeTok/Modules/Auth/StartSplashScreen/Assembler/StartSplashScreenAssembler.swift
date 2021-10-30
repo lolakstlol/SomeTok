@@ -9,7 +9,7 @@
 import Foundation
 
 enum StartSplashScreenAssembler {
-    static func createModule(onCompleteAuth: @escaping (() -> Void)) -> StartSplashScreenViewController {
+    static func createModule(onCompleteAuth: @escaping EmptyClosure) -> StartSplashScreenViewController {
         let viewController = StartSplashScreenViewController()
         let presenter = StartSplashScreenPresenter(viewController)
         presenter.finishFlow = onCompleteAuth

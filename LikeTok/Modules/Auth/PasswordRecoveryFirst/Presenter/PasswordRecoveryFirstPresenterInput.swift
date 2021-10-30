@@ -8,10 +8,11 @@
 
 import Foundation
 
-protocol ResetPasswordEmailPresenterInput: BasePresenting {
+protocol PasswordRecoveryFirstPresenterInput: BasePresenting {
+    func onComplete()
     func showKeyboard(_ info: KeyboardObserver.KeyboardInfo)
     func hideKeyboard()
-    func showAlert()
+    func showAlert(_ error: NetworkError)
     func resetPassword(_ email: String)
 
 }

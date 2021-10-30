@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-protocol ResetPasswordEmailPresenterOutput: AnyObject {
+protocol PasswordRecoveryFirstPresenterOutput: AnyObject {
     func onViewDidLoad()
-    func onResetPasswordSucess()
-    func onResetPasswordFailure()
+    func onResetPasswordSucess(completion: @escaping EmptyClosure)
+    func onResetPasswordFailure(_ error: NetworkError)
     func onShowAlert(_ alert: UIAlertController)
     func onShowKeyboard(_ insets: UIEdgeInsets)
     func onHideKeyboard(_ insets: UIEdgeInsets)

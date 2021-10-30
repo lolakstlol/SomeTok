@@ -6,11 +6,13 @@
 "ResetPassword.Email.text" = "На ваш электронный адрес будет отправлен код подтверждения";
 "ResetPassword.Email.resume" = "Продолжить";
 "ResetPassword.Email.error" = "Проверьте корректность своей почты";
+"ResetPassword.Email.responseError" = "Ошибка сервера. Проверьте подключение к интернету.";
+"ResetPassword.Email.noUserError" = "Такого пользователя нет. Пожалуйста проверьте корректность почты";
 
 "ResetPassword.Error" = "Ошибка";
 
 "ResetPassword.NewPassword.title" = "Восстановление пароля";
 "ResetPassword.NewPassword.text" = "Введите новый пароль";
 "ResetPassword.NewPassword.enterThePassword" = "Введите пароль";
-"ResetPassword.NewPassword.confrimThePassword" = "Введите пароль повторно";
 "ResetPassword.NewPassword.resume" = "Продолжить";
+"ResetPassword.NewPassword.code" = "Введите код из письма";

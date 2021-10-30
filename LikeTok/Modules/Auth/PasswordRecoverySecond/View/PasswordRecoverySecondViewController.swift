@@ -8,19 +8,19 @@
 
 import UIKit
 
-final class ResetPasswordNewPasswordViewController: BaseViewController {
+final class PasswordRecoverySecondViewController: BaseViewController {
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var textLabel: UILabel!
     @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var enterTheCodeTextField: InsetTextField!
     @IBOutlet private weak var enterPasswordTextField: InsetTextField!
-    @IBOutlet private weak var confrimPasswordTextField: InsetTextField!
     @IBOutlet private weak var resumeButton: UIButton!
     
     private let keyboardObserver = KeyboardObserver()
     private lazy var tapWhenKeyboardAppears = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
     
-    var presenter: ResetPasswordNewPasswordPresenterInput!
+    var presenter: PasswordRecoverySecondPresenterInput!
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,17 +53,17 @@ final class ResetPasswordNewPasswordViewController: BaseViewController {
     }
     
     @IBAction func onResumeButtonTap(_ sender: Any) {
-        guard let passwordOne = enterPasswordTextField.text,
-              let passwordTwo = confrimPasswordTextField.text, passwordOne == passwordTwo
+        guard let password = enterPasswordTextField.text,
+              let code = enterTheCodeTextField.text
         else {
             return
         }
-        presenter.resetPassword(passwordOne)
+        presenter.resetPassword(password, code: code)
     }
     
 }
 
-extension ResetPasswordNewPasswordViewController: ResetPasswordNewPasswordPresenterOutput {
+extension PasswordRecoverySecondViewController: PasswordRecoverySecondPresenterOutput {
     
     func onViewDidLoad() {
         titleLabel.text = Strings.ResetPassword.NewPassword.title
@@ -72,11 +72,13 @@ extension ResetPasswordNewPasswordViewController: ResetPasswordNewPasswordPresen
         textLabel.text = Strings.ResetPassword.NewPassword.text
         textLabel.textColor = Assets.darkGrayText.color
         
+        enterTheCodeTextField.backgroundColor = Assets.lightGray.color
+        enterTheCodeTextField.textColor = Assets.blackText.color
+        enterTheCodeTextField.placeholder = Strings.ResetPassword.NewPassword.code
+        
         enterPasswordTextField.backgroundColor = Assets.lightGray.color
         enterPasswordTextField.textColor = Assets.blackText.color
-        
-        confrimPasswordTextField.backgroundColor = Assets.lightGray.color
-        confrimPasswordTextField.textColor = Assets.blackText.color
+        enterPasswordTextField.placeholder = Strings.ResetPassword.NewPassword.enterThePassword
         
         resumeButton.setTitle(Strings.ResetPassword.NewPassword.resume, for: .normal)
         resumeButton.setTitleColor(Assets.whiteText.color, for: .normal)

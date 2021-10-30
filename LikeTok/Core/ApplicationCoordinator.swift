@@ -62,12 +62,9 @@ class ApplicationCoordinator: BaseCoordinator {
             case .onboarding:
                 runOnboardingFlow()
             case .main:
-                if AccountManager.isAuthorized() {
-                    runMainFlow()
-                } else {
-                    runAuthFlow()
-                }
+                AccountManager.isAuthorized() ? runMainFlow() : runAuthFlow()
             }
+            
         }
         
     }
@@ -109,8 +106,9 @@ private extension ApplicationCoordinator {
     func runOnboardingFlow() {
         let coordinator = coordinatorFactory.makeOnboardingCoordinator(router: router)
         coordinator.finishFlow = { [weak self, weak coordinator] in
-          self?.removeDependency(coordinator)
-          self?.runAuthFlow()
+            self?.removeDependency(coordinator)
+            self?.runAuthFlow()
+            self?.settings.hasPassedPaywall = true
         }
         addDependency(coordinator)
         coordinator.start()
@@ -125,6 +123,16 @@ private extension ApplicationCoordinator {
         addDependency(coordinator)
         coordinator.start()
     }
+    
+//    func runPasswordRecoveryFlow() {
+//        let coordinator = coordinatorFactory.makePasswordRecoveryCoordinator(router: router)
+//        coordinator.finishFlow = {
+//            self.removeDependency(coordinator)
+//            self.runMainFlow()
+//        }
+//        addDependency(coordinator)
+//        coordinator.start()
+//    }
     
     func runMainFlow() {
         
@@ -152,4 +160,8 @@ class CoordinatorFactory {
     func makeAuthModuleCordinator(router: Router) -> AuthCoordinator {
         return AuthCoordinator(router: router)
     }
+    
+//    func makePasswordRecoveryCoordinator(router: Router) -> PasswordRecoveryCoordinator {
+//        return PasswordRecoveryCoordinator(router: router)
+//    }
 }
