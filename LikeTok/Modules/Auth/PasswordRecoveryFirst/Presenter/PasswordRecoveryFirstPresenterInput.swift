@@ -9,10 +9,8 @@
 import Foundation
 
 protocol PasswordRecoveryFirstPresenterInput: BasePresenting {
-    func onComplete()
     func showKeyboard(_ info: KeyboardObserver.KeyboardInfo)
     func hideKeyboard()
-    func showAlert(_ error: NetworkError)
+    func showAlert(_ error: Error)
     func resetPassword(_ email: String)
-
 }

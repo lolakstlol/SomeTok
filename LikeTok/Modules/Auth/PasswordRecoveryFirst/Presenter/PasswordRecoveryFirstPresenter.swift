@@ -9,30 +9,26 @@
 import Foundation
 import UIKit
 
-enum PasswordRecoveryError: String, Error {
-    case badEmailError
-    case responseError
-    case noUserError
+
+enum PasswordRecoveryError: Error, LocalizedError {
+    case invalidEmail
     
-    var text: String {
-        switch self {
-        case .badEmailError:
-            return Strings.ResetPassword.Email.badEmail
-        case .responseError:
-            return Strings.ResetPassword.Email.responseError
-        case .noUserError:
-            return Strings.ResetPassword.Email.noUserError
+    var errorDescription: String? {
+        get {
+            switch self {
+            case .invalidEmail:
+                return Strings.ResetPassword.Email.badEmail
+            }
         }
-        
     }
 }
+
 
 final class PasswordRecoveryFirstPresenter {
     
     private unowned let view: PasswordRecoveryFirstPresenterOutput
     private var isKeyboardAppears: Bool = false
     private let apiWorker = AuthApiWorker()
-    var onFinishFlow: EmptyClosure? = nil
     
     init(_ view: PasswordRecoveryFirstPresenterOutput) {
         self.view = view
@@ -43,62 +39,38 @@ final class PasswordRecoveryFirstPresenter {
     }
     
     
-    private func processError(_ error: NetworkError) -> PasswordRecoveryError {
-        switch error {
-        case .other(let statusCode):
-            return statusCode == 422 ? .noUserError: .responseError
-        default:
-            return .responseError
-        }
+    func viewWillAppear() {
+        view.onViewWillAppear()
+    }
+    
+    
+    private func configureAlert(_ error: Error) -> UIAlertController {
+        let alert = UIAlertController(title: Strings.ResetPassword.error, message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        return alert
     }
 
 }
 
 extension PasswordRecoveryFirstPresenter: PasswordRecoveryFirstPresenterInput {
     
-//    func showCodeConfirm(model: SignUpUserModel, ) {
-//        let vc = AuthCodeAssembler.createModule(model: model) {
-//            completion()
-//        }
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-//    
-//    func signIn(completion: @escaping EmptyClosure) {
-//        let vc = SignInAssembler.createModule {
-//            completion()
-//        }
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-    
-    func onComplete() {
-        onFinishFlow?()
-    }
-    
-    func showAlert(_ error: NetworkError) {
-        let recoveryError = processError(error)
-        let alert = UIAlertController(title: Strings.ResetPassword.error, message: recoveryError.text, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+    func showAlert(_ error: Error) {
+        let alert = configureAlert(error)
         view.onShowAlert(alert)
     }
-    
 
     func resetPassword(_ email: String) {
         if email.isValidEmail {
             apiWorker.recoveryPassword(email) { [weak self] response in
                 switch response {
                 case .success(_):
-                    self?.view.onResetPasswordSucess(completion: {
-                        self?.onFinishFlow?()
-                    })
+                    self?.view.onResetPasswordSucess()
                 case .failure(let error):
                     self?.view.onResetPasswordFailure(error)
                 }
             }
         } else {
-            self.view.onResetPasswordSucess(completion: {
-                self.onFinishFlow?()
-            })
-//            view.onResetPasswordFailure(.badRequest)
+            view.onResetPasswordFailure(PasswordRecoveryError.invalidEmail)
         }
     }
     

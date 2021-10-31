@@ -16,7 +16,6 @@ enum NetworkError: Error {
     case success
 }
 
-
 struct SignUpUserModel {
     let email: String
     let pass: String
@@ -99,7 +98,7 @@ final class AuthApiWorker {
                 } else {
                     completion(.failure(.deserialization))
                 }
-            default: completion(.failure(.other(statusCode: statusCode)))
+            default: completion(.failure(.undefined))
                 
             }
         }

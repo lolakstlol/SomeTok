@@ -26,6 +26,11 @@ final class PasswordRecoveryFirstViewController: BaseViewController {
          presenter.viewDidLoad()
          addKeyboardObservers()
      }
+     
+     override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(animated)
+          presenter.viewWillAppear()
+     }
     
      private func addKeyboardObservers() {
          keyboardObserver.keyboardWillShow = { [weak self] info in
@@ -51,19 +56,22 @@ final class PasswordRecoveryFirstViewController: BaseViewController {
 
      }
 
-    @IBAction func onResumeButtonTap(_ sender: Any) {
+    @IBAction private func onResumeButtonTap(_ sender: Any) {
         guard let email = emailTextField.text else {
             return
         }
         presenter.resetPassword(email)
     }
+     
+     @objc private func backButton() {
+         navigationController?.popViewController(animated: true)
+     }
+     
 }
 
 extension PasswordRecoveryFirstViewController: PasswordRecoveryFirstPresenterOutput {
-     
-     func onResetPasswordFailure(_ error: NetworkError) {
-//          presenter.showAlert(error)
-          presenter.onComplete()
+     func onResetPasswordFailure(_ error: T) {
+          presenter.showAlert(error)
      }
      
      func onViewDidLoad() {
@@ -83,10 +91,15 @@ extension PasswordRecoveryFirstViewController: PasswordRecoveryFirstPresenterOut
           resumeButton.layer.cornerRadius = 10
      }
      
-     func onResetPasswordSucess(completion: @escaping EmptyClosure) {
-          let vc = PasswordRecoverySecondAssembler.createModule {
-               completion()
-          }
+     func onViewWillAppear() {
+         title = "Восстановление пароля"
+         navigationController?.navigationBar.isHidden = false
+         navigationItem.leftBarButtonItem = UIBarButtonItem(image: Assets.backButton.image, style: .plain, target: self, action: #selector(backButton))
+         navigationItem.leftBarButtonItem?.tintColor = .black
+     }
+     
+     func onResetPasswordSucess() {
+          let vc = PasswordRecoverySecondAssembler.createModule()
           navigationController?.pushViewController(vc, animated: true)
      }
 

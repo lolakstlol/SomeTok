@@ -9,10 +9,9 @@
 import Foundation
 
 enum PasswordRecoveryFirstAssembler {
-    static func createModule(onCompleteRecovery: @escaping EmptyClosure) -> PasswordRecoveryFirstViewController {
+    static func createModule() -> PasswordRecoveryFirstViewController {
         let viewController = PasswordRecoveryFirstViewController()
         let presenter = PasswordRecoveryFirstPresenter(viewController)
-        presenter.onFinishFlow = onCompleteRecovery
         viewController.presenter = presenter
         return viewController
     }

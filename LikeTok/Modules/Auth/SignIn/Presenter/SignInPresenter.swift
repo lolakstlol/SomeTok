@@ -27,9 +27,7 @@ final class SignInPresenter {
 extension SignInPresenter: SignInPresenterInput {
     
     func onPasswordRecoveryTap() {
-        view.showPasswordRecovery {
-            self.finishFlow?()
-        }
+        view.showPasswordRecovery()
     }
     
     func loginDidTap(email: String, pass: String) {

@@ -66,7 +66,7 @@ final class OnboardingViewController: BaseViewController {
     }
     
     @IBAction private func onNextButtonTap(_ sender: Any) {
-        if pageControl.currentPage == data.count - 1 {
+        if pageControl.currentPage == data.count {
             presenter.completeOnboarding()
         } else {
             pageControl.currentPage += 1
@@ -97,7 +97,7 @@ extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let item = Int(targetContentOffset.pointee.x / scrollView.frame.width)
-        if item == data.count - 1 {
+        if item == data.count {
             presenter.completeOnboarding()
         }
         pageControl.currentPage = item

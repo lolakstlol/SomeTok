@@ -23,11 +23,10 @@ final class SignInViewController: BaseViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
     }
     
@@ -54,10 +53,8 @@ final class SignInViewController: BaseViewController {
 }
 
 extension SignInViewController: SignInPresenterOutput {
-    func showPasswordRecovery(completion: @escaping EmptyClosure) {
-        let vc = PasswordRecoveryFirstAssembler.createModule {
-            completion()
-        }
+    func showPasswordRecovery() {
+        let vc = PasswordRecoveryFirstAssembler.createModule()
         navigationController?.pushViewController(vc, animated: true)
     }
     

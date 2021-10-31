@@ -28,6 +28,11 @@ final class PasswordRecoverySecondViewController: BaseViewController {
         addKeyboardObservers()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.viewWillAppear()
+    }
+    
     private func addKeyboardObservers() {
         keyboardObserver.keyboardWillShow = { [weak self] info in
             guard let self = self else { return }
@@ -52,13 +57,18 @@ final class PasswordRecoverySecondViewController: BaseViewController {
 
     }
     
-    @IBAction func onResumeButtonTap(_ sender: Any) {
-        guard let password = enterPasswordTextField.text,
-              let code = enterTheCodeTextField.text
-        else {
-            return
-        }
-        presenter.resetPassword(password, code: code)
+    @IBAction private func onResumeButtonTap(_ sender: Any) {
+//        guard let password = enterPasswordTextField.text,
+//              let code = enterTheCodeTextField.text
+//        else {
+//            return
+//        }
+//        presenter.resetPassword(password, code: code)
+        navigationController?.popToViewController(ofClass: SignInViewController.self, animated: true)
+    }
+    
+    @objc private func backButton() {
+        navigationController?.popViewController(animated: true)
     }
     
 }
@@ -85,10 +95,18 @@ extension PasswordRecoverySecondViewController: PasswordRecoverySecondPresenterO
         resumeButton.tintColor = Assets.whiteText.color
         resumeButton.backgroundColor = Assets.mainRed.color
         resumeButton.layer.cornerRadius = 10
+        
+    }
+    
+    func onViewWillAppear() {
+        title = "Восстановление пароля"
+        navigationController?.navigationBar.isHidden = false
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: Assets.backButton.image, style: .plain, target: self, action: #selector(backButton))
+        navigationItem.leftBarButtonItem?.tintColor = .black
     }
     
     func onResetPasswordSucess() {
-        
+        navigationController?.popToViewController(ofClass: SignInViewController.self, animated: true)
     }
     
     func onResetPasswordFailure() {

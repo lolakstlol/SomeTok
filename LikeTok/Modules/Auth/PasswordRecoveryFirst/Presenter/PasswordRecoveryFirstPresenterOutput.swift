@@ -10,9 +10,12 @@ import Foundation
 import UIKit
 
 protocol PasswordRecoveryFirstPresenterOutput: AnyObject {
+    typealias T = Error
+    
     func onViewDidLoad()
-    func onResetPasswordSucess(completion: @escaping EmptyClosure)
-    func onResetPasswordFailure(_ error: NetworkError)
+    func onViewWillAppear()
+    func onResetPasswordSucess()
+    func onResetPasswordFailure(_ error: T)
     func onShowAlert(_ alert: UIAlertController)
     func onShowKeyboard(_ insets: UIEdgeInsets)
     func onHideKeyboard(_ insets: UIEdgeInsets)

@@ -22,6 +22,10 @@ final class PasswordRecoverySecondPresenter {
     func viewDidLoad() {
         view.onViewDidLoad()
     }
+    
+    func viewWillAppear() {
+        view.onViewWillAppear()
+    }
 
 }
 

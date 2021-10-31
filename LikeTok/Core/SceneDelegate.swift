@@ -26,7 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        guard let windowScene = (scene as? UIWindowScene) else { return }
 //        let window = UIWindow(windowScene: windowScene)
-//        window.rootViewController = SignInAssembler.createModule()
+//        let vc = PasswordRecoverySecondAssembler.createModule {
+//            print("fd")
+//        }
+//        let navigation = UINavigationController(rootViewController: vc)
+//        window.rootViewController = navigation
 //        self.window = window
 //        window.makeKeyAndVisible()
     }

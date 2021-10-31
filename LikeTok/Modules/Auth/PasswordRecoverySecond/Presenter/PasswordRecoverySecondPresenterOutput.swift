@@ -11,6 +11,7 @@ import UIKit
 
 protocol PasswordRecoverySecondPresenterOutput: AnyObject {
     func onViewDidLoad()
+    func onViewWillAppear()
     func onResetPasswordSucess()
     func onResetPasswordFailure()
     func onShowAlert(_ alert: UIAlertController)

@@ -33,7 +33,7 @@
 		1558C60F2721F9F60051436E /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C60E2721F9F50051436E /* UIButton+Ext.swift */; };
 		158C8CEA2726FE26001614D0 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CE92726FE26001614D0 /* KeyboardObserver.swift */; };
 		158C8CFB2729E1C4001614D0 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CFA2729E1C4001614D0 /* String+Ext.swift */; };
-		15ADD2F5272B49570078C54D /* ResetPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ADD2F4272B49570078C54D /* ResetPasswordCoordinator.swift */; };
+		15B1DE0C272E088400078D01 /* UINaviagationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */; };
 		17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097382271D7B4200134ED7 /* AppDelegate.swift */; };
 		17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097384271D7B4200134ED7 /* SceneDelegate.swift */; };
 		17097387271D7B4200134ED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097386271D7B4200134ED7 /* ViewController.swift */; };
@@ -75,7 +75,7 @@
 		17E71F98272AF5A6001B2CF0 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E71F97272AF5A6001B2CF0 /* SignInResponse.swift */; };
 		18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE8EDA9EAD07A247DB4F98D0 /* SignUpViewController.xib */; };
 		20BBB01AB7F016534D91547E /* AuthCodePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B34057DF19D8B1537D177A /* AuthCodePresenterInput.swift */; };
-		24276C267034F8D4D276B900 /* PasswordRecoverySecond.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343B60FC3FBA2837D30D2094 /* PasswordRecoverySecond.xib */; };
+		24276C267034F8D4D276B900 /* PasswordRecoverySecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343B60FC3FBA2837D30D2094 /* PasswordRecoverySecondViewController.xib */; };
 		2EDDD73BBF6E223384272200 /* StartSplashScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E79256EF973072B0A9CABD /* StartSplashScreenPresenter.swift */; };
 		35F61DE4A10A3926683EED8E /* DeletePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45292FFFAD36DD0AECCF8AF7 /* DeletePresenterInput.swift */; };
 		376DBBA31FE17358ADEE667F /* DeletePresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A507F84B20878979C592217 /* DeletePresenterOutput.swift */; };
@@ -150,7 +150,7 @@
 		1558C60E2721F9F50051436E /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		158C8CE92726FE26001614D0 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		158C8CFA2729E1C4001614D0 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		15ADD2F4272B49570078C54D /* ResetPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordCoordinator.swift; sourceTree = "<group>"; };
+		15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINaviagationController+Extension.swift"; sourceTree = "<group>"; };
 		1709737F271D7B4200134ED7 /* LikeTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17097382271D7B4200134ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17097384271D7B4200134ED7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 		257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		2A507F84B20878979C592217 /* DeletePresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeletePresenterOutput.swift; sourceTree = "<group>"; };
 		2BA7722F4E301D28167B4EEF /* DeleteAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeleteAssembler.swift; sourceTree = "<group>"; };
-		343B60FC3FBA2837D30D2094 /* PasswordRecoverySecond.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PasswordRecoverySecond.xib; sourceTree = "<group>"; };
+		343B60FC3FBA2837D30D2094 /* PasswordRecoverySecondViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PasswordRecoverySecondViewController.xib; sourceTree = "<group>"; };
 		3BCA0530364F4E12FC7465D1 /* SignUpViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		45292FFFAD36DD0AECCF8AF7 /* DeletePresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeletePresenterInput.swift; sourceTree = "<group>"; };
 		4A47CA8839063D1226CD399F /* PasswordRecoveryFirstAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryFirstAssembler.swift; sourceTree = "<group>"; };
@@ -331,6 +331,7 @@
 				158C8CFA2729E1C4001614D0 /* String+Ext.swift */,
 				17AA6C17272980B100CE276E /* BundleExtentsion.swift */,
 				17AA6C19272982F700CE276E /* UIAplicationExtentsion.swift */,
+				15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -478,7 +479,6 @@
 				8C24F992BFC8E47A88054938 /* PasswordRecoverySecond */,
 				DA863064C911F9FC2D4F2574 /* AuthCode */,
 				17AA6C202729D5BC00CE276E /* AuthCoordinator.swift */,
-				15ADD2F4272B49570078C54D /* ResetPasswordCoordinator.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -611,7 +611,7 @@
 			isa = PBXGroup;
 			children = (
 				20B0FD279667E21658BA4985 /* PasswordRecoverySecondViewController.swift */,
-				343B60FC3FBA2837D30D2094 /* PasswordRecoverySecond.xib */,
+				343B60FC3FBA2837D30D2094 /* PasswordRecoverySecondViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -898,7 +898,7 @@
 				F8ECE119F95ADC193B0B527D /* StartSplashScreenViewController.xib in Resources */,
 				18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */,
 				CF70D3E4E3B7FD5BFE6A9F6F /* PasswordRecoveryFirstViewController.xib in Resources */,
-				24276C267034F8D4D276B900 /* PasswordRecoverySecond.xib in Resources */,
+				24276C267034F8D4D276B900 /* PasswordRecoverySecondViewController.xib in Resources */,
 				A0BC0BEE6D373A553E47F5BB /* AuthCodeViewController.xib in Resources */,
 				3F80D80C7E764C2F521C1CB6 /* SignInViewController.xib in Resources */,
 				CA7080CE9BB5F69724ED4097 /* DeleteViewController.xib in Resources */,
@@ -1013,7 +1013,6 @@
 				2EDDD73BBF6E223384272200 /* StartSplashScreenPresenter.swift in Sources */,
 				ABE6EA2FE68D11FC321FD228 /* StartSplashScreenAssembler.swift in Sources */,
 				9908C11211654A50BF6ECD9A /* SignUpViewController.swift in Sources */,
-				15ADD2F5272B49570078C54D /* ResetPasswordCoordinator.swift in Sources */,
 				6D089E666AFBBEAA7EC50D30 /* SignUpPresenterInput.swift in Sources */,
 				D681C28A5D6C3CAE25ECCFAF /* SignUpPresenterOutput.swift in Sources */,
 				7CD457E3F84E96672ECFF689 /* SignUpPresenter.swift in Sources */,
@@ -1039,6 +1038,7 @@
 				E1BCC80F51969E7A6B96A859 /* AuthCodeViewController.swift in Sources */,
 				20BBB01AB7F016534D91547E /* AuthCodePresenterInput.swift in Sources */,
 				E67E5FEAD1AD6C7E6CD55341 /* AuthCodePresenterOutput.swift in Sources */,
+				15B1DE0C272E088400078D01 /* UINaviagationController+Extension.swift in Sources */,
 				A7FD764AA9A0314249E048CB /* AuthCodePresenter.swift in Sources */,
 				8110DFA7ABCF252DE443A41D /* AuthCodeAssembler.swift in Sources */,
 				CDB3F0037C4A4F7CB25A9A44 /* SignInViewController.swift in Sources */,

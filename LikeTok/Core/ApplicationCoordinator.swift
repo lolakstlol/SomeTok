@@ -108,7 +108,6 @@ private extension ApplicationCoordinator {
         coordinator.finishFlow = { [weak self, weak coordinator] in
             self?.removeDependency(coordinator)
             self?.runAuthFlow()
-            self?.settings.hasPassedPaywall = true
         }
         addDependency(coordinator)
         coordinator.start()
