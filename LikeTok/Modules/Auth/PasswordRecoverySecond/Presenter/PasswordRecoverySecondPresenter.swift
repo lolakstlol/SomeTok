@@ -12,6 +12,7 @@ import UIKit
 final class PasswordRecoverySecondPresenter {
     
     private unowned let view: PasswordRecoverySecondPresenterOutput
+    private let apiWorker = AuthApiWorker()
     private var isKeyboardAppears: Bool = false
     var onFinishFlow: EmptyClosure? = nil
     
@@ -26,8 +27,31 @@ final class PasswordRecoverySecondPresenter {
     func viewWillAppear() {
         view.onViewWillAppear()
     }
+    
+    private func configureAlert(_ error: Error) -> UIAlertController {
+        let alert = UIAlertController(title: Strings.PasswordRecovery.error, message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        return alert
+    }
+    
+    func resetPassword(_ email: String, password: String, code: String) {
+//        if email.isValidEmail {
+//            apiWorker.recoveryPassword(email, password: password, code: code) { [weak self] response in
+//                switch response {
+//                case .success(_):
+//                    self?.view.onResetPasswordSucess()
+//                case .failure(let error):
+//                    self?.view.onResetPasswordFailure(error)
+//                }
+//            }
+//        } else {
+//            self.view.onResetPasswordSucess()
 
+//            view.onResetPasswordFailure(PasswordRecoveryError.invalidEmail)
+//        }
+    }
 }
+
 
 extension PasswordRecoverySecondPresenter: PasswordRecoverySecondPresenterInput {
     
@@ -35,13 +59,12 @@ extension PasswordRecoverySecondPresenter: PasswordRecoverySecondPresenterInput 
         if password.isValidPassword {
             
         } else {
-            view.onResetPasswordFailure()
+            view.onResetPasswordFailure(PasswordRecoveryError.invalidPassword)
         }
     }
     
-    func showAlert() {
-        let alert = UIAlertController(title: Strings.ResetPassword.error, message: Strings.ResetPassword.Email.badEmail, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+    func showAlert(_ error: Error) {
+        let alert = configureAlert(error)
         view.onShowAlert(alert)
     }
     

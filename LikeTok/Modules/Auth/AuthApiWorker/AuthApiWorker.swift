@@ -104,6 +104,26 @@ final class AuthApiWorker {
         }
     }
     
+    func recoveryPassword(_ email: String, password: String, code: String, completion: @escaping (Swift.Result<RecoveryPasswordCodeResponse?, NetworkError>) -> Void) {
+        Api.auth.resetPass(email: email).request.responseJSON { response in
+            guard let statusCode = response.response?.statusCode
+            else {
+                return
+            }
+            switch statusCode {
+            case 200:
+                if let data = response.data,
+                   let response = try? JSONDecoder().decode(RecoveryPasswordCodeResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    completion(.failure(.deserialization))
+                }
+            default: completion(.failure(.undefined))
+                
+            }
+        }
+    }
+    
     func uploadAvatar(image: UIImage, completion: @escaping (Swift.Result<Any?, NetworkError>) -> Void) {
 //        Api.profile.uploadAvatar(image: image) { result in
 //            print(result)

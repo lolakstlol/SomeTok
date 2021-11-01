@@ -75,16 +75,16 @@ extension PasswordRecoveryFirstViewController: PasswordRecoveryFirstPresenterOut
      }
      
      func onViewDidLoad() {
-          titleLabel.text = Strings.ResetPassword.Email.title
+          titleLabel.text =  Strings.PasswordRecovery.First.title
           titleLabel.textColor = Assets.blackText.color
           
-          textLabel.text = Strings.ResetPassword.Email.text
+          textLabel.text = Strings.PasswordRecovery.First.text
           textLabel.textColor = Assets.darkGrayText.color
           
           emailTextField.backgroundColor = Assets.lightGray.color
           emailTextField.textColor = Assets.blackText.color
           
-          resumeButton.setTitle(Strings.ResetPassword.Email.resume, for: .normal)
+          resumeButton.setTitle(Strings.PasswordRecovery.First.resume, for: .normal)
           resumeButton.setTitleColor(Assets.whiteText.color, for: .normal)
           resumeButton.tintColor = Assets.whiteText.color
           resumeButton.backgroundColor = Assets.mainRed.color

@@ -3,21 +3,23 @@
 
 "SplashScreen.begin" = "Начать";
 
-"ResetPassword.Email.title" = "Password recovery";
-"ResetPassword.Email.text" = "A confirmation code will be sent to your email address";
-"ResetPassword.Email.resume" = "Resume";
+"PasswordRecovery.First.title" = "Password recovery";
+"PasswordRecovery.First.text" = "A confirmation code will be sent to your email address";
+"PasswordRecovery.First.resume" = "Resume";
 
-"ResetPassword.Email.badEmail" = "Check the correctness of your mail";
-"ResetPassword.Email.responseError" = "Server error. Check your internet connection.";
-"ResetPassword.Email.noUserError" = "There is no such user. Please check the correctness of the mail.";
+"PasswordRecovery.First.badEmail" = "Check the correctness of your mail";
+"PasswordRecovery.First.responseError" = "Server error. Check your internet connection.";
+"PasswordRecovery.First.noUserError" = "There is no such user. Please check the correctness of the mail.";
 
-"ResetPassword.Error" = "Error";
+"PasswordRecovery.error" = "Error";
 
-"ResetPassword.NewPassword.title" = "Password recovery";
-"ResetPassword.NewPassword.text" = "Enter a new password";
-"ResetPassword.NewPassword.enterThePassword" = "Enter the password";
-"ResetPassword.NewPassword.resume" = "Resume";
-"ResetPassword.NewPassword.code" = "Enter the code from the email";
+"PasswordRecovery.Second.title" = "Password recovery";
+"PasswordRecovery.Second.text" = "Enter a new password";
+"PasswordRecovery.Second.enterThePassword" = "Enter the password";
+"PasswordRecovery.Second.resume" = "Resume";
+"PasswordRecovery.Second.code" = "Enter the code from the email";
+
+"PasswordRecovery.Second.invalidPassword" = "You entered invalid characters";
 
 "SignUP.placeHolder.mail" = "E-mail";
 "SignUP.placeHolder.login" = "Логин";

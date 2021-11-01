@@ -58,13 +58,12 @@ final class PasswordRecoverySecondViewController: BaseViewController {
     }
     
     @IBAction private func onResumeButtonTap(_ sender: Any) {
-//        guard let password = enterPasswordTextField.text,
-//              let code = enterTheCodeTextField.text
-//        else {
-//            return
-//        }
-//        presenter.resetPassword(password, code: code)
-        navigationController?.popToViewController(ofClass: SignInViewController.self, animated: true)
+        guard let password = enterPasswordTextField.text,
+              let code = enterTheCodeTextField.text
+        else {
+            return
+        }
+        presenter.resetPassword(password, code: code)
     }
     
     @objc private func backButton() {
@@ -76,21 +75,21 @@ final class PasswordRecoverySecondViewController: BaseViewController {
 extension PasswordRecoverySecondViewController: PasswordRecoverySecondPresenterOutput {
     
     func onViewDidLoad() {
-        titleLabel.text = Strings.ResetPassword.NewPassword.title
+        titleLabel.text = Strings.PasswordRecovery.Second.title
         titleLabel.textColor = Assets.blackText.color
         
-        textLabel.text = Strings.ResetPassword.NewPassword.text
+        textLabel.text = Strings.PasswordRecovery.Second.text
         textLabel.textColor = Assets.darkGrayText.color
         
         enterTheCodeTextField.backgroundColor = Assets.lightGray.color
         enterTheCodeTextField.textColor = Assets.blackText.color
-        enterTheCodeTextField.placeholder = Strings.ResetPassword.NewPassword.code
+        enterTheCodeTextField.placeholder = Strings.PasswordRecovery.Second.code
         
         enterPasswordTextField.backgroundColor = Assets.lightGray.color
         enterPasswordTextField.textColor = Assets.blackText.color
-        enterPasswordTextField.placeholder = Strings.ResetPassword.NewPassword.enterThePassword
+        enterPasswordTextField.placeholder = Strings.PasswordRecovery.Second.enterThePassword
         
-        resumeButton.setTitle(Strings.ResetPassword.NewPassword.resume, for: .normal)
+        resumeButton.setTitle(Strings.PasswordRecovery.Second.resume, for: .normal)
         resumeButton.setTitleColor(Assets.whiteText.color, for: .normal)
         resumeButton.tintColor = Assets.whiteText.color
         resumeButton.backgroundColor = Assets.mainRed.color
@@ -109,8 +108,8 @@ extension PasswordRecoverySecondViewController: PasswordRecoverySecondPresenterO
         navigationController?.popToViewController(ofClass: SignInViewController.self, animated: true)
     }
     
-    func onResetPasswordFailure() {
-        presenter.showAlert()
+    func onResetPasswordFailure(_ error: T) {
+        presenter.showAlert(error)
     }
     
     func onShowAlert(_ alert: UIAlertController) {

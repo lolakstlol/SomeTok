@@ -12,12 +12,15 @@ import UIKit
 
 enum PasswordRecoveryError: Error, LocalizedError {
     case invalidEmail
+    case invalidPassword
     
     var errorDescription: String? {
         get {
             switch self {
             case .invalidEmail:
-                return Strings.ResetPassword.Email.badEmail
+                return Strings.PasswordRecovery.First.badEmail
+            case .invalidPassword:
+                return Strings.PasswordRecovery.Second.invalidPassword
             }
         }
     }
@@ -45,7 +48,7 @@ final class PasswordRecoveryFirstPresenter {
     
     
     private func configureAlert(_ error: Error) -> UIAlertController {
-        let alert = UIAlertController(title: Strings.ResetPassword.error, message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: Strings.PasswordRecovery.error, message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         return alert
     }
@@ -70,7 +73,9 @@ extension PasswordRecoveryFirstPresenter: PasswordRecoveryFirstPresenterInput {
                 }
             }
         } else {
-            view.onResetPasswordFailure(PasswordRecoveryError.invalidEmail)
+            self.view.onResetPasswordSucess()
+
+//            view.onResetPasswordFailure(PasswordRecoveryError.invalidEmail)
         }
     }
     

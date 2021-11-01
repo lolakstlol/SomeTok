@@ -9,8 +9,8 @@
 import Foundation
 
 protocol PasswordRecoverySecondPresenterInput: BasePresenting {
-    func showAlert()
     func resetPassword(_ password: String, code: String)
     func showKeyboard(_ info: KeyboardObserver.KeyboardInfo)
+    func showAlert(_ error: Error)
     func hideKeyboard()
 }
