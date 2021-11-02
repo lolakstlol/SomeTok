@@ -104,6 +104,13 @@ final class AuthCodeViewController: BaseViewController {
 }
 
 extension AuthCodeViewController: AuthCodePresenterOutput {
+    func showPersonalData(completion: @escaping EmptyClosure) {
+        let vc = AuthPersonalDataAssembler.createModule {
+            completion()
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func setTimerTitle(text: String) {
         timerLabel.text = text
     }

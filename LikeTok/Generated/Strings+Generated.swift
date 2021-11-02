@@ -20,6 +20,19 @@ public enum Strings {
     public static let title = Strings.tr("Localizable", "AuthCode.title")
   }
 
+  public enum AuthPersonalData {
+    /// Продолжить
+    public static let button = Strings.tr("Localizable", "AuthPersonalData.button")
+    /// Ваше имя
+    public static let namePlaceholder = Strings.tr("Localizable", "AuthPersonalData.namePlaceholder")
+    /// +7 (900) 000 00 00
+    public static let number = Strings.tr("Localizable", "AuthPersonalData.number")
+    /// Пожалуйста, заполните данные для своего профиля
+    public static let subTitle = Strings.tr("Localizable", "AuthPersonalData.subTitle")
+    /// Профиль
+    public static let title = Strings.tr("Localizable", "AuthPersonalData.title")
+  }
+
   public enum Onboarding {
     /// Next
     public static let next = Strings.tr("Localizable", "Onboarding.Next")

@@ -2,8 +2,20 @@ import Alamofire
 import AlamofireMapper
 import AlamofireNetworkActivityLogger
 
-class EUploadedFile: Codable {
-    var url: String = ""
+struct UploadResponse: Codable {
+    let data: UploadDataClass
+    let result: UploadResult
+}
+
+// MARK: - DataClass
+struct UploadDataClass: Codable {
+    let preview: String
+}
+
+// MARK: - Result
+struct UploadResult: Codable {
+    let message: String
+    let status: Bool
 }
 
 
@@ -22,7 +34,7 @@ class API  {
 }
 
 protocol uploadCallback {
-    func onSuccess(model: EUploadedFile)
+    func onSuccess(model: UploadResponse)
     func onFailed()
 }
 
@@ -31,7 +43,7 @@ enum Api {
     public static func upload(_ fileData: Data, with key: String, fileExtension: String, to url: String, _ callback: uploadCallback) {
         Alamofire.upload(multipartFormData: { (data) in
             data.append(fileData, withName: key, fileName: "file\(Date().timeIntervalSince1970).\(fileExtension)", mimeType: "\(key)/*")
-        }, to: url, method: .post, headers: Api.headers) { (encodingResult) in
+        }, to: url, method: .put, headers: Api.headers) { (encodingResult) in
             switch encodingResult {
             case .success(let uploadRequest, let streamingFromDisk, let streamFileURL):
                 uploadRequest.uploadProgress(closure: { (prg) in
@@ -43,7 +55,7 @@ enum Api {
                         }
                     }
                 })
-                uploadRequest.validate().responseObject { (response: DataResponse<EUploadedFile>) in
+                uploadRequest.validate().responseObject { (response: DataResponse<UploadResponse>) in
                     switch response.result {
                     case .success(let value):
                         callback.onSuccess(model: value)
@@ -66,7 +78,8 @@ enum Api {
              confirmEmail(email: String, code: String),
              repeatCode(email: String),
              resetPass(email: String),
-             confirmResetPass(email:String, pass: String, code: String)
+             confirmResetPass(email:String, pass: String, code: String),
+             updateSettings(phone: String?, name: String?)
         public var request: DataRequest {
             switch self {
             case let .signup(email, name, pass):
@@ -105,6 +118,12 @@ enum Api {
                 params["password"] = pass
                 params["code_confirm"] = code
                 let request = Alamofire.request("\(API.server)/auth/password", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
+                return request.validate()
+            case .updateSettings(phone: let phone, name: let name):
+                var params:Parameters = Parameters()
+                params["name"] = name
+                params["phone"] = phone
+                let request = Alamofire.request("\(API.server)/user/settings", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
                 return request.validate()
             }
         }

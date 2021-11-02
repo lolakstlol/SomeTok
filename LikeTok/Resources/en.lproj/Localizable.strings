@@ -29,3 +29,9 @@
 "SignIn.title" = "Авторизация";
 "SignIn.createAccount" = "Создать аккаунт";
 "SignIn.resetPassword" = "Забыли пароль?";
+
+"AuthPersonalData.title" = "Профиль";
+"AuthPersonalData.subTitle" = "Пожалуйста, заполните данные для своего профиля";
+"AuthPersonalData.namePlaceholder" = "Ваше имя";
+"AuthPersonalData.number" = "+7 (900) 000 00 00";
+"AuthPersonalData.button" = "Продолжить";

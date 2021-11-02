@@ -9,10 +9,11 @@
 import Foundation
 
 enum AuthPersonalDataAssembler {
-    static func createModule() -> AuthPersonalDataViewController {
+    static func createModule(completion: @escaping EmptyClosure) -> AuthPersonalDataViewController {
         let viewController = AuthPersonalDataViewController()
         let presenter = AuthPersonalDataPresenter(viewController)
         viewController.presenter = presenter
+        presenter.finishFlow = completion
         return viewController
     }
 }

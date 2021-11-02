@@ -12,4 +12,5 @@ protocol AuthCodePresenterOutput: AnyObject {
     func setupView()
     func setTimerTitle(text: String)
     func enableResendButton(isEnebled: Bool)
+    func showPersonalData(completion: @escaping EmptyClosure)
 }

@@ -60,7 +60,8 @@ class ApplicationCoordinator: BaseCoordinator {
         } else {
             switch instructor {
             case .onboarding:
-                runOnboardingFlow()
+//                runOnboardingFlow()
+                runMainFlow()
             case .main:
                 if AccountManager.isAuthorized() {
                     runMainFlow()
@@ -127,8 +128,7 @@ private extension ApplicationCoordinator {
     }
     
     func runMainFlow() {
-        
-        router.setRootModule(UIViewController(), windowBackgroundColor: .green)
+        router.setRootModule(TabBarAssembler.createModule(), windowBackgroundColor: .green)
 //        let coordinator = coordinatorFactory.makeAuthModuleCordinator(router: router)
 //        requestTrackingAuthorization()
 //        pushNotificationsController.registerForPushNotifications { [weak self] granted, error in
