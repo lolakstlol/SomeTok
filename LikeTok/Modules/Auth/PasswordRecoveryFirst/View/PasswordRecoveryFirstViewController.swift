@@ -98,8 +98,8 @@ extension PasswordRecoveryFirstViewController: PasswordRecoveryFirstPresenterOut
          navigationItem.leftBarButtonItem?.tintColor = .black
      }
      
-     func onResetPasswordSucess() {
-          let vc = PasswordRecoverySecondAssembler.createModule()
+     func onResetPasswordSucess(_ userEmail: String) {
+          let vc = PasswordRecoverySecondAssembler.createModule(userEmail: userEmail)
           navigationController?.pushViewController(vc, animated: true)
      }
 

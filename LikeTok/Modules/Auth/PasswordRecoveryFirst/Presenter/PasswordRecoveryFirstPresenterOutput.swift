@@ -14,7 +14,7 @@ protocol PasswordRecoveryFirstPresenterOutput: AnyObject {
     
     func onViewDidLoad()
     func onViewWillAppear()
-    func onResetPasswordSucess()
+    func onResetPasswordSucess(_ userEmail: String)
     func onResetPasswordFailure(_ error: T)
     func onShowAlert(_ alert: UIAlertController)
     func onShowKeyboard(_ insets: UIEdgeInsets)

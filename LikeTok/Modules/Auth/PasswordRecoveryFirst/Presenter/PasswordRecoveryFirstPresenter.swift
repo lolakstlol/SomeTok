@@ -67,15 +67,13 @@ extension PasswordRecoveryFirstPresenter: PasswordRecoveryFirstPresenterInput {
             apiWorker.recoveryPassword(email) { [weak self] response in
                 switch response {
                 case .success(_):
-                    self?.view.onResetPasswordSucess()
+                    self?.view.onResetPasswordSucess(email)
                 case .failure(let error):
                     self?.view.onResetPasswordFailure(error)
                 }
             }
         } else {
-            self.view.onResetPasswordSucess()
-
-//            view.onResetPasswordFailure(PasswordRecoveryError.invalidEmail)
+            view.onResetPasswordFailure(PasswordRecoveryError.invalidEmail)
         }
     }
     

@@ -9,9 +9,10 @@
 import Foundation
 
 enum PasswordRecoverySecondAssembler {
-    static func createModule() -> PasswordRecoverySecondViewController {
+    static func createModule(userEmail: String) -> PasswordRecoverySecondViewController {
         let viewController = PasswordRecoverySecondViewController()
         let presenter = PasswordRecoverySecondPresenter(viewController)
+        presenter.userEmail = userEmail
         viewController.presenter = presenter
         return viewController
     }

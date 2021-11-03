@@ -120,7 +120,7 @@ final class AuthApiWorker {
     }
     
     func recoveryPassword(_ email: String, password: String, code: String, completion: @escaping (Swift.Result<RecoveryPasswordCodeResponse?, NetworkError>) -> Void) {
-        Api.auth.resetPass(email: email).request.responseJSON { response in
+        Api.auth.confirmResetPass(email: email, pass: password, code: code).request.responseJSON { response in
             guard let statusCode = response.response?.statusCode
             else {
                 return

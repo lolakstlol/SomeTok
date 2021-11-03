@@ -14,7 +14,9 @@ final class PasswordRecoverySecondPresenter {
     private unowned let view: PasswordRecoverySecondPresenterOutput
     private let apiWorker = AuthApiWorker()
     private var isKeyboardAppears: Bool = false
+    
     var onFinishFlow: EmptyClosure? = nil
+    var userEmail: String? = ""
     
     init(_ view: PasswordRecoverySecondPresenterOutput) {
         self.view = view
@@ -35,20 +37,18 @@ final class PasswordRecoverySecondPresenter {
     }
     
     func resetPassword(_ email: String, password: String, code: String) {
-//        if email.isValidEmail {
-//            apiWorker.recoveryPassword(email, password: password, code: code) { [weak self] response in
-//                switch response {
-//                case .success(_):
-//                    self?.view.onResetPasswordSucess()
-//                case .failure(let error):
-//                    self?.view.onResetPasswordFailure(error)
-//                }
-//            }
-//        } else {
-//            self.view.onResetPasswordSucess()
-
-//            view.onResetPasswordFailure(PasswordRecoveryError.invalidEmail)
-//        }
+        if email.isValidEmail {
+            apiWorker.recoveryPassword(email, password: password, code: code) { [weak self] response in
+                switch response {
+                case .success(_):
+                    self?.view.onResetPasswordSucess()
+                case .failure(let error):
+                    self?.view.onResetPasswordFailure(error)
+                }
+            }
+        } else {
+            view.onResetPasswordFailure(PasswordRecoveryError.invalidEmail)
+        }
     }
 }
 
@@ -57,7 +57,10 @@ extension PasswordRecoverySecondPresenter: PasswordRecoverySecondPresenterInput 
     
     func resetPassword(_ password: String, code: String) {
         if password.isValidPassword {
-            
+            guard let userEmail = userEmail else {
+                return
+            }
+            resetPassword(userEmail, password: password, code: code)
         } else {
             view.onResetPasswordFailure(PasswordRecoveryError.invalidPassword)
         }
