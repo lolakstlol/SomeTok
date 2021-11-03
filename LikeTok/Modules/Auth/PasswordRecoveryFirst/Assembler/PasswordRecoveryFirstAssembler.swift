@@ -8,10 +8,10 @@
 
 import Foundation
 
-enum ResetPasswordEmailAssembler {
-    static func createModule() -> ResetPasswordEmailViewController {
-        let viewController = ResetPasswordEmailViewController()
-        let presenter = ResetPasswordEmailPresenter(viewController)
+enum PasswordRecoveryFirstAssembler {
+    static func createModule() -> PasswordRecoveryFirstViewController {
+        let viewController = PasswordRecoveryFirstViewController()
+        let presenter = PasswordRecoveryFirstPresenter(viewController)
         viewController.presenter = presenter
         return viewController
     }

@@ -10,4 +10,5 @@ import Foundation
 
 protocol SignInPresenterOutput: AnyObject {
     func setupView()
+    func showPasswordRecovery()
 }

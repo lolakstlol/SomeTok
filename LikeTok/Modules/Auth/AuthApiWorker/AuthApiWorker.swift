@@ -1,4 +1,5 @@
 import Alamofire
+import Foundation
 
 enum NetworkError: Error {
     case noUrlRequest
@@ -94,6 +95,46 @@ final class AuthApiWorker {
                     completion(.failure(.deserialization))
                 }
             default: completion(.failure(.undefined))
+            }
+        }
+    }
+    
+    func recoveryPassword(_ email: String, completion: @escaping (Swift.Result<RecoveryPasswordCodeResponse?, NetworkError>) -> Void) {
+        Api.auth.resetPass(email: email).request.responseJSON { response in
+            guard let statusCode = response.response?.statusCode
+            else {
+                return
+            }
+            switch statusCode {
+            case 200:
+                if let data = response.data,
+                   let response = try? JSONDecoder().decode(RecoveryPasswordCodeResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    completion(.failure(.deserialization))
+                }
+            default: completion(.failure(.undefined))
+                
+            }
+        }
+    }
+    
+    func recoveryPassword(_ email: String, password: String, code: String, completion: @escaping (Swift.Result<RecoveryPasswordCodeResponse?, NetworkError>) -> Void) {
+        Api.auth.confirmResetPass(email: email, pass: password, code: code).request.responseJSON { response in
+            guard let statusCode = response.response?.statusCode
+            else {
+                return
+            }
+            switch statusCode {
+            case 200:
+                if let data = response.data,
+                   let response = try? JSONDecoder().decode(RecoveryPasswordCodeResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    completion(.failure(.deserialization))
+                }
+            default: completion(.failure(.undefined))
+                
             }
         }
     }

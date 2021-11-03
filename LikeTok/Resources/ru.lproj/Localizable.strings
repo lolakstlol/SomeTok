@@ -2,12 +2,19 @@
 "Onboarding.Skip" = "Пропустить";
 "Onboarding.Next" = "Далее";
 
-"ResetPassword.Email.title" = "Password recovery";
-"ResetPassword.Email.text" = "A confirmation code will be sent to your email address";
-"ResetPassword.Email.resume" = "Resume";
+"PasswordRecovery.First.title" = "Восстановление пароля";
+"PasswordRecovery.First.text" = "На ваш электронный адрес будет отправлен код подтверждения";
+"PasswordRecovery.First.resume" = "Продолжить";
+"PasswordRecovery.First.error" = "Проверьте корректность своей почты";
+"PasswordRecovery.First.responseError" = "Ошибка сервера. Проверьте подключение к интернету.";
+"PasswordRecovery.First.noUserError" = "Такого пользователя нет. Пожалуйста проверьте корректность почты";
 
-"ResetPassword.NewPassword.title" = "Password recovery";
-"ResetPassword.NewPassword.text" = "Enter a new password";
-"ResetPassword.NewPassword.enterThePassword" = "Enter the password";
-"ResetPassword.NewPassword.confrimThePassword" = "Enter the password again";
-"ResetPassword.NewPassword.resume" = "Resume";
+"PasswordRecovery.error" = "Ошибка";
+
+"PasswordRecovery.Second.title" = "Восстановление пароля";
+"PasswordRecovery.Second.text" = "Введите новый пароль";
+"PasswordRecovery.Second.enterThePassword" = "Введите пароль";
+"PasswordRecovery.Second.resume" = "Продолжить";
+"PasswordRecovery.Second.code" = "Введите код из письма";
+
+"PasswordRecovery.Second.invalidPassword" = "Вы ввели недопустимые символы";

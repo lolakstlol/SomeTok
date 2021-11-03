@@ -24,6 +24,7 @@ final class SignUpPresenter {
 }
 
 extension SignUpPresenter: SignUpPresenterInput {
+    
     func loginDidTap() {
         view.signIn {
             self.finishFlow?()

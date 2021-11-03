@@ -9,6 +9,7 @@
 import Foundation
 
 final class SignInPresenter {
+    
     private unowned let view: SignInPresenterOutput
     let apiWorker = AuthApiWorker()
     var finishFlow: EmptyClosure? = nil
@@ -24,6 +25,11 @@ final class SignInPresenter {
 }
 
 extension SignInPresenter: SignInPresenterInput {
+    
+    func onPasswordRecoveryTap() {
+        view.showPasswordRecovery()
+    }
+    
     func loginDidTap(email: String, pass: String) {
         apiWorker.signIn(username: email, password: pass) { result in
             switch result {

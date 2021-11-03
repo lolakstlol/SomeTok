@@ -3,15 +3,23 @@
 
 "SplashScreen.begin" = "Начать";
 
-"ResetPassword.Email.title" = "Восстановление пароля";
-"ResetPassword.Email.text" = "На ваш электронный адрес будет отправлен код подтверждения";
-"ResetPassword.Email.resume" = "Продолжить";
+"PasswordRecovery.First.title" = "Password recovery";
+"PasswordRecovery.First.text" = "A confirmation code will be sent to your email address";
+"PasswordRecovery.First.resume" = "Resume";
 
-"ResetPassword.NewPassword.title" = "Восстановление пароля";
-"ResetPassword.NewPassword.text" = "Введите новый пароль";
-"ResetPassword.NewPassword.enterThePassword" = "Введите пароль";
-"ResetPassword.NewPassword.confrimThePassword" = "Введите пароль повторно";
-"ResetPassword.NewPassword.resume" = "Продолжить";
+"PasswordRecovery.First.badEmail" = "Check the correctness of your mail";
+"PasswordRecovery.First.responseError" = "Server error. Check your internet connection.";
+"PasswordRecovery.First.noUserError" = "There is no such user. Please check the correctness of the mail.";
+
+"PasswordRecovery.error" = "Error";
+
+"PasswordRecovery.Second.title" = "Password recovery";
+"PasswordRecovery.Second.text" = "Enter a new password";
+"PasswordRecovery.Second.enterThePassword" = "Enter the password";
+"PasswordRecovery.Second.resume" = "Resume";
+"PasswordRecovery.Second.code" = "Enter the code from the email";
+
+"PasswordRecovery.Second.invalidPassword" = "You entered invalid characters";
 
 "SignUP.placeHolder.mail" = "E-mail";
 "SignUP.placeHolder.login" = "Логин";

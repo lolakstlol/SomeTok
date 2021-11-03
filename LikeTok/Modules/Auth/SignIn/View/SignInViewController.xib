@@ -20,7 +20,7 @@
                 <outlet property="loginButton" destination="3ql-g0-nJH" id="YIU-JC-fDh"/>
                 <outlet property="loginTextField" destination="huf-lf-sbj" id="nuO-QB-0RU"/>
                 <outlet property="passwordTextField" destination="w5K-D7-Wil" id="Mxb-zb-Mpr"/>
-                <outlet property="recoveryPassButton" destination="rPa-78-BTB" id="6IO-6B-arU"/>
+                <outlet property="recoveryPassButton" destination="rPa-78-BTB" id="AKH-NW-ueA"/>
                 <outlet property="securyButton" destination="JzO-Nw-1ml" id="sGa-TR-x6s"/>
                 <outlet property="titleLabel" destination="z4o-Uj-97n" id="W3f-3u-vOj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -120,7 +120,7 @@
                                         <color key="baseForegroundColor" name="DarkGrayText"/>
                                     </buttonConfiguration>
                                     <connections>
-                                        <action selector="ressetPassDidTap:" destination="-1" eventType="touchUpInside" id="OHe-kh-tv4"/>
+                                        <action selector="onPasswordRecoveryTap:" destination="-1" eventType="touchUpInside" id="s1g-Ob-eHC"/>
                                     </connections>
                                 </button>
                             </subviews>

@@ -9,8 +9,9 @@
 import Foundation
 
 final class StartSplashScreenPresenter {
+    
     private unowned let view: StartSplashScreenPresenterOutput
-    var finishFlow: (() -> Void)? = nil
+    var finishFlow: EmptyClosure? = nil
     
     init(_ view: StartSplashScreenPresenterOutput) {
         self.view = view
