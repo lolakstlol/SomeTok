@@ -67,7 +67,9 @@ extension AuthCodePresenter: AuthCodePresenterInput {
                                let userId = response?.data.uuid {
                                 AccountManager.saveUserId(userId: userId)
                                 AccountManager.saveAccount(token: token)
-                                // open more data VC
+                                self.view.showPersonalData {
+                                    self.finishFlow?()
+                                }
                             } else {
                                 // something went wrong
                             }

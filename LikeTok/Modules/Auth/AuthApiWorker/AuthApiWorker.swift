@@ -39,6 +39,21 @@ final class AuthApiWorker {
         }
     }
     
+    func updateSettings(name: String?, phone: String?, completion: @escaping (Swift.Result<SignUpResponse?, NetworkError>) -> Void) {
+        Api.auth.updateSettings(phone: phone, name: name).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(SignUpResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    completion(.failure(.deserialization))
+                }
+            default: completion(.failure(.undefined))
+            }
+        }
+    }
+    
     func signIn(username: String, password: String, completion: @escaping (Swift.Result<SignInResponse?, NetworkError>) -> Void) {
         Api.auth.login(login: username, pass: password).request.responseJSON { response in
             let code = response.response?.statusCode ?? 0

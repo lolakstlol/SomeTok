@@ -9,5 +9,6 @@
 import Foundation
 
 protocol AuthPersonalDataPresenterOutput: AnyObject {
-
+    func setupView()
+    func openPickerView()
 }

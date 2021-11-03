@@ -6,8 +6,10 @@
 //  Copyright © 2021 LikeTok. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol AuthPersonalDataPresenterInput: BasePresenting {
-
+    func avatarDidTap()
+    func continueButtonDidTap(name: String?, phone: String?)
+    func uploadAvatar(image: UIImage) 
 }
