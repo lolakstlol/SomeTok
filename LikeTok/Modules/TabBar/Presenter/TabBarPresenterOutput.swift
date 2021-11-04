@@ -11,4 +11,5 @@ import UIKit
 
 protocol TabBarPresenterOutput: AnyObject {
     func updateViews(vc: [UIViewController], selected: Int)
+    func updateAppearance(appearance: TabBarAppearance)
 }

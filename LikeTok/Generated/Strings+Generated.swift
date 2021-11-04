@@ -107,6 +107,19 @@ public enum Strings {
     /// Начать
     public static let begin = Strings.tr("Localizable", "SplashScreen.begin")
   }
+
+  public enum Tabbar {
+    /// Добавить
+    public static let add = Strings.tr("Localizable", "Tabbar.add")
+    /// Каталог
+    public static let chat = Strings.tr("Localizable", "Tabbar.chat")
+    /// Главная
+    public static let feed = Strings.tr("Localizable", "Tabbar.feed")
+    /// Профиль
+    public static let profile = Strings.tr("Localizable", "Tabbar.profile")
+    /// Каталог
+    public static let search = Strings.tr("Localizable", "Tabbar.search")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

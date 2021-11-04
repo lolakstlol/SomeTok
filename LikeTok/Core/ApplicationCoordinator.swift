@@ -60,8 +60,8 @@ class ApplicationCoordinator: BaseCoordinator {
         } else {
             switch instructor {
             case .onboarding:
-                runOnboardingFlow()
-//                runMainFlow()
+//                runOnboardingFlow()
+                runMainFlow()
             case .main:
                 AccountManager.isAuthorized() ? runMainFlow() : runAuthFlow()
             }

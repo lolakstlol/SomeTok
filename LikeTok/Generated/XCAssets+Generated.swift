@@ -39,6 +39,13 @@ internal enum Assets {
   internal static let onb1 = ImageAsset(name: "onb1")
   internal static let onb2 = ImageAsset(name: "onb2")
   internal static let onb3 = ImageAsset(name: "onb3")
+  internal static let addUnselected = ImageAsset(name: "addUnselected")
+  internal static let chatSelected = ImageAsset(name: "chatSelected")
+  internal static let chatUnselected = ImageAsset(name: "chatUnselected")
+  internal static let feedSelected = ImageAsset(name: "feedSelected")
+  internal static let feedUnselected = ImageAsset(name: "feedUnselected")
+  internal static let searchSelected = ImageAsset(name: "searchSelected")
+  internal static let searchUnselected = ImageAsset(name: "searchUnselected")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

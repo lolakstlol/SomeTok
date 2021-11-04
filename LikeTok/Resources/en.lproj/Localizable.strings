@@ -43,3 +43,9 @@
 "AuthPersonalData.namePlaceholder" = "Ваше имя";
 "AuthPersonalData.number" = "+7 (900) 000 00 00";
 "AuthPersonalData.button" = "Продолжить";
+
+"Tabbar.feed" = "Главная";
+"Tabbar.chat" = "Каталог";
+"Tabbar.profile" = "Профиль";
+"Tabbar.search" = "Каталог";
+"Tabbar.add" = "Добавить";

@@ -67,6 +67,7 @@
 		17AA6C1A272982F700CE276E /* UIAplicationExtentsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA6C19272982F700CE276E /* UIAplicationExtentsion.swift */; };
 		17AA6C1C27298D7000CE276E /* OnboardingCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA6C1B27298D7000CE276E /* OnboardingCordinator.swift */; };
 		17AA6C1E27298DA200CE276E /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA6C1D27298DA200CE276E /* Closures.swift */; };
+		17B246B3273433C2002E35D4 /* TabBarMoksScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B246B2273433C2002E35D4 /* TabBarMoksScreens.swift */; };
 		17B4093827308DA700229977 /* TabBarViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B4093727308DA700229977 /* TabBarViewController.storyboard */; };
 		17C66E0C2723034E0032F5F3 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C66E0B2723034E0032F5F3 /* Method.swift */; };
 		17C66E0E2723043F0032F5F3 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C66E0D2723043F0032F5F3 /* Api.swift */; };
@@ -208,6 +209,7 @@
 		17AA6C19272982F700CE276E /* UIAplicationExtentsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAplicationExtentsion.swift; sourceTree = "<group>"; };
 		17AA6C1B27298D7000CE276E /* OnboardingCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCordinator.swift; sourceTree = "<group>"; };
 		17AA6C1D27298DA200CE276E /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
+		17B246B2273433C2002E35D4 /* TabBarMoksScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarMoksScreens.swift; sourceTree = "<group>"; };
 		17B4093727308DA700229977 /* TabBarViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarViewController.storyboard; sourceTree = "<group>"; };
 		17C66E0B2723034E0032F5F3 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		17C66E0D2723043F0032F5F3 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				40FC2EA1A6EE59C2F0BE5C41 /* View */,
 				CA83EDEEBA5D8CAA55588F46 /* Presenter */,
 				FD50FCC22EFFC2964C4D7D21 /* Assembler */,
+				17B246B2273433C2002E35D4 /* TabBarMoksScreens.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -1171,6 +1174,7 @@
 				D681C28A5D6C3CAE25ECCFAF /* SignUpPresenterOutput.swift in Sources */,
 				7CD457E3F84E96672ECFF689 /* SignUpPresenter.swift in Sources */,
 				0D0450D36C619482ED7CBC50 /* SignUpAssembler.swift in Sources */,
+				17B246B3273433C2002E35D4 /* TabBarMoksScreens.swift in Sources */,
 				17AA6C1A272982F700CE276E /* UIAplicationExtentsion.swift in Sources */,
 				17AA6C152729804D00CE276E /* Router.swift in Sources */,
 				3FC4BE4728AC28828A3658ED /* PasswordRecoveryFirstViewController.swift in Sources */,

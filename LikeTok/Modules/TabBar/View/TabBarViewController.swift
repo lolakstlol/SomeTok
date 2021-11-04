@@ -1,12 +1,9 @@
-//
-//  TabBarTabBarViewController.swift
-//  LikeTok
-//
-//  Created by Artem Holod on 01/11/2021.
-//  Copyright © 2021 LikeTok. All rights reserved.
-//
-
 import UIKit
+
+enum TabBarAppearance {
+    case white
+    case transparent
+}
 
 final class TabBarViewController: UITabBarController {
 	var presenter: TabBarPresenterInput!
@@ -15,13 +12,48 @@ final class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         presenter.viewDidLoad()
         presenter.attachInstanse(tabbar: self)
+        tabBar.tintColor = .black
+        tabBar.unselectedItemTintColor = .gray
     }
 
 }
 
 extension TabBarViewController: TabBarPresenterOutput {
+    func updateAppearance(appearance: TabBarAppearance) {
+        switch appearance {
+        case .white:
+            let tabBarAppearance = UITabBarAppearance()
+            let tabBarItemAppearance = UITabBarItemAppearance()
+
+            tabBarItemAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.gray]
+            tabBarItemAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+
+            tabBarAppearance.stackedLayoutAppearance = tabBarItemAppearance
+            tabBarAppearance.backgroundColor = .white
+            tabBar.standardAppearance = tabBarAppearance
+            if #available(iOS 15.0, *) {
+                tabBar.scrollEdgeAppearance = tabBarAppearance
+            }
+        case .transparent:
+            tabBar.backgroundColor = .black
+            let tabBarAppearance = UITabBarAppearance()
+            let tabBarItemAppearance = UITabBarItemAppearance()
+
+            tabBarItemAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.gray]
+            tabBarItemAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
+            tabBarAppearance.stackedLayoutAppearance = tabBarItemAppearance
+            tabBarAppearance.backgroundColor = .black
+            tabBar.standardAppearance = tabBarAppearance
+            if #available(iOS 15.0, *) {
+                tabBar.scrollEdgeAppearance = tabBarAppearance
+            }
+        }
+    }
+    
     func updateViews(vc: [UIViewController], selected: Int) {
         self.viewControllers = vc
         self.selectedIndex = selected
+        tabBar.updateFocusIfNeeded()
     }
 }

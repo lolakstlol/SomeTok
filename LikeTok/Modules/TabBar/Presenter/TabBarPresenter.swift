@@ -8,6 +8,13 @@
 
 import UIKit
 
+struct TabBarItemModel {
+    let title: String
+    let image: UIImage
+    let selectedImage: UIImage
+}
+
+
 final class TabBarPresenter: NSObject {
     private unowned let view: TabBarPresenterOutput
     private var selectedViewController: UIViewController?
@@ -20,10 +27,45 @@ final class TabBarPresenter: NSObject {
 
     func viewDidLoad() {
         view.updateViews(vc: getViewControllers(), selected: startViewController)
+        view.updateAppearance(appearance: .transparent)
     }
     
     private func getViewControllers() -> [UIViewController] {
-        return [MainFeedAssembler.createModule(), UIViewController(), UIViewController(), UIViewController(), UIViewController()]
+        let tabBarItems: [(UIViewController, TabBarItemModel)] = [(MainFeedAssembler.createModule(),
+                                                                       TabBarItemModel(title: Strings.Tabbar.feed,
+                                                                                       image: Assets.feedUnselected.image,
+                                                                                       selectedImage: Assets.feedSelected.image)),
+                                                                      (SearchViewController(),
+                                                                       TabBarItemModel(title: Strings.Tabbar.search,
+                                                                                       image: Assets.searchUnselected.image,
+                                                                                       selectedImage:
+                                                                                        Assets.searchUnselected.image)),
+                                                                      (AddViewController(),
+                                                                       TabBarItemModel(title: Strings.Tabbar.add,
+                                                                                       image: Assets.addUnselected.image,
+                                                                                       selectedImage: Assets.addUnselected.image)),
+                                                                      (ChatViewController(),
+                                                                       TabBarItemModel(title: Strings.Tabbar.chat,
+                                                                                       image: Assets.chatUnselected.image,
+                                                                                       selectedImage:
+                                                                                        Assets.chatSelected.image)),
+                                                                      (ProfileViewController(),
+                                                                       TabBarItemModel(title: Strings.Tabbar.profile,
+                                                                                       image: Assets.chatUnselected.image,
+                                                                                       selectedImage:
+                                                                                        Assets.chatUnselected.image))]
+        let viewControllers = { tabBarItems.map { $0.0 } }()
+        
+        setupTabBarItems(tabBarItems)
+        return viewControllers
+    }
+    
+    private func setupTabBarItems(_ tabBarItems: [(UIViewController, TabBarItemModel)]) {
+        tabBarItems.forEach {
+            $0.0.tabBarItem.title = $0.1.title
+            $0.0.tabBarItem.image = $0.1.image
+            $0.0.tabBarItem.selectedImage = $0.1.selectedImage
+        }
     }
 
 }
@@ -36,17 +78,11 @@ extension TabBarPresenter: TabBarPresenterInput {
 
 extension TabBarPresenter: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-//        checkIsHomeVC(viewController)
-//
-//        selectedViewController = view.getCurrentController()
+        selectedViewController = viewController
+        checkIsHomeVC(viewController)
     }
     
     private func checkIsHomeVC(_ viewController: UIViewController) {
-//        if selectedViewController is CatalogWebViewController,
-//           viewController == selectedViewController {
-//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "onHome"), object: nil, userInfo: nil)
-//        } else {
-//            selectedViewController = nil
-//        }
+        selectedViewController is MainFeedViewController ? view.updateAppearance(appearance: .transparent) : view.updateAppearance(appearance: .white)
     }
 }
