@@ -54,6 +54,5 @@ extension TabBarViewController: TabBarPresenterOutput {
     func updateViews(vc: [UIViewController], selected: Int) {
         self.viewControllers = vc
         self.selectedIndex = selected
-        tabBar.updateFocusIfNeeded()
     }
 }

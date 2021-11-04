@@ -60,8 +60,7 @@ class ApplicationCoordinator: BaseCoordinator {
         } else {
             switch instructor {
             case .onboarding:
-//                runOnboardingFlow()
-                runMainFlow()
+                runOnboardingFlow()
             case .main:
                 AccountManager.isAuthorized() ? runMainFlow() : runAuthFlow()
             }
@@ -108,6 +107,7 @@ private extension ApplicationCoordinator {
         let coordinator = coordinatorFactory.makeOnboardingCoordinator(router: router)
         coordinator.finishFlow = { [weak self, weak coordinator] in
             self?.removeDependency(coordinator)
+            self?.settings.hasPassedPaywall = true
             self?.runAuthFlow()
         }
         addDependency(coordinator)
