@@ -17,22 +17,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-
-        initializeRootView(windowScene: windowScene)
-        applicationCoordinator = makeCoordinator(window: window)
-        deepLinkService.coordinator = applicationCoordinator
-        applicationCoordinator?.start()
-        
 //        guard let windowScene = (scene as? UIWindowScene) else { return }
-//        let window = UIWindow(windowScene: windowScene)
-//        let vc = PasswordRecoverySecondAssembler.createModule {
-//            print("fd")
-//        }
-//        let navigation = UINavigationController(rootViewController: vc)
-//        window.rootViewController = navigation
-//        self.window = window
-//        window.makeKeyAndVisible()
+//
+//        initializeRootView(windowScene: windowScene)
+//        applicationCoordinator = makeCoordinator(window: window)
+//        deepLinkService.coordinator = applicationCoordinator
+//        applicationCoordinator?.start()
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        let vc = FeedViewAssembler.createModule(type: .main, feedService: FeedService(), collectionManager: FeedCollectionManager())
+        let navigation = UINavigationController(rootViewController: vc)
+        window.rootViewController = navigation
+        self.window = window
+        window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

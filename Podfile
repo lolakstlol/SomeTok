@@ -13,6 +13,7 @@ target 'LikeTok' do
   pod 'Firebase/Messaging'
   pod 'Firebase/Core'
   pod 'Kingfisher'
+  pod 'FloatingPanel'
   ## Video Player
   pod 'GSPlayer'
   # Pods for LikeTok
