@@ -8,7 +8,7 @@
 
 import UIKit.UICollectionView
 
-protocol FeedCollectionManagement: class {
+protocol FeedCollectionManagement: AnyObject {
     var output: FeedCollectionOutput? { get set }
     func attach(_ collectionView: UICollectionView)
     func update(with configurators: [FeedCellConfigurator])

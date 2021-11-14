@@ -8,7 +8,7 @@
 
 import CoreLocation
 
-protocol FeedViewPresenterOutput: class {
+protocol FeedViewPresenterOutput: AnyObject {
     func setupUI()
     func updateConfigurators(_ configurators: [FeedCellConfigurator])
     func updateItem(with model: FeedResponse, at index: Int)
@@ -30,7 +30,7 @@ struct FeedResponse: Decodable {
     let updatedAt: String
     let hashtags: [String]?
     var likes: Int
-    var user: Int
+    var user: UserResponse
     let geoPoint: GeoPoint?
     var comments: Int
     var isLiked: Bool?
@@ -65,5 +65,24 @@ struct Media: Codable {
             case mainImageUrl = "main_image_url"
             case blurImageUrl = "blur_image_url"
         }
+    }
+}
+
+
+struct UserResponse: Decodable {
+    let userId: String
+    let username: String
+    let avatarUrl: String
+    let name: String?
+    let profileType: String
+    var isSubscribed: Bool?
+    
+    enum CodingKeys: String, CodingKey {
+        case userId = "id"
+        case username
+        case name
+        case avatarUrl = "avatar_url"
+        case profileType = "profile_type"
+        case isSubscribed = "is_subscribed"
     }
 }

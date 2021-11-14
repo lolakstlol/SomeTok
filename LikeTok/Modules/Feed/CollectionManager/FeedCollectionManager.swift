@@ -9,7 +9,7 @@
 import class Foundation.NSObject
 import UIKit
 
-protocol FeedCollectionOutput: class {
+protocol FeedCollectionOutput: AnyObject {
     func selectFeedItem(_ item: FeedResponse)
     func requestNextPosts(offset: Int)
     func attach() -> FeedCellActionsOutput
@@ -34,7 +34,9 @@ final class FeedCollectionManager: NSObject {
             return nil
         }
         let index = Int(round(contentOffsetY / frameSizeHeight))
-        let item = configurators[index].getModel()
+        guard let item = configurators[safe: index]?.getModel() else {
+            return nil
+        }
         return item
     }
     weak var output: FeedCollectionOutput?
@@ -102,23 +104,23 @@ extension FeedCollectionManager: FeedCollectionManagement {
     }
     
     func update(with configurators: [FeedCellConfigurator]) {
-//        self.configurators = configurators
-//        collectionView?.reloadData()
-//        if let index = itemIndex {
-//            collectionView?.scrollToItem(at: IndexPath(row: index, section: .zero),
-//                                         at: UICollectionView.ScrollPosition(rawValue: .zero),
-//                                         animated: false)
-//        }
-//        guard let item = currentItem else {
-//            return
-//        }
-//        guard let index = itemIndex, let model = (configurators[safe: index]?.getModel()) else {
-//            output?.selectFeedItem(item)
-//            setupCellItems()
-//            return
-//        }
-//        output?.selectFeedItem(model)
-//        setupCellItems()
+        self.configurators = configurators
+        collectionView?.reloadData()
+        if let index = itemIndex {
+            collectionView?.scrollToItem(at: IndexPath(row: index, section: .zero),
+                                         at: UICollectionView.ScrollPosition(rawValue: .zero),
+                                         animated: false)
+        }
+        guard let item = currentItem else {
+            return
+        }
+        guard let index = itemIndex, let model = (configurators[safe: index]?.getModel()) else {
+            output?.selectFeedItem(item)
+            setupCellItems()
+            return
+        }
+        output?.selectFeedItem(model)
+        setupCellItems()
     }
     
     func scrollToTop() {
@@ -169,5 +171,13 @@ extension FeedCollectionManager: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return configurators[indexPath.row].getCellSize(viewSize: collectionView.frame.size)
+    }
+}
+
+extension Collection {
+
+    /// Returns the element at the specified index if it is within bounds, otherwise nil.
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
     }
 }

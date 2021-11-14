@@ -6,6 +6,7 @@
 //  Copyright © 2020 BSL. All rights reserved.
 //
 import Foundation
+import CoreLocation
 
 final class FeedViewInteractor {
     private weak var output: FeedViewInteractorOutput?
@@ -30,6 +31,9 @@ extension FeedViewInteractor: FeedViewInteractorInput {
     }
     
     func getFeed(with offset: Int) {
+        
+        output?.didReceivedPost(with: .success((FeedResponse(text: "", postType: "", media: [""], postId: "", createdAt: "", updatedAt: "", hashtags: [""], likes: 4, user: UserResponse(userId: "", username: "", avatarUrl: "", name: "", profileType: "", isSubscribed: false), geoPoint: GeoPoint(longitude: CLLocationDegrees(), latitude: CLLocationDegrees()), comments: 0, isLiked: false))))
+        self.isFeedLoading = false
 //        switch type {
 //        case .profilePosts(let info):
 //            guard !isFeedLoading, configurators == nil else { return }

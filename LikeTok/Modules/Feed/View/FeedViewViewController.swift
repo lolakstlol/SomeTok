@@ -169,22 +169,22 @@ extension FeedViewViewController: FeedViewPresenterOutput {
                                        selector: #selector(keyboardWillHide(notification:)),
                                        name: UIResponder.keyboardWillHideNotification,
                                        object: nil)
-//        notificationCenter.addObserver(self,
-//                                       selector: #selector(updateFeed),
-//                                       name: .updateFeed,
-//                                       object: nil)
-//        notificationCenter.addObserver(self,
-//                                       selector: #selector(updateSettings),
-//                                       name: .updateSettings,
-//                                       object: nil)
-//        notificationCenter.addObserver(self,
-//                                       selector: #selector(updateFeed),
-//                                       name: .userAuthorized,
-//                                       object: nil)
-//        notificationCenter.addObserver(self,
-//                                       selector: #selector(updateFeed),
-//                                       name: .userLoggedOut,
-//                                       object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(updateFeed),
+                                       name: .updateFeed,
+                                       object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(updateSettings),
+                                       name: .updateSettings,
+                                       object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(updateFeed),
+                                       name: .userAuthorized,
+                                       object: nil)
+        notificationCenter.addObserver(self,
+                                       selector: #selector(updateFeed),
+                                       name: .userLoggedOut,
+                                       object: nil)
         setupGestures()
         
     }
@@ -256,4 +256,25 @@ extension FeedViewViewController: FeedCellActionsOutput {
     func shareTapAction(_ image: UIImage) {
         presenter.shareTouchUpInside(image)
     }
+}
+
+
+extension Notification.Name {
+    static let setFCMToken = Notification.Name("FCMToken")
+    static let updateFeed = Notification.Name(rawValue: "updateFeed")
+    static let updateSettings = Notification.Name(rawValue: "updateSettings")
+    static let hasUnviewedNotifications = Notification.Name(rawValue: "hasUnviewedNotifications")
+    static let needUpdateNotificationsBadge = Notification.Name(rawValue: "needUpdateNotificationsBadge")
+    static let hasntUnviewedNotifications = Notification.Name(rawValue: "hasntUnviewedNotifications")
+    static let userUpdated = Notification.Name("userUpdated")
+    static let userAuthorized = Notification.Name("userAuthorized")
+    static let userLoggedOut = Notification.Name("userLoggedOut")
+    static let changeFloatingBasketVisibility = Notification.Name(rawValue: "changeFloatingBasketVisibility")
+    static let shouldUpdateBusinessesList = Notification.Name(rawValue: "shouldUpdateBusinessesList")
+    static let updateCurrentChat = Notification.Name("UpdateCurrentChat")
+    static let updateChatList = Notification.Name("UpdateChatList")
+    static let updateNotificationsList = Notification.Name("UpdateNotificationsList")
+    static let userWasSubscribed = Notification.Name("userWasSubscribed")
+
+    static let applicationDidBecomeActive = Notification.Name(rawValue: "applicationDidBecomeActive")
 }

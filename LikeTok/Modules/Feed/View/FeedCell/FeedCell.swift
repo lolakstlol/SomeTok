@@ -2,7 +2,7 @@
 
 import UIKit
 
-protocol FeedCellActionsOutput: class {
+protocol FeedCellActionsOutput: AnyObject {
     func moreTapAction()
     func commentsTapAction()
     func profileTapAction()
@@ -15,39 +15,33 @@ final class FeedCell: UICollectionViewCell {
     
     // MARK: - @IBOutlets
 
-    @IBOutlet private var moreButton: UIButton!
-    @IBOutlet private var shareLabel: UILabel!
     @IBOutlet private var commentsLabel: UILabel!
     @IBOutlet private var likeLabel: UILabel!
     @IBOutlet private var likeImageView: UIImageView!
     @IBOutlet private var userImageView: UIImageView?
-    
-    @IBOutlet private var userLogin: UILabel!
-    @IBOutlet private var creationTime: UILabel!
-    @IBOutlet private var userName: UILabel!
-    @IBOutlet private var userDataBottomConstraint: NSLayoutConstraint!
-    
+        
+    @IBOutlet private weak var userName: UILabel!
     @IBOutlet private var topGradientView: UIView!
     @IBOutlet private var bottomGradientView: UIView!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var subscribeButton: UIButton!
-    @IBOutlet weak var toCatalogButton: UIView!
+    @IBOutlet weak var shareButton: UIButton!
     
     // MARK: - Private properties
 
     private weak var output: FeedCellActionsOutput?
-    private lazy var blurView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.systemChromeMaterialDark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = toCatalogButton.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurEffectView.layer.masksToBounds = true
-        blurEffectView.layer.cornerRadius = 12
-        
-        return blurEffectView
-    }()
+//    private lazy var blurView: UIVisualEffectView = {
+//        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.systemChromeMaterialDark)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = toCatalogButton.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        blurEffectView.layer.masksToBounds = true
+//        blurEffectView.layer.cornerRadius = 12
+//
+//        return blurEffectView
+//    }()
     
     // MARK: - Lifecycle
 
@@ -66,10 +60,6 @@ final class FeedCell: UICollectionViewCell {
     }
     
     // MARK: - @IBActions
-    
-    @IBAction private func moreAction() {
-        output?.moreTapAction()
-    }
         
     @IBAction private func commentsAction() {
         output?.commentsTapAction()
@@ -126,8 +116,8 @@ final class FeedCell: UICollectionViewCell {
     }
     
     func setupUserData(userLogin: String, creationTime: String, userName: String) {
-        self.userLogin.text = "@" + userLogin
-        self.creationTime.text = creationTime
+//        self.userLogin.text = "@" + userLogin
+//        self.creationTime.text = creationTime
         self.userName.text = userName
     }
 }
@@ -141,12 +131,13 @@ extension FeedCell {
         addGestureRecognizer(doubleTap)
         
         let userLoginRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileAction))
-        userLogin.isUserInteractionEnabled = true
-        userLogin.addGestureRecognizer(userLoginRecognizer)
-
+        userName.isUserInteractionEnabled = true
+        userName.addGestureRecognizer(userLoginRecognizer)
+        shareButton.layer.cornerRadius = 10
+        shareButton.layer.borderWidth = 1.5
+        shareButton.layer.borderColor = UIColor.white.cgColor
 //        userDataBottomConstraint.constant += Constants.General.safeArea?.bottom ?? .zero
         
-        toCatalogButton.insertSubview(blurView, at: 0)
         applyGradient()
     }
     

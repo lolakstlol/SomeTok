@@ -216,183 +216,149 @@ extension FeedViewPresenter: FeedViewPresenterInput {
 // MARK: - FeedViewInteractorOutput
 
 extension FeedViewPresenter: FeedViewInteractorOutput {
+    func didReceivedPost(with result: Result<FeedResponse?, NetworkError>) {
+        switch result {
+         case .success(let response):
+             guard let categoriesRespone = response else {
+//                 router.dismiss()
+                 return
+             }
+             var isMainFeed = true
+             switch interactor.type {
+             case .profilePosts, .singlePost:
+                 isMainFeed = false
+             default:
+                 isMainFeed = true
+             }
+             let feedConfigurators = FeedCellConfigurator(categoriesRespone, isMainFeed: isMainFeed)
+             DispatchQueue.main.async { [weak self] in
+                 self?.view?.updateConfigurators([feedConfigurators])
+                 self?.view?.showDismissButton()
+                 switch self?.interactor.type {
+                 case .singlePost(let postId, let flag):
+//                     if let userId = UserDefaultsManager.shared.userId, flag {
+//                         self?.router.openComments(postId: postId, userId: userId)
+//                     }
+                     print(" didReceivedPost .single post")
+                 default: break
+                 }
+             }
+         case .failure:
+             DispatchQueue.main.async {
+                 self.view?.updateConfigurators([])
+//                 self.router.dismiss()
+             }
+         }
+    }
     
+    func didReceivedFeed(with offset: Int, result: Result<[FeedResponse]?, NetworkError>) {
+        switch result {
+        case .success(let response):
+            guard let categoriesRespone = response else {
+                DispatchQueue.main.async {
+                    self.view?.updateConfigurators([])
+                }
+                return
+            }
+            var feedConfigurators = [FeedCellConfigurator]()
+            categoriesRespone.forEach {
+                var isMainFeed = true
+                switch interactor.type {
+                case .profilePosts, .singlePost:
+                    isMainFeed = false
+                default:
+                    isMainFeed = true
+                }
+                let configurator = FeedCellConfigurator($0, isMainFeed: isMainFeed)
+                feedConfigurators.append(configurator)
+            }
+            guard feedConfigurators.count != .zero else { return }
+            DispatchQueue.main.async {
+                self.view?.hideActivityIndicator()
+                if offset != .zero, self.interactor.configurators != nil {
+                    self.interactor.configurators! += feedConfigurators
+                    self.view?.updateConfigurators(self.interactor.configurators ?? [])
+                } else {
+                    if let post = categoriesRespone.first {
+                        self.interactor.setCurrentPost(post)
+                    }
+                    self.interactor.configurators = feedConfigurators
+                    self.view?.updateConfigurators(feedConfigurators)
+                }
+            }
+        case .failure(let error):
+            feedFailureBlock(error: error)
+        }
+    }
+    
+    func didReceivedUser(with result: Result<UserInfoResponse?, NetworkError>) {
+        switch result {
+        case .success(let response):
+            guard let user = response else { return }
+            DispatchQueue.main.async {
+                self.view?.setupAddress(with: user.location?.address ?? "")
+            }
+        case .failure(let error):
+            os_log("@", error.localizedDescription)
+        }
+    }
+    
+    func didCreateLike(with result: String?) {
+        debugPrint(result)
+    }
+    
+    func didDeleteLike(with result: String?) {
+        debugPrint(result)
+//        switch result {
+//        case .success:
+//            DispatchQueue.main.async {}
+//        case .failure:
+//            DispatchQueue.main.async {}
+//        }
+    }
+    
+    func likeAction(_ type: LikeType) {
+        view?.setupLike(type, at: postIndex)
+        post?.isLiked?.toggle()
+        post?.likes += type == .filled ? 1 : -1
+        guard let post = self.post, let index = self.postIndex else { return }
+        self.view?.updateItem(with: post, at: index)
+    }
+    
+    func didSubscribe(with result: Result<SubscribeResponse?, NetworkError>) {
+        switch result {
+        case .success:
+            DispatchQueue.main.async {
+                self.post?.user.isSubscribed = true
+                guard let post = self.post, let index = self.postIndex else { return }
+                self.view?.updateItem(with: post, at: index)
+
+//                NotificationCenter.default.post(name: .userWasSubscribed, object: nil, userInfo: [post.user.userId: post.user.isSubscribed ?? false])
+            }
+        case .failure(let error):
+            os_log("@", error.localizedDescription)
+        }
+    }
+    
+    func didUnsubscribe(with result: Result<SubscribeResponse?, NetworkError>) {
+        switch result {
+        case .success:
+            DispatchQueue.main.async {
+                self.post?.user.isSubscribed = false
+                guard let post = self.post, let index = self.postIndex else { return }
+                self.view?.updateItem(with: post, at: index)
+
+//                NotificationCenter.default.post(name: .userWasSubscribed, object: nil, userInfo: [post.user.userId: post.user.isSubscribed ?? false])
+            }
+        case .failure(let error):
+            os_log("@", error.localizedDescription)
+        }
+    }
+    
+    func didSetUserId(with index: Int) {
+        view?.setupUserFeed(with: index)
+        view?.showDismissButton()
+    }
     
 }
-//    func didSubscribe(with result: Result<SubscribeResponse?, NetworkAPI.NetworkError>) {
-//        switch result {
-//        case .success:
-//            DispatchQueue.main.async {
-//                self.post?.user.isSubscribed = true
-//                guard let post = self.post, let index = self.postIndex else { return }
-//                self.view?.updateItem(with: post, at: index)
-//
-//                NotificationCenter.default.post(name: .userWasSubscribed, object: nil, userInfo: [post.user.userId: post.user.isSubscribed ?? false])
-//            }
-//        case .failure(let error):
-//            os_log("@", error.localizedDescription)
-//        }
-//    }
-//
-//    func didUnsubscribe(with result: Result<SubscribeResponse?, NetworkAPI.NetworkError>) {
-//        switch result {
-//        case .success:
-//            DispatchQueue.main.async {
-//                self.post?.user.isSubscribed = false
-//                guard let post = self.post, let index = self.postIndex else { return }
-//                self.view?.updateItem(with: post, at: index)
-//
-//                NotificationCenter.default.post(name: .userWasSubscribed, object: nil, userInfo: [post.user.userId: post.user.isSubscribed ?? false])
-//            }
-//        case .failure(let error):
-//            os_log("@", error.localizedDescription)
-//        }
-//    }
-//
-//    func didDeleteLike(with result: BaseResult) {
-//        switch result {
-//        case .success:
-//            DispatchQueue.main.async {}
-//        case .failure:
-//            DispatchQueue.main.async {}
-//        }
-//    }
-//
-//    func likeAction(_ type: LikeType) {
-//        view?.setupLike(type, at: postIndex)
-//        post?.isLiked?.toggle()
-//        post?.likes += type == .filled ? 1 : -1
-//        guard let post = self.post, let index = self.postIndex else { return }
-//        self.view?.updateItem(with: post, at: index)
-//    }
-//
-//    func didCreateLike(with result: BaseResult) {
-//        switch result {
-//        case .success:
-//            DispatchQueue.main.async {}
-//        case .failure(let error):
-//            os_log("@", error.localizedDescription)
-//        }
-//    }
-//
-//    func didReceivedPost(with result: Result<FeedResponse?, NetworkAPI.NetworkError>) {
-//        switch result {
-//        case .success(let response):
-//            guard let categoriesRespone = response else {
-//                router.dismiss()
-//                return
-//            }
-//            var isMainFeed = true
-//            switch interactor.type {
-//            case .profilePosts, .singlePost:
-//                isMainFeed = false
-//            default:
-//                isMainFeed = true
-//            }
-//            let feedConfigurators = FeedCellConfigurator(categoriesRespone, isMainFeed: isMainFeed)
-//            DispatchQueue.main.async { [weak self] in
-//                self?.view?.updateConfigurators([feedConfigurators])
-//                self?.view?.showDismissButton()
-//                switch self?.interactor.type {
-//                case .singlePost(let postId, let flag):
-//                    if let userId = UserDefaultsManager.shared.userId, flag {
-//                        self?.router.openComments(postId: postId, userId: userId)
-//                    }
-//                default: break
-//                }
-//            }
-//        case .failure:
-//            DispatchQueue.main.async {
-//                self.view?.updateConfigurators([])
-//                self.router.dismiss()
-//            }
-//        }
-//    }
-//
-//    func didSetUserId(with index: Int) {
-//        view?.setupUserFeed(with: index)
-//        view?.showDismissButton()
-//    }
-//
-//    func didReceivedUser(with result: Result<UserInfoResponse?, NetworkAPI.NetworkError>) {
-//        switch result {
-//        case .success(let response):
-//            guard let user = response else { return }
-//            DispatchQueue.main.async {
-//                self.view?.setupAddress(with: user.location?.address ?? "")
-//            }
-//        case .failure(let error):
-//            os_log("@", error.localizedDescription)
-//        }
-//    }
-//
-//    func didReceivedFeed(with offset: Int, result: Result<[FeedResponse]?, NetworkAPI.NetworkError>) {
-//        switch result {
-//        case .success(let response):
-//            guard let categoriesRespone = response else {
-//                DispatchQueue.main.async {
-//                    self.view?.updateConfigurators([])
-//                }
-//                return
-//            }
-//            var feedConfigurators = [FeedCellConfigurator]()
-//            categoriesRespone.forEach {
-//                var isMainFeed = true
-//                switch interactor.type {
-//                case .profilePosts, .singlePost:
-//                    isMainFeed = false
-//                default:
-//                    isMainFeed = true
-//                }
-//                let configurator = FeedCellConfigurator($0, isMainFeed: isMainFeed)
-//                feedConfigurators.append(configurator)
-//            }
-//            guard feedConfigurators.count != .zero else { return }
-//            DispatchQueue.main.async {
-//                self.view?.hideActivityIndicator()
-//                if offset != .zero, self.interactor.configurators != nil {
-//                    self.interactor.configurators! += feedConfigurators
-//                    self.view?.updateConfigurators(self.interactor.configurators ?? [])
-//                } else {
-//                    if let post = categoriesRespone.first {
-//                        self.interactor.setCurrentPost(post)
-//                    }
-//                    self.interactor.configurators = feedConfigurators
-//                    self.view?.updateConfigurators(feedConfigurators)
-//                }
-//            }
-//        case .failure(let error):
-//            feedFailureBlock(error: error)
-//        }
-//    }
-//
-//    func didSendComment(with result: Result<CommentResponse?, NetworkAPI.NetworkError>) {
-//        switch result {
-//        case .success:
-//            DispatchQueue.main.async {
-//                self.view?.chatMessageSended(true)
-//                guard let comments = self.post?.comments else { return }
-//                self.setCommentsCount(with: comments + 1)
-//            }
-//        case .failure(let error):
-//            DispatchQueue.main.async {
-//                self.view?.chatMessageSended(false)
-//                self.router.showErrorAlert(message: error.localizedDescription)
-//            }
-//        }
-//    }
-//
-//    func didSendChatMessage(with result: Result<CreateChatResponse?, NetworkAPI.NetworkError>) {
-//        switch result {
-//        case .success:
-//            DispatchQueue.main.async {
-//                self.view?.chatMessageSended(true)
-//            }
-//        case .failure(let error):
-//            DispatchQueue.main.async {
-//                self.view?.chatMessageSended(false)
-//                self.router.showErrorAlert(message: error.localizedDescription)
-//            }
-//        }
-//    }
-//}
+

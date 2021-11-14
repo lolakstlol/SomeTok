@@ -29,14 +29,15 @@ final class FeedCellConfigurator {
     
     func setupCell(_ cell: UIView) {
 //        guard let payload = model.media?.first?.payload else { return }
-//        self.cell = cell as? FeedCell
+        self.cell = cell as? FeedCell
 //        self.cell?.imageView.kf.setImage(with: URL(string: payload.mainImageUrl))
+        self.cell?.imageView.image = Assets.onb1.image
 //        self.cell?.backgroundImageView.kf.setImage(with: URL(string: payload.blurImageUrl ?? ""))
-//
+
 //        self.cell?.toCatalogButton.isHidden = !isMainFeed
 //        self.cell?.subscribeButton.isHidden = model.user.userId == UserDefaultsManager.shared.userId
 //        let time = AppDateFormatter.shared.howLongAgoWithDate(with: model.createdAt) ?? ""
-//        self.cell?.setupUserData(userLogin: model.user.username, creationTime: time, userName: model.user.name ?? "")
+        self.cell?.setupUserData(userLogin: model.user.username, creationTime: "", userName: model.user.name ?? "")
     }
     
     func updateCell(delegate: FeedCellActionsOutput,

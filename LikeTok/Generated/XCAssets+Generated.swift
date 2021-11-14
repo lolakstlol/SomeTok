@@ -36,6 +36,8 @@ internal enum Assets {
   internal static let mainRed = ColorAsset(name: "MainRed")
   internal static let whiteText = ColorAsset(name: "WhiteText")
   internal static let backButton = ImageAsset(name: "BackButton")
+  internal static let comments = ImageAsset(name: "comments")
+  internal static let emptyHeart = ImageAsset(name: "emptyHeart")
   internal static let onb1 = ImageAsset(name: "onb1")
   internal static let onb2 = ImageAsset(name: "onb2")
   internal static let onb3 = ImageAsset(name: "onb3")
