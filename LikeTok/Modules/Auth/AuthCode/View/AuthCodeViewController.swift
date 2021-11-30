@@ -31,10 +31,6 @@ final class AuthCodeViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        firstNumberTextField.layer.cornerRadius = firstNumberTextField.frame.height / 2
-        secondNumberTextField.layer.cornerRadius = firstNumberTextField.frame.height / 2
-        thirdNumberTextField.layer.cornerRadius = firstNumberTextField.frame.height / 2
-        fouthNumberTextField.layer.cornerRadius = firstNumberTextField.frame.height / 2
     }
     
     private func setupTextFields() {
@@ -141,6 +137,10 @@ extension AuthCodeViewController: AuthCodePresenterOutput {
         setupKeyboardObservers()
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: Assets.backButton.image, style: .plain, target: self, action: #selector(backButton))
         navigationItem.leftBarButtonItem?.tintColor = .black
+        firstNumberTextField.layer.cornerRadius = 35
+        secondNumberTextField.layer.cornerRadius =  35
+        thirdNumberTextField.layer.cornerRadius =  35
+        fouthNumberTextField.layer.cornerRadius =  35
     }
 }
 

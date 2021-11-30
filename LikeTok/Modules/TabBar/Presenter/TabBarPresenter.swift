@@ -55,7 +55,7 @@ final class TabBarPresenter: NSObject {
                                                                                        selectedImage:
                                                                                         Assets.chatUnselected.image))]
         let viewControllers = { tabBarItems.map { $0.0 } }()
-        
+
         setupTabBarItems(tabBarItems)
         return viewControllers
     }

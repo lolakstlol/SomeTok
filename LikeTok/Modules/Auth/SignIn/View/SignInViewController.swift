@@ -23,6 +23,13 @@ final class SignInViewController: BaseViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +51,7 @@ final class SignInViewController: BaseViewController {
     }
     
     @IBAction func createAccountDidTap(_ sender: Any) {
-        
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onPasswordRecoveryTap(_ sender: Any) {

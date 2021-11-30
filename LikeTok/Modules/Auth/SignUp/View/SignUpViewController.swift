@@ -9,8 +9,8 @@
 import UIKit
 
 final class SignUpViewController: BaseViewController {
-	var presenter: SignUpPresenterInput!
-
+    var presenter: SignUpPresenterInput!
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var privacySwitch: UISwitch!
     @IBOutlet weak var privacyLabel: UILabel!
@@ -24,12 +24,20 @@ final class SignUpViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
-
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
     @IBAction func signUpDidTap(_ sender: Any) {
         if let name = loginTextField.text,
            let mail = emailTextField.text,
-           let password = passwordTextField.text {
+           let password = passwordTextField.text,
+           privacySwitch.isOn {
             presenter.signUP(email: mail, name: name, pass: password)
         } else {
             // HANDLE
@@ -68,7 +76,12 @@ extension SignUpViewController: SignUpPresenterOutput {
         passwordTextField.placeholder = Strings.SignUP.PlaceHolder.password
         loginTextField.placeholder = Strings.SignUP.PlaceHolder.login
         titleLabel.text = Strings.SignUP.title
-        privacyLabel.text = Strings.SignUP.privacy
+        let mainString = Strings.SignUP.privacy
+        let stringToColor = Strings.SignUP.privacyDetected
+        let range = (mainString as NSString).range(of: stringToColor)
+        let mutableAttributedString = NSMutableAttributedString.init(string: mainString)
+        mutableAttributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: Assets.mainRed.color, range: range)
+        privacyLabel.attributedText = mutableAttributedString
         registerButton.setTitle(Strings.SignUP.continueButton, for: .normal)
         loginButton.setTitle(Strings.SignUP.loginButton, for: .normal)
         registerButton.layer.cornerRadius = 10

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,49 +61,52 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="rdT-Iu-guf">
-                    <rect key="frame" x="16" y="267.5" width="382" height="80"/>
+                    <rect key="frame" x="35.5" y="267.5" width="343" height="70"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7a-hg-uHA" customClass="NumberTextField" customModule="LikeTok" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                             <color key="backgroundColor" name="LightGray"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="70" id="PUr-8Q-ajm"/>
+                                <constraint firstAttribute="width" constant="70" id="qBa-9E-g6E"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="28"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iw4-UE-UU8" customClass="NumberTextField" customModule="LikeTok" customModuleProvider="target">
-                            <rect key="frame" x="101" y="0.0" width="79.5" height="80"/>
+                            <rect key="frame" x="91" y="0.0" width="70" height="70"/>
                             <color key="backgroundColor" name="LightGray"/>
                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="28"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NHD-nF-IJR" customClass="NumberTextField" customModule="LikeTok" customModuleProvider="target">
-                            <rect key="frame" x="201.5" y="0.0" width="80" height="80"/>
+                            <rect key="frame" x="182" y="0.0" width="70" height="70"/>
                             <color key="backgroundColor" name="LightGray"/>
                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="28"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CUc-HQ-UH0" customClass="NumberTextField" customModule="LikeTok" customModuleProvider="target">
-                            <rect key="frame" x="302.5" y="0.0" width="79.5" height="80"/>
+                            <rect key="frame" x="273" y="0.0" width="70" height="70"/>
                             <color key="backgroundColor" name="LightGray"/>
                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="28"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" secondItem="N7a-hg-uHA" secondAttribute="width" id="4sE-mN-0B1"/>
+                        <constraint firstAttribute="height" constant="70" id="OQJ-o3-lG8"/>
                     </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="sdJ-TT-bJl" firstAttribute="top" secondItem="k9k-JG-ilo" secondAttribute="bottom" constant="16" id="0K7-2w-bwu"/>
-                <constraint firstItem="rdT-Iu-guf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="8N7-BA-eTe"/>
-                <constraint firstAttribute="trailing" secondItem="rdT-Iu-guf" secondAttribute="trailing" constant="16" id="9jN-z1-2Xv"/>
                 <constraint firstItem="k9k-JG-ilo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="Bmy-jt-JhK"/>
                 <constraint firstAttribute="trailing" secondItem="1nv-F8-JvP" secondAttribute="trailing" constant="16" id="Rch-Up-9iR"/>
                 <constraint firstItem="k9k-JG-ilo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TOe-Ts-cXN"/>
                 <constraint firstItem="1nv-F8-JvP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="X3W-4E-YP9"/>
                 <constraint firstItem="rdT-Iu-guf" firstAttribute="top" secondItem="sdJ-TT-bJl" secondAttribute="bottom" constant="40" id="Yu6-8K-uSN"/>
                 <constraint firstAttribute="trailing" secondItem="sdJ-TT-bJl" secondAttribute="trailing" constant="70" id="jcM-ub-SRx"/>
+                <constraint firstItem="rdT-Iu-guf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jp8-p1-UVM"/>
                 <constraint firstItem="sdJ-TT-bJl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="kkh-B4-a7i"/>
                 <constraint firstItem="sdJ-TT-bJl" firstAttribute="centerX" secondItem="1nv-F8-JvP" secondAttribute="centerX" id="lVZ-Nm-77O"/>
                 <constraint firstAttribute="bottomMargin" secondItem="1nv-F8-JvP" secondAttribute="bottom" constant="25" id="o4T-J6-sLf"/>

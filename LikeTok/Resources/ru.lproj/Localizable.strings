@@ -1,13 +1,16 @@
-"DrinkList.Navigation.Title" = "Напитки";
 "Onboarding.Skip" = "Пропустить";
 "Onboarding.Next" = "Далее";
 
+"SplashScreen.begin" = "Начать";
+
 "PasswordRecovery.First.title" = "Восстановление пароля";
-"PasswordRecovery.First.text" = "На ваш электронный адрес будет отправлен код подтверждения";
+"PasswordRecovery.First.text" = "На ваш электронный адрес будет
+отправлен код подтверждения";
 "PasswordRecovery.First.resume" = "Продолжить";
-"PasswordRecovery.First.error" = "Проверьте корректность своей почты";
-"PasswordRecovery.First.responseError" = "Ошибка сервера. Проверьте подключение к интернету.";
-"PasswordRecovery.First.noUserError" = "Такого пользователя нет. Пожалуйста проверьте корректность почты";
+
+"PasswordRecovery.First.badEmail" = "Проверьте email";
+"PasswordRecovery.First.responseError" = "Ошибка Сервера.";
+"PasswordRecovery.First.noUserError" = "Такого пользователя нет. Пожалуйста, проверьте правильность email.";
 
 "PasswordRecovery.error" = "Ошибка";
 
@@ -15,6 +18,42 @@
 "PasswordRecovery.Second.text" = "Введите новый пароль";
 "PasswordRecovery.Second.enterThePassword" = "Введите пароль";
 "PasswordRecovery.Second.resume" = "Продолжить";
-"PasswordRecovery.Second.code" = "Введите код из письма";
+"PasswordRecovery.Second.code" = "Введите код из пиьсма";
 
-"PasswordRecovery.Second.invalidPassword" = "Вы ввели недопустимые символы";
+"PasswordRecovery.Second.invalidPassword" = "Недопустимые символы";
+
+"SignUP.placeHolder.mail" = "E-mail";
+"SignUP.placeHolder.login" = "Логин";
+"SignUP.placeHolder.password" = "Пароль";
+"SignUP.title" = "Регистрация";
+"SignUP.privacy" = "Согласен с Политикой обработки персональных данных";
+"SignUP.privacyDetected" = "Политикой обработки персональных данных";
+"SignUP.continueButton" = "Продолжить";
+"SignUP.loginButton" = "Уже зарегистрированы?";
+
+"AuthCode.title" = "Мы отправили код на e-mail, введите его в поле ниже";
+"AuthCode.getNewCode" = "Получить новый код";
+"AuthCode.navigationTitle" = "Подтверждение";
+
+"SignIn.title" = "Авторизация";
+"SignIn.createAccount" = "Создать аккаунт";
+"SignIn.resetPassword" = "Забыли пароль?";
+
+"AuthPersonalData.title" = "Профиль";
+"AuthPersonalData.subTitle" = "Пожалуйста, заполните данные для своего профиля";
+"AuthPersonalData.namePlaceholder" = "Ваше имя";
+"AuthPersonalData.number" = "+7 (900) 000 00 00";
+"AuthPersonalData.button" = "Продолжить";
+
+"Tabbar.feed" = "Главная";
+"Tabbar.chat" = "Каталог";
+"Tabbar.profile" = "Профиль";
+"Tabbar.search" = "Каталог";
+"Tabbar.add" = "Добавить";
+
+"Search.control.accounts" = "Аккаунт";
+"Search.control.categories" = "Категория";
+"Search.control.tags" = "Хэштег";
+"Search.plug.categories" = "Категория не найдено";
+"Search.plug.tags" = "#тег не найден";
+"Search.plug.people" = "Пользователь не найден";
