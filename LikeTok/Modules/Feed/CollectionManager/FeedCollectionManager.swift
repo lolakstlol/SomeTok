@@ -23,6 +23,7 @@ final class FeedCollectionManager: NSObject {
     private weak var collectionView: UICollectionView?
     private var itemIndex: Int?
     private var isRefreshingFeed = false
+    private var isReadyToPlay = false
     private var currentItem: FeedResponse? {
         guard configurators.count != 0 else {
             return nil
@@ -43,21 +44,24 @@ final class FeedCollectionManager: NSObject {
     
     private func setupCellItems() {
         guard let item = currentItem,
-              let currentIndex = configurators.firstIndex(where: { $0.getModel().postId == currentItem?.postId }),
+              let currentIndex = configurators.firstIndex(where: { $0.getModel().uuid == currentItem?.uuid }),
               let delegate = output?.attach(),
               let shouldShowFilledLikes = output?.shouldShowFilledLikes() else { return }
         
         configurators[currentIndex].updateCell(delegate: delegate,
-                                               likes: (item.likes, item.isLiked ?? false ? .filled : .empty, shouldShowFilledLikes),
+                                               playerDelegate: self,
+                                               likes: (item.likes, item.isLiked ? .filled : .empty, shouldShowFilledLikes),
                                                commentsCount: item.comments,
-                                               imageUrlString: "d")
+                                               imageUrlString: item.author.photo.preview ,
+                                               description: item.title ?? "",
+                                               media: item.media)
                                                 //item.user.avatarUrl)
     }
     
     private func checkFeedPositionForRequest() {
-        guard let currentIndex = configurators.firstIndex(where: { $0.getModel().postId == currentItem?.postId }),
-              configurators.count - currentIndex < Constants.Feed.minFeedIndexDifference else { return }
-//        output?.requestNextPosts(offset: configurators.count)
+        guard let currentIndex = configurators.firstIndex(where: { $0.getModel().uuid == currentItem?.uuid }),
+              configurators.count - currentIndex < Constants.Feed.minFeedIndexDifference  else { return } 
+        output?.requestNextPosts(offset: configurators.count)
     }
 }
 
@@ -68,7 +72,7 @@ extension FeedCollectionManager: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let configurator = configurators[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: type(of: configurator).cellIdentifier,
-                                                      for: indexPath)
+            for: indexPath)
         configurator.setupCell(cell)
         setupCellItems()
         return cell
@@ -143,9 +147,13 @@ extension FeedCollectionManager: FeedCollectionManagement {
         output?.selectFeedItem(item)
         setupCellItems()
     }
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        configurators.forEach { $0.updateState(false) }
+    }
         
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard configurators.first?.getModel().postId == currentItem?.postId else { return }
+        guard configurators.first?.getModel().uuid == currentItem?.uuid else { return }
         let position = scrollView.contentOffset.y
         if position < -Constants.Feed.minScrollSizeToRefresh, !isRefreshingFeed {
             isRefreshingFeed = true
@@ -172,6 +180,16 @@ extension FeedCollectionManager: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return configurators[indexPath.row].getCellSize(viewSize: collectionView.frame.size)
     }
+}
+
+extension FeedCollectionManager: FeedPlayerDelegate {
+    func onReadyToPlay() {
+        guard let currentIndex = configurators.firstIndex(where: { $0.getModel().uuid == currentItem?.uuid }) else {
+            return
+        }
+        configurators[currentIndex].updateState(true)
+    }
+    
 }
 
 extension Collection {

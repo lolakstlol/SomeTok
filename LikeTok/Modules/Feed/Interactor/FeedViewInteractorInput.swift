@@ -6,9 +6,10 @@
 //  Copyright © 2020 BSL. All rights reserved.
 //
 
-protocol FeedViewInteractorInput: class {
+protocol FeedViewInteractorInput: AnyObject {
     func attach(_ output: FeedViewInteractorOutput)
-    func getFeed(with offset: Int)
+    func getInitialFeed(with offset: Int)
+    func getFeed(with offset: Int, cursor: String)
     func getUser()
     func sendMessage(_ message: String)
     func createLike()

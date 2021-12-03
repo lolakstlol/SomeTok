@@ -54,6 +54,8 @@
 		1558C6002721B0B70051436E /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C5FF2721B0B70051436E /* Strings+Generated.swift */; };
 		1558C60B2721D80A0051436E /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C6092721D80A0051436E /* XCAssets+Generated.swift */; };
 		1558C60F2721F9F60051436E /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C60E2721F9F50051436E /* UIButton+Ext.swift */; };
+		155FED6F274AF90B00548B01 /* FeedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155FED6E274AF90B00548B01 /* FeedRequest.swift */; };
+		155FED71274B01D400548B01 /* FeedPlayerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155FED70274B01D400548B01 /* FeedPlayerContainer.swift */; };
 		158C8CEA2726FE26001614D0 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CE92726FE26001614D0 /* KeyboardObserver.swift */; };
 		158C8CFB2729E1C4001614D0 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CFA2729E1C4001614D0 /* String+Ext.swift */; };
 		15B1DE0C272E088400078D01 /* UINaviagationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */; };
@@ -216,6 +218,8 @@
 		1558C5FF2721B0B70051436E /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		1558C6092721D80A0051436E /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		1558C60E2721F9F50051436E /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		155FED6E274AF90B00548B01 /* FeedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRequest.swift; sourceTree = "<group>"; };
+		155FED70274B01D400548B01 /* FeedPlayerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPlayerContainer.swift; sourceTree = "<group>"; };
 		158C8CE92726FE26001614D0 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		158C8CFA2729E1C4001614D0 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINaviagationController+Extension.swift"; sourceTree = "<group>"; };
@@ -410,6 +414,7 @@
 				153F2CB6273724F4002AF9FA /* LikeActionType.swift */,
 				153F2CB7273724F4002AF9FA /* LikeType.swift */,
 				153F2CB8273724F4002AF9FA /* FeedViewEnterOption.swift */,
+				155FED6E274AF90B00548B01 /* FeedRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -430,6 +435,7 @@
 				153F2CBE273724F4002AF9FA /* FeedViewViewController.xib */,
 				153F2CBF273724F4002AF9FA /* FeedViewViewController.swift */,
 				153F2CC0273724F4002AF9FA /* FeedCell */,
+				155FED70274B01D400548B01 /* FeedPlayerContainer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1283,6 +1289,7 @@
 				17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */,
 				153F2CCB273724F4002AF9FA /* FeedViewPresenter.swift in Sources */,
 				170973A6271D915600134ED7 /* BaseXibView.swift in Sources */,
+				155FED71274B01D400548B01 /* FeedPlayerContainer.swift in Sources */,
 				170973A4271D915600134ED7 /* BaseViewControllerInput.swift in Sources */,
 				153F2CDC273724F4002AF9FA /* FeedViewRouter.swift in Sources */,
 				170973A7271D915600134ED7 /* BaseNavigationController.swift in Sources */,
@@ -1357,6 +1364,7 @@
 				CDB3F0037C4A4F7CB25A9A44 /* SignInViewController.swift in Sources */,
 				17AA6C1E27298DA200CE276E /* Closures.swift in Sources */,
 				17E71F96272ADEF6001B2CF0 /* SignUpResponse.swift in Sources */,
+				155FED6F274AF90B00548B01 /* FeedRequest.swift in Sources */,
 				D034D4725C27C51BE38A6FA4 /* SignInPresenterInput.swift in Sources */,
 				153F2CCE273724F4002AF9FA /* LikeActionType.swift in Sources */,
 				100F1F745E97FF68AD0A5786 /* SignInPresenterOutput.swift in Sources */,
@@ -1549,7 +1557,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;
@@ -1581,7 +1589,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;

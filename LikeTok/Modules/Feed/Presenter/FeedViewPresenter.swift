@@ -16,6 +16,7 @@ final class FeedViewPresenter {
     private weak var view: FeedViewPresenterOutput?
     private var post: FeedResponse?
     private var postIndex: Int?
+    private var cursor: String = ""
 
     init(_ interactor: FeedViewInteractorInput,
          _ view: FeedViewPresenterOutput) {
@@ -26,7 +27,7 @@ final class FeedViewPresenter {
     func viewDidLoad() {
         interactor.attach(self)
         view?.setupUI()
-        interactor.getFeed(with: .zero)
+        interactor.getInitialFeed(with: .zero)
         setupAddressLabel()
         interactor.getUser()
 
@@ -140,7 +141,7 @@ extension FeedViewPresenter: FeedViewPresenterInput {
     }
     
     func feedIsScrollingToEnd(with offset: Int) {
-        interactor.getFeed(with: offset)
+        interactor.getFeed(with: offset, cursor: cursor)
     }
     
     func closeButtonTouchUpInside() {
@@ -195,7 +196,7 @@ extension FeedViewPresenter: FeedViewPresenterInput {
     func setCurrentPost(_ post: FeedResponse) {
         self.post = post
         interactor.setCurrentPost(post)
-        postIndex = (interactor.configurators?.firstIndex(where: { $0.getModel().postId == post.postId })) ?? .zero
+        postIndex = (interactor.configurators?.firstIndex(where: { $0.getModel().uuid == post.uuid })) ?? .zero
     }
     
     func openComments() {
@@ -204,11 +205,11 @@ extension FeedViewPresenter: FeedViewPresenterInput {
     }
     
     func getFeed() {
-        interactor.getFeed(with: .zero)
+        interactor.getInitialFeed(with: .zero)
     }
     
     func getFeedWithScrollToTop() {
-        interactor.getFeed(with: .zero)
+        interactor.getInitialFeed(with: .zero)
         view?.scrollToTop()
     }
 }
@@ -251,14 +252,13 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
          }
     }
     
-    func didReceivedFeed(with offset: Int, result: Result<[FeedResponse]?, NetworkError>) {
+    func didReceivedFeed(with offset: Int, result: Result<FeedGlobalResponse, NetworkError>) {
         switch result {
         case .success(let response):
-            guard let categoriesRespone = response else {
-                DispatchQueue.main.async {
-                    self.view?.updateConfigurators([])
-                }
-                return
+            let categoriesRespone = response.data.data
+            self.cursor = response.data.meta.cursor
+            DispatchQueue.main.async {
+                self.view?.updateConfigurators([])
             }
             var feedConfigurators = [FeedCellConfigurator]()
             categoriesRespone.forEach {
@@ -319,7 +319,7 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
     
     func likeAction(_ type: LikeType) {
         view?.setupLike(type, at: postIndex)
-        post?.isLiked?.toggle()
+        post?.isLiked.toggle()
         post?.likes += type == .filled ? 1 : -1
         guard let post = self.post, let index = self.postIndex else { return }
         self.view?.updateItem(with: post, at: index)
@@ -329,7 +329,7 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
         switch result {
         case .success:
             DispatchQueue.main.async {
-                self.post?.user.isSubscribed = true
+                self.post?.author.isFollow = true
                 guard let post = self.post, let index = self.postIndex else { return }
                 self.view?.updateItem(with: post, at: index)
 
@@ -344,7 +344,7 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
         switch result {
         case .success:
             DispatchQueue.main.async {
-                self.post?.user.isSubscribed = false
+                self.post?.author.isFollow = false
                 guard let post = self.post, let index = self.postIndex else { return }
                 self.view?.updateItem(with: post, at: index)
 

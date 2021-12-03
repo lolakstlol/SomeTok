@@ -40,6 +40,10 @@ protocol uploadCallback {
 
 enum Api {
     static var headers: HTTPHeaders = [:]
+//    static var authHeaders: HTTPHeaders = [
+//        "accept" : "application/json",
+//        "Authorization" : String(format: "Bearer: @%", AccountManager.token)
+//    ]
     public static func upload(_ fileData: Data, with key: String, fileExtension: String, to url: String, _ callback: uploadCallback) {
         Alamofire.upload(multipartFormData: { (data) in
             data.append(fileData, withName: key, fileName: "file\(Date().timeIntervalSince1970).\(fileExtension)", mimeType: "\(key)/*")
@@ -70,6 +74,37 @@ enum Api {
                 print(error)
             }
         }
+    }
+    
+    enum feed: ApiMethod {
+        case getInitialFeed,
+             getFeed(cursor: String)
+        public var request: DataRequest {
+            switch self {
+            case let .getFeed(cursor):
+                
+                let endpoint: String = "\(API.server)/user/feed/all"
+                let parameters: Parameters = [
+                    "params": "",
+                    "cursor": "\(cursor)"
+                ]
+            
+                let request = Alamofire.request(endpoint, method: .get, parameters: parameters, headers: Api.headers)
+                return request.validate()
+                
+            case .getInitialFeed:
+                
+                let endpoint: String = "\(API.server)/user/feed/all"
+                let parameters: Parameters = [
+                    "params": ""
+                ]
+            
+                let request = Alamofire.request(endpoint, method: .get, parameters: parameters, headers: Api.headers)
+                return request.validate()
+            }
+        }
+        
+        
     }
     
     enum auth: ApiMethod {

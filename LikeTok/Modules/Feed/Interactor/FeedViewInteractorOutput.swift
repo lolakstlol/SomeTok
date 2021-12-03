@@ -8,7 +8,7 @@
 
 protocol FeedViewInteractorOutput: AnyObject {
     func didReceivedPost(with result: Result<FeedResponse?, NetworkError>)
-    func didReceivedFeed(with offset: Int, result: Result<[FeedResponse]?, NetworkError>)
+    func didReceivedFeed(with offset: Int, result: Result<FeedGlobalResponse, NetworkError>)
     func didReceivedUser(with result: Result<UserInfoResponse?, NetworkError>)
 //    func didSendChatMessage(with result: Result<CreateChatResponse?, NetworkAPI.NetworkError>)
 //    func didSendComment(with result: Result<CommentResponse?, NetworkAPI.NetworkError>)

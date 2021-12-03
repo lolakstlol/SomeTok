@@ -30,10 +30,38 @@ extension FeedViewInteractor: FeedViewInteractorInput {
         self.output = output
     }
     
-    func getFeed(with offset: Int) {
+    func getFeed(with offset: Int, cursor: String) {
+        isFeedLoading = true
+        feedService.getFeed(with: offset, cursor: cursor, completion: { [weak output] result in
+            output?.didReceivedFeed(with: offset, result: result)
+            self.isFeedLoading = false
+        })
+    }
+    
+    func getInitialFeed(with offset: Int) {
+        isFeedLoading = true
+        feedService.getInitialFeed(with: offset) { [weak output] result in
+            output?.didReceivedFeed(with: offset, result: result)
+            self.isFeedLoading = false
+        }
         
-        output?.didReceivedPost(with: .success((FeedResponse(text: "", postType: "", media: [""], postId: "", createdAt: "", updatedAt: "", hashtags: [""], likes: 4, user: UserResponse(userId: "", username: "", avatarUrl: "", name: "", profileType: "", isSubscribed: false), geoPoint: GeoPoint(longitude: CLLocationDegrees(), latitude: CLLocationDegrees()), comments: 0, isLiked: false))))
-        self.isFeedLoading = false
+//        Api.feed.getFeed.request.responseJSON { response in
+//            let code = response.response?.statusCode ?? 0
+//            switch code {
+//            case 200:
+//                if let data = response.data, let response = try? JSONDecoder().decode(FeedGlobalResponse.self, from: data) {
+//                    debugPrint("parse ok")
+////                    completion(.success(response))
+//                } else {
+////                    completion(.failure(.deserialization))
+//                }
+//            default:
+//                break
+//            }
+//        }
+//        output?.didReceivedPost(with: .success(FeedResponse(uuid: "", adv: true, author: UserResponse(type: "", uuid: "", isFollow: false, isFriend: "", username: "", name: "", lastActive: "", photo: UserPhoto(preview: "")), title: "", text: "", isLiked: true, media: [Media(uuid: "", type: "", preview: "", original: "")], likes: 1, comments: 1, tags: [""], categories: [""], url: "")))
+//        self.isFeedLoading = false
+        
 //        switch type {
 //        case .profilePosts(let info):
 //            guard !isFeedLoading, configurators == nil else { return }
@@ -120,7 +148,8 @@ extension FeedViewInteractor: FeedViewInteractorInput {
 
 protocol FeedServiceProtocol {
     func getPost(by postId: String, completion: @escaping (_ items: Result<FeedResponse?, NetworkError>) -> Void)
-    func getFeed(by userId: String?, with offset: Int, completion: @escaping (_ items: Result<[FeedResponse]?, NetworkError>) -> Void)
+    func getInitialFeed(with offset: Int, completion: @escaping (_ items: Result<FeedGlobalResponse, NetworkError>) -> Void)
+    func getFeed(with offset: Int, cursor: String, completion: @escaping (_ items: Result<FeedGlobalResponse, NetworkError>) -> Void)
     func deletePostLike(postId: String, completion: @escaping EmptyClosure)
     func createPostLike(postId: String, completion: @escaping EmptyClosure)
 //    func getBusniessList(model: GetBusinessListRequestModel,
@@ -129,13 +158,49 @@ protocol FeedServiceProtocol {
 
 final class FeedService: FeedServiceProtocol {
     
-    func getPost(by postId: String, completion: @escaping (Result<FeedResponse?, NetworkError>) -> Void) {
-//        let request = GetCurrentPostRequest(postId)
+    func getPost(by uuid: String, completion: @escaping (Result<FeedResponse?, NetworkError>) -> Void) {
+//        let request = GetCurrentPostRequest(uuid)
 //        NetworkAPI.shared.sendRequest(request: request, completion: completion)
     }
 
-    func getFeed(by userId: String?, with offset: Int, completion: @escaping (Result<[FeedResponse]?, NetworkError>) -> Void) {
+    
+    func getFeed(with offset: Int, cursor: String, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void) {
 //        let request = FeedRequest(userId, offset)
+//        Api.feed.getFeed.request.responseJSON(completionHandler: completion)
+        Api.feed.getFeed(cursor: cursor).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(FeedGlobalResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    completion(.failure(.deserialization))
+                }
+            default:
+                completion(.failure(.badRequest))
+                break
+            }
+        }
+//        NetworkAPI.shared.sendRequest(request: request, completion: completion)
+    }
+    
+    func getInitialFeed(with offset: Int, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void) {
+//        let request = FeedRequest(userId, offset)
+//        Api.feed.getFeed.request.responseJSON(completionHandler: completion)
+        Api.feed.getInitialFeed.request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(FeedGlobalResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    completion(.failure(.deserialization))
+                }
+            default:
+                completion(.failure(.badRequest))
+                break
+            }
+        }
 //        NetworkAPI.shared.sendRequest(request: request, completion: completion)
     }
     

@@ -1,6 +1,7 @@
 // swiftlint:disable large_tuple
 
 import UIKit
+import Kingfisher
 
 protocol FeedCellActionsOutput: AnyObject {
     func moreTapAction()
@@ -18,8 +19,8 @@ final class FeedCell: UICollectionViewCell {
     @IBOutlet private var commentsLabel: UILabel!
     @IBOutlet private var likeLabel: UILabel!
     @IBOutlet private var likeImageView: UIImageView!
-    @IBOutlet private var userImageView: UIImageView?
-        
+    @IBOutlet weak var userImageView: UIImageView!
+    
     @IBOutlet private weak var userName: UILabel!
     @IBOutlet private var topGradientView: UIView!
     @IBOutlet private var bottomGradientView: UIView!
@@ -29,6 +30,14 @@ final class FeedCell: UICollectionViewCell {
     @IBOutlet weak var subscribeButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var playerContainerView: UIView!
+    private var playerView: FeedPlayerVicw = {
+       let player = FeedPlayerVicw()
+        return player
+    }()
+    
+    //http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
     // MARK: - Private properties
 
     private weak var output: FeedCellActionsOutput?
@@ -47,14 +56,18 @@ final class FeedCell: UICollectionViewCell {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+        debugPrint("draw")
         setupUI()
+        setUpPlayerView()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        userImageView?.image = nil
+        debugPrint("prepareForReuse")
+        imageView.isHidden = false
+        playerView.pause()
+        userImageView.image = nil
         backgroundImageView.image = nil
-//        likeImageView.image = Asset.Assets.Feed.emptyHeart.image
         likeLabel.text = ""
         subscribeButton.setImage(nil, for: .normal)
     }
@@ -89,17 +102,21 @@ final class FeedCell: UICollectionViewCell {
     // MARK: - Public methods
 
     func configure(_ output: FeedCellActionsOutput,
+                   _ playerDelegate: FeedPlayerDelegate,
                    _ likes: (likesCount: Int, type: LikeType, shouldShowFilledLike: Bool),
                    _ commentsCount: Int,
-                   _ imageUrlString: String) {
+                   _ userImageUrlString: String,
+                   _ previewImageUrlString: String,
+                   _ videoUrlString: String?,
+                   _ description: String) {
         self.output = output
+        playerView.delegate = playerDelegate
         likeLabel.text = "\(likes.likesCount)"
-//        likeImageView.image = (likes.type == .filled && likes.shouldShowFilledLike)
-//            ? Asset.Assets.Feed.filledHeart.image
-//            : Asset.Assets.Feed.emptyHeart.image
+        descriptionLabel.text = description
         commentsLabel.text = "\(commentsCount)"
-        userImageView?.kf.setImage(with: URL(string: imageUrlString))
+        loadVideo(URL(string: videoUrlString ?? ""))
         imageView.backgroundColor = .clear
+        debugPrint("configure")
     }
     
     func updateLikes(type: LikeType, shouldShowFilledLike: Bool) {
@@ -114,10 +131,24 @@ final class FeedCell: UICollectionViewCell {
             likeLabel.text = String(currentLikesCount - 1)
         }
     }
+
     
-    func setupUserData(userLogin: String, creationTime: String, userName: String) {
-//        self.userLogin.text = "@" + userLogin
-//        self.creationTime.text = creationTime
+    func loadVideo(_ url: URL?) {
+        guard let url = url else { return }
+        playerView.load(with: url)
+    }
+    
+    func playVideo() {
+        imageView.isHidden = true
+        playerView.play()
+    }
+    
+    func stopVideo() {
+//        imageView.isHidden = false
+        playerView.pause()
+    }
+    
+    func setupUserData(userName: String) {
         self.userName.text = userName
     }
 }
@@ -137,7 +168,6 @@ extension FeedCell {
         shareButton.layer.borderWidth = 1.5
         shareButton.layer.borderColor = UIColor.white.cgColor
 //        userDataBottomConstraint.constant += Constants.General.safeArea?.bottom ?? .zero
-        
         applyGradient()
     }
     
@@ -162,4 +192,24 @@ extension FeedCell {
         bottomGradientView.alpha = 1
         bottomGradientView.layer.insertSublayer(bottomGradient, at: 1)
     }
+    
+    private func setUpPlayerView() {
+//        playerView = FeedPlayerVicw()
+//        playerView.delegate = self
+        playerContainerView.addSubview(playerView)
+            
+        playerView.translatesAutoresizingMaskIntoConstraints = false
+        playerView.leadingAnchor.constraint(equalTo: playerContainerView.leadingAnchor).isActive = true
+        playerView.trailingAnchor.constraint(equalTo: playerContainerView.trailingAnchor).isActive = true
+        playerView.heightAnchor.constraint(equalTo: playerContainerView.widthAnchor, multiplier: 16/9).isActive = true
+        playerView.centerYAnchor.constraint(equalTo: playerContainerView.centerYAnchor).isActive = true
+    }
 }
+
+//extension FeedCell: FeedPlayerDelegate {
+//    func onReadyToPlay() {
+//        imageView.isHidden = true
+////        isReadyToPlay = true
+////        playerView.play()
+//    }
+//}
