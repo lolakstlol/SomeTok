@@ -40,10 +40,6 @@ protocol uploadCallback {
 
 enum Api {
     static var headers: HTTPHeaders = [:]
-//    static var authHeaders: HTTPHeaders = [
-//        "accept" : "application/json",
-//        "Authorization" : String(format: "Bearer: @%", AccountManager.token)
-//    ]
     public static func upload(_ fileData: Data, with key: String, fileExtension: String, to url: String, _ callback: uploadCallback) {
         Alamofire.upload(multipartFormData: { (data) in
             data.append(fileData, withName: key, fileName: "file\(Date().timeIntervalSince1970).\(fileExtension)", mimeType: "\(key)/*")
@@ -103,6 +99,7 @@ enum Api {
                 return request.validate()
             }
         }
+    }
         
     enum Catalog: ApiMethod {
         case searchCategories(name: String)

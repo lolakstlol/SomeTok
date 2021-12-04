@@ -289,15 +289,15 @@ import Foundation
 
 // MARK: - Welcome
 struct FeedGlobalResponse: Codable {
-    let data: DataClass
-    let result: Res
+    let data: FeedDataClass
+    let result: FeedRes
 }
 
 // MARK: - DataClass
-struct DataClass: Codable {
+struct FeedDataClass: Codable {
     let data: [FeedResponse]
-    let meta: Meta
-    let links: Links
+    let meta: FeedMeta
+    let links: FeedLinks
 }
 
 // MARK: - Datum
@@ -305,11 +305,11 @@ struct FeedResponse: Codable {
     let uuid: String
     let adv: Bool
     let createdAt, updatedAt: String
-    var author: Author
+    var author: FeedAuthor
     let title, text: String?
     var isLiked: Bool
     var likes, comments: Int
-    let media: [Media]
+    let media: [FeedMedia]
 
     enum CodingKeys: String, CodingKey {
         case uuid, adv
@@ -322,11 +322,11 @@ struct FeedResponse: Codable {
 }
 
 // MARK: - Author
-struct Author: Codable {
+struct FeedAuthor: Codable {
     let uuid, username, name, type: String
     let lastActive: String
     var isFollow, isFriend: Bool
-    let photo: Photo
+    let photo: FeedPhoto
 
     enum CodingKeys: String, CodingKey {
         case uuid, username, name, type
@@ -338,26 +338,26 @@ struct Author: Codable {
 }
 
 // MARK: - Photo
-struct Photo: Codable {
+struct FeedPhoto: Codable {
     let preview: String
 }
 
 // MARK: - Media
-struct Media: Codable {
+struct FeedMedia: Codable {
     let uuid: String
-    let type: MediaType
+    let type: FeedMediaType
     let preview: String
     let original: String?
 }
 
 // MARK: - Links
-struct Links: Codable {
+struct FeedLinks: Codable {
     let first, last, prev: String?
     let next: String
 }
 
 // MARK: - Meta
-struct Meta: Codable {
+struct FeedMeta: Codable {
     let cursor: String
     let path: String
     let perPage: String
@@ -369,12 +369,12 @@ struct Meta: Codable {
 }
 
 // MARK: - Result
-struct Res: Codable {
+struct FeedRes: Codable {
     let message: String
     let status: Bool
 }
 
-enum MediaType: String, Codable {
+enum FeedMediaType: String, Codable {
     case video, image
 }
 // MARK: - Encode/decode helpers

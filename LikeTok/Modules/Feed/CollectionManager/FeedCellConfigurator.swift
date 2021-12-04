@@ -84,7 +84,7 @@ final class FeedCellConfigurator {
     }
     
     
-    func processMedia(_ media: [Media]) -> (imageUrlString: String, videoUrlString: String){
+    func processMedia(_ media: [FeedMedia]) -> (imageUrlString: String, videoUrlString: String){
         var imageURL: String = ""
         var videoURL: String = ""
         
