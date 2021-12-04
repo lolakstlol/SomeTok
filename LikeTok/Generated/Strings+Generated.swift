@@ -33,6 +33,21 @@ public enum Strings {
     public static let title = Strings.tr("Localizable", "AuthPersonalData.title")
   }
 
+  public enum Filtres {
+    /// Применить
+    public static let accept = Strings.tr("Localizable", "Filtres.accept")
+    /// Категория
+    public static let category = Strings.tr("Localizable", "Filtres.category")
+    /// Город
+    public static let city = Strings.tr("Localizable", "Filtres.city")
+    /// Очистить
+    public static let clear = Strings.tr("Localizable", "Filtres.clear")
+    /// Страна
+    public static let country = Strings.tr("Localizable", "Filtres.country")
+    /// Фильтры
+    public static let title = Strings.tr("Localizable", "Filtres.title")
+  }
+
   public enum Onboarding {
     /// Next
     public static let next = Strings.tr("Localizable", "Onboarding.Next")
