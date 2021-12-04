@@ -9,17 +9,21 @@
 import Foundation
 
 struct CategoriesFiltres {
-    var countries: String
-    var cities: String
-    var categories: String
+    var countries: CountryDictionary?
+    var cities: CityDictionary?
+    var categories: CategoryDictionary?
+    
+    init() {
+        countries = nil
+        cities = nil
+        categories = nil
+    }
 }
 
 final class CatalogPresenter {
     private unowned let view: CatalogPresenterOutput
     private let apiWorker: SearchApiWorker = SearchApiWorker()
-    var filtres = CategoriesFiltres(countries: "",
-                                    cities: "",
-                                    categories: "")
+    var filtres = CategoriesFiltres()
     var selectedType: CategoriesType = .digital
     init(_ view: CatalogPresenterOutput) {
         self.view = view
@@ -39,10 +43,20 @@ final class CatalogPresenter {
             }
         }
     }
-    
 }
 
 extension CatalogPresenter: CatalogPresenterInput {
+    func fetchWithFiltrer(filter: CategoriesFiltres) {
+        apiWorker.getCatalogFeed(type: nil, filtres: filter) { response in
+            switch response {
+            case .success(let categories):
+                self.view.showCategories(categories: categories?.data?.data ?? [])
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func filtresDidTap() {
         view.openFiltres()
     }

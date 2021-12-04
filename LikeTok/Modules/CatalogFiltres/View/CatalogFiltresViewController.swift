@@ -47,9 +47,9 @@ final class CatalogFiltresViewController: BaseViewController {
         guard let filtres = filtres else {
             return
         }
-        countryLabel.text = filtres.countries
-        categoryLabel.text = filtres.categories
-        cityLabel.text = filtres.cities
+        countryLabel.text = filtres.countries?.name ?? ""
+        categoryLabel.text = filtres.categories?.name ?? ""
+        cityLabel.text = filtres.cities?.name ?? ""
     }
     
     @IBAction func backButtonDidTap(_ sender: Any) {
@@ -57,14 +57,26 @@ final class CatalogFiltresViewController: BaseViewController {
     }
     
     @IBAction func countryDidTap(_ sender: Any) {
-        
+        let vc = FilterCurrentAssembler.createModule(type: .country, completion: { data in
+            self.filtres?.countries = data as! CountryDictionary
+            self.setupTitles()
+        })
+        navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func cityDidTap(_ sender: Any) {
-        
+        let vc = FilterCurrentAssembler.createModule(type: .city, completion: { data in
+            self.filtres?.cities = data as! CityDictionary
+            self.setupTitles()
+        })
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func categoryDidTap(_ sender: Any) {
-        
+        let vc = FilterCurrentAssembler.createModule(type: .category, completion: { data in
+            self.filtres?.categories = data as! CategoryDictionary
+            self.setupTitles()
+        })
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func acceptDidTap(_ sender: Any) {
@@ -73,14 +85,15 @@ final class CatalogFiltresViewController: BaseViewController {
     }
     
     @IBAction func clearButtonDidTap(_ sender: Any) {
-        completion?(nil)
+        let newFiltres = CategoriesFiltres()
+        completion?(newFiltres)
         navigationController?.popViewController(animated: true)
     }
     
     private func configure(with filtres: CategoriesFiltres) {
-        countryLabel.text = filtres.countries
-        cityTitleLabel.text = filtres.cities
-        categoryLabel.text = filtres.categories
+        countryLabel.text = filtres.countries?.name ?? ""
+        cityTitleLabel.text = filtres.cities?.name ?? ""
+        categoryLabel.text = filtres.categories?.name ?? ""
     }
 }
 

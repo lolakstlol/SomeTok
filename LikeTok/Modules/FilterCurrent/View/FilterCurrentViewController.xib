@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterCurrentViewController" customModule="LikeTok" customModuleProvider="target">
+            <connections>
+                <outlet property="searchTextField" destination="kMX-ES-plf" id="ldp-J0-Tfh"/>
+                <outlet property="tableView" destination="Cl3-ZE-1nF" id="7bE-eh-csP"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Inq-ll-1dL">
+                    <rect key="frame" x="10" y="54" width="394" height="36"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBA-Vv-CdB">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="boe-LR-f00"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="BackButton"/>
+                            <connections>
+                                <action selector="backButtonDidTap:" destination="-1" eventType="touchUpInside" id="5Rj-aq-OhB"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JE2-MD-tNA">
+                            <rect key="frame" x="50" y="0.0" width="344" height="36"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search Icon" translatesAutoresizingMaskIntoConstraints="NO" id="dlc-Nj-WSz">
+                                    <rect key="frame" x="17" y="10" width="16" height="16"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="16" id="XtF-sW-I4r"/>
+                                        <constraint firstAttribute="width" constant="16" id="bsT-12-3Mx"/>
+                                    </constraints>
+                                </imageView>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk1-IW-Qk8">
+                                    <rect key="frame" x="312" y="10" width="16" height="16"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="16" id="BkR-UF-CsA"/>
+                                        <constraint firstAttribute="height" constant="16" id="xdL-NB-G9M"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="crossIcon"/>
+                                </button>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kMX-ES-plf">
+                                    <rect key="frame" x="43" y="0.0" width="259" height="36"/>
+                                    <color key="tintColor" name="MainRed"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" name="ClassicBGGray"/>
+                            <constraints>
+                                <constraint firstItem="yk1-IW-Qk8" firstAttribute="centerY" secondItem="JE2-MD-tNA" secondAttribute="centerY" id="9kV-sd-IxE"/>
+                                <constraint firstAttribute="trailing" secondItem="yk1-IW-Qk8" secondAttribute="trailing" constant="16" id="Hgb-WU-qKj"/>
+                                <constraint firstItem="yk1-IW-Qk8" firstAttribute="leading" secondItem="kMX-ES-plf" secondAttribute="trailing" constant="10" id="IQo-EZ-Yym"/>
+                                <constraint firstItem="dlc-Nj-WSz" firstAttribute="centerY" secondItem="JE2-MD-tNA" secondAttribute="centerY" id="TQe-ld-vlN"/>
+                                <constraint firstItem="kMX-ES-plf" firstAttribute="leading" secondItem="dlc-Nj-WSz" secondAttribute="trailing" constant="10" id="dwZ-py-DYz"/>
+                                <constraint firstAttribute="bottom" secondItem="kMX-ES-plf" secondAttribute="bottom" id="esv-da-A5h"/>
+                                <constraint firstItem="kMX-ES-plf" firstAttribute="top" secondItem="JE2-MD-tNA" secondAttribute="top" id="oMc-HQ-dm3"/>
+                                <constraint firstItem="dlc-Nj-WSz" firstAttribute="leading" secondItem="JE2-MD-tNA" secondAttribute="leading" constant="17" id="sQz-tY-rak"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="18"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6N-MD-0J9">
+                            <rect key="frame" x="394" y="0.0" width="40" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="3t7-26-seg"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="FilterButton"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="8hi-Z8-1AQ"/>
+                    </constraints>
+                </stackView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Cl3-ZE-1nF">
+                    <rect key="frame" x="0.0" y="90" width="414" height="772"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Cl3-ZE-1nF" secondAttribute="trailing" id="4Bu-ip-2aM"/>
+                <constraint firstItem="Inq-ll-1dL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="C2N-8z-9Re"/>
+                <constraint firstItem="Inq-ll-1dL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="10" id="H1z-G5-IH3"/>
+                <constraint firstItem="Cl3-ZE-1nF" firstAttribute="top" secondItem="Inq-ll-1dL" secondAttribute="bottom" id="Zpr-ck-w2e"/>
+                <constraint firstAttribute="trailing" secondItem="Inq-ll-1dL" secondAttribute="trailing" constant="10" id="cZ1-17-TGR"/>
+                <constraint firstAttribute="bottomMargin" secondItem="Cl3-ZE-1nF" secondAttribute="bottom" id="smB-sS-PAt"/>
+                <constraint firstItem="Cl3-ZE-1nF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zJL-Py-hfg"/>
+            </constraints>
+            <point key="canvasLocation" x="140" y="138"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="BackButton" width="9.5" height="16"/>
+        <image name="FilterButton" width="40" height="36"/>
+        <image name="Search Icon" width="16" height="16"/>
+        <image name="crossIcon" width="16" height="16"/>
+        <namedColor name="ClassicBGGray">
+            <color red="0.93300002813339233" green="0.92900002002716064" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainRed">
+            <color red="0.76470588235294112" green="0.10196078431372549" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

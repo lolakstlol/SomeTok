@@ -96,16 +96,37 @@ enum Api {
                 ]
             
                 let request = Alamofire.request(endpoint, method: .get, parameters: parameters, headers: Api.headers)
+    
+    enum Dictionary: ApiMethod {
+        case city(name: String)
+        case category(name: String)
+        case country(name: String)
+        public var request: DataRequest {
+            switch self {
+            case .city(let name):
+                var params:Parameters = Parameters()
+                params["name"] = name
+                let request = Alamofire.request("\(API.server)/dictionary/cities", method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+            case .category(let name):
+                var params:Parameters = Parameters()
+                params["name"] = name
+                let request = Alamofire.request("\(API.server)/dictionary/categories", method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+            case .country(let name):
+                var params:Parameters = Parameters()
+                params["name"] = name
+                let request = Alamofire.request("\(API.server)/dictionary/countries", method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
                 return request.validate()
             }
         }
     }
-        
+                
     enum Catalog: ApiMethod {
         case searchCategories(name: String)
         case searchAccounts(name: String)
         case searchVideos(tag: String)
-        case categories(parent: CategoriesType, filtres: CategoriesFiltres)
+        case categories(parent: CategoriesType?, filtres: CategoriesFiltres)
         public var request: DataRequest {
             switch self {
             case .searchCategories(name: let name):
@@ -125,7 +146,14 @@ enum Api {
                 return request.validate()
             case .categories(parent: let parent, filtres: let filtres):
                 var params:Parameters = Parameters()
-                params["parent_category"] = parent.rawValue
+                if let parent = parent {
+                    params["parent_category"] = parent.rawValue
+                }
+                params["filters"] = [
+                    "countries" : filtres.countries?.slug ?? "",
+                    "cities" : filtres.cities?.slug ?? "",
+                    "categories" : filtres.categories?.slug ?? ""
+                ]
                 let request = Alamofire.request("\(API.server)/user/mobile/feed", method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
                 return request.validate()
             }

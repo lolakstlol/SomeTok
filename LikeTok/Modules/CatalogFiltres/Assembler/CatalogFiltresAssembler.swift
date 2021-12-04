@@ -14,6 +14,7 @@ enum CatalogFiltresAssembler {
         let presenter = CatalogFiltresPresenter(viewController)
         viewController.presenter = presenter
         viewController.completion = completion
+        viewController.filtres = currentFiltres
         return viewController
     }
 }
