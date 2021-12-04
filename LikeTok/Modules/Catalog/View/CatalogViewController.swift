@@ -16,6 +16,7 @@ final class CatalogViewController: BaseViewController {
     var dataSource: [CategoriesDatum] = []
     var presenter: CatalogPresenterInput!
     var selectedType: CategoriesType = .digital
+    var filtres: CategoriesFiltres?
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ final class CatalogViewController: BaseViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         navigationController?.navigationBar.isHidden = true
+        
     }
     
     private func setupCollectionView() {
@@ -56,7 +58,10 @@ final class CatalogViewController: BaseViewController {
 
 extension CatalogViewController: CatalogPresenterOutput {
     func openFiltres() {
-        navigationController?.pushViewController(CatalogFiltresAssembler.createModule(), animated: true)
+        let vc = CatalogFiltresAssembler.createModule(currentFiltres: filtres) { newFiltres in
+            self.filtres = newFiltres
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func showCategories(categories: [CategoriesDatum]) {
@@ -108,11 +113,18 @@ extension CatalogViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesTypeCollectionViewCell",
-                                                          for: indexPath) as! CategoriesTypeCollectionViewCell
-            cell.configure(withType: selectedType)
-            cell.delegate = self
-            return cell
+         //   if let filtres = self.filtres {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesTypeCollectionViewCell",
+                                                              for: indexPath) as! CategoriesTypeCollectionViewCell
+                cell.configure(withType: selectedType)
+                cell.delegate = self
+                return cell
+//            } else {
+//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesTypeCollectionViewCell",
+//                                                              for: indexPath) as! CategoriesTypeCollectionViewCell
+//                cell.configure(withType: selectedType)
+//                cell.delegate = self
+//            }
         }
         if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell",
