@@ -56,19 +56,18 @@ final class FeedCell: UICollectionViewCell {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        debugPrint("draw")
         setupUI()
         setUpPlayerView()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        debugPrint("prepareForReuse")
+//        imageView.isHidden = false
+        playerView.player = nil
         imageView.isHidden = false
-        playerView.pause()
         userImageView.image = nil
         backgroundImageView.image = nil
-        likeLabel.text = ""
+        likeLabel.text = "0"
         subscribeButton.setImage(nil, for: .normal)
     }
     
@@ -102,21 +101,19 @@ final class FeedCell: UICollectionViewCell {
     // MARK: - Public methods
 
     func configure(_ output: FeedCellActionsOutput,
-                   _ playerDelegate: FeedPlayerDelegate,
+                   _ delegate: FeedPlayerDelegate,
                    _ likes: (likesCount: Int, type: LikeType, shouldShowFilledLike: Bool),
                    _ commentsCount: Int,
                    _ userImageUrlString: String,
-                   _ previewImageUrlString: String,
-                   _ videoUrlString: String?,
-                   _ description: String) {
+                   _ description: String,
+                   _ isReadyToPlay: Bool) {
         self.output = output
-        playerView.delegate = playerDelegate
+        playerView.delegate = delegate
+        updatePlayerState(isReadyToPlay)
         likeLabel.text = "\(likes.likesCount)"
         descriptionLabel.text = description
         commentsLabel.text = "\(commentsCount)"
-        loadVideo(URL(string: videoUrlString ?? ""))
         imageView.backgroundColor = .clear
-        debugPrint("configure")
     }
     
     func updateLikes(type: LikeType, shouldShowFilledLike: Bool) {
@@ -138,15 +135,24 @@ final class FeedCell: UICollectionViewCell {
         playerView.load(with: url)
     }
     
-    func playVideo() {
-        imageView.isHidden = true
-        playerView.play()
+    func updatePlayerState(_ isReadyToPlay: Bool) {
+        if isReadyToPlay, playerView.player?.status == .readyToPlay {
+            imageView.isHidden = true
+            playerView.play()
+        } else {
+            playerView.pause()
+        }
     }
     
-    func stopVideo() {
-//        imageView.isHidden = false
-        playerView.pause()
-    }
+//    func playVideo() {
+//        imageView.isHidden = true
+//        playerView.play()
+//    }
+//
+//    func stopVideo() {
+////        imageView.isHidden = false
+//        playerView.pause()
+//    }
     
     func setupUserData(userName: String) {
         self.userName.text = userName
@@ -194,8 +200,6 @@ extension FeedCell {
     }
     
     private func setUpPlayerView() {
-//        playerView = FeedPlayerVicw()
-//        playerView.delegate = self
         playerContainerView.addSubview(playerView)
             
         playerView.translatesAutoresizingMaskIntoConstraints = false
@@ -205,11 +209,3 @@ extension FeedCell {
         playerView.centerYAnchor.constraint(equalTo: playerContainerView.centerYAnchor).isActive = true
     }
 }
-
-//extension FeedCell: FeedPlayerDelegate {
-//    func onReadyToPlay() {
-//        imageView.isHidden = true
-////        isReadyToPlay = true
-////        playerView.play()
-//    }
-//}

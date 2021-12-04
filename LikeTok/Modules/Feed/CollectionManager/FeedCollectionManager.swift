@@ -54,7 +54,7 @@ final class FeedCollectionManager: NSObject {
                                                commentsCount: item.comments,
                                                imageUrlString: item.author.photo.preview ,
                                                description: item.title ?? "",
-                                               media: item.media)
+                                               isReadyToPlay: isReadyToPlay)
                                                 //item.user.avatarUrl)
     }
     
@@ -140,18 +140,27 @@ extension FeedCollectionManager: FeedCollectionManagement {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        guard let item = currentItem else {
+        guard let item = currentItem,
+              let currentIndex = configurators.firstIndex(where: { $0.getModel().uuid == currentItem?.uuid })
+        else {
             return
         }
+        isReadyToPlay = true
+//        configurators[currentIndex].updateState(true)
         checkFeedPositionForRequest()
         output?.selectFeedItem(item)
         setupCellItems()
     }
-
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        configurators.forEach { $0.updateState(false) }
+        isReadyToPlay = false
+        setupCellItems()
     }
-        
+    
+//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+//        configurators.forEach { $0.updateState(false) }
+ 
+//    }
+ 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard configurators.first?.getModel().uuid == currentItem?.uuid else { return }
         let position = scrollView.contentOffset.y
@@ -184,10 +193,13 @@ extension FeedCollectionManager: UICollectionViewDelegateFlowLayout {
 
 extension FeedCollectionManager: FeedPlayerDelegate {
     func onReadyToPlay() {
-        guard let currentIndex = configurators.firstIndex(where: { $0.getModel().uuid == currentItem?.uuid }) else {
-            return
-        }
-        configurators[currentIndex].updateState(true)
+        isReadyToPlay = true
+        setupCellItems()
+//        guard let currentIndex = configurators.firstIndex(where: { $0.getModel().uuid == currentItem?.uuid })
+//           else {
+//               return
+//           }
+//        configurators[currentIndex].updateState(true)
     }
     
 }

@@ -16,7 +16,11 @@ final class FeedCellConfigurator {
     private var model: FeedResponse
     private(set) var cell: FeedCell?
     private let isMainFeed: Bool
-    private var isReadyToPlay: Bool = false
+    private var isReadyToPlay: Bool = false {
+        didSet {
+            isReadyToPlay ? playVideo() : stopVideo()
+        }
+    }
     
     init(_ model: FeedResponse, isMainFeed: Bool) {
         self.model = model
@@ -28,13 +32,14 @@ final class FeedCellConfigurator {
 //                                               object: nil)
     }
     
-    
     func playVideo() {
-        cell?.playVideo()
+        debugPrint("-- play video \(model.author.username)")
+//        cell?.playVideo()
     }
     
     func stopVideo() {
-        cell?.stopVideo()
+        debugPrint("-- stop video \(model.author.username)")
+//        cell?.stopVideo()
     }
     
     func setupCell(_ cell: UIView) {
@@ -50,18 +55,9 @@ final class FeedCellConfigurator {
 //        self.cell?.subscribeButton.isHidden = model.user.userId == UserDefaultsManager.shared.userId
 //        let time = AppDateFormatter.shared.howLongAgoWithDate(with: model.createdAt) ?? ""
         self.cell?.setupUserData(userName: model.author.name)
-        guard let videoURL = model.media.last?.original else { return }
+        guard let videoURL = model.media.last?.original, model.media.last?.type == .video else { return }
+        debugPrint("--- video is loading on \(videoURL)")
         self.cell?.loadVideo(URL(string: videoURL))
-    }
-    
-    func updateState(_ isReadyPlay: Bool) {
-        
-        if isReadyPlay {
-            self.playVideo()
-        } else {
-            self.stopVideo()
-        }
-//        self.isReadyToPlay = isReadyPlay
     }
     
     func updateCell(delegate: FeedCellActionsOutput,
@@ -70,7 +66,7 @@ final class FeedCellConfigurator {
                     commentsCount: Int,
                     imageUrlString: String,
                     description: String,
-                    media: [Media]) {
+                    isReadyToPlay: Bool) {
 //        if UserDefaultsManager.shared.userId != nil {
 //            self.cell?.subscribeButton.setImage((model.user.isSubscribed ?? false)
 //                                                ? Asset.Assets.Feed.Subscription.subscribed.image
@@ -78,9 +74,15 @@ final class FeedCellConfigurator {
 //        } else {
 //            self.cell?.subscribeButton.setImage(Asset.Assets.Feed.Subscription.subscribe.image, for: .normal)
 //        }
-        let mediaUrls = processMedia(media)
-        cell?.configure(delegate, playerDelegate, likes, commentsCount, imageUrlString, mediaUrls.imageUrlString, mediaUrls.videoUrlString, description)
+//        debugPrint("update cell")
+        cell?.configure(delegate, playerDelegate, likes, commentsCount, imageUrlString, description, isReadyToPlay)
     }
+    
+    
+    func updateState(_ isReadyToPlay: Bool) {
+        self.isReadyToPlay = isReadyToPlay
+    }
+    
     
     func processMedia(_ media: [Media]) -> (imageUrlString: String, videoUrlString: String){
         var imageURL: String = ""
