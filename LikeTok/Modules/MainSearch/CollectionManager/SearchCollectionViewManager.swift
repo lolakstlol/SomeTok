@@ -15,6 +15,10 @@ final class SearchCollectionViewManager: NSObject {
         case videos
         case categories
     }
+    
+    var videosDataSource: [CategoriesPost] = []
+    var categoriesDataSource: [CategoriesDatum] = []
+    var peeopleDataSource: [SearchAccountsDatum] = []
 
     var collectionType: SearchCollectionType = .categories {
         didSet {
@@ -47,8 +51,9 @@ final class SearchCollectionViewManager: NSObject {
         let sideInset = 10
         let width: CGFloat = collectionView.bounds.width - CGFloat(sideInset)
         layout.itemSize = CGSize(width: width, height: 246)
-        layout.sectionInset = UIEdgeInsets(top: .zero, left: CGFloat(sideInset), bottom: .zero, right: .zero)
-        collectionView.setCollectionViewLayout(layout, animated: true)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: CGFloat(sideInset), bottom: .zero, right: .zero)
+        collectionView.reloadData()
+        collectionView.setCollectionViewLayout(layout, animated: false)
     }
     
     private func setupVideosLayout() {
@@ -61,7 +66,8 @@ final class SearchCollectionViewManager: NSObject {
         let width: CGFloat = (collectionView.bounds.width - CGFloat(sideInset * 2) - 5) / 2
         layout.itemSize = CGSize(width: width, height: 230)
         layout.sectionInset = UIEdgeInsets(top: .zero, left: CGFloat(sideInset), bottom: .zero, right: CGFloat(sideInset))
-        collectionView.setCollectionViewLayout(layout, animated: true)
+        collectionView.reloadData()
+        collectionView.setCollectionViewLayout(layout, animated: false)
     }
     
     private func setupPostLayout() {
@@ -72,12 +78,23 @@ final class SearchCollectionViewManager: NSObject {
         let sideInset = 10
         let width: CGFloat = (collectionView.bounds.width - CGFloat(sideInset * 2))
         layout.itemSize = CGSize(width: width, height: 44)
-        layout.sectionInset = UIEdgeInsets(top: .zero, left: CGFloat(sideInset), bottom: .zero, right: CGFloat(sideInset))
-        collectionView.setCollectionViewLayout(layout, animated: true)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: CGFloat(sideInset), bottom: .zero, right: CGFloat(sideInset))
+        collectionView.reloadData()
+        collectionView.setCollectionViewLayout(layout, animated: false)
     }
     
     private func numberOfItemsInSection(section: Int) -> Int {
-        return 40
+        switch collectionType {
+        case .accounts:
+          //  emptyLabel.isHidden = peeopleDataSource.count > 1 ? true : false
+            return peeopleDataSource.count
+        case .categories:
+           // emptyLabel.isHidden = categoriesDataSource.count > 1 ? true : false
+            return categoriesDataSource.count
+        case .videos:
+          //  emptyLabel.isHidden = videosDataSource.count > 1 ? true : false
+            return videosDataSource.count
+        }
     }
     
     private func numberOfSections() -> Int {
@@ -87,18 +104,54 @@ final class SearchCollectionViewManager: NSObject {
     private func cellForItemAt(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionType {
         case .accounts:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AccountsCollectionViewCell", for: indexPath)
-            //configurator.setupCell(cell)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AccountsCollectionViewCell", for: indexPath) as! AccountsCollectionViewCell
+            cell.configure(with: peeopleDataSource[indexPath.row])
             return cell
         case .videos:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCollectionViewCell", for: indexPath)
-            //configurator.setupCell(cell)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCollectionViewCell", for: indexPath) as! VideoCollectionViewCell
+            cell.configure(with: videosDataSource[indexPath.row])
             return cell
         case .categories:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath)
-            //configurator.setupCell(cell)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
+            cell.configure(with: categoriesDataSource[indexPath.row])
             return cell
         }
+    }
+    
+     func appendVideos(models: [CategoriesPost]) {
+        
+    }
+    
+     func appendCategories(models: [CategoriesDatum]) {
+        
+    }
+    
+     func appendAccount(models: [SearchAccountsDatum]) {
+        
+    }
+    
+     func setAccounts(models: [SearchAccountsDatum]) {
+         peeopleDataSource = models
+         guard let collectionView = collectionView else {
+             return
+         }
+         collectionView.reloadData()
+    }
+    
+     func setCategories(models: [CategoriesDatum]) {
+         categoriesDataSource = models
+         guard let collectionView = collectionView else {
+             return
+         }
+         collectionView.reloadData()
+    }
+    
+     func setVideos(models: [CategoriesPost]) {
+         videosDataSource = models
+         guard let collectionView = collectionView else {
+             return
+         }
+         collectionView.reloadData()
     }
 
 }

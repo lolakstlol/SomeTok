@@ -1,7 +1,6 @@
 import UIKit
 
 final class MainSearchViewController: BaseViewController {
-//    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var crossTextFieldButton: UIButton!
     @IBOutlet weak var peopleButton: UIButton!
     @IBOutlet weak var categoriesButton: UIButton!
@@ -11,24 +10,25 @@ final class MainSearchViewController: BaseViewController {
     @IBOutlet weak var tagsTagView: UIView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var clearSearchButton: UIButton!
-//    @IBOutlet weak var emptyLabel: UILabel!
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var emptyLabel: UILabel!
     @IBOutlet weak var backButoon: UIButton!
     
     fileprivate let unselectedColor: UIColor = Assets.classicBGGray.color
     fileprivate let selectedColor: UIColor = Assets.mainRed.color
+    
     var collectionManager: SearchCollectionViewManager?
     var selectedSearchType: MainSearchTypes = .people {
         didSet {
-//            switch selectedSearchType {
-//            case .people:
-//                emptyLabel.text = R.strings.SearchMain.peooplePlug
-//            case .videos:
-//                emptyLabel.text = R.strings.SearchMain.videosPlug
-//            case .tags:
-//                emptyLabel.text = R.strings.SearchMain.tagPlug
-//            }
+            switch selectedSearchType {
+            case .people:
+                emptyLabel.text = Strings.Search.Plug.people
+            case .tags:
+                emptyLabel.text = Strings.Search.Plug.tags
+            case .categories:
+                emptyLabel.text = Strings.Search.Plug.categories
+            }
         }
     }
     
@@ -41,15 +41,15 @@ final class MainSearchViewController: BaseViewController {
         categoriesButton.setTitle(Strings.Search.Control.categories, for: .normal)
         tagsButton.setTitle(Strings.Search.Control.tags, for: .normal)
         select(type: selectedSearchType)
-//        setupTableView()
         searchTextField.delegate = self
         searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-//        emptyLabel.text = R.strings.SearchMain.peooplePlug
+        emptyLabel.text = Strings.Search.Plug.people
         filterButton.setTitle("", for: .normal)
         backButoon.setTitle("", for: .normal)
         setupCollection()
         collectionManager = SearchCollectionViewManager()
         collectionManager?.attach(collectionView)
+        collectionManager?.collectionType = .accounts
     }
     
     private func setupCollection() {
@@ -92,6 +92,18 @@ final class MainSearchViewController: BaseViewController {
             $0?.backgroundColor = unselectedColor
         }
     }
+    @IBAction func clearButtonDidTap(_ sender: Any) {
+        searchTextField.text = ""
+        clearSearchButton.isHidden = true
+        collectionManager?.setVideos(models: [])
+        collectionManager?.setCategories(models: [])
+        collectionManager?.setAccounts(models: [])
+        collectionView.reloadData()
+    }
+    
+    @IBAction func backButtonDidtap(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func peopleDidTap(_ sender: Any) {
         select(type: .people)
@@ -120,37 +132,30 @@ extension MainSearchViewController: UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if (textField.text == "") {
             clearSearchButton.isHidden = true
-//            peeopleDataSource = []
-//            tagsDataSource = []
-//            videosDataSource = []
-//            tableView.reloadData()
+            collectionManager?.setVideos(models: [])
+            collectionManager?.setCategories(models: [])
+            collectionManager?.setAccounts(models: [])
+            collectionView.reloadData()
         } else {
             clearSearchButton.isHidden = false
         }
         guard let predict = textField.text, predict != "" else {
-//            lastSearchTags.page = 0
-//            lastSearchVideos.page = 0
-//            lastSearchPeeople.page = 0
             return
         }
-//        load(predict: predict)
+        presenter.load(predict: predict, type: selectedSearchType)
     }
 }
 
 extension MainSearchViewController: MainSearchPresenterOutput {
-
-}
-
-extension MainSearchViewController: UICollectionViewDelegate {
-    
-}
-
-extension MainSearchViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+    func setAccounts(models: [SearchAccountsDatum]) {
+        collectionManager?.setAccounts(models: models)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return VideoCollectionViewCell()
+    func setCategories(models: [CategoriesDatum]) {
+        collectionManager?.setCategories(models: models)
+    }
+    
+    func setVideos(models: [CategoriesPost]) {
+        collectionManager?.setVideos(models: models)
     }
 }

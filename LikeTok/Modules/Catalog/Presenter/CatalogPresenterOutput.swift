@@ -10,4 +10,5 @@ import Foundation
 
 protocol CatalogPresenterOutput: AnyObject {
     func openSerachScreen()
+    func showCategories(categories: [CategoriesDatum])
 }

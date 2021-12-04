@@ -74,6 +74,20 @@ public enum Strings {
   }
 
   public enum Search {
+    /// more
+    public static let more = Strings.tr("Localizable", "Search.more")
+    public enum Accounts {
+      /// Подписаться
+      public static let sub = Strings.tr("Localizable", "Search.accounts.sub")
+      /// Отписаться
+      public static let unsub = Strings.tr("Localizable", "Search.accounts.unsub")
+    }
+    public enum Categories {
+      /// Цифровые продукты
+      public static let first = Strings.tr("Localizable", "Search.categories.first")
+      /// Материальные товары
+      public static let second = Strings.tr("Localizable", "Search.categories.second")
+    }
     public enum Control {
       /// 1
       public static let accounts = Strings.tr("Localizable", "Search.control.accounts")

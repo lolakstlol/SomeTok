@@ -10,4 +10,5 @@ import Foundation
 
 protocol CatalogPresenterInput: BasePresenting {
     func searchDidTap()
+    func didChangeType(type: CategoriesType)
 }
