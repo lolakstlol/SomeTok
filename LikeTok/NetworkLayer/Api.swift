@@ -96,6 +96,10 @@ enum Api {
                 ]
             
                 let request = Alamofire.request(endpoint, method: .get, parameters: parameters, headers: Api.headers)
+                return request.validate()
+            }
+        }
+    }
     
     enum Dictionary: ApiMethod {
         case city(name: String)

@@ -116,7 +116,6 @@ final class MainSearchViewController: BaseViewController {
     @IBAction func tagsDidTap(_ sender: Any) {
         select(type: .tags)
     }
-    
 }
 
 extension MainSearchViewController: UITextFieldDelegate {
