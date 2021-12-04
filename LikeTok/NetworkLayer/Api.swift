@@ -71,6 +71,31 @@ enum Api {
             }
         }
     }
+
+    enum feed: ApiMethod {
+        case getInitialFeed,
+             getFeed(cursor: String)
+        public var request: DataRequest {
+            switch self {
+            case let .getFeed(cursor):
+                
+                let endpoint: String = "\(API.server)/user/feed/all"
+                let parameters: Parameters = [
+                    "params": "",
+                    "cursor": "\(cursor)"
+                ]
+            
+                let request = Alamofire.request(endpoint, method: .get, parameters: parameters, headers: Api.headers)
+                return request.validate()
+                
+            case .getInitialFeed:
+                
+                let endpoint: String = "\(API.server)/user/feed/all"
+                let parameters: Parameters = [
+                    "params": ""
+                ]
+            
+                let request = Alamofire.request(endpoint, method: .get, parameters: parameters, headers: Api.headers)
     
     enum Dictionary: ApiMethod {
         case city(name: String)
@@ -96,7 +121,7 @@ enum Api {
             }
         }
     }
-    
+                
     enum Catalog: ApiMethod {
         case searchCategories(name: String)
         case searchAccounts(name: String)
@@ -132,7 +157,7 @@ enum Api {
                 let request = Alamofire.request("\(API.server)/user/mobile/feed", method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
                 return request.validate()
             }
-    }
+        }
     }
     
     enum auth: ApiMethod {

@@ -11,15 +11,20 @@ class AccountManager {
         }
         return UserDefaults.standard.string(forKey: TOKEN_KEY) != nil
     }
+    
     public static func logout(){
         UserDefaults.standard.removeObject(forKey: TOKEN_KEY)
         UserDefaults.standard.setValue(nil, forKey: USER_ID)
     }
     
+    public static var token: String {
+        return UserDefaults.standard.string(forKey: TOKEN_KEY) ?? ""
+    }
     
     public static func saveAccount(token: String){
         UserDefaults.standard.setValue(token, forKey: TOKEN_KEY)
         Api.headers["Authorization"] = "Bearer \(token)"
+        debugPrint(token)
     }
     
     public static func saveUserId(userId: String){

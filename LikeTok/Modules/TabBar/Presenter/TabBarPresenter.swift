@@ -29,9 +29,10 @@ final class TabBarPresenter: NSObject {
         view.updateViews(vc: getViewControllers(), selected: startViewController)
         view.updateAppearance(appearance: .transparent)
     }
+
     
     private func getViewControllers() -> [UIViewController] {
-        let tabBarItems: [(UIViewController, TabBarItemModel)] = [(MainFeedAssembler.createModule(),
+        let tabBarItems: [(UIViewController, TabBarItemModel)] = [(FeedViewAssembler.createModule(type: .main, feedService: FeedService(), collectionManager: FeedCollectionManager()),
                                                                        TabBarItemModel(title: Strings.Tabbar.feed,
                                                                                        image: Assets.feedUnselected.image,
                                                                                        selectedImage: Assets.feedSelected.image)),
