@@ -57,3 +57,8 @@
 "Search.plug.categories" = "Категория не найдено";
 "Search.plug.tags" = "#тег не найден";
 "Search.plug.people" = "Пользователь не найден";
+"Search.more" = "ЕЩЕ";
+"Search.accounts.sub" = "Подписаться";
+"Search.accounts.unsub" = "Отписаться";
+"Search.categories.first" = "Цифровые продукты";
+"Search.categories.second" = "Материальные товары";

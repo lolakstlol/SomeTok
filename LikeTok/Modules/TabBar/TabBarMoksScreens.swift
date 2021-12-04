@@ -8,14 +8,6 @@
 import Foundation
 import UIKit
 
-
-final class SearchViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .gray
-    }
-}
-
 final class AddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()

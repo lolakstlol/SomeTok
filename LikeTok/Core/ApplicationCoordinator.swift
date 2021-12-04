@@ -126,8 +126,8 @@ private extension ApplicationCoordinator {
     
     
     func runMainFlow() {
-      //  router.setRootModule(TabBarAssembler.createModule())
-        router.setRootModule(UINavigationController(rootViewController: CatalogAssembler.createModule()), windowBackgroundColor: .green)
+        router.setRootModule(UINavigationController(rootViewController: TabBarAssembler.createModule()))
+        //router.setRootModule(UINavigationController(rootViewController: CatalogAssembler.createModule()), windowBackgroundColor: .green)
 //        let coordinator = coordinatorFactory.makeAuthModuleCordinator(router: router)
 //        requestTrackingAuthorization()
 //        pushNotificationsController.registerForPushNotifications { [weak self] granted, error in

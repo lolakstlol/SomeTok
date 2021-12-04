@@ -21,6 +21,7 @@
                 <outlet property="categoriesTagView" destination="wOM-93-Phc" id="gic-Zf-YOE"/>
                 <outlet property="clearSearchButton" destination="BMq-iQ-nyF" id="tdj-mE-Gbh"/>
                 <outlet property="collectionView" destination="fFv-jZ-UUh" id="2AT-67-gZm"/>
+                <outlet property="emptyLabel" destination="hWZ-tV-7Aj" id="5OL-om-dKG"/>
                 <outlet property="filterButton" destination="uzO-yp-dob" id="2BC-do-esX"/>
                 <outlet property="peopleButton" destination="7cD-Nu-Nq8" id="ZCC-vR-R5g"/>
                 <outlet property="peopleTagView" destination="8xu-kr-8Ws" id="Pzl-VF-HQv"/>
@@ -45,6 +46,9 @@
                             </constraints>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="BackButton"/>
+                            <connections>
+                                <action selector="backButtonDidtap:" destination="-1" eventType="touchUpInside" id="6wa-lf-RXC"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tGw-3k-4lu">
                             <rect key="frame" x="50" y="0.0" width="305" height="36"/>
@@ -64,6 +68,9 @@
                                         <constraint firstAttribute="width" constant="16" id="MTO-nv-diC"/>
                                     </constraints>
                                     <state key="normal" title="Button" image="crossIcon"/>
+                                    <connections>
+                                        <action selector="clearButtonDidTap:" destination="-1" eventType="touchUpInside" id="0UC-je-bfK"/>
+                                    </connections>
                                 </button>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wsW-zk-ERH">
                                     <rect key="frame" x="43" y="0.0" width="220" height="36"/>
@@ -240,9 +247,16 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWZ-tV-7Aj">
+                    <rect key="frame" x="167" y="455" width="41.333333333333343" height="20.333333333333314"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="hWZ-tV-7Aj" firstAttribute="centerX" secondItem="fFv-jZ-UUh" secondAttribute="centerX" id="8dI-IP-mYf"/>
                 <constraint firstItem="06K-9c-3qf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="DvR-zI-drb"/>
                 <constraint firstAttribute="trailing" secondItem="fFv-jZ-UUh" secondAttribute="trailing" id="Iom-eI-VhD"/>
                 <constraint firstAttribute="trailing" secondItem="fdf-mf-JCO" secondAttribute="trailing" id="JQp-xT-qcr"/>
@@ -251,6 +265,7 @@
                 <constraint firstItem="fFv-jZ-UUh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cvS-g9-MgJ"/>
                 <constraint firstAttribute="trailing" secondItem="06K-9c-3qf" secondAttribute="trailing" constant="10" id="lLA-8d-q1a"/>
                 <constraint firstItem="fFv-jZ-UUh" firstAttribute="top" secondItem="fdf-mf-JCO" secondAttribute="bottom" id="mwA-Yu-sWh"/>
+                <constraint firstItem="hWZ-tV-7Aj" firstAttribute="centerY" secondItem="fFv-jZ-UUh" secondAttribute="centerY" id="mzR-Pf-yyA"/>
                 <constraint firstItem="fdf-mf-JCO" firstAttribute="top" secondItem="06K-9c-3qf" secondAttribute="bottom" constant="10" id="oc4-Ls-1DW"/>
                 <constraint firstAttribute="bottomMargin" secondItem="fFv-jZ-UUh" secondAttribute="bottom" id="s56-MO-eW8"/>
             </constraints>
@@ -263,7 +278,7 @@
         <image name="Search Icon" width="16" height="16"/>
         <image name="crossIcon" width="16" height="16"/>
         <namedColor name="ClassicBGGray">
-            <color red="0.93333333333333335" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.93300002813339233" green="0.92900002002716064" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MainRed">
             <color red="0.76470588235294112" green="0.10196078431372549" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

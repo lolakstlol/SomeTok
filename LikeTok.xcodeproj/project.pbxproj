@@ -80,9 +80,16 @@
 		17C66E0C2723034E0032F5F3 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C66E0B2723034E0032F5F3 /* Method.swift */; };
 		17C66E0E2723043F0032F5F3 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C66E0D2723043F0032F5F3 /* Api.swift */; };
 		17C66E11272305130032F5F3 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C66E10272305130032F5F3 /* AccountManager.swift */; };
+		17CF73E2275A3BC4005C2067 /* UiImageView + KF .swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CF73E1275A3BC4005C2067 /* UiImageView + KF .swift */; };
+		17CF73E6275ADB50005C2067 /* CategoriesTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CF73E4275ADB50005C2067 /* CategoriesTypeCollectionViewCell.swift */; };
+		17CF73E7275ADB50005C2067 /* CategoriesTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17CF73E5275ADB50005C2067 /* CategoriesTypeCollectionViewCell.xib */; };
+		17D17C7A275813A80096DF3A /* SearchTagResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D17C79275813A80096DF3A /* SearchTagResponse.swift */; };
+		17D17C7C2759018E0096DF3A /* AccountsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D17C7B2759018E0096DF3A /* AccountsResponse.swift */; };
 		17E71F93272ADE0D001B2CF0 /* AuthApiWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E71F92272ADE0D001B2CF0 /* AuthApiWorker.swift */; };
 		17E71F96272ADEF6001B2CF0 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E71F95272ADEF6001B2CF0 /* SignUpResponse.swift */; };
 		17E71F98272AF5A6001B2CF0 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E71F97272AF5A6001B2CF0 /* SignInResponse.swift */; };
+		17F43BE927576F980054D5AF /* SearchApiWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F43BE827576F980054D5AF /* SearchApiWorker.swift */; };
+		17F43BEC275773280054D5AF /* CategoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F43BEB275773280054D5AF /* CategoriesResponse.swift */; };
 		18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE8EDA9EAD07A247DB4F98D0 /* SignUpViewController.xib */; };
 		1962FDCC3EBF09A670F55977 /* MainFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73C4EF9493463BBC7C276D96 /* MainFeedViewController.xib */; };
 		1DAFE1EF40339ECC072D7F3E /* AuthPersonalDataPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001FF83E1DE75548FEE1A40B /* AuthPersonalDataPresenterInput.swift */; };
@@ -243,10 +250,17 @@
 		17C66E0B2723034E0032F5F3 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		17C66E0D2723043F0032F5F3 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		17C66E10272305130032F5F3 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		17CF73E1275A3BC4005C2067 /* UiImageView + KF .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiImageView + KF .swift"; sourceTree = "<group>"; };
+		17CF73E4275ADB50005C2067 /* CategoriesTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTypeCollectionViewCell.swift; sourceTree = "<group>"; };
+		17CF73E5275ADB50005C2067 /* CategoriesTypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesTypeCollectionViewCell.xib; sourceTree = "<group>"; };
+		17D17C79275813A80096DF3A /* SearchTagResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTagResponse.swift; sourceTree = "<group>"; };
+		17D17C7B2759018E0096DF3A /* AccountsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsResponse.swift; sourceTree = "<group>"; };
 		17DDBE297FA3B0B6430F8FB0 /* SignInViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		17E71F92272ADE0D001B2CF0 /* AuthApiWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApiWorker.swift; sourceTree = "<group>"; };
 		17E71F95272ADEF6001B2CF0 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		17E71F97272AF5A6001B2CF0 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		17F43BE827576F980054D5AF /* SearchApiWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchApiWorker.swift; sourceTree = "<group>"; };
+		17F43BEB275773280054D5AF /* CategoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesResponse.swift; sourceTree = "<group>"; };
 		187BBBD7EF12A4608D9A1861 /* AuthCodeViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = AuthCodeViewController.xib; sourceTree = "<group>"; };
 		1A4BF2D128DA48B16FAFA3AA /* PasswordRecoveryFirstPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryFirstPresenterOutput.swift; sourceTree = "<group>"; };
 		1AAE2AC114AA365277A68E02 /* DeleteViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DeleteViewController.xib; sourceTree = "<group>"; };
@@ -419,6 +433,7 @@
 				17AA6C17272980B100CE276E /* BundleExtentsion.swift */,
 				17AA6C19272982F700CE276E /* UIAplicationExtentsion.swift */,
 				15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */,
+				17CF73E1275A3BC4005C2067 /* UiImageView + KF .swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -617,6 +632,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		17CF73E3275ADB33005C2067 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				17CF73E4275ADB50005C2067 /* CategoriesTypeCollectionViewCell.swift */,
+				17CF73E5275ADB50005C2067 /* CategoriesTypeCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		17E71F91272AC782001B2CF0 /* AuthApiWorker */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,9 +660,29 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		17F43BE627576F730054D5AF /* SearchApiWorker */ = {
+			isa = PBXGroup;
+			children = (
+				17F43BEA275773160054D5AF /* Response */,
+				17F43BE827576F980054D5AF /* SearchApiWorker.swift */,
+			);
+			path = SearchApiWorker;
+			sourceTree = "<group>";
+		};
+		17F43BEA275773160054D5AF /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				17F43BEB275773280054D5AF /* CategoriesResponse.swift */,
+				17D17C79275813A80096DF3A /* SearchTagResponse.swift */,
+				17D17C7B2759018E0096DF3A /* AccountsResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		225316AAD12800D2CEDCFD28 /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
+				17CF73E3275ADB33005C2067 /* Cell */,
 				8782B47827DCC327CB9C0D5E /* View */,
 				4FE85C07C3FBCF5895D52136 /* Presenter */,
 				F1B4621CD9B5991D1CC5538B /* Assembler */,
@@ -742,6 +786,7 @@
 		55EFF5E5124FE455C703AB95 /* MainSearch */ = {
 			isa = PBXGroup;
 			children = (
+				17F43BE627576F730054D5AF /* SearchApiWorker */,
 				170D42862753A8BB00509625 /* CollectionManager */,
 				170D4278275394D500509625 /* Cells */,
 				CCEFEC153215E096B2FF05FF /* View */,
@@ -1198,6 +1243,7 @@
 				170D42802753951500509625 /* AccountsCollectionViewCell.xib in Resources */,
 				681815494FF575FF1B5709E1 /* AuthPersonalDataViewController.xib in Resources */,
 				1962FDCC3EBF09A670F55977 /* MainFeedViewController.xib in Resources */,
+				17CF73E7275ADB50005C2067 /* CategoriesTypeCollectionViewCell.xib in Resources */,
 				C3C3F0DC3CEB1C92F8524EA7 /* CatalogViewController.xib in Resources */,
 				FCE86B5E591888B39377C9AF /* MainSearchViewController.xib in Resources */,
 			);
@@ -1277,6 +1323,7 @@
 				17AA6C122729804D00CE276E /* MainRouter.swift in Sources */,
 				15414A2E27233781007AA93D /* InsetTextField.swift in Sources */,
 				17AA6C0727297E3E00CE276E /* DeepLinkService.swift in Sources */,
+				17CF73E6275ADB50005C2067 /* CategoriesTypeCollectionViewCell.swift in Sources */,
 				17AA6BEC2729690600CE276E /* BaseTimerOutput.swift in Sources */,
 				1558C5D9271F91C40051436E /* OnboardingCollectionViewCell.swift in Sources */,
 				17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */,
@@ -1336,6 +1383,7 @@
 				1513CBF3272C214700855FC4 /* RecoveryPasswordCodeResponse.swift in Sources */,
 				A61CB9393EEE6EA81E760A5E /* PasswordRecoverySecondPresenter.swift in Sources */,
 				80A44D7850A9816EBFA54395 /* ResetPasswordNewPasswordAssembler.swift in Sources */,
+				17F43BE927576F980054D5AF /* SearchApiWorker.swift in Sources */,
 				17AA6C1C27298D7000CE276E /* OnboardingCordinator.swift in Sources */,
 				E1BCC80F51969E7A6B96A859 /* AuthCodeViewController.swift in Sources */,
 				20BBB01AB7F016534D91547E /* AuthCodePresenterInput.swift in Sources */,
@@ -1367,15 +1415,19 @@
 				BBE87A302BF9ED9693B6C4FB /* TabBarPresenterInput.swift in Sources */,
 				38C9DCAB13CC50F3E9B79F0F /* TabBarPresenterOutput.swift in Sources */,
 				A641C6E4474EF5D2A1D8D536 /* TabBarPresenter.swift in Sources */,
+				17CF73E2275A3BC4005C2067 /* UiImageView + KF .swift in Sources */,
 				A247F03458B971AC13B6E44D /* TabBarAssembler.swift in Sources */,
 				D0F5FE49428E27B1178BDE79 /* MainFeedViewController.swift in Sources */,
 				1F72D7A7B8EFA6D870E919B5 /* MainFeedPresenterInput.swift in Sources */,
 				9EF8746861A5EC16750F7957 /* MainFeedPresenterOutput.swift in Sources */,
 				3B84FF522FC8DEEC287B2052 /* MainFeedPresenter.swift in Sources */,
+				17D17C7A275813A80096DF3A /* SearchTagResponse.swift in Sources */,
 				55867F56C4AB6BD2302DD7D0 /* MainFeedAssembler.swift in Sources */,
 				C8F154809A579EC72F5D729C /* CatalogViewController.swift in Sources */,
 				4BE6AECEC7D9F8CCE4C11234 /* CatalogPresenterInput.swift in Sources */,
 				0C664C63BA0B42C6A665E92D /* CatalogPresenterOutput.swift in Sources */,
+				17F43BEC275773280054D5AF /* CategoriesResponse.swift in Sources */,
+				17D17C7C2759018E0096DF3A /* AccountsResponse.swift in Sources */,
 				A2A73A2EF301C9B5F09BA803 /* CatalogPresenter.swift in Sources */,
 				636B10E029A88C5A60CF1E1A /* CatalogAssembler.swift in Sources */,
 				234F4EF764B3A5F7E56C9EAF /* MainSearchViewController.swift in Sources */,
@@ -1544,7 +1596,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
@@ -1577,7 +1629,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;

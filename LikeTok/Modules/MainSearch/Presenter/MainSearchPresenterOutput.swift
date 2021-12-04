@@ -9,5 +9,7 @@
 import Foundation
 
 protocol MainSearchPresenterOutput: AnyObject {
-
+    func setAccounts(models: [SearchAccountsDatum])
+    func setCategories(models: [CategoriesDatum])
+    func setVideos(models: [CategoriesPost])
 }

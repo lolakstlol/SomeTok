@@ -4,23 +4,125 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AccountsCollectionViewCell" customModule="LikeTok" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="281" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="325" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="281" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="325" height="44"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7l-ul-XT1">
+                        <rect key="frame" x="0.0" y="0.0" width="325" height="44"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lfl-eP-0Qf">
+                                <rect key="frame" x="10" y="0.0" width="305" height="44"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CvZ-sX-zw0">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="74W-ev-NPD"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xgZ-4l-h6M">
+                                        <rect key="frame" x="54" y="0.0" width="145" height="44"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC3-5H-RZb">
+                                                <rect key="frame" x="0.0" y="0.0" width="145" height="22"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXp-7q-xD7">
+                                                <rect key="frame" x="0.0" y="22" width="145" height="22"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                <color key="textColor" name="DarkGrayText"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DO4-2l-hqz">
+                                        <rect key="frame" x="209" y="0.0" width="96" height="44"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIJ-HW-Az8">
+                                                <rect key="frame" x="0.0" y="0.0" width="96" height="9"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="9" id="kii-Gw-HXr"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkV-AC-TBV">
+                                                <rect key="frame" x="0.0" y="9" width="96" height="26"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="11"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Подписаться">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pM8-5o-jYF">
+                                                <rect key="frame" x="0.0" y="35" width="96" height="9"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="9" id="met-qP-dSV"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="96" id="Ezd-ky-Ogf"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Lfl-eP-0Qf" secondAttribute="bottom" id="6dr-mJ-Jgb"/>
+                            <constraint firstItem="Lfl-eP-0Qf" firstAttribute="top" secondItem="w7l-ul-XT1" secondAttribute="top" id="Bf8-uc-bJx"/>
+                            <constraint firstItem="Lfl-eP-0Qf" firstAttribute="leading" secondItem="w7l-ul-XT1" secondAttribute="leading" constant="10" id="W85-ya-EgN"/>
+                            <constraint firstAttribute="trailing" secondItem="Lfl-eP-0Qf" secondAttribute="trailing" constant="10" id="yr5-aR-dbu"/>
+                        </constraints>
+                    </view>
+                </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" red="0.14117647059999999" green="0.86274509799999999" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <size key="customSize" width="281" height="50"/>
-            <point key="canvasLocation" x="305.07246376811594" y="112.5"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="w7l-ul-XT1" secondAttribute="bottom" id="9pa-Qy-gR3"/>
+                <constraint firstItem="w7l-ul-XT1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="HkU-be-Miv"/>
+                <constraint firstAttribute="trailing" secondItem="w7l-ul-XT1" secondAttribute="trailing" id="Vqr-Jv-EFQ"/>
+                <constraint firstItem="w7l-ul-XT1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ghB-dG-cgW"/>
+            </constraints>
+            <size key="customSize" width="374" height="50"/>
+            <connections>
+                <outlet property="avatarImage" destination="CvZ-sX-zw0" id="ctX-Sc-db7"/>
+                <outlet property="loginLabel" destination="XC3-5H-RZb" id="krW-uB-hUF"/>
+                <outlet property="subTitleLabel" destination="lXp-7q-xD7" id="cSO-U4-r6Y"/>
+                <outlet property="subscribeButton" destination="tkV-AC-TBV" id="jrs-os-zBD"/>
+            </connections>
+            <point key="canvasLocation" x="393" y="111"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="DarkGrayText">
+            <color red="0.53299999237060547" green="0.54100000858306885" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
