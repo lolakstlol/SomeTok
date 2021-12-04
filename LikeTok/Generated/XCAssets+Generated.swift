@@ -53,6 +53,7 @@ internal enum Assets {
   internal static let feedUnselected = ImageAsset(name: "feedUnselected")
   internal static let searchSelected = ImageAsset(name: "searchSelected")
   internal static let searchUnselected = ImageAsset(name: "searchUnselected")
+  internal static let checkIcon = ImageAsset(name: "CheckIcon")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

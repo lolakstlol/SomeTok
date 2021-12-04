@@ -11,11 +11,13 @@ import CustomToastView_swift
 
 extension UIViewController {
         
-    func showToast(_ text: String) {
+    func showToast(_ title: String, leftImage: UIImage) {
         Toast.Builder()
-            .showLeftIcon(Assets.avatarDefaulth.image)
-            .cornerRadius(7)
-            .title("Я ДАЛБАЕБ")
+            .backgroundColor(.white)
+            .textColor(.black)
+            .showLeftIcon(leftImage)
+            .cornerRadius(10)
+            .title(title)
             .orientation(.bottomToTop)
             .timeDismissal(4)
             .build()

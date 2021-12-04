@@ -36,12 +36,7 @@ final class SignInViewController: BaseViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        showToast("")
-    }
-    
+
     @IBAction func securyButtonDidTap(_ sender: Any) {
         
     }

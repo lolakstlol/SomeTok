@@ -20,7 +20,6 @@ final class MainFeedViewController: BaseViewController {
         self.view.backgroundColor = .gray
         // https://www.theartnewspaper.ru/media/images/ac5b3fc4-5105-4e09-a3cf-c9a2e0cfb359.width-1290.jpg
         
-        
     }
 
 }
