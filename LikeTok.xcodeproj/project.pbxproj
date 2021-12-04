@@ -37,6 +37,7 @@
 		158C8CEA2726FE26001614D0 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CE92726FE26001614D0 /* KeyboardObserver.swift */; };
 		158C8CFB2729E1C4001614D0 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CFA2729E1C4001614D0 /* String+Ext.swift */; };
 		15B1DE0C272E088400078D01 /* UINaviagationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */; };
+		15E37EDF275AFB0100B800E9 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E37EDE275AFB0100B800E9 /* UIViewController+Ext.swift */; };
 		17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097382271D7B4200134ED7 /* AppDelegate.swift */; };
 		17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097384271D7B4200134ED7 /* SceneDelegate.swift */; };
 		17097387271D7B4200134ED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097386271D7B4200134ED7 /* ViewController.swift */; };
@@ -211,6 +212,7 @@
 		158C8CE92726FE26001614D0 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		158C8CFA2729E1C4001614D0 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINaviagationController+Extension.swift"; sourceTree = "<group>"; };
+		15E37EDE275AFB0100B800E9 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		1709737F271D7B4200134ED7 /* LikeTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17097382271D7B4200134ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17097384271D7B4200134ED7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				17AA6C17272980B100CE276E /* BundleExtentsion.swift */,
 				17AA6C19272982F700CE276E /* UIAplicationExtentsion.swift */,
 				15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */,
+				15E37EDE275AFB0100B800E9 /* UIViewController+Ext.swift */,
 				17CF73E1275A3BC4005C2067 /* UiImageView + KF .swift */,
 			);
 			path = Extensions;
@@ -1469,6 +1472,7 @@
 				4782A60453D901B504FCC135 /* TabBarViewController.swift in Sources */,
 				BBE87A302BF9ED9693B6C4FB /* TabBarPresenterInput.swift in Sources */,
 				38C9DCAB13CC50F3E9B79F0F /* TabBarPresenterOutput.swift in Sources */,
+				15E37EDF275AFB0100B800E9 /* UIViewController+Ext.swift in Sources */,
 				A641C6E4474EF5D2A1D8D536 /* TabBarPresenter.swift in Sources */,
 				17CF73E2275A3BC4005C2067 /* UiImageView + KF .swift in Sources */,
 				A247F03458B971AC13B6E44D /* TabBarAssembler.swift in Sources */,

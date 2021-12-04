@@ -126,6 +126,7 @@ private extension ApplicationCoordinator {
     
     
     func runMainFlow() {
+//        router.setRootModule(UINavigationController(rootViewController: CatalogAssembler.createModule()), windowBackgroundColor: .green)
         router.setRootModule(UINavigationController(rootViewController: TabBarAssembler.createModule()))
         //router.setRootModule(UINavigationController(rootViewController: CatalogAssembler.createModule()), windowBackgroundColor: .green)
 //        let coordinator = coordinatorFactory.makeAuthModuleCordinator(router: router)
@@ -133,9 +134,9 @@ private extension ApplicationCoordinator {
 //        pushNotificationsController.registerForPushNotifications { [weak self] granted, error in
 //            self?.analytics.updateUserProperty(.setPushesAllowed(allowed: granted))
 //        }
-        
+//        
 //        router.setRootModule(UIViewController(), windowBackgroundColor: .white)
-//
+
 //        addDependency(coordinator)
 //        coordinator.start()
     }
