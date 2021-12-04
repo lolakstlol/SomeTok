@@ -49,3 +49,15 @@
 "Tabbar.profile" = "Профиль";
 "Tabbar.search" = "Каталог";
 "Tabbar.add" = "Добавить";
+
+"Search.control.accounts" = "1";
+"Search.control.categories" = "1";
+"Search.control.tags" = "1";
+"Search.plug.categories" = "1 не найдено";
+"Search.plug.tags" = "#тег не 1";
+"Search.plug.people" = "1 не найден";
+"Search.more" = "more";
+"Search.accounts.sub" = "Подписаться";
+"Search.accounts.unsub" = "Отписаться";
+"Search.categories.first" = "Цифровые продукты";
+"Search.categories.second" = "Материальные товары";

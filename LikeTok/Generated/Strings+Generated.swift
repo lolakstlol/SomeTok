@@ -73,6 +73,39 @@ public enum Strings {
     }
   }
 
+  public enum Search {
+    /// more
+    public static let more = Strings.tr("Localizable", "Search.more")
+    public enum Accounts {
+      /// Подписаться
+      public static let sub = Strings.tr("Localizable", "Search.accounts.sub")
+      /// Отписаться
+      public static let unsub = Strings.tr("Localizable", "Search.accounts.unsub")
+    }
+    public enum Categories {
+      /// Цифровые продукты
+      public static let first = Strings.tr("Localizable", "Search.categories.first")
+      /// Материальные товары
+      public static let second = Strings.tr("Localizable", "Search.categories.second")
+    }
+    public enum Control {
+      /// 1
+      public static let accounts = Strings.tr("Localizable", "Search.control.accounts")
+      /// 1
+      public static let categories = Strings.tr("Localizable", "Search.control.categories")
+      /// 1
+      public static let tags = Strings.tr("Localizable", "Search.control.tags")
+    }
+    public enum Plug {
+      /// 1 не найдено
+      public static let categories = Strings.tr("Localizable", "Search.plug.categories")
+      /// 1 не найден
+      public static let people = Strings.tr("Localizable", "Search.plug.people")
+      /// #тег не 1
+      public static let tags = Strings.tr("Localizable", "Search.plug.tags")
+    }
+  }
+
   public enum SignIn {
     /// Создать аккаунт
     public static let createAccount = Strings.tr("Localizable", "SignIn.createAccount")

@@ -140,11 +140,11 @@ final class AuthApiWorker {
     }
     
     func uploadAvatar(image: UIImage, completion: @escaping (Swift.Result<Any?, NetworkError>) -> Void) {
-//        Api.profile.uploadAvatar(image: image) { result in
-//            print(result)
-//        }.request.responseJSON { response in
-//            print(response)
-//        }
+    //        Api.profile.uploadAvatar(image: image) { result in
+    //            print(result)
+    //        }.request.responseJSON { response in
+    //            print(response)
+    //        }
     }
     
     private func catchError<T: Decodable>(data: Data, type: T.Type) throws {

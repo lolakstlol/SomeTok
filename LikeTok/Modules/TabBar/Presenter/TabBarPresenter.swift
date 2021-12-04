@@ -36,7 +36,7 @@ final class TabBarPresenter: NSObject {
                                                                        TabBarItemModel(title: Strings.Tabbar.feed,
                                                                                        image: Assets.feedUnselected.image,
                                                                                        selectedImage: Assets.feedSelected.image)),
-                                                                      (SearchViewController(),
+                                                                  (CatalogAssembler.createModule(),
                                                                        TabBarItemModel(title: Strings.Tabbar.search,
                                                                                        image: Assets.searchUnselected.image,
                                                                                        selectedImage:
@@ -56,7 +56,7 @@ final class TabBarPresenter: NSObject {
                                                                                        selectedImage:
                                                                                         Assets.chatUnselected.image))]
         let viewControllers = { tabBarItems.map { $0.0 } }()
-        
+
         setupTabBarItems(tabBarItems)
         return viewControllers
     }

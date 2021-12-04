@@ -17,6 +17,13 @@ final class AuthPersonalDataViewController: BaseViewController {
         super.viewDidLoad()
         presenter.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
+        let tapGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func continueButtonDidTap(_ sender: Any) {

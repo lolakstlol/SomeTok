@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="VideoCollectionViewCell" customModule="LikeTok" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="252" height="251"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="252" height="251"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ED0-ep-Opj">
+                        <rect key="frame" x="0.0" y="0.0" width="252" height="251"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjL-p9-PA0">
+                        <rect key="frame" x="10" y="224.5" width="232" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ED0-ep-Opj" secondAttribute="trailing" id="1Kb-jb-hD8"/>
+                <constraint firstAttribute="trailing" secondItem="hjL-p9-PA0" secondAttribute="trailing" constant="10" id="FWR-n0-AhV"/>
+                <constraint firstItem="ED0-ep-Opj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WMv-22-M29"/>
+                <constraint firstItem="ED0-ep-Opj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Xds-dg-1c4"/>
+                <constraint firstAttribute="bottom" secondItem="ED0-ep-Opj" secondAttribute="bottom" id="f2D-gw-tBe"/>
+                <constraint firstAttribute="bottom" secondItem="hjL-p9-PA0" secondAttribute="bottom" constant="10" id="pcJ-VI-xyD"/>
+                <constraint firstItem="hjL-p9-PA0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="xbk-Da-c8d"/>
+            </constraints>
+            <size key="customSize" width="252" height="251"/>
+            <connections>
+                <outlet property="imageView" destination="ED0-ep-Opj" id="pPi-74-NiH"/>
+                <outlet property="titleLabel" destination="hjL-p9-PA0" id="lEz-H5-jp4"/>
+            </connections>
+            <point key="canvasLocation" x="282.60869565217394" y="176.45089285714286"/>
+        </collectionViewCell>
+    </objects>
+</document>

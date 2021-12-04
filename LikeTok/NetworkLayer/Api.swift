@@ -75,7 +75,7 @@ enum Api {
             }
         }
     }
-    
+
     enum feed: ApiMethod {
         case getInitialFeed,
              getFeed(cursor: String)
@@ -104,7 +104,35 @@ enum Api {
             }
         }
         
-        
+    enum Catalog: ApiMethod {
+        case searchCategories(name: String)
+        case searchAccounts(name: String)
+        case searchVideos(tag: String)
+        case categories(parent: CategoriesType, filtres: CategoriesFiltres)
+        public var request: DataRequest {
+            switch self {
+            case .searchCategories(name: let name):
+                var params:Parameters = Parameters()
+                params["name"] = name
+                let request = Alamofire.request("\(API.server)/user/search/categories", method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+            case .searchAccounts(name: let name):
+                var params:Parameters = Parameters()
+                params["name"] = name
+                let request = Alamofire.request("\(API.server)/user/search/account", method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+            case .searchVideos(tag: let tag):
+                var params: Parameters = Parameters()
+                params["name"] = tag
+                let request = Alamofire.request("\(API.server)/user/search/hashtag", method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+            case .categories(parent: let parent, filtres: let filtres):
+                var params:Parameters = Parameters()
+                params["parent_category"] = parent.rawValue
+                let request = Alamofire.request("\(API.server)/user/mobile/feed", method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+            }
+        }
     }
     
     enum auth: ApiMethod {
