@@ -109,7 +109,8 @@ extension PasswordRecoverySecondViewController: PasswordRecoverySecondPresenterO
     }
     
     func onResetPasswordFailure(_ error: T) {
-        presenter.showAlert(error)
+//        presenter.showAlert(error)
+        showToast(error.localizedDescription, leftImage: UIImage())
     }
     
     func onShowAlert(_ alert: UIAlertController) {

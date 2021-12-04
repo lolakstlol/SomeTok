@@ -43,6 +43,10 @@ final class CatalogPresenter {
 }
 
 extension CatalogPresenter: CatalogPresenterInput {
+    func filtresDidTap() {
+        view.openFiltres()
+    }
+    
     func didChangeType(type: CategoriesType) {
         selectedType = type
         loadCatalog()

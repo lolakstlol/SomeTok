@@ -76,6 +76,9 @@
                             </constraints>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="FilterButton"/>
+                            <connections>
+                                <action selector="filtresDidTap:" destination="-1" eventType="touchUpInside" id="7v8-cv-rP1"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

@@ -49,9 +49,16 @@ final class CatalogViewController: BaseViewController {
         presenter.searchDidTap()
     }
 
+    @IBAction func filtresDidTap(_ sender: Any) {
+        presenter.filtresDidTap()
+    }
 }
 
 extension CatalogViewController: CatalogPresenterOutput {
+    func openFiltres() {
+        navigationController?.pushViewController(CatalogFiltresAssembler.createModule(), animated: true)
+    }
+    
     func showCategories(categories: [CategoriesDatum]) {
         dataSource = categories
         collectionView.reloadData()

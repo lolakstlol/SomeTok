@@ -14,6 +14,7 @@ target 'LikeTok' do
   pod 'Firebase/Core'
   pod 'Kingfisher'
   pod 'FloatingPanel'
+  pod 'CustomToastView-swift'
   ## Video Player
   pod 'GSPlayer'
   # Pods for LikeTok

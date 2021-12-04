@@ -62,3 +62,10 @@
 "Search.accounts.unsub" = "Отписаться";
 "Search.categories.first" = "Цифровые продукты";
 "Search.categories.second" = "Материальные товары";
+
+"Filtres.country" = "Страна";
+"Filtres.city" = "Город";
+"Filtres.category" = "Категория";
+"Filtres.accept" = "Применить";
+"Filtres.clear" = "Очистить";
+"Filtres.title" = "Фильтры";
