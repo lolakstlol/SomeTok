@@ -4,6 +4,7 @@ PODS:
     - Alamofire (~> 4.1)
   - AlamofireNetworkActivityLogger (2.4.0):
     - Alamofire (~> 4.8)
+  - CustomToastView-swift (0.1.5)
   - Firebase/Core (8.8.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (~> 8.8.0)
@@ -125,6 +126,7 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireMapper
   - AlamofireNetworkActivityLogger (~> 2.0)
+  - CustomToastView-swift
   - Firebase/Core
   - Firebase/Messaging
   - GSPlayer
@@ -137,6 +139,7 @@ SPEC REPOS:
     - Alamofire
     - AlamofireMapper
     - AlamofireNetworkActivityLogger
+    - CustomToastView-swift
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -159,6 +162,7 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AlamofireMapper: bdcd94eb53ab63ec9a12e4685bba73e3d0072f36
   AlamofireNetworkActivityLogger: 6d3398c692d2c5d83b0c58793537860aca1e383d
+  CustomToastView-swift: 3c2a6fe966245e2af3cb8a9d9466d1e0f54a398f
   Firebase: 629510f1a9ddb235f3a7c5c8ceb23ba887f0f814
   FirebaseAnalytics: 5506ea8b867d8423485a84b4cd612d279f7b0b8a
   FirebaseCore: 98b29e3828f0a53651c363937a7f7d92a19f1ba2
@@ -177,6 +181,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
 
-PODFILE CHECKSUM: 49095fe2f2447d5da86fef8016468ef1f5b8d838
+PODFILE CHECKSUM: f5f989b200e8439a873317fc7a33c1a14eadcc5b
 
 COCOAPODS: 1.11.2
