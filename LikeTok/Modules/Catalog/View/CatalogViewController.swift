@@ -16,7 +16,7 @@ final class CatalogViewController: BaseViewController {
     var dataSource: [CategoriesDatum] = []
     var presenter: CatalogPresenterInput!
     var selectedType: CategoriesType = .digital
-    var filtres: CategoriesFiltres?
+    var filtres: CategoriesFiltres? = CategoriesFiltres()
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,8 @@ final class CatalogViewController: BaseViewController {
         collectionView.register(categoryCell, forCellWithReuseIdentifier: String(describing: CategoryCollectionViewCell.self))
         let switcher = UINib.init(nibName: String(describing: CategoriesTypeCollectionViewCell.self), bundle: nil)
         collectionView.register(switcher, forCellWithReuseIdentifier: String(describing: CategoriesTypeCollectionViewCell.self))
+        let filter = UINib.init(nibName: String(describing: FiltresCollectionViewCell.self), bundle: nil)
+        collectionView.register(filter, forCellWithReuseIdentifier: String(describing: FiltresCollectionViewCell.self))
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
     }
@@ -60,6 +62,9 @@ extension CatalogViewController: CatalogPresenterOutput {
     func openFiltres() {
         let vc = CatalogFiltresAssembler.createModule(currentFiltres: filtres) { newFiltres in
             self.filtres = newFiltres
+            self.collectionView.reloadData()
+            guard let filtres = self.filtres else { return }
+            self.presenter.fetchWithFiltrer(filter: filtres)
         }
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -77,7 +82,13 @@ extension CatalogViewController: CatalogPresenterOutput {
 extension CatalogViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return CGSize(width: view.bounds.width, height: 34)
+            if filtres?.categories != nil ||
+                filtres?.cities != nil ||
+                filtres?.countries != nil {
+                return CGSize(width: view.bounds.width, height: 44)
+            } else {
+                return CGSize(width: view.bounds.width, height: 34)
+            }
         } else {
             return CGSize(width: view.bounds.width, height: 246)
         }
@@ -96,7 +107,19 @@ extension CatalogViewController: CategoriesTypeCollectionViewCellOutput {
 }
 
 extension CatalogViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if filtres?.categories != nil ||
+                filtres?.cities != nil ||
+                filtres?.countries != nil {
+                filtres = CategoriesFiltres()
+                collectionView.reloadData()
+                self.presenter.didChangeType(type: selectedType)
+            } else {
+              
+            }
+        }
+    }
 }
 
 extension CatalogViewController: UICollectionViewDataSource {
@@ -113,18 +136,19 @@ extension CatalogViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-         //   if let filtres = self.filtres {
+            if filtres?.categories != nil ||
+                filtres?.cities != nil ||
+                filtres?.countries != nil {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FiltresCollectionViewCell",
+                                                              for: indexPath) as! FiltresCollectionViewCell
+                return cell
+            } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesTypeCollectionViewCell",
                                                               for: indexPath) as! CategoriesTypeCollectionViewCell
                 cell.configure(withType: selectedType)
                 cell.delegate = self
                 return cell
-//            } else {
-//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesTypeCollectionViewCell",
-//                                                              for: indexPath) as! CategoriesTypeCollectionViewCell
-//                cell.configure(withType: selectedType)
-//                cell.delegate = self
-//            }
+            }
         }
         if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell",

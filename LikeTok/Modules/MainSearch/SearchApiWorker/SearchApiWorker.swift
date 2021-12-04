@@ -52,7 +52,7 @@ final class SearchApiWorker {
         }
     }
     
-    func getCatalogFeed(type: CategoriesType, filtres: CategoriesFiltres, completion: @escaping (Swift.Result<CategoriesResponse?, NetworkError>) -> Void) {
+    func getCatalogFeed(type: CategoriesType?, filtres: CategoriesFiltres, completion: @escaping (Swift.Result<CategoriesResponse?, NetworkError>) -> Void) {
         Api.Catalog.categories(parent: type, filtres: filtres).request.responseJSON { response in
             let code = response.response?.statusCode ?? 0
             switch code {
@@ -69,6 +69,56 @@ final class SearchApiWorker {
         }
     }
     
+    func getCityDictionaty(name: String, completion: @escaping (Swift.Result<CityDictionaryResponse?, NetworkError>) -> Void) {
+        Api.Dictionary.city(name: name).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(CityDictionaryResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    try? self.catchError(data: response.data!, type: CityDictionaryResponse.self)
+                    completion(.failure(.deserialization))
+                }
+            case 204: completion(.failure(.noData))
+            default: completion(.failure(.undefined))
+            }
+        }
+    }
+    
+    func getCountryDictionaty(name: String, completion: @escaping (Swift.Result<CountryDictionaryResponse?, NetworkError>) -> Void) {
+        Api.Dictionary.country(name: name).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(CountryDictionaryResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    try? self.catchError(data: response.data!, type: CountryDictionaryResponse.self)
+                    completion(.failure(.deserialization))
+                }
+            case 204: completion(.failure(.noData))
+            default: completion(.failure(.undefined))
+            }
+        }
+    }
+    
+    func getCategoriesDictionaty(name: String, completion: @escaping (Swift.Result<CategoryDictionaryResponse?, NetworkError>) -> Void) {
+        Api.Dictionary.category(name: name).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(CategoryDictionaryResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    try? self.catchError(data: response.data!, type: CategoryDictionaryResponse.self)
+                    completion(.failure(.deserialization))
+                }
+            case 204: completion(.failure(.noData))
+            default: completion(.failure(.undefined))
+            }
+        }
+    }
     
     private func catchError<T: Decodable>(data: Data, type: T.Type) throws {
         let decoder = JSONDecoder()

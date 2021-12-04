@@ -44,6 +44,8 @@ public enum Strings {
     public static let clear = Strings.tr("Localizable", "Filtres.clear")
     /// Страна
     public static let country = Strings.tr("Localizable", "Filtres.country")
+    /// Применены фильтры
+    public static let plug = Strings.tr("Localizable", "Filtres.plug")
     /// Фильтры
     public static let title = Strings.tr("Localizable", "Filtres.title")
   }
