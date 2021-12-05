@@ -69,7 +69,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ntx-xX-7bq">
-                                <rect key="frame" x="10" y="-1.5" width="227.5" height="54"/>
+                                <rect key="frame" x="10" y="0.0" width="227.5" height="54"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqo-IR-SEl" userLabel="Avatar">
                                         <rect key="frame" x="0.0" y="0.0" width="44" height="54"/>
@@ -127,9 +127,12 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" secondItem="wqo-IR-SEl" secondAttribute="height" id="2IR-lv-rcw"/>
+                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="О том, как изменилась жизнь двух приятелей, когда к одному за помощью явился отец-шпион... " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6s-bo-A71">
-                                <rect key="frame" x="10" y="62.5" width="355" height="28.5"/>
+                                <rect key="frame" x="10" y="64" width="355" height="27"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -146,6 +149,7 @@
                             <constraint firstAttribute="trailing" secondItem="fBm-tN-wQZ" secondAttribute="trailing" constant="10" id="lgZ-Tb-bun"/>
                             <constraint firstAttribute="trailing" secondItem="p6s-bo-A71" secondAttribute="trailing" constant="10" id="obn-Lc-aZZ"/>
                             <constraint firstItem="fBm-tN-wQZ" firstAttribute="leading" secondItem="e2C-kP-0ae" secondAttribute="leading" constant="10" id="s0J-ef-nOb"/>
+                            <constraint firstItem="ntx-xX-7bq" firstAttribute="top" secondItem="e2C-kP-0ae" secondAttribute="top" id="t8i-tB-jV2"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2J-cj-ywN" userLabel="topGradientView">
@@ -156,7 +160,7 @@
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-e4-dFd">
-                        <rect key="frame" x="315" y="346" width="50" height="129"/>
+                        <rect key="frame" x="315" y="358" width="50" height="129"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3n-1r-fki" userLabel="Like">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="53"/>
@@ -253,7 +257,7 @@
                 <constraint firstAttribute="bottom" secondItem="e2C-kP-0ae" secondAttribute="bottom" id="Sl8-m3-LY4"/>
                 <constraint firstItem="Y2J-cj-ywN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TA5-AR-lSm"/>
                 <constraint firstItem="kmW-e2-CHT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TZt-Tp-DiK"/>
-                <constraint firstItem="e2C-kP-0ae" firstAttribute="top" secondItem="A5M-e4-dFd" secondAttribute="bottom" constant="12" id="V0x-gV-DcW"/>
+                <constraint firstItem="e2C-kP-0ae" firstAttribute="top" secondItem="A5M-e4-dFd" secondAttribute="bottom" id="V0x-gV-DcW"/>
                 <constraint firstAttribute="trailing" secondItem="kmW-e2-CHT" secondAttribute="trailing" id="WU3-d0-eeR"/>
                 <constraint firstItem="utN-3T-br6" firstAttribute="bottom" secondItem="kmW-e2-CHT" secondAttribute="bottom" id="XTE-j8-YEP"/>
                 <constraint firstAttribute="trailing" secondItem="e2C-kP-0ae" secondAttribute="trailing" id="cPh-WW-gpq"/>

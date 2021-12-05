@@ -63,6 +63,11 @@ final class FeedCollectionManager: NSObject {
               configurators.count - currentIndex < Constants.Feed.minFeedIndexDifference  else { return } 
         output?.requestNextPosts(offset: configurators.count)
     }
+    
+    private func updateState(_ isReadyToPlay: Bool) {
+        self.isReadyToPlay = isReadyToPlay
+        setupCellItems()
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -94,6 +99,14 @@ extension FeedCollectionManager: FeedCollectionManagement {
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView.register(nibOfClass: FeedCell.self)
         self.collectionView = collectionView
+    }
+    
+    func stopVideo() {
+        updateState(false)
+    }
+    
+    func tapScreenAction() {
+        updateState(!isReadyToPlay)
     }
     
     func updateCellLikes(type: LikeType, at index: Int?) {
@@ -140,27 +153,16 @@ extension FeedCollectionManager: FeedCollectionManagement {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        guard let item = currentItem,
-              let currentIndex = configurators.firstIndex(where: { $0.getModel().uuid == currentItem?.uuid })
-        else {
-            return
-        }
-        isReadyToPlay = true
-//        configurators[currentIndex].updateState(true)
+        guard let item = currentItem else { return }
         checkFeedPositionForRequest()
         output?.selectFeedItem(item)
-        setupCellItems()
-    }
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        isReadyToPlay = false
-        setupCellItems()
+        updateState(true)
     }
     
-//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//        configurators.forEach { $0.updateState(false) }
- 
-//    }
- 
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        updateState(false)
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard configurators.first?.getModel().uuid == currentItem?.uuid else { return }
         let position = scrollView.contentOffset.y
@@ -193,8 +195,7 @@ extension FeedCollectionManager: UICollectionViewDelegateFlowLayout {
 
 extension FeedCollectionManager: FeedPlayerDelegate {
     func onReadyToPlay() {
-        isReadyToPlay = true
-        setupCellItems()
+        updateState(true)
 //        guard let currentIndex = configurators.firstIndex(where: { $0.getModel().uuid == currentItem?.uuid })
 //           else {
 //               return

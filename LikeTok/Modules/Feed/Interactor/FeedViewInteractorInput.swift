@@ -18,6 +18,8 @@ protocol FeedViewInteractorInput: AnyObject {
     func isAuthorized() -> Bool
     func subscribe(userId: String)
     func unsubscribe(userId: String)
+    func stopVideo()
+    func screenTapAction()
 
     var configurators: [FeedCellConfigurator]? { get set }
     var isUserFeed: Bool { get set }

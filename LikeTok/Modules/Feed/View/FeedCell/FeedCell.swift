@@ -10,6 +10,7 @@ protocol FeedCellActionsOutput: AnyObject {
     func likeTapAction(_ tapType: LikeActionType)
     func shareTapAction(_ image: UIImage)
     func subscribeTapAction()
+    func screenTapAction()
 }
 
 final class FeedCell: UICollectionViewCell {
@@ -98,6 +99,10 @@ final class FeedCell: UICollectionViewCell {
         output?.likeTapAction(.doubleTap)
     }
     
+    @objc private func screenTapAction() {
+        output?.screenTapAction()
+    }
+    
     // MARK: - Public methods
 
     func configure(_ output: FeedCellActionsOutput,
@@ -170,6 +175,9 @@ extension FeedCell {
         let userLoginRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileAction))
         userName.isUserInteractionEnabled = true
         userName.addGestureRecognizer(userLoginRecognizer)
+        
+        let screenTap = UITapGestureRecognizer(target: self, action: #selector(screenTapAction))
+        contentView.addGestureRecognizer(screenTap)
         shareButton.layer.cornerRadius = 10
         shareButton.layer.borderWidth = 1.5
         shareButton.layer.borderColor = UIColor.white.cgColor
