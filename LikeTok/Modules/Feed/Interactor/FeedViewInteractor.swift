@@ -44,6 +44,15 @@ extension FeedViewInteractor: FeedViewInteractorInput {
             output?.didReceivedFeed(with: offset, result: result)
             self.isFeedLoading = false
         }
+    }
+    
+    func stopVideo() {
+        output?.stopVideo()
+    }
+    
+    func screenTapAction() {
+        output?.didTapScreen()
+    }
         
 //        Api.feed.getFeed.request.responseJSON { response in
 //            let code = response.response?.statusCode ?? 0
@@ -85,7 +94,6 @@ extension FeedViewInteractor: FeedViewInteractorInput {
 //                output?.didReceivedPost(with: result)
 //            }
 //        }
-    }
     
     func subscribe(userId: String) {
 //        subscriptionsService.subscribe(userId: userId) { [weak output] result in

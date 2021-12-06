@@ -23,6 +23,7 @@ protocol FeedViewPresenterInput: BasePresenting {
     func shareTouchUpInside(_ image: UIImage)
     func moreTouchUpInside()
     func subscribeTapAction()
+    func screenTapAction()
     func addressLabelTouchUpInside()
     func floatingBasketTouchUpInside()
     

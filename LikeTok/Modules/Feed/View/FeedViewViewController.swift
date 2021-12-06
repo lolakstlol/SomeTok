@@ -46,6 +46,11 @@ final class FeedViewViewController: BaseViewController {
 //        tabBarController?.showTabBar(completion: nil)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        presenter.viewWillDisappear()
+    }
+    
     // MARK: - Private methods
     
     private func returnToFirstState() {
@@ -123,6 +128,15 @@ extension FeedViewViewController {
 // MARK: - FeedViewPresenterOutput
 
 extension FeedViewViewController: FeedViewPresenterOutput {
+    
+    func tapScreenAction() {
+        collectionManager?.tapScreenAction()
+    }
+    
+    func stopVideo() {
+        collectionManager?.stopVideo()
+    }
+    
     func setupLike(_ type: LikeType, at index: Int?) {
         collectionManager?.updateCellLikes(type: type, at: index)
     }
@@ -255,6 +269,10 @@ extension FeedViewViewController: FeedCellActionsOutput {
     
     func shareTapAction(_ image: UIImage) {
         presenter.shareTouchUpInside(image)
+    }
+    
+    func screenTapAction() {
+        presenter.screenTapAction()
     }
 }
 

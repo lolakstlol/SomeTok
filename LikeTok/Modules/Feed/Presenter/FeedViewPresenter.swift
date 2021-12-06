@@ -30,7 +30,10 @@ final class FeedViewPresenter {
         interactor.getInitialFeed(with: .zero)
         setupAddressLabel()
         interactor.getUser()
-
+    }
+    
+    func viewWillDisappear() {
+        interactor.stopVideo()
     }
     
     private func setupAddressLabel() {
@@ -74,8 +77,11 @@ extension FeedViewPresenter: FeedViewPresenterInput {
 //
 //        if !(post.user.isSubscribed ?? false) {
 //            interactor.subscribe(userId: post.user.userId)
-        }
+    }
     
+    func screenTapAction() {
+        interactor.screenTapAction()
+    }
     
     func floatingBasketTouchUpInside() {
 //        router.presentPurchasesCheckoutScreen()
@@ -217,6 +223,14 @@ extension FeedViewPresenter: FeedViewPresenterInput {
 // MARK: - FeedViewInteractorOutput
 
 extension FeedViewPresenter: FeedViewInteractorOutput {
+    func didTapScreen() {
+        view?.tapScreenAction()
+    }
+    
+    func stopVideo() {
+        view?.stopVideo()
+    }
+    
     func didReceivedPost(with result: Result<FeedResponse?, NetworkError>) {
         switch result {
          case .success(let response):

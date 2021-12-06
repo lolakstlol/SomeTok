@@ -17,7 +17,9 @@ protocol FeedViewInteractorOutput: AnyObject {
     func didSubscribe(with result: Result<SubscribeResponse?, NetworkError>)
     func didUnsubscribe(with result: Result<SubscribeResponse?, NetworkError>)
     func didSetUserId(with index: Int)
+    func stopVideo()
     func openComments()
+    func didTapScreen()
 }
 
 struct SubscribeResponse: Decodable {
