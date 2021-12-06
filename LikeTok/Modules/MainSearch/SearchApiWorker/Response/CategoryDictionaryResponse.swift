@@ -9,5 +9,5 @@ struct CategoryDictionaryResponse: Codable {
 // MARK: - Datum
 struct CategoryDictionary: Codable {
     let name, slug: String
-    let subCategories: [CategoryDictionary]?
+    let categories: [CategoryDictionary]?
 }

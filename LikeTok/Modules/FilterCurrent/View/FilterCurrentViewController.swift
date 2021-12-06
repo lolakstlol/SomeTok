@@ -65,7 +65,13 @@ final class FilterCurrentViewController: BaseViewController {
             apiWorker.getCategoriesDictionaty(name: searchTextField.text ?? "") { result in
                 switch result {
                 case .success(let response):
-                    self.categoriesDataSorce = response?.data ?? []
+                    var result: [CategoryDictionary] = []
+                    response?.data.forEach{ element in
+                        if let subcategories = element.categories {
+                            result.append(contentsOf: subcategories)
+                        }
+                    }
+                    self.categoriesDataSorce = result
                     self.tableView.reloadData()
                 case .failure(let error):
                     print(error)
