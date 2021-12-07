@@ -137,6 +137,7 @@ enum Api {
                 var params:Parameters = Parameters()
                 params["name"] = name
                 let request = Alamofire.request("\(API.server)/user/search/categories", method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                //request.request?.addValue(Locale.current.regionCode ?? "", forHTTPHeaderField: "LANG")
                 return request.validate()
             case .searchAccounts(name: let name):
                 var params:Parameters = Parameters()

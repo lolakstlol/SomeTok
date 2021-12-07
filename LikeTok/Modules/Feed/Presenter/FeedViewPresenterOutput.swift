@@ -58,7 +58,7 @@ struct FeedResponse: Codable {
 
 // MARK: - Author
 struct FeedAuthor: Codable {
-    let uuid, username, name, type: String
+    let uuid, username, name, type: String?
     let lastActive: String
     var isFollow, isFriend: Bool
     let photo: FeedPhoto

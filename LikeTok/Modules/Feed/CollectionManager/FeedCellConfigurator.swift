@@ -54,7 +54,7 @@ final class FeedCellConfigurator {
 //        self.cell?.toCatalogButton.isHidden = !isMainFeed
 //        self.cell?.subscribeButton.isHidden = model.user.userId == UserDefaultsManager.shared.userId
 //        let time = AppDateFormatter.shared.howLongAgoWithDate(with: model.createdAt) ?? ""
-        self.cell?.setupUserData(userName: model.author.name)
+        self.cell?.setupUserData(userName: model.author.name ?? "")
         guard let videoURL = model.media.last?.original, model.media.last?.type == .video else { return }
         debugPrint("--- video is loading on \(videoURL)")
         self.cell?.loadVideo(URL(string: videoURL))
