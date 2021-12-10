@@ -7,7 +7,7 @@
 //
 
 final class FeedViewAssembler {
-    static func createModule(type: FeedViewEnterOption = .main,
+    static func createModule(type: FeedViewEnterOption = .subscriptions,
                              feedService: FeedServiceProtocol = FeedService(),
                              collectionManager: FeedCollectionManagement = FeedCollectionManager()) -> FeedViewViewController {
         let viewController = FeedViewViewController()

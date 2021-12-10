@@ -202,7 +202,7 @@ extension FeedCollectionManager: FeedPlayerDelegate {
 //           }
 //        configurators[currentIndex].updateState(true)
     }
-    
+
 }
 
 extension Collection {

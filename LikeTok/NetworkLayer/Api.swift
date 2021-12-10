@@ -73,13 +73,13 @@ enum Api {
     }
 
     enum feed: ApiMethod {
-        case getInitialFeed,
-             getFeed(cursor: String)
+        case getInitialFeed(type: FeedViewEnterOption),
+             getFeed(cursor: String, type: FeedViewEnterOption)
         public var request: DataRequest {
             switch self {
-            case let .getFeed(cursor):
+            case let .getFeed(cursor, type):
                 
-                let endpoint: String = "\(API.server)/user/feed/all"
+                let endpoint: String = "\(API.server)/user/feed/\(type.rawValue)"
                 let parameters: Parameters = [
                     "params": "",
                     "cursor": "\(cursor)"
@@ -88,9 +88,9 @@ enum Api {
                 let request = Alamofire.request(endpoint, method: .get, parameters: parameters, headers: Api.headers)
                 return request.validate()
                 
-            case .getInitialFeed:
+            case let .getInitialFeed(type):
                 
-                let endpoint: String = "\(API.server)/user/feed/all"
+                let endpoint: String = "\(API.server)/user/feed/\(type.rawValue)"
                 let parameters: Parameters = [
                     "params": ""
                 ]

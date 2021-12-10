@@ -33,10 +33,7 @@ final class FeedCell: UICollectionViewCell {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var playerContainerView: UIView!
-    private var playerView: FeedPlayerVicw = {
-       let player = FeedPlayerVicw()
-        return player
-    }()
+    private var playerView: FeedPlayerVicw?
     
     //http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
     // MARK: - Private properties
@@ -54,22 +51,29 @@ final class FeedCell: UICollectionViewCell {
 //    }()
     
     // MARK: - Lifecycle
-
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setupUI()
         setUpPlayerView()
     }
+
+//    override func draw(_ rect: CGRect) {
+//        super.draw(rect)
+//
+//    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
 //        imageView.isHidden = false
-        playerView.player = nil
+        playerView?.removeFromSuperview()
+        playerView = nil
         imageView.isHidden = false
         userImageView.image = nil
         backgroundImageView.image = nil
         likeLabel.text = "0"
         subscribeButton.setImage(nil, for: .normal)
+        setUpPlayerView()
     }
     
     // MARK: - @IBActions
@@ -113,7 +117,7 @@ final class FeedCell: UICollectionViewCell {
                    _ description: String,
                    _ isReadyToPlay: Bool) {
         self.output = output
-        playerView.delegate = delegate
+        playerView?.delegate = delegate
         updatePlayerState(isReadyToPlay)
         likeLabel.text = "\(likes.likesCount)"
         descriptionLabel.text = description
@@ -137,15 +141,15 @@ final class FeedCell: UICollectionViewCell {
     
     func loadVideo(_ url: URL?) {
         guard let url = url else { return }
-        playerView.load(with: url)
+        playerView?.load(with: url)
     }
     
     func updatePlayerState(_ isReadyToPlay: Bool) {
-        if isReadyToPlay, playerView.player?.status == .readyToPlay {
+        if isReadyToPlay, playerView?.player?.status == .readyToPlay {
             imageView.isHidden = true
-            playerView.play()
+            playerView?.play()
         } else {
-            playerView.pause()
+            playerView?.pause()
         }
     }
     
@@ -208,12 +212,13 @@ extension FeedCell {
     }
     
     private func setUpPlayerView() {
-        playerContainerView.addSubview(playerView)
+        playerView = FeedPlayerVicw()
+        playerContainerView.addSubview(playerView!)
             
-        playerView.translatesAutoresizingMaskIntoConstraints = false
-        playerView.leadingAnchor.constraint(equalTo: playerContainerView.leadingAnchor).isActive = true
-        playerView.trailingAnchor.constraint(equalTo: playerContainerView.trailingAnchor).isActive = true
-        playerView.heightAnchor.constraint(equalTo: playerContainerView.widthAnchor, multiplier: 16/9).isActive = true
-        playerView.centerYAnchor.constraint(equalTo: playerContainerView.centerYAnchor).isActive = true
+        playerView?.translatesAutoresizingMaskIntoConstraints = false
+        playerView?.leadingAnchor.constraint(equalTo: playerContainerView.leadingAnchor).isActive = true
+        playerView?.trailingAnchor.constraint(equalTo: playerContainerView.trailingAnchor).isActive = true
+        playerView?.heightAnchor.constraint(equalTo: playerContainerView.widthAnchor, multiplier: 16/9).isActive = true
+        playerView?.centerYAnchor.constraint(equalTo: playerContainerView.centerYAnchor).isActive = true
     }
 }

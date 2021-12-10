@@ -32,7 +32,7 @@ extension FeedViewInteractor: FeedViewInteractorInput {
     
     func getFeed(with offset: Int, cursor: String) {
         isFeedLoading = true
-        feedService.getFeed(with: offset, cursor: cursor, completion: { [weak output] result in
+        feedService.getFeed(with: offset, cursor: cursor, type: type, completion: { [weak output] result in
             output?.didReceivedFeed(with: offset, result: result)
             self.isFeedLoading = false
         })
@@ -40,10 +40,14 @@ extension FeedViewInteractor: FeedViewInteractorInput {
     
     func getInitialFeed(with offset: Int) {
         isFeedLoading = true
-        feedService.getInitialFeed(with: offset) { [weak output] result in
+        feedService.getInitialFeed(with: offset, type: type) { [weak output] result in
             output?.didReceivedFeed(with: offset, result: result)
             self.isFeedLoading = false
         }
+    }
+    
+    func updateType(_ type: FeedViewEnterOption) {
+        self.type = type
     }
     
     func stopVideo() {
@@ -156,8 +160,8 @@ extension FeedViewInteractor: FeedViewInteractorInput {
 
 protocol FeedServiceProtocol {
     func getPost(by postId: String, completion: @escaping (_ items: Result<FeedResponse?, NetworkError>) -> Void)
-    func getInitialFeed(with offset: Int, completion: @escaping (_ items: Result<FeedGlobalResponse, NetworkError>) -> Void)
-    func getFeed(with offset: Int, cursor: String, completion: @escaping (_ items: Result<FeedGlobalResponse, NetworkError>) -> Void)
+    func getInitialFeed(with offset: Int, type: FeedViewEnterOption, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void)
+    func getFeed(with offset: Int, cursor: String, type: FeedViewEnterOption, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void)
     func deletePostLike(postId: String, completion: @escaping EmptyClosure)
     func createPostLike(postId: String, completion: @escaping EmptyClosure)
 //    func getBusniessList(model: GetBusinessListRequestModel,
@@ -172,10 +176,10 @@ final class FeedService: FeedServiceProtocol {
     }
 
     
-    func getFeed(with offset: Int, cursor: String, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void) {
+    func getFeed(with offset: Int, cursor: String, type: FeedViewEnterOption, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void) {
 //        let request = FeedRequest(userId, offset)
 //        Api.feed.getFeed.request.responseJSON(completionHandler: completion)
-        Api.feed.getFeed(cursor: cursor).request.responseJSON { response in
+        Api.feed.getFeed(cursor: cursor, type: type).request.responseJSON { response in
             let code = response.response?.statusCode ?? 0
             switch code {
             case 200:
@@ -206,10 +210,10 @@ final class FeedService: FeedServiceProtocol {
         }
     }
     
-    func getInitialFeed(with offset: Int, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void) {
+    func getInitialFeed(with offset: Int, type: FeedViewEnterOption, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void) {
 //        let request = FeedRequest(userId, offset)
 //        Api.feed.getFeed.request.responseJSON(completionHandler: completion)
-        Api.feed.getInitialFeed.request.responseJSON { response in
+        Api.feed.getInitialFeed(type: type).request.responseJSON { response in
             let code = response.response?.statusCode ?? 0
             switch code {
             case 200:
