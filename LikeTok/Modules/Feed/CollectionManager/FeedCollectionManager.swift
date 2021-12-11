@@ -49,10 +49,10 @@ final class FeedCollectionManager: NSObject {
               let shouldShowFilledLikes = output?.shouldShowFilledLikes() else { return }
         
         configurators[currentIndex].updateCell(delegate: delegate,
-                                               playerDelegate: self,
                                                likes: (item.likes, item.isLiked ? .filled : .empty, shouldShowFilledLikes),
                                                commentsCount: item.comments,
-                                               imageUrlString: item.author.photo.preview ,
+                                               imageUrlString: item.author.photo.preview,
+                                               videoURLString: item.media.last?.original ?? "",
                                                description: item.title ?? "",
                                                isReadyToPlay: isReadyToPlay)
                                                 //item.user.avatarUrl)
@@ -191,18 +191,6 @@ extension FeedCollectionManager: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return configurators[indexPath.row].getCellSize(viewSize: collectionView.frame.size)
     }
-}
-
-extension FeedCollectionManager: FeedPlayerDelegate {
-    func onReadyToPlay() {
-        updateState(true)
-//        guard let currentIndex = configurators.firstIndex(where: { $0.getModel().uuid == currentItem?.uuid })
-//           else {
-//               return
-//           }
-//        configurators[currentIndex].updateState(true)
-    }
-
 }
 
 extension Collection {

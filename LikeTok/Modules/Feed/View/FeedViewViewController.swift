@@ -16,7 +16,6 @@ final class FeedViewViewController: BaseViewController {
     @IBOutlet private var advertisingFilterButton: UIButton!
     @IBOutlet private var collectionView: UICollectionView!
     @IBOutlet private var subscribesFilterButton: UIButton!
-    @IBOutlet private var addressStackView: UIStackView!
     @IBOutlet private var generalFilterButton: UIButton!
     @IBOutlet private var messageTextView: UITextView!
     @IBOutlet private var messageTextViewMinConstraint: NSLayoutConstraint!
@@ -28,6 +27,7 @@ final class FeedViewViewController: BaseViewController {
     @IBOutlet private var placeholderLabel: UILabel!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet var filterButtonsCollections: [UIButton]!
     // MARK: - Public properties
 
     var presenter: FeedViewPresenterInput!
@@ -69,16 +69,28 @@ final class FeedViewViewController: BaseViewController {
         
     }
     
+    private func updateFilterButtons(selectedButton: UIButton) {
+        filterButtonsCollections.forEach {
+            $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
+            $0.titleLabel?.tintColor = .systemGray5
+        }
+        selectedButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
+        selectedButton.titleLabel?.tintColor = .white
+    }
+    
     // MARK: - @IBActions
-    @IBAction private func subscribesFilterTap(_ sender: Any) {
+    @IBAction private func subscribesFilterTap(_ sender: UIButton) {
+        updateFilterButtons(selectedButton: sender)
         presenter.updateFeedType(.subscriptions)
     }
     
-    @IBAction func advertismentFilterTap(_ sender: Any) {
+    @IBAction func advertismentFilterTap(_ sender: UIButton) {
+        updateFilterButtons(selectedButton: sender)
         presenter.updateFeedType(.advertisment)
     }
     
-    @IBAction func generalFilterTap(_ sender: Any) {
+    @IBAction func generalFilterTap(_ sender: UIButton) {
+        updateFilterButtons(selectedButton: sender)
         presenter.updateFeedType(.general)
     }
     
@@ -140,10 +152,6 @@ extension FeedViewViewController: FeedViewPresenterOutput {
     
     func setupLike(_ type: LikeType, at index: Int?) {
         collectionManager?.updateCellLikes(type: type, at: index)
-    }
-    
-    func hideAddressStackView() {
-        addressStackView.isHidden = true
     }
     
     func hideActivityIndicator() {

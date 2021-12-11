@@ -2,6 +2,7 @@
 
 import UIKit
 import Kingfisher
+import GSPlayer
 
 protocol FeedCellActionsOutput: AnyObject {
     func moreTapAction()
@@ -33,7 +34,7 @@ final class FeedCell: UICollectionViewCell {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var playerContainerView: UIView!
-    private var playerView: FeedPlayerVicw?
+    private var playerView: VideoPlayerView?
     
     //http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
     // MARK: - Private properties
@@ -68,6 +69,7 @@ final class FeedCell: UICollectionViewCell {
 //        imageView.isHidden = false
         playerView?.removeFromSuperview()
         playerView = nil
+//        playerView?.pause(reason: .hidden)
         imageView.isHidden = false
         userImageView.image = nil
         backgroundImageView.image = nil
@@ -110,19 +112,23 @@ final class FeedCell: UICollectionViewCell {
     // MARK: - Public methods
 
     func configure(_ output: FeedCellActionsOutput,
-                   _ delegate: FeedPlayerDelegate,
                    _ likes: (likesCount: Int, type: LikeType, shouldShowFilledLike: Bool),
                    _ commentsCount: Int,
-                   _ userImageUrlString: String,
+                   _ userImageURLString: String,
+                   _ videoURLString: String,
                    _ description: String,
                    _ isReadyToPlay: Bool) {
         self.output = output
-        playerView?.delegate = delegate
+//        playerView?.delegate = delegate
+        playVideo(videoURLString)
         updatePlayerState(isReadyToPlay)
         likeLabel.text = "\(likes.likesCount)"
         descriptionLabel.text = description
         commentsLabel.text = "\(commentsCount)"
         imageView.backgroundColor = .clear
+//        if let videoURL = URL(string: videoURLString) {
+//            loadVideo(videoURL)
+//        }
     }
     
     func updateLikes(type: LikeType, shouldShowFilledLike: Bool) {
@@ -139,29 +145,26 @@ final class FeedCell: UICollectionViewCell {
     }
 
     
-    func loadVideo(_ url: URL?) {
-        guard let url = url else { return }
-        playerView?.load(with: url)
-    }
+//    func loadVideo(_ url: URL?) {
+//        guard let url = url else { return }
+//        playerView?.play(for: url)
+//        playerView?.pause(reason: .hidden)
+//    }
     
-    func updatePlayerState(_ isReadyToPlay: Bool) {
-        if isReadyToPlay, playerView?.player?.status == .readyToPlay {
+    func playVideo(_ videoURLString: String) {
+        if let videoURL = URL(string: videoURLString) {
             imageView.isHidden = true
-            playerView?.play()
-        } else {
-            playerView?.pause()
+            playerView?.play(for: videoURL)
         }
     }
     
-//    func playVideo() {
-//        imageView.isHidden = true
-//        playerView.play()
-//    }
-//
-//    func stopVideo() {
-////        imageView.isHidden = false
-//        playerView.pause()
-//    }
+    func updatePlayerState(_ isReadyToPlay: Bool) {
+        if !isReadyToPlay {
+            playerView?.pause(reason: .hidden)
+        } else {
+            playerView?.seek(to: .zero)
+        }
+    }
     
     func setupUserData(userName: String) {
         self.userName.text = userName
@@ -212,7 +215,7 @@ extension FeedCell {
     }
     
     private func setUpPlayerView() {
-        playerView = FeedPlayerVicw()
+        playerView = VideoPlayerView()
         playerContainerView.addSubview(playerView!)
             
         playerView?.translatesAutoresizingMaskIntoConstraints = false

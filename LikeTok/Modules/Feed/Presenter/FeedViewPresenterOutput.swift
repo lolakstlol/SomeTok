@@ -16,7 +16,6 @@ protocol FeedViewPresenterOutput: AnyObject {
     func setupUserFeed(with index: Int)
     func setupLike(_ type: LikeType, at index: Int?)
     func hideActivityIndicator()
-    func hideAddressStackView()
     func stopVideo()
     func tapScreenAction()
 }
