@@ -51,7 +51,7 @@ final class FeedCollectionManager: NSObject {
         configurators[currentIndex].updateCell(delegate: delegate,
                                                likes: (item.likes, item.isLiked ? .filled : .empty, shouldShowFilledLikes),
                                                commentsCount: item.comments,
-                                               imageUrlString: item.author.photo.preview,
+                                               imageUrlString: item.author.photo.preview ?? "",
                                                videoURLString: item.media.last?.original ?? "",
                                                description: item.title ?? "",
                                                isReadyToPlay: isReadyToPlay)

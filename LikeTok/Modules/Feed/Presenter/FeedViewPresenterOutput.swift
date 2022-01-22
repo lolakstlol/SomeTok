@@ -71,7 +71,7 @@ struct FeedAuthor: Codable {
 
 // MARK: - Photo
 struct FeedPhoto: Codable {
-    let preview: String
+    let preview: String?
 }
 
 // MARK: - Media

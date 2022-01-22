@@ -46,7 +46,7 @@ final class FeedCellConfigurator {
         guard let payload = model.media.first?.preview else { return }
         self.cell = cell as? FeedCell
         self.cell?.imageView.kf.setImage(with: URL(string: payload))
-        let userImage = model.author.photo.preview
+        let userImage = model.author.photo.preview ?? ""
         self.cell?.userImageView.kf.setImage(with: URL(string: userImage))
 //        self.cell?.imageView.image = Assets.onb1.image
 //        self.cell?.backgroundImageView.kf.setImage(with: URL(string: payload.blurImageUrl ?? ""))
