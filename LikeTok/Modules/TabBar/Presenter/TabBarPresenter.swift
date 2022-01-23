@@ -41,7 +41,7 @@ final class TabBarPresenter: NSObject {
                                                                                        image: Assets.searchUnselected.image,
                                                                                        selectedImage:
                                                                                         Assets.searchUnselected.image)),
-                                                                      (AddViewController(),
+                                                                      (CameraViewController(),
                                                                        TabBarItemModel(title: Strings.Tabbar.add,
                                                                                        image: Assets.addUnselected.image,
                                                                                        selectedImage: Assets.addUnselected.image)),
