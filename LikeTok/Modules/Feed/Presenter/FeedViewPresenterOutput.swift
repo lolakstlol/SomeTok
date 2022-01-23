@@ -13,12 +13,9 @@ protocol FeedViewPresenterOutput: AnyObject {
     func updateConfigurators(_ configurators: [FeedCellConfigurator])
     func updateItem(with model: FeedResponse, at index: Int)
     func scrollToTop()
-    func setupAddress(with text: String)
     func setupUserFeed(with index: Int)
-    func showDismissButton()
     func setupLike(_ type: LikeType, at index: Int?)
     func hideActivityIndicator()
-    func hideAddressStackView()
     func stopVideo()
     func tapScreenAction()
 }
@@ -74,7 +71,7 @@ struct FeedAuthor: Codable {
 
 // MARK: - Photo
 struct FeedPhoto: Codable {
-    let preview: String
+    let preview: String?
 }
 
 // MARK: - Media

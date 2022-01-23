@@ -47,6 +47,7 @@ internal enum Assets {
   internal static let more = ImageAsset(name: "more")
   internal static let moreBlack = ImageAsset(name: "moreBlack")
   internal static let comments = ImageAsset(name: "comments")
+  internal static let dot = ImageAsset(name: "dot")
   internal static let emptyHeart = ImageAsset(name: "emptyHeart")
   internal static let onb1 = ImageAsset(name: "onb1")
   internal static let onb2 = ImageAsset(name: "onb2")

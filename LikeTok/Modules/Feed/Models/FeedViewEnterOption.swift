@@ -6,8 +6,8 @@
 //  Copyright © 2021 BSL. All rights reserved.
 //
 
-enum FeedViewEnterOption {
-    case main
-    case profilePosts((String, Int))
-    case singlePost(String, Bool)
+enum FeedViewEnterOption: String {
+    case general = "all"
+    case advertisment = "adver"
+    case subscriptions = "following"
 }
