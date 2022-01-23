@@ -46,7 +46,7 @@ final class FeedCellConfigurator {
         guard let payload = model.media.first?.preview else { return }
         self.cell = cell as? FeedCell
         self.cell?.imageView.kf.setImage(with: URL(string: payload))
-        let userImage = model.author.photo.preview
+        let userImage = model.author.photo.preview ?? ""
         self.cell?.userImageView.kf.setImage(with: URL(string: userImage))
 //        self.cell?.imageView.image = Assets.onb1.image
 //        self.cell?.backgroundImageView.kf.setImage(with: URL(string: payload.blurImageUrl ?? ""))
@@ -57,14 +57,14 @@ final class FeedCellConfigurator {
         self.cell?.setupUserData(userName: model.author.name ?? "")
         guard let videoURL = model.media.last?.original, model.media.last?.type == .video else { return }
         debugPrint("--- video is loading on \(videoURL)")
-        self.cell?.loadVideo(URL(string: videoURL))
+//        self.cell?.loadVideo(URL(string: videoURL))
     }
     
     func updateCell(delegate: FeedCellActionsOutput,
-                    playerDelegate: FeedPlayerDelegate,
                     likes: (likesCount: Int, type: LikeType, shouldShowFilledLike: Bool),
                     commentsCount: Int,
                     imageUrlString: String,
+                    videoURLString: String,
                     description: String,
                     isReadyToPlay: Bool) {
 //        if UserDefaultsManager.shared.userId != nil {
@@ -75,7 +75,7 @@ final class FeedCellConfigurator {
 //            self.cell?.subscribeButton.setImage(Asset.Assets.Feed.Subscription.subscribe.image, for: .normal)
 //        }
 //        debugPrint("update cell")
-        cell?.configure(delegate, playerDelegate, likes, commentsCount, imageUrlString, description, isReadyToPlay)
+        cell?.configure(delegate, likes, commentsCount, imageUrlString, videoURLString, description, isReadyToPlay)
     }
     
     

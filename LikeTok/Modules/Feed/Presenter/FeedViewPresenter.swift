@@ -28,21 +28,11 @@ final class FeedViewPresenter {
         interactor.attach(self)
         view?.setupUI()
         interactor.getInitialFeed(with: .zero)
-        setupAddressLabel()
         interactor.getUser()
     }
     
     func viewWillDisappear() {
         interactor.stopVideo()
-    }
-    
-    private func setupAddressLabel() {
-        switch interactor.type {
-        case .profilePosts, .singlePost:
-            view?.hideAddressStackView()
-        default:
-            return
-        }
     }
     
     private func feedFailureBlock(error: (NetworkError)) {
@@ -79,6 +69,11 @@ extension FeedViewPresenter: FeedViewPresenterInput {
 //            interactor.subscribe(userId: post.user.userId)
     }
     
+    func updateFeedType(_ type: FeedViewEnterOption) {
+        interactor.updateType(type)
+        getFeedWithScrollToTop()
+    }
+    
     func screenTapAction() {
         interactor.screenTapAction()
     }
@@ -93,7 +88,7 @@ extension FeedViewPresenter: FeedViewPresenterInput {
     
     func shouldShowActivityIndicator() -> Bool {
         switch self.interactor.type {
-        case .main:
+        case .subscriptions:
             return true
         default:
             return false
@@ -240,7 +235,7 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
              }
              var isMainFeed = true
              switch interactor.type {
-             case .profilePosts, .singlePost:
+             case .general, .advertisment:
                  isMainFeed = false
              default:
                  isMainFeed = true
@@ -248,15 +243,14 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
              let feedConfigurators = FeedCellConfigurator(categoriesRespone, isMainFeed: isMainFeed)
              DispatchQueue.main.async { [weak self] in
                  self?.view?.updateConfigurators([feedConfigurators])
-                 self?.view?.showDismissButton()
-                 switch self?.interactor.type {
-                 case .singlePost(let postId, let flag):
-//                     if let userId = UserDefaultsManager.shared.userId, flag {
-//                         self?.router.openComments(postId: postId, userId: userId)
-//                     }
-                     print(" didReceivedPost .single post")
-                 default: break
-                 }
+//                 switch self?.interactor.type {
+//                 case .singlePost(let postId, let flag):
+////                     if let userId = UserDefaultsManager.shared.userId, flag {
+////                         self?.router.openComments(postId: postId, userId: userId)
+////                     }
+//                     print(" didReceivedPost .single post")
+//                 default: break
+//                 }
              }
          case .failure:
              DispatchQueue.main.async {
@@ -278,7 +272,7 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
             categoriesRespone.forEach {
                 var isMainFeed = true
                 switch interactor.type {
-                case .profilePosts, .singlePost:
+                case .advertisment, .general:
                     isMainFeed = false
                 default:
                     isMainFeed = true
@@ -310,7 +304,7 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
         case .success(let response):
             guard let user = response else { return }
             DispatchQueue.main.async {
-                self.view?.setupAddress(with: user.location?.address ?? "")
+//                self.view?.setupAddress(with: user.location?.address ?? "")
             }
         case .failure(let error):
             os_log("@", error.localizedDescription)
@@ -371,7 +365,6 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
     
     func didSetUserId(with index: Int) {
         view?.setupUserFeed(with: index)
-        view?.showDismissButton()
     }
     
 }

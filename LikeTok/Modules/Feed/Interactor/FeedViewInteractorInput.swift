@@ -8,6 +8,7 @@
 
 protocol FeedViewInteractorInput: AnyObject {
     func attach(_ output: FeedViewInteractorOutput)
+    func updateType(_ type: FeedViewEnterOption)
     func getInitialFeed(with offset: Int)
     func getFeed(with offset: Int, cursor: String)
     func getUser()

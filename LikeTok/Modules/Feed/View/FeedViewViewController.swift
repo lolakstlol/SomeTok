@@ -13,13 +13,13 @@ final class FeedViewViewController: BaseViewController {
     
     // MARK: - @IBOutlets
     
+    @IBOutlet private var advertisingFilterButton: UIButton!
     @IBOutlet private var collectionView: UICollectionView!
-    @IBOutlet private var addressStackView: UIStackView!
-    @IBOutlet private var addressLabel: UILabel!
+    @IBOutlet private var subscribesFilterButton: UIButton!
+    @IBOutlet private var generalFilterButton: UIButton!
     @IBOutlet private var messageTextView: UITextView!
     @IBOutlet private var messageTextViewMinConstraint: NSLayoutConstraint!
     @IBOutlet private var inputSendButton: UIButton!
-    @IBOutlet private var closeButton: UIButton!
     @IBOutlet private var hoverView: UIView!
     @IBOutlet private var bottomInputConstraint: NSLayoutConstraint!
     @IBOutlet private var hudView: UIView!
@@ -27,6 +27,7 @@ final class FeedViewViewController: BaseViewController {
     @IBOutlet private var placeholderLabel: UILabel!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet var filterButtonsCollections: [UIButton]!
     // MARK: - Public properties
 
     var presenter: FeedViewPresenterInput!
@@ -66,15 +67,31 @@ final class FeedViewViewController: BaseViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideHover))
         hoverView.addGestureRecognizer(tap)
         
-        let addressRecognizer = UITapGestureRecognizer(target: self, action: #selector(addressLabelTouchUpInside))
-        addressLabel.isUserInteractionEnabled = true
-        addressLabel.addGestureRecognizer(addressRecognizer)
+    }
+    
+    private func updateFilterButtons(selectedButton: UIButton) {
+        filterButtonsCollections.forEach {
+            $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
+            $0.titleLabel?.tintColor = .systemGray5
+        }
+        selectedButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
+        selectedButton.titleLabel?.tintColor = .white
     }
     
     // MARK: - @IBActions
-
-    @IBAction private func closeModuleAction(_ sender: Any) {
-        presenter.closeButtonTouchUpInside()
+    @IBAction private func subscribesFilterTap(_ sender: UIButton) {
+        updateFilterButtons(selectedButton: sender)
+        presenter.updateFeedType(.subscriptions)
+    }
+    
+    @IBAction func advertismentFilterTap(_ sender: UIButton) {
+        updateFilterButtons(selectedButton: sender)
+        presenter.updateFeedType(.advertisment)
+    }
+    
+    @IBAction func generalFilterTap(_ sender: UIButton) {
+        updateFilterButtons(selectedButton: sender)
+        presenter.updateFeedType(.general)
     }
     
     @IBAction private func sendMessage(_ sender: Any) {
@@ -83,10 +100,6 @@ final class FeedViewViewController: BaseViewController {
         presenter.sendMessage(messageTextView.text)
         messageTextView.text = ""
         placeholderLabel.isHidden = !messageTextView.text.isEmpty
-    }
-    
-    @objc private func addressLabelTouchUpInside() {
-        presenter.addressLabelTouchUpInside()
     }
     
     @objc private func updateFeed() {
@@ -141,10 +154,6 @@ extension FeedViewViewController: FeedViewPresenterOutput {
         collectionManager?.updateCellLikes(type: type, at: index)
     }
     
-    func hideAddressStackView() {
-        addressStackView.isHidden = true
-    }
-    
     func hideActivityIndicator() {
         activityIndicator.isHidden = true
     }
@@ -153,16 +162,8 @@ extension FeedViewViewController: FeedViewPresenterOutput {
         collectionManager?.updateItem(with: model, at: index)
     }
     
-    func showDismissButton() {
-        closeButton.isHidden = false
-    }
-    
     func setupUserFeed(with index: Int) {
         collectionManager?.setFeedIndex(index)
-    }
-    
-    func setupAddress(with text: String) {
-        addressLabel.text = text
     }
     
     func setupUI() {

@@ -37,7 +37,14 @@
 		153F2CE027374391002AF9FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F2CDF27374391002AF9FA /* Constants.swift */; };
 		153F2CE22737453F002AF9FA /* UICollectionViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F2CE12737453F002AF9FA /* UICollectionViewCell+Ext.swift */; };
 		15414A2E27233781007AA93D /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15414A2D27233781007AA93D /* InsetTextField.swift */; };
+		1544DE542794BEFA00DF6054 /* FeedNewPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1544DE532794BEFA00DF6054 /* FeedNewPresenterInput.swift */; };
+		1544DE562794BF0A00DF6054 /* FeedNewPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1544DE552794BF0A00DF6054 /* FeedNewPresenterOutput.swift */; };
+		1544DE582794BF1500DF6054 /* FeedNewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1544DE572794BF1500DF6054 /* FeedNewPresenter.swift */; };
+		1544DE5C2794BF4000DF6054 /* FeedNewAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1544DE5B2794BF4000DF6054 /* FeedNewAssembler.swift */; };
 		154DDB2B2732C8F30084A86F /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154DDB2A2732C8F30084A86F /* AuthCoordinator.swift */; };
+		15578A0C2761687D00D0267C /* NetworkApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15578A0B2761687D00D0267C /* NetworkApi.swift */; };
+		15578A0E276168BE00D0267C /* BaseRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15578A0D276168BE00D0267C /* BaseRequestProtocol.swift */; };
+		15578A102761691E00D0267C /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15578A0F2761691E00D0267C /* BaseResponse.swift */; };
 		1558C5D9271F91C40051436E /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558C5D7271F91C40051436E /* OnboardingCollectionViewCell.swift */; };
 		1558C5DA271F91C40051436E /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5D8271F91C40051436E /* OnboardingCollectionViewCell.xib */; };
 		1558C5E927216B1E0051436E /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1558C5DD27216B1E0051436E /* Roboto-ThinItalic.ttf */; };
@@ -61,7 +68,18 @@
 		158C8CEA2726FE26001614D0 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CE92726FE26001614D0 /* KeyboardObserver.swift */; };
 		158C8CFB2729E1C4001614D0 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CFA2729E1C4001614D0 /* String+Ext.swift */; };
 		15B1DE0C272E088400078D01 /* UINaviagationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */; };
+		15BDD2C8279A17C5004F61BC /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BDD2C6279A17C5004F61BC /* CommentsViewController.swift */; };
+		15BDD2C9279A17C5004F61BC /* CommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15BDD2C7279A17C5004F61BC /* CommentsViewController.xib */; };
+		15BDD2CD279A188A004F61BC /* CommentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BDD2CC279A188A004F61BC /* CommentsPresenter.swift */; };
+		15BDD2CF279A18A4004F61BC /* CommentsPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BDD2CE279A18A4004F61BC /* CommentsPresenterInput.swift */; };
+		15BDD2D1279A18F8004F61BC /* CommentsPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BDD2D0279A18F8004F61BC /* CommentsPresenterOutput.swift */; };
+		15BDD2D3279A1A5D004F61BC /* HalfSizePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BDD2D2279A1A5D004F61BC /* HalfSizePresentationController.swift */; };
 		15E37EDF275AFB0100B800E9 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E37EDE275AFB0100B800E9 /* UIViewController+Ext.swift */; };
+		15E3EA37279C583D004ED29A /* UITextView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA36279C583D004ED29A /* UITextView+Ext.swift */; };
+		15E896992794C09200538649 /* FeedNewwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E896972794C09200538649 /* FeedNewwViewController.swift */; };
+		15E8969A2794C09200538649 /* FeedNewwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E896982794C09200538649 /* FeedNewwViewController.xib */; };
+		15E896A22794C5A000538649 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E896A02794C5A000538649 /* FeedTableViewCell.swift */; };
+		15E896A32794C5A000538649 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E896A12794C5A000538649 /* FeedTableViewCell.xib */; };
 		17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097382271D7B4200134ED7 /* AppDelegate.swift */; };
 		17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097384271D7B4200134ED7 /* SceneDelegate.swift */; };
 		17097387271D7B4200134ED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097386271D7B4200134ED7 /* ViewController.swift */; };
@@ -243,7 +261,14 @@
 		153F2CDF27374391002AF9FA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		153F2CE12737453F002AF9FA /* UICollectionViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Ext.swift"; sourceTree = "<group>"; };
 		15414A2D27233781007AA93D /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
+		1544DE532794BEFA00DF6054 /* FeedNewPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewPresenterInput.swift; sourceTree = "<group>"; };
+		1544DE552794BF0A00DF6054 /* FeedNewPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewPresenterOutput.swift; sourceTree = "<group>"; };
+		1544DE572794BF1500DF6054 /* FeedNewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewPresenter.swift; sourceTree = "<group>"; };
+		1544DE5B2794BF4000DF6054 /* FeedNewAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewAssembler.swift; sourceTree = "<group>"; };
 		154DDB2A2732C8F30084A86F /* AuthCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		15578A0B2761687D00D0267C /* NetworkApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkApi.swift; sourceTree = "<group>"; };
+		15578A0D276168BE00D0267C /* BaseRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequestProtocol.swift; sourceTree = "<group>"; };
+		15578A0F2761691E00D0267C /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		1558C5D7271F91C40051436E /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		1558C5D8271F91C40051436E /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		1558C5DD27216B1E0051436E /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
@@ -270,7 +295,18 @@
 		158C8CE92726FE26001614D0 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		158C8CFA2729E1C4001614D0 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINaviagationController+Extension.swift"; sourceTree = "<group>"; };
+		15BDD2C6279A17C5004F61BC /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		15BDD2C7279A17C5004F61BC /* CommentsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsViewController.xib; sourceTree = "<group>"; };
+		15BDD2CC279A188A004F61BC /* CommentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsPresenter.swift; sourceTree = "<group>"; };
+		15BDD2CE279A18A4004F61BC /* CommentsPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsPresenterInput.swift; sourceTree = "<group>"; };
+		15BDD2D0279A18F8004F61BC /* CommentsPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsPresenterOutput.swift; sourceTree = "<group>"; };
+		15BDD2D2279A1A5D004F61BC /* HalfSizePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfSizePresentationController.swift; sourceTree = "<group>"; };
 		15E37EDE275AFB0100B800E9 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		15E3EA36279C583D004ED29A /* UITextView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Ext.swift"; sourceTree = "<group>"; };
+		15E896972794C09200538649 /* FeedNewwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewwViewController.swift; sourceTree = "<group>"; };
+		15E896982794C09200538649 /* FeedNewwViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedNewwViewController.xib; sourceTree = "<group>"; };
+		15E896A02794C5A000538649 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		15E896A12794C5A000538649 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		1709737F271D7B4200134ED7 /* LikeTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17097382271D7B4200134ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17097384271D7B4200134ED7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -577,6 +613,44 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		1544DE512794BED400DF6054 /* FeedNew */ = {
+			isa = PBXGroup;
+			children = (
+				1544DE5A2794BF3400DF6054 /* Assembler */,
+				1544DE522794BEE900DF6054 /* Presenter */,
+				1544DE592794BF2A00DF6054 /* View */,
+				15E8969B2794C22300538649 /* Cell */,
+			);
+			path = FeedNew;
+			sourceTree = "<group>";
+		};
+		1544DE522794BEE900DF6054 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1544DE532794BEFA00DF6054 /* FeedNewPresenterInput.swift */,
+				1544DE552794BF0A00DF6054 /* FeedNewPresenterOutput.swift */,
+				1544DE572794BF1500DF6054 /* FeedNewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1544DE592794BF2A00DF6054 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				15E896972794C09200538649 /* FeedNewwViewController.swift */,
+				15E896982794C09200538649 /* FeedNewwViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1544DE5A2794BF3400DF6054 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				1544DE5B2794BF4000DF6054 /* FeedNewAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
 		1558C5DB271F91C90051436E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +699,7 @@
 				153F2CE12737453F002AF9FA /* UICollectionViewCell+Ext.swift */,
 				15E37EDE275AFB0100B800E9 /* UIViewController+Ext.swift */,
 				17CF73E1275A3BC4005C2067 /* UiImageView + KF .swift */,
+				15E3EA36279C583D004ED29A /* UITextView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -638,6 +713,44 @@
 				4EB4558A0C7C4CB2DE88AE71 /* Assembler */,
 			);
 			path = FilterCurrent;
+			sourceTree = "<group>";
+		};
+		15BDD2C5279A176A004F61BC /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				15BDD2CB279A1817004F61BC /* Presenter */,
+				15BDD2CA279A17FF004F61BC /* View */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
+		15BDD2CA279A17FF004F61BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				15BDD2C6279A17C5004F61BC /* CommentsViewController.swift */,
+				15BDD2C7279A17C5004F61BC /* CommentsViewController.xib */,
+				15BDD2D2279A1A5D004F61BC /* HalfSizePresentationController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		15BDD2CB279A1817004F61BC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				15BDD2CC279A188A004F61BC /* CommentsPresenter.swift */,
+				15BDD2CE279A18A4004F61BC /* CommentsPresenterInput.swift */,
+				15BDD2D0279A18F8004F61BC /* CommentsPresenterOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		15E8969B2794C22300538649 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				15E896A02794C5A000538649 /* FeedTableViewCell.swift */,
+				15E896A12794C5A000538649 /* FeedTableViewCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		17097376271D7B4200134ED7 = {
@@ -688,6 +801,8 @@
 				55EFF5E5124FE455C703AB95 /* MainSearch */,
 				5A515267A99CF7BA748BB88E /* CatalogFiltres */,
 				15779179EFD895D03E9DFA98 /* FilterCurrent */,
+				1544DE512794BED400DF6054 /* FeedNew */,
+				15BDD2C5279A176A004F61BC /* Comments */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -842,6 +957,9 @@
 			children = (
 				17C66E0B2723034E0032F5F3 /* Method.swift */,
 				17C66E0D2723043F0032F5F3 /* Api.swift */,
+				15578A0B2761687D00D0267C /* NetworkApi.swift */,
+				15578A0D276168BE00D0267C /* BaseRequestProtocol.swift */,
+				15578A0F2761691E00D0267C /* BaseResponse.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -1494,10 +1612,13 @@
 				17248E6E275BE27F002AAD4E /* FiltresCollectionViewCell.xib in Resources */,
 				F8ECE119F95ADC193B0B527D /* StartSplashScreenViewController.xib in Resources */,
 				18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */,
+				15BDD2C9279A17C5004F61BC /* CommentsViewController.xib in Resources */,
 				CF70D3E4E3B7FD5BFE6A9F6F /* PasswordRecoveryFirstViewController.xib in Resources */,
 				24276C267034F8D4D276B900 /* PasswordRecoverySecondViewController.xib in Resources */,
+				15E896A32794C5A000538649 /* FeedTableViewCell.xib in Resources */,
 				A0BC0BEE6D373A553E47F5BB /* AuthCodeViewController.xib in Resources */,
 				17CF73F2275BCDA8005C2067 /* DictionaryListTableViewCell.xib in Resources */,
+				15E8969A2794C09200538649 /* FeedNewwViewController.xib in Resources */,
 				3F80D80C7E764C2F521C1CB6 /* SignInViewController.xib in Resources */,
 				CA7080CE9BB5F69724ED4097 /* DeleteViewController.xib in Resources */,
 				170D42802753951500509625 /* AccountsCollectionViewCell.xib in Resources */,
@@ -1539,7 +1660,7 @@
 		};
 		170973AB271D93E500134ED7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -1550,7 +1671,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi \n";
 		};
@@ -1599,6 +1720,7 @@
 				153F2CCB273724F4002AF9FA /* FeedViewPresenter.swift in Sources */,
 				170973A6271D915600134ED7 /* BaseXibView.swift in Sources */,
 				155FED71274B01D400548B01 /* FeedPlayerContainer.swift in Sources */,
+				15578A0C2761687D00D0267C /* NetworkApi.swift in Sources */,
 				170973A4271D915600134ED7 /* BaseViewControllerInput.swift in Sources */,
 				153F2CDC273724F4002AF9FA /* FeedViewRouter.swift in Sources */,
 				170973A7271D915600134ED7 /* BaseNavigationController.swift in Sources */,
@@ -1615,6 +1737,7 @@
 				17C66E0C2723034E0032F5F3 /* Method.swift in Sources */,
 				1558C5F627216FAA0051436E /* OnboardingModel.swift in Sources */,
 				C200B260DF37B93761CD25EA /* OnboardingViewController.swift in Sources */,
+				1544DE562794BF0A00DF6054 /* FeedNewPresenterOutput.swift in Sources */,
 				1558C60B2721D80A0051436E /* XCAssets+Generated.swift in Sources */,
 				158C8CFB2729E1C4001614D0 /* String+Ext.swift in Sources */,
 				5E819C2B19C05F53AA221BEB /* OnboardingPresenterInput.swift in Sources */,
@@ -1622,6 +1745,7 @@
 				098AFF776E356795A9010F51 /* OnboardingPresenterOutput.swift in Sources */,
 				1744713C279A08BB00F5A983 /* UIViewControllerExtensions.swift in Sources */,
 				153F2CD2273724F4002AF9FA /* FeedCellConfigurator.swift in Sources */,
+				15BDD2D1279A18F8004F61BC /* CommentsPresenterOutput.swift in Sources */,
 				0F27EC19D3FF004B8A540DAC /* OnboardingPresenter.swift in Sources */,
 				17C66E0E2723043F0032F5F3 /* Api.swift in Sources */,
 				154DDB2B2732C8F30084A86F /* AuthCoordinator.swift in Sources */,
@@ -1631,12 +1755,15 @@
 				17CF73E9275BB592005C2067 /* CountryDictionaryResponse.swift in Sources */,
 				17AA6C132729804D00CE276E /* BaseCoordinator.swift in Sources */,
 				153F2CD8273724F4002AF9FA /* FeedViewInteractorInput.swift in Sources */,
+				15578A102761691E00D0267C /* BaseResponse.swift in Sources */,
 				17AA6C142729804D00CE276E /* Presentable.swift in Sources */,
 				BFFDB7611EFD9494736FB1ED /* StartSplashScreenViewController.swift in Sources */,
 				153F2CD1273724F4002AF9FA /* FeedCollectionManagement.swift in Sources */,
+				15BDD2CD279A188A004F61BC /* CommentsPresenter.swift in Sources */,
 				17E71F93272ADE0D001B2CF0 /* AuthApiWorker.swift in Sources */,
 				17AA6BEE2729690600CE276E /* BaseTimer.swift in Sources */,
 				8E445F9A648A75D5369C11F0 /* StartSplashScreenPresenterInput.swift in Sources */,
+				15BDD2D3279A1A5D004F61BC /* HalfSizePresentationController.swift in Sources */,
 				8CCF3EAF44ED239B8DC135E2 /* StartSplashScreenPresenterOutput.swift in Sources */,
 				170D427B275394FB00509625 /* CategoryCollectionViewCell.swift in Sources */,
 				2EDDD73BBF6E223384272200 /* StartSplashScreenPresenter.swift in Sources */,
@@ -1663,8 +1790,10 @@
 				C80CE8A5E39AF8CB4E83A1A0 /* PasswordRecoveryFirstAssembler.swift in Sources */,
 				55ECB4EC9BF8CFFECA4FC804 /* PasswordRecoverySecondViewController.swift in Sources */,
 				7EC8DB21FDD698ECEF3B5FB1 /* PasswordRecoverySecondPresenterInput.swift in Sources */,
+				1544DE542794BEFA00DF6054 /* FeedNewPresenterInput.swift in Sources */,
 				AF052CFB648D99B02ED4C34F /* PasswordRecoverySecondPresenterOutput.swift in Sources */,
 				1513CBF3272C214700855FC4 /* RecoveryPasswordCodeResponse.swift in Sources */,
+				15E896992794C09200538649 /* FeedNewwViewController.swift in Sources */,
 				A61CB9393EEE6EA81E760A5E /* PasswordRecoverySecondPresenter.swift in Sources */,
 				80A44D7850A9816EBFA54395 /* ResetPasswordNewPasswordAssembler.swift in Sources */,
 				17F43BE927576F980054D5AF /* SearchApiWorker.swift in Sources */,
@@ -1674,6 +1803,7 @@
 				17CF73EB275BB6F8005C2067 /* CityDictionaryResponse.swift in Sources */,
 				E67E5FEAD1AD6C7E6CD55341 /* AuthCodePresenterOutput.swift in Sources */,
 				153F2CCA273724F4002AF9FA /* FeedViewAssembler.swift in Sources */,
+				15E896A22794C5A000538649 /* FeedTableViewCell.swift in Sources */,
 				170D42842753953900509625 /* VideoCollectionViewCell.swift in Sources */,
 				15B1DE0C272E088400078D01 /* UINaviagationController+Extension.swift in Sources */,
 				153F2CD6273724F4002AF9FA /* FeedCell.swift in Sources */,
@@ -1686,16 +1816,20 @@
 				D034D4725C27C51BE38A6FA4 /* SignInPresenterInput.swift in Sources */,
 				153F2CCE273724F4002AF9FA /* LikeActionType.swift in Sources */,
 				100F1F745E97FF68AD0A5786 /* SignInPresenterOutput.swift in Sources */,
+				15578A0E276168BE00D0267C /* BaseRequestProtocol.swift in Sources */,
 				17AA6C18272980B100CE276E /* BundleExtentsion.swift in Sources */,
 				F9410D481A551E8331C2DC76 /* SignInPresenter.swift in Sources */,
+				15BDD2C8279A17C5004F61BC /* CommentsViewController.swift in Sources */,
 				17AA6BF227297C6000CE276E /* DeepLinkOption.swift in Sources */,
 				EC5A914BF337C4762CE5240C /* SignInAssembler.swift in Sources */,
 				17CF73ED275BB776005C2067 /* CategoryDictionaryResponse.swift in Sources */,
 				FB634C9CCBB6588CC922B0AD /* DeleteViewController.swift in Sources */,
+				15E3EA37279C583D004ED29A /* UITextView+Ext.swift in Sources */,
 				35F61DE4A10A3926683EED8E /* DeletePresenterInput.swift in Sources */,
 				376DBBA31FE17358ADEE667F /* DeletePresenterOutput.swift in Sources */,
 				7FC1B168B5DFD50CED782EAB /* DeletePresenter.swift in Sources */,
 				FA11C1534543F680AAF1A468 /* DeleteAssembler.swift in Sources */,
+				15BDD2CF279A18A4004F61BC /* CommentsPresenterInput.swift in Sources */,
 				ADD3D928650CA2EAE587F8D7 /* AuthPersonalDataViewController.swift in Sources */,
 				1DAFE1EF40339ECC072D7F3E /* AuthPersonalDataPresenterInput.swift in Sources */,
 				C447BE88FE9F345915373D91 /* AuthPersonalDataPresenterOutput.swift in Sources */,
@@ -1711,6 +1845,7 @@
 				A247F03458B971AC13B6E44D /* TabBarAssembler.swift in Sources */,
 				153F2CD0273724F4002AF9FA /* FeedViewEnterOption.swift in Sources */,
 				153F2CCD273724F4002AF9FA /* FeedViewPresenterInput.swift in Sources */,
+				1544DE582794BF1500DF6054 /* FeedNewPresenter.swift in Sources */,
 				153F2CDB273724F4002AF9FA /* FeedViewRouting.swift in Sources */,
 				17D17C7A275813A80096DF3A /* SearchTagResponse.swift in Sources */,
 				C8F154809A579EC72F5D729C /* CatalogViewController.swift in Sources */,
@@ -1727,6 +1862,7 @@
 				7E8C957C928DA406075B3066 /* MainSearchAssembler.swift in Sources */,
 				3846774529F20896CF83B1C0 /* CatalogFiltresViewController.swift in Sources */,
 				24144995A37AF20018CAF4EA /* CatalogFiltresPresenterInput.swift in Sources */,
+				1544DE5C2794BF4000DF6054 /* FeedNewAssembler.swift in Sources */,
 				685665EE878B40B46970DA58 /* CatalogFiltresPresenterOutput.swift in Sources */,
 				5C50BFBE4636070DDD39D74F /* CatalogFiltresPresenter.swift in Sources */,
 				892C87A12359C52E599CDCA5 /* CatalogFiltresAssembler.swift in Sources */,
