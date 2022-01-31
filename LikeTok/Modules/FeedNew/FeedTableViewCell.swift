@@ -70,11 +70,21 @@ class FeedTableViewCell: UITableViewCell {
         return gradient
     }()
     
+    private lazy var playImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "playButton")
+        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        imageView.center = previewImageView.center
+        return imageView
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         addPlayerObserver()
         addTapGesture()
         addGradient()
+//        previewImageView.addSubview(playImageView)
+        contentView.addSubview(playImageView)
     }
     
     override func layoutSubviews() {
@@ -101,11 +111,10 @@ class FeedTableViewCell: UITableViewCell {
     
     func setupUserData(authorName: String, description: String, likesCount: Int, isLiked: Bool, commentsCount: Int) {
         userNameLabel.text = authorName
-//        descriptionLabel.text = description
+        descriptionLabel.text = description
         likesCountLabel.text = String(likesCount)
         commentsLabelCount.text = String(commentsCount)
         setupLikeState(isLiked)
-        addLabelReadMoreTrailing()
     }
     
     
@@ -127,6 +136,7 @@ class FeedTableViewCell: UITableViewCell {
         if let videoURL = videoURL {
             playerView.play(for: videoURL)
             playerView.isHidden = false
+            playImageView.isHidden = true
         } else {
             playerView.isHidden = true
         }
@@ -154,7 +164,13 @@ private extension FeedTableViewCell {
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         if let videoURL = videoURL {
-            playerView.state == .playing ? playerView.pause(reason: .userInteraction) : playerView.play(for: videoURL)
+            if playerView.state == .playing {
+                playImageView.isHidden = false
+                playerView.pause(reason: .userInteraction)
+            } else{
+                playImageView.isHidden = true
+                playerView.play(for: videoURL)
+            }
         }
     }
     
