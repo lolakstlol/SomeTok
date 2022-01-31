@@ -105,6 +105,7 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - PanModal (1.2.7)
   - PINCache (3.0.3):
     - PINCache/Arc-exception-safe (= 3.0.3)
     - PINCache/Core (= 3.0.3)
@@ -133,6 +134,7 @@ DEPENDENCIES:
   - FloatingPanel
   - GSPlayer
   - Kingfisher
+  - PanModal
   - PINRemoteImage
   - SwiftGen (~> 6.0)
 
@@ -155,6 +157,7 @@ SPEC REPOS:
     - GSPlayer
     - Kingfisher
     - nanopb
+    - PanModal
     - PINCache
     - PINOperation
     - PINRemoteImage
@@ -179,12 +182,13 @@ SPEC CHECKSUMS:
   GSPlayer: 3b6850a0f26af54967396d637c2e4646dc451013
   Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
   PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
   PINRemoteImage: f1295b29f8c5e640e25335a1b2bd9d805171bd01
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
 
-PODFILE CHECKSUM: 456e6fd7c116e4aa0e787c1a4c4a0c0f8ec7c5fb
+PODFILE CHECKSUM: 4b372ff58be2bf314ff1b499aba32a82f8a9c972
 
 COCOAPODS: 1.11.2

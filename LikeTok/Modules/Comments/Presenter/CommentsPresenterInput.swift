@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+protocol CommentsPresenterInput: BasePresenting {
+//    func updateFeedType(_ type: FeedViewEnterOption)
+//    func fetchMoreFeed()
+//    func reloadFeed()
+    func sendComment(_ text: String)
+    func reloadComments()
+}
