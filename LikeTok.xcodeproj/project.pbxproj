@@ -119,6 +119,11 @@
 		170D42892753C96300509625 /* SearchCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D42872753A8D800509625 /* SearchCollectionViewManager.swift */; };
 		17248E6D275BE27F002AAD4E /* FiltresCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17248E6B275BE27F002AAD4E /* FiltresCollectionViewCell.swift */; };
 		17248E6E275BE27F002AAD4E /* FiltresCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17248E6C275BE27F002AAD4E /* FiltresCollectionViewCell.xib */; };
+		17447134279A088E00F5A983 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17447132279A088E00F5A983 /* CameraViewController.xib */; };
+		17447135279A088E00F5A983 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17447133279A088E00F5A983 /* CameraViewController.swift */; };
+		17447139279A08A800F5A983 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17447137279A08A800F5A983 /* CustomButton.swift */; };
+		1744713A279A08A800F5A983 /* CameraConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17447138279A08A800F5A983 /* CameraConfiguration.swift */; };
+		1744713C279A08BB00F5A983 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1744713B279A08BB00F5A983 /* UIViewControllerExtensions.swift */; };
 		17AA6BEC2729690600CE276E /* BaseTimerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA6BE92729690600CE276E /* BaseTimerOutput.swift */; };
 		17AA6BED2729690600CE276E /* BaseTimerInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA6BEA2729690600CE276E /* BaseTimerInput.swift */; };
 		17AA6BEE2729690600CE276E /* BaseTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA6BEB2729690600CE276E /* BaseTimer.swift */; };
@@ -359,6 +364,11 @@
 		170D42872753A8D800509625 /* SearchCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewManager.swift; sourceTree = "<group>"; };
 		17248E6B275BE27F002AAD4E /* FiltresCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltresCollectionViewCell.swift; sourceTree = "<group>"; };
 		17248E6C275BE27F002AAD4E /* FiltresCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltresCollectionViewCell.xib; sourceTree = "<group>"; };
+		17447132279A088E00F5A983 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		17447133279A088E00F5A983 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		17447137279A08A800F5A983 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		17447138279A08A800F5A983 /* CameraConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraConfiguration.swift; sourceTree = "<group>"; };
+		1744713B279A08BB00F5A983 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		17AA6BE92729690600CE276E /* BaseTimerOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTimerOutput.swift; sourceTree = "<group>"; };
 		17AA6BEA2729690600CE276E /* BaseTimerInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTimerInput.swift; sourceTree = "<group>"; };
 		17AA6BEB2729690600CE276E /* BaseTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTimer.swift; sourceTree = "<group>"; };
@@ -867,6 +877,7 @@
 		17097396271D8AA900134ED7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				17447131279A085100F5A983 /* Camera */,
 				153F2CAE273724F4002AF9FA /* Feed */,
 				17AA6C1F2729D56700CE276E /* Auth */,
 				59EDDE1320CEBC28974F186E /* Onboarding */,
@@ -953,6 +964,26 @@
 				170D42872753A8D800509625 /* SearchCollectionViewManager.swift */,
 			);
 			path = CollectionManager;
+			sourceTree = "<group>";
+		};
+		17447131279A085100F5A983 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				1744713B279A08BB00F5A983 /* UIViewControllerExtensions.swift */,
+				17447136279A08A800F5A983 /* View */,
+				17447133279A088E00F5A983 /* CameraViewController.swift */,
+				17447132279A088E00F5A983 /* CameraViewController.xib */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		17447136279A08A800F5A983 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17447137279A08A800F5A983 /* CustomButton.swift */,
+				17447138279A08A800F5A983 /* CameraConfiguration.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		17AA6BE82729690600CE276E /* Timer */ = {
@@ -1654,6 +1685,7 @@
 				1558C5F327216B1E0051436E /* Roboto-BlackItalic.ttf in Resources */,
 				1709738C271D7B4400134ED7 /* Assets.xcassets in Resources */,
 				1709738A271D7B4200134ED7 /* Main.storyboard in Resources */,
+				17447134279A088E00F5A983 /* CameraViewController.xib in Resources */,
 				170973B4271D97B500134ED7 /* Localizable.strings in Resources */,
 				1558C5ED27216B1E0051436E /* Roboto-Black.ttf in Resources */,
 				1558C5E927216B1E0051436E /* Roboto-ThinItalic.ttf in Resources */,
@@ -1770,7 +1802,9 @@
 				15E6CEDA27A4B371000239AB /* UIView+Ext.swift in Sources */,
 				153F2CCC273724F4002AF9FA /* FeedViewPresenterOutput.swift in Sources */,
 				15414A2E27233781007AA93D /* InsetTextField.swift in Sources */,
+				17447135279A088E00F5A983 /* CameraViewController.swift in Sources */,
 				17AA6C0727297E3E00CE276E /* DeepLinkService.swift in Sources */,
+				1744713A279A08A800F5A983 /* CameraConfiguration.swift in Sources */,
 				17CF73E6275ADB50005C2067 /* CategoriesTypeCollectionViewCell.swift in Sources */,
 				17AA6BEC2729690600CE276E /* BaseTimerOutput.swift in Sources */,
 				1558C5D9271F91C40051436E /* OnboardingCollectionViewCell.swift in Sources */,
@@ -1802,6 +1836,7 @@
 				5E819C2B19C05F53AA221BEB /* OnboardingPresenterInput.swift in Sources */,
 				17AA6C0427297E3E00CE276E /* DateFormatterService.swift in Sources */,
 				098AFF776E356795A9010F51 /* OnboardingPresenterOutput.swift in Sources */,
+				1744713C279A08BB00F5A983 /* UIViewControllerExtensions.swift in Sources */,
 				153F2CD2273724F4002AF9FA /* FeedCellConfigurator.swift in Sources */,
 				15BDD2D1279A18F8004F61BC /* CommentsPresenterOutput.swift in Sources */,
 				0F27EC19D3FF004B8A540DAC /* OnboardingPresenter.swift in Sources */,
@@ -1848,6 +1883,7 @@
 				15E3EA4F279CBE7A004ED29A /* UITableViewCell+Ext.swift in Sources */,
 				15E3EA51279CC222004ED29A /* BaseTypes.swift in Sources */,
 				15E9B93727A74547002963D5 /* UILabel+Ext.swift in Sources */,
+				17447139279A08A800F5A983 /* CustomButton.swift in Sources */,
 				C80CE8A5E39AF8CB4E83A1A0 /* PasswordRecoveryFirstAssembler.swift in Sources */,
 				15E3EA56279CCEF1004ED29A /* CommentsApiWorker.swift in Sources */,
 				55ECB4EC9BF8CFFECA4FC804 /* PasswordRecoverySecondViewController.swift in Sources */,
