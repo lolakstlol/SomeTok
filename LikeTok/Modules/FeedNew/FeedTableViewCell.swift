@@ -31,6 +31,7 @@ class FeedTableViewCell: UITableViewCell {
     
     weak var delegate: FeedTableViewCellDelegate?
     
+    private var isLiked: Bool = false
     private var videoURL: URL?
     private var previewImageString: String? {
         didSet {
@@ -103,23 +104,23 @@ class FeedTableViewCell: UITableViewCell {
 //        descriptionLabel.text = description
         likesCountLabel.text = String(likesCount)
         commentsLabelCount.text = String(commentsCount)
-        updateLikes(shouldShowFilledLike: isLiked)
+        setupLikeState(isLiked)
         addLabelReadMoreTrailing()
     }
     
     
-    func updateLikes(shouldShowFilledLike: Bool) {
+    func setupLikeState(_ isLiked: Bool) {
+        self.isLiked = isLiked
         let currentLikesCount = Int(likesCountLabel.text ?? "0") ?? .zero
-        
-//        switch type {
-//        case .filled:
-////            likeImageView.image = shouldShowFilledLike ? Assets.Feed.filledHeart.image : Assets.Feed.emptyHeart.image
-////            likeImageView.wiggle(amplitude: .high)
-//            likesCountLabel.text = String(currentLikesCount + 1)
-//        case .empty:
-////            likeImageView.image = Asset.Assets.Feed.emptyHeart.image
-//            likesCountLabel.text = String(currentLikesCount - 1)
-//        }
+        likeImageView.image = isLiked ? UIImage(named: "filledHeart") : Assets.emptyHeart.image
+        likesCountLabel.text = isLiked ? String(currentLikesCount + 1) : String(currentLikesCount)
+    }
+    
+    func updateLikeState() {
+        isLiked = !isLiked
+        let currentLikesCount = Int(likesCountLabel.text ?? "0") ?? .zero
+        likeImageView.image = isLiked ? UIImage(named: "filledHeart") : Assets.emptyHeart.image
+        likesCountLabel.text = isLiked ? String(currentLikesCount + 1) : String(currentLikesCount - 1)
     }
     
     func play() {
@@ -140,6 +141,7 @@ class FeedTableViewCell: UITableViewCell {
     }
     
     @IBAction func likeButtonTap(_ sender: Any) {
+        updateLikeState()
         delegate?.didTapLikeButton()
     }
 }
