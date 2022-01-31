@@ -11,6 +11,7 @@ final class FeedNewPresenter {
     
     private unowned let view: FeedNewPresenterOutput
     private var feedService: FeedServiceProtocol?
+    private var selectedItem: FeedResponse?
     private var type: FeedViewEnterOption = .advertisment {
         didSet {
             view.onChangedFilter()
@@ -46,6 +47,20 @@ private extension FeedNewPresenter {
     }
     
     
+    func createPostLike(_ uuid: String) {
+        feedService?.createPostLike(postId: uuid, completion: { [weak self] result in
+            switch result {
+            case .success(let likeData):
+//                likeData.data.isLike
+                self?.view.onLikeSuccess()
+                
+            case .failure(let error):
+                debugPrint(error.localizedDescription)
+                self?.view.onLikeFailed()
+            }
+        })
+    }
+    
     func handleFeedRequstResult(result: Result<FeedGlobalResponse, NetworkError>) {
         switch result {
         case .success(let items):
@@ -60,6 +75,18 @@ private extension FeedNewPresenter {
 }
 
 extension FeedNewPresenter: FeedNewPresenterInput {
+    
+    func didTapComments() {
+        guard let uuid = selectedItem?.uuid else {
+            return
+        }
+        view.onTapComments(uuid)
+    }
+    
+    func selectItem(_ item: FeedResponse) {
+        self.selectedItem = item
+    }
+    
     func updateFeedType(_ type: FeedViewEnterOption) {
         self.type = type
     }
@@ -72,5 +99,12 @@ extension FeedNewPresenter: FeedNewPresenterInput {
         if let cursor = cursor {
             fetchMoreFeed(cursor)
         }
+    }
+    
+    func likeAction() {
+        guard let uuid = selectedItem?.uuid else {
+            return
+        }
+        createPostLike(uuid)
     }
 }

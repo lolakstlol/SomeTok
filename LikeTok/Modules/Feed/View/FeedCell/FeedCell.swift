@@ -51,25 +51,28 @@ final class FeedCell: UICollectionViewCell {
 //        return blurEffectView
 //    }()
     
+    private lazy var playImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "playButton")
+        imageView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        imageView.center = contentView.center
+        imageView.isHidden = true
+        return imageView
+    }()
+    
     // MARK: - Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
         setUpPlayerView()
+        playerView?.addSubview(playImageView)
     }
 
-//    override func draw(_ rect: CGRect) {
-//        super.draw(rect)
-//
-//    }
-    
     override func prepareForReuse() {
         super.prepareForReuse()
-//        imageView.isHidden = false
         playerView?.removeFromSuperview()
         playerView = nil
-//        playerView?.pause(reason: .hidden)
         imageView.isHidden = false
         userImageView.image = nil
         backgroundImageView.image = nil
@@ -143,17 +146,11 @@ final class FeedCell: UICollectionViewCell {
             likeLabel.text = String(currentLikesCount - 1)
         }
     }
-
-    
-//    func loadVideo(_ url: URL?) {
-//        guard let url = url else { return }
-//        playerView?.play(for: url)
-//        playerView?.pause(reason: .hidden)
-//    }
     
     func playVideo(_ videoURLString: String) {
         if let videoURL = URL(string: videoURLString) {
             imageView.isHidden = true
+            playImageView.isHidden = true
             playerView?.play(for: videoURL)
         }
     }

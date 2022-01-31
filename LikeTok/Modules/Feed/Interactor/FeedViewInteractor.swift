@@ -159,27 +159,27 @@ extension FeedViewInteractor: FeedViewInteractorInput {
 }
 
 protocol FeedServiceProtocol {
-    func getPost(by postId: String, completion: @escaping (_ items: Result<FeedResponse?, NetworkError>) -> Void)
+    func getPost(by postId: String, completion: @escaping (_ items: Swift.Result<FeedResponse?, NetworkError>) -> Void)
     func getInitialFeed(with offset: Int, type: FeedViewEnterOption, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void)
     func getFeed(with offset: Int, cursor: String, type: FeedViewEnterOption, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void)
-    func deletePostLike(postId: String, completion: @escaping EmptyClosure)
-    func createPostLike(postId: String, completion: @escaping EmptyClosure)
+    func deletePostLike(postId: String, completion: @escaping (Swift.Result<LikeResponse, NetworkError>) -> Void)
+    func createPostLike(postId: String, completion: @escaping (Swift.Result<LikeResponse, NetworkError>) -> Void)
 //    func getBusniessList(model: GetBusinessListRequestModel,
 //                         completion: @escaping (_ result: Result<GetBusniessListResponse?, NetworkAPI.NetworkError>) -> Void)
 }
 
 final class FeedService: FeedServiceProtocol {
     
-    func getPost(by uuid: String, completion: @escaping (Result<FeedResponse?, NetworkError>) -> Void) {
+    func getPost(by uuid: String, completion: @escaping (Swift.Result<FeedResponse?, NetworkError>) -> Void) {
 //        let request = GetCurrentPostRequest(uuid)
 //        NetworkAPI.shared.sendRequest(request: request, completion: completion)
     }
 
     
-    func getFeed(with offset: Int, cursor: String, type: FeedViewEnterOption, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void) {
+    func getFeed(with offset: Int, cursor: String, type: FeedViewEnterOption, completion: @escaping (Swift.Result<FeedGlobalResponse, NetworkError>) -> Void) {
 //        let request = FeedRequest(userId, offset)
 //        Api.feed.getFeed.request.responseJSON(completionHandler: completion)
-        Api.feed.getFeed(cursor: cursor, type: type).request.responseJSON { response in
+        Api.Feed.getFeed(cursor: cursor, type: type).request.responseJSON { response in
             let code = response.response?.statusCode ?? 0
             switch code {
             case 200:
@@ -210,10 +210,10 @@ final class FeedService: FeedServiceProtocol {
         }
     }
     
-    func getInitialFeed(with offset: Int, type: FeedViewEnterOption, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void) {
+    func getInitialFeed(with offset: Int, type: FeedViewEnterOption, completion: @escaping (Swift.Result<FeedGlobalResponse, NetworkError>) -> Void) {
 //        let request = FeedRequest(userId, offset)
 //        Api.feed.getFeed.request.responseJSON(completionHandler: completion)
-        Api.feed.getInitialFeed(type: type).request.responseJSON { response in
+        Api.Feed.getInitialFeed(type: type).request.responseJSON { response in
             let code = response.response?.statusCode ?? 0
             switch code {
             case 200:
@@ -232,12 +232,45 @@ final class FeedService: FeedServiceProtocol {
 //        NetworkAPI.shared.sendRequest(request: request, completion: completion)
     }
     
-    func createPostLike(postId: String, completion: @escaping EmptyClosure) {
+    func createPostLike(postId: String, completion: @escaping (Swift.Result<LikeResponse, NetworkError>) -> Void) {
+        Api.Feed.createPostLike(postID: postId).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(LikeResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    try? self.catchError(data: response.data!, type: LikeResponse.self)
+                    completion(.failure(.deserialization))
+                    
+                }
+            default:
+                completion(.failure(.badRequest))
+                break
+            }
+        }
+    }
+        
 //        let request = CreateLikeRequest(postId: postId)
 //        NetworkAPI.shared.sendRequest(request: request, completion: completion)
-    }
     
-    func deletePostLike(postId: String, completion: @escaping EmptyClosure) {
+    func deletePostLike(postId: String, completion: @escaping (Swift.Result<LikeResponse, NetworkError>) -> Void) {
+        Api.Feed.createPostLike(postID: postId).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(LikeResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    try? self.catchError(data: response.data!, type: LikeResponse.self)
+                    completion(.failure(.deserialization))
+                    
+                }
+            default:
+                completion(.failure(.badRequest))
+                break
+            }
+        }
 //        let request = DeleteLikeRequest(postId: postId)
 //        NetworkAPI.shared.sendRequest(request: request, completion: completion)
     }

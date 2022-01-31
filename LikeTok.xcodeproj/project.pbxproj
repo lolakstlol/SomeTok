@@ -76,10 +76,26 @@
 		15BDD2D3279A1A5D004F61BC /* HalfSizePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BDD2D2279A1A5D004F61BC /* HalfSizePresentationController.swift */; };
 		15E37EDF275AFB0100B800E9 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E37EDE275AFB0100B800E9 /* UIViewController+Ext.swift */; };
 		15E3EA37279C583D004ED29A /* UITextView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA36279C583D004ED29A /* UITextView+Ext.swift */; };
+		15E3EA3A279C97E8004ED29A /* CommentsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA39279C97E8004ED29A /* CommentsAssembler.swift */; };
+		15E3EA3D279CA0D0004ED29A /* CommentsCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA3C279CA0D0004ED29A /* CommentsCellConfigurator.swift */; };
+		15E3EA3F279CA0DE004ED29A /* CommentsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA3E279CA0DE004ED29A /* CommentsTableManager.swift */; };
+		15E3EA41279CACB7004ED29A /* CommentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA40279CACB7004ED29A /* CommentsResponse.swift */; };
+		15E3EA44279CAEBA004ED29A /* CellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA43279CAEBA004ED29A /* CellConfiguration.swift */; };
+		15E3EA48279CB149004ED29A /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E3EA46279CB149004ED29A /* CommentCell.xib */; };
+		15E3EA49279CB149004ED29A /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA47279CB149004ED29A /* CommentCell.swift */; };
+		15E3EA4D279CB79F004ED29A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA4C279CB79F004ED29A /* Date+Ext.swift */; };
+		15E3EA4F279CBE7A004ED29A /* UITableViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA4E279CBE7A004ED29A /* UITableViewCell+Ext.swift */; };
+		15E3EA51279CC222004ED29A /* BaseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA50279CC222004ED29A /* BaseTypes.swift */; };
+		15E3EA53279CC3F1004ED29A /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA52279CC3F1004ED29A /* UITableView+Ext.swift */; };
+		15E3EA56279CCEF1004ED29A /* CommentsApiWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA55279CCEF1004ED29A /* CommentsApiWorker.swift */; };
+		15E6CED827A4AA9A000239AB /* PostedCommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6CED727A4AA9A000239AB /* PostedCommentResponse.swift */; };
+		15E6CEDA27A4B371000239AB /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6CED927A4B371000239AB /* UIView+Ext.swift */; };
 		15E896992794C09200538649 /* FeedNewwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E896972794C09200538649 /* FeedNewwViewController.swift */; };
 		15E8969A2794C09200538649 /* FeedNewwViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E896982794C09200538649 /* FeedNewwViewController.xib */; };
 		15E896A22794C5A000538649 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E896A02794C5A000538649 /* FeedTableViewCell.swift */; };
 		15E896A32794C5A000538649 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E896A12794C5A000538649 /* FeedTableViewCell.xib */; };
+		15E9B93527A5E538002963D5 /* LikeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9B93427A5E538002963D5 /* LikeResponse.swift */; };
+		15E9B93727A74547002963D5 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9B93627A74547002963D5 /* UILabel+Ext.swift */; };
 		17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097382271D7B4200134ED7 /* AppDelegate.swift */; };
 		17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097384271D7B4200134ED7 /* SceneDelegate.swift */; };
 		17097387271D7B4200134ED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097386271D7B4200134ED7 /* ViewController.swift */; };
@@ -303,10 +319,26 @@
 		15BDD2D2279A1A5D004F61BC /* HalfSizePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfSizePresentationController.swift; sourceTree = "<group>"; };
 		15E37EDE275AFB0100B800E9 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		15E3EA36279C583D004ED29A /* UITextView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Ext.swift"; sourceTree = "<group>"; };
+		15E3EA39279C97E8004ED29A /* CommentsAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsAssembler.swift; sourceTree = "<group>"; };
+		15E3EA3C279CA0D0004ED29A /* CommentsCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCellConfigurator.swift; sourceTree = "<group>"; };
+		15E3EA3E279CA0DE004ED29A /* CommentsTableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableManager.swift; sourceTree = "<group>"; };
+		15E3EA40279CACB7004ED29A /* CommentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsResponse.swift; sourceTree = "<group>"; };
+		15E3EA43279CAEBA004ED29A /* CellConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfiguration.swift; sourceTree = "<group>"; };
+		15E3EA46279CB149004ED29A /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
+		15E3EA47279CB149004ED29A /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		15E3EA4C279CB79F004ED29A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		15E3EA4E279CBE7A004ED29A /* UITableViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Ext.swift"; sourceTree = "<group>"; };
+		15E3EA50279CC222004ED29A /* BaseTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTypes.swift; sourceTree = "<group>"; };
+		15E3EA52279CC3F1004ED29A /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		15E3EA55279CCEF1004ED29A /* CommentsApiWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsApiWorker.swift; sourceTree = "<group>"; };
+		15E6CED727A4AA9A000239AB /* PostedCommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostedCommentResponse.swift; sourceTree = "<group>"; };
+		15E6CED927A4B371000239AB /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		15E896972794C09200538649 /* FeedNewwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewwViewController.swift; sourceTree = "<group>"; };
 		15E896982794C09200538649 /* FeedNewwViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedNewwViewController.xib; sourceTree = "<group>"; };
 		15E896A02794C5A000538649 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		15E896A12794C5A000538649 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
+		15E9B93427A5E538002963D5 /* LikeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeResponse.swift; sourceTree = "<group>"; };
+		15E9B93627A74547002963D5 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		1709737F271D7B4200134ED7 /* LikeTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17097382271D7B4200134ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17097384271D7B4200134ED7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -630,6 +662,7 @@
 				1544DE532794BEFA00DF6054 /* FeedNewPresenterInput.swift */,
 				1544DE552794BF0A00DF6054 /* FeedNewPresenterOutput.swift */,
 				1544DE572794BF1500DF6054 /* FeedNewPresenter.swift */,
+				15E9B93427A5E538002963D5 /* LikeResponse.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -700,6 +733,11 @@
 				15E37EDE275AFB0100B800E9 /* UIViewController+Ext.swift */,
 				17CF73E1275A3BC4005C2067 /* UiImageView + KF .swift */,
 				15E3EA36279C583D004ED29A /* UITextView+Ext.swift */,
+				15E3EA4C279CB79F004ED29A /* Date+Ext.swift */,
+				15E3EA4E279CBE7A004ED29A /* UITableViewCell+Ext.swift */,
+				15E3EA52279CC3F1004ED29A /* UITableView+Ext.swift */,
+				15E6CED927A4B371000239AB /* UIView+Ext.swift */,
+				15E9B93627A74547002963D5 /* UILabel+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -718,6 +756,10 @@
 		15BDD2C5279A176A004F61BC /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				15E3EA54279CCEDA004ED29A /* Network */,
+				15E3EA45279CB131004ED29A /* Cell */,
+				15E3EA3B279CA0BC004ED29A /* TableManager */,
+				15E3EA38279C97D4004ED29A /* Assembler */,
 				15BDD2CB279A1817004F61BC /* Presenter */,
 				15BDD2CA279A17FF004F61BC /* View */,
 			);
@@ -742,6 +784,50 @@
 				15BDD2D0279A18F8004F61BC /* CommentsPresenterOutput.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		15E3EA38279C97D4004ED29A /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				15E3EA39279C97E8004ED29A /* CommentsAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		15E3EA3B279CA0BC004ED29A /* TableManager */ = {
+			isa = PBXGroup;
+			children = (
+				15E3EA3C279CA0D0004ED29A /* CommentsCellConfigurator.swift */,
+				15E3EA3E279CA0DE004ED29A /* CommentsTableManager.swift */,
+				15E3EA40279CACB7004ED29A /* CommentsResponse.swift */,
+				15E6CED727A4AA9A000239AB /* PostedCommentResponse.swift */,
+			);
+			path = TableManager;
+			sourceTree = "<group>";
+		};
+		15E3EA42279CAE9C004ED29A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				15E3EA43279CAEBA004ED29A /* CellConfiguration.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		15E3EA45279CB131004ED29A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				15E3EA47279CB149004ED29A /* CommentCell.swift */,
+				15E3EA46279CB149004ED29A /* CommentCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		15E3EA54279CCEDA004ED29A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				15E3EA55279CCEF1004ED29A /* CommentsApiWorker.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		15E8969B2794C22300538649 /* Cell */ = {
@@ -810,6 +896,7 @@
 		17097397271D913E00134ED7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				15E3EA42279CAE9C004ED29A /* Managers */,
 				15414A2C2723376B007AA93D /* Custom */,
 				1558C60D2721F9880051436E /* Extensions */,
 				17097382271D7B4200134ED7 /* AppDelegate.swift */,
@@ -834,6 +921,7 @@
 				1709739E271D915600134ED7 /* BaseXibView.swift */,
 				1709739F271D915600134ED7 /* BaseNavigationController.swift */,
 				170973A0271D915600134ED7 /* BasePresenting.swift */,
+				15E3EA50279CC222004ED29A /* BaseTypes.swift */,
 			);
 			path = BaseLayers;
 			sourceTree = "<group>";
@@ -1606,6 +1694,7 @@
 				1558C5F227216B1E0051436E /* Roboto-MediumItalic.ttf in Resources */,
 				1558C5F427216B1E0051436E /* Roboto-BoldItalic.ttf in Resources */,
 				170D42852753953900509625 /* VideoCollectionViewCell.xib in Resources */,
+				15E3EA48279CB149004ED29A /* CommentCell.xib in Resources */,
 				17B4093827308DA700229977 /* TabBarViewController.storyboard in Resources */,
 				53B0ABC6AFD0C97685059F24 /* OnboardingViewController.xib in Resources */,
 				170D427C275394FB00509625 /* CategoryCollectionViewCell.xib in Resources */,
@@ -1699,6 +1788,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E3EA3A279C97E8004ED29A /* CommentsAssembler.swift in Sources */,
 				1558C6002721B0B70051436E /* Strings+Generated.swift in Sources */,
 				153F2CD5273724F4002AF9FA /* FeedViewViewController.swift in Sources */,
 				153F2CE22737453F002AF9FA /* UICollectionViewCell+Ext.swift in Sources */,
@@ -1708,6 +1798,8 @@
 				17AA6C0627297E3E00CE276E /* AppReviewService.swift in Sources */,
 				17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */,
 				17AA6C122729804D00CE276E /* MainRouter.swift in Sources */,
+				15E3EA41279CACB7004ED29A /* CommentsResponse.swift in Sources */,
+				15E6CEDA27A4B371000239AB /* UIView+Ext.swift in Sources */,
 				153F2CCC273724F4002AF9FA /* FeedViewPresenterOutput.swift in Sources */,
 				15414A2E27233781007AA93D /* InsetTextField.swift in Sources */,
 				17447135279A088E00F5A983 /* CameraViewController.swift in Sources */,
@@ -1722,6 +1814,7 @@
 				155FED71274B01D400548B01 /* FeedPlayerContainer.swift in Sources */,
 				15578A0C2761687D00D0267C /* NetworkApi.swift in Sources */,
 				170973A4271D915600134ED7 /* BaseViewControllerInput.swift in Sources */,
+				15E3EA49279CB149004ED29A /* CommentCell.swift in Sources */,
 				153F2CDC273724F4002AF9FA /* FeedViewRouter.swift in Sources */,
 				170973A7271D915600134ED7 /* BaseNavigationController.swift in Sources */,
 				153F2CE027374391002AF9FA /* Constants.swift in Sources */,
@@ -1768,6 +1861,7 @@
 				170D427B275394FB00509625 /* CategoryCollectionViewCell.swift in Sources */,
 				2EDDD73BBF6E223384272200 /* StartSplashScreenPresenter.swift in Sources */,
 				ABE6EA2FE68D11FC321FD228 /* StartSplashScreenAssembler.swift in Sources */,
+				15E3EA53279CC3F1004ED29A /* UITableView+Ext.swift in Sources */,
 				9908C11211654A50BF6ECD9A /* SignUpViewController.swift in Sources */,
 				153F2CD3273724F4002AF9FA /* FeedCollectionManager.swift in Sources */,
 				6D089E666AFBBEAA7EC50D30 /* SignUpPresenterInput.swift in Sources */,
@@ -1786,11 +1880,16 @@
 				17E71F98272AF5A6001B2CF0 /* SignInResponse.swift in Sources */,
 				BB780BBE28F5CA9CC77499CB /* PasswordRecoveryFirstPresenterOutput.swift in Sources */,
 				51308A5B5FAA524BAF47676A /* PasswordRecoveryFirstPresenter.swift in Sources */,
+				15E3EA4F279CBE7A004ED29A /* UITableViewCell+Ext.swift in Sources */,
+				15E3EA51279CC222004ED29A /* BaseTypes.swift in Sources */,
+				15E9B93727A74547002963D5 /* UILabel+Ext.swift in Sources */,
 				17447139279A08A800F5A983 /* CustomButton.swift in Sources */,
 				C80CE8A5E39AF8CB4E83A1A0 /* PasswordRecoveryFirstAssembler.swift in Sources */,
+				15E3EA56279CCEF1004ED29A /* CommentsApiWorker.swift in Sources */,
 				55ECB4EC9BF8CFFECA4FC804 /* PasswordRecoverySecondViewController.swift in Sources */,
 				7EC8DB21FDD698ECEF3B5FB1 /* PasswordRecoverySecondPresenterInput.swift in Sources */,
 				1544DE542794BEFA00DF6054 /* FeedNewPresenterInput.swift in Sources */,
+				15E6CED827A4AA9A000239AB /* PostedCommentResponse.swift in Sources */,
 				AF052CFB648D99B02ED4C34F /* PasswordRecoverySecondPresenterOutput.swift in Sources */,
 				1513CBF3272C214700855FC4 /* RecoveryPasswordCodeResponse.swift in Sources */,
 				15E896992794C09200538649 /* FeedNewwViewController.swift in Sources */,
@@ -1824,6 +1923,7 @@
 				EC5A914BF337C4762CE5240C /* SignInAssembler.swift in Sources */,
 				17CF73ED275BB776005C2067 /* CategoryDictionaryResponse.swift in Sources */,
 				FB634C9CCBB6588CC922B0AD /* DeleteViewController.swift in Sources */,
+				15E3EA44279CAEBA004ED29A /* CellConfiguration.swift in Sources */,
 				15E3EA37279C583D004ED29A /* UITextView+Ext.swift in Sources */,
 				35F61DE4A10A3926683EED8E /* DeletePresenterInput.swift in Sources */,
 				376DBBA31FE17358ADEE667F /* DeletePresenterOutput.swift in Sources */,
@@ -1831,6 +1931,7 @@
 				FA11C1534543F680AAF1A468 /* DeleteAssembler.swift in Sources */,
 				15BDD2CF279A18A4004F61BC /* CommentsPresenterInput.swift in Sources */,
 				ADD3D928650CA2EAE587F8D7 /* AuthPersonalDataViewController.swift in Sources */,
+				15E3EA3F279CA0DE004ED29A /* CommentsTableManager.swift in Sources */,
 				1DAFE1EF40339ECC072D7F3E /* AuthPersonalDataPresenterInput.swift in Sources */,
 				C447BE88FE9F345915373D91 /* AuthPersonalDataPresenterOutput.swift in Sources */,
 				4930AE6F02E7326F9F6BCE8E /* AuthPersonalDataPresenter.swift in Sources */,
@@ -1838,6 +1939,7 @@
 				4782A60453D901B504FCC135 /* TabBarViewController.swift in Sources */,
 				BBE87A302BF9ED9693B6C4FB /* TabBarPresenterInput.swift in Sources */,
 				38C9DCAB13CC50F3E9B79F0F /* TabBarPresenterOutput.swift in Sources */,
+				15E3EA3D279CA0D0004ED29A /* CommentsCellConfigurator.swift in Sources */,
 				15E37EDF275AFB0100B800E9 /* UIViewController+Ext.swift in Sources */,
 				A641C6E4474EF5D2A1D8D536 /* TabBarPresenter.swift in Sources */,
 				17CF73E2275A3BC4005C2067 /* UiImageView + KF .swift in Sources */,
@@ -1856,6 +1958,7 @@
 				A2A73A2EF301C9B5F09BA803 /* CatalogPresenter.swift in Sources */,
 				636B10E029A88C5A60CF1E1A /* CatalogAssembler.swift in Sources */,
 				234F4EF764B3A5F7E56C9EAF /* MainSearchViewController.swift in Sources */,
+				15E3EA4D279CB79F004ED29A /* Date+Ext.swift in Sources */,
 				936754568859E18DDDCB949D /* MainSearchPresenterInput.swift in Sources */,
 				5B188BD1C68F3CBA6BAD4A62 /* MainSearchPresenterOutput.swift in Sources */,
 				801ECE81A95A9CF4E471F217 /* MainSearchPresenter.swift in Sources */,
@@ -1865,6 +1968,7 @@
 				1544DE5C2794BF4000DF6054 /* FeedNewAssembler.swift in Sources */,
 				685665EE878B40B46970DA58 /* CatalogFiltresPresenterOutput.swift in Sources */,
 				5C50BFBE4636070DDD39D74F /* CatalogFiltresPresenter.swift in Sources */,
+				15E9B93527A5E538002963D5 /* LikeResponse.swift in Sources */,
 				892C87A12359C52E599CDCA5 /* CatalogFiltresAssembler.swift in Sources */,
 				1D9338B9E8D640F770A3EA5C /* FilterCurrentViewController.swift in Sources */,
 				19DEDAB36F635F9A93C0C184 /* FilterCurrentPresenterInput.swift in Sources */,
