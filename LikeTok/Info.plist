@@ -10,14 +10,6 @@
 		<string>Roboto-Black.ttf</string>
 		<string>Roboto-BlackItalic.ttf</string>
 	</array>
-    <key>NSCameraUsageDescription</key>
-    <string>To take photo</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>To record audio</string>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>To add photo in Photos</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>To save photos</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
