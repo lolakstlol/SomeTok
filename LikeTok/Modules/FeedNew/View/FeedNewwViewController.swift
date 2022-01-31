@@ -12,8 +12,8 @@ final class FeedNewwViewController: UIViewController {
 
     var presenter: FeedNewPresenterInput!
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var filterButtonsCollections: [UIButton]!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var filterButtonsCollections: [UIButton]!
     
     private var cellIdentifier = String(describing: FeedTableViewCell.self)
     private var items: [FeedResponse] = []
@@ -58,12 +58,29 @@ final class FeedNewwViewController: UIViewController {
 }
 
 extension FeedNewwViewController: FeedNewPresenterOutput {
+    func onLikeSuccess() {
+        
+    }
+    
+    func onLikeFailed() {
+        
+    }
+    
+    
+    func onTapComments(_ uuid: String) {
+        let commentsViewController = CommentsAssembler.createModule(uuid: uuid)
+//        commentsViewController.modalPresentationStyle = .overFullScreen
+//        commentsViewController.modalTransitionStyle = .coverVertical
+        presentPanModal(commentsViewController)
+//        present(commentsViewController, animated: true, completion: nil)
+    }
+    
     func onFetchFeed(_ items: [FeedResponse]) {
         DispatchQueue.main.async {
             self.tableView.refreshControl?.endRefreshing()
             self.items.append(contentsOf: items)
             self.tableView.reloadData()
-            self.checkPlay()
+            self.checkVideoState()
         }
     }
     
@@ -86,12 +103,7 @@ private extension FeedNewwViewController {
         }
     }
     
-    func check() {
-        checkPreload()
-        checkPlay()
-    }
-    
-    func checkPreload() {
+    func checkPreloading() {
         guard let lastRow = tableView.indexPathsForVisibleRows?.last?.row else { return }
         
         if items.count - lastRow < 3 {
@@ -107,7 +119,7 @@ private extension FeedNewwViewController {
         VideoPreloadManager.shared.set(waiting: Array(videoItems))
     }
     
-    func checkPlay() {
+    func checkVideoState() {
         let visibleCells = tableView.visibleCells.compactMap { $0 as? FeedTableViewCell }
         
         guard visibleCells.count > 0 else { return }
@@ -139,6 +151,7 @@ private extension FeedNewwViewController {
         let authorName = model.author.name ?? ""
         let description = model.title ?? ""
         let likesCount = model.likes
+        let isLiked = model.isLiked
         let commentsCount = model.comments
         
         if let videoUrl = URL(string: videoUrlString) {
@@ -149,7 +162,7 @@ private extension FeedNewwViewController {
         cell.setupUserData(authorName: authorName,
                            description: description,
                            likesCount: likesCount,
-                           isLiked: false,
+                           isLiked: isLiked,
                            commentsCount: commentsCount)
         return cell
     }
@@ -193,6 +206,12 @@ extension FeedNewwViewController: UITableViewDelegate {
         return tableView.frame.height
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let visibleIndexPath = tableView.indexPathsForVisibleRows?.first {
+            presenter.selectItem(items[visibleIndexPath.row])
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? FeedTableViewCell {
             cell.pause()
@@ -200,11 +219,15 @@ extension FeedNewwViewController: UITableViewDelegate {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate { check() }
+        if !decelerate {
+            checkPreloading()
+            checkVideoState()
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        check()
+        checkPreloading()
+        checkVideoState()
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
@@ -216,12 +239,11 @@ extension FeedNewwViewController: UITableViewDelegate {
 
 extension FeedNewwViewController: FeedTableViewCellDelegate {
     func didTapCommentsButton() {
-        let commentsViewController = CommentsViewController()
-//        commentsViewController.modalPresentationStyle = .custom
-//        commentsViewController.transitioningDelegate = self
-        commentsViewController.modalPresentationStyle = .overFullScreen
-        commentsViewController.modalTransitionStyle = .coverVertical
-        present(commentsViewController, animated: true, completion: nil)
+        presenter.didTapComments()
+    }
+    
+    func didTapLikeButton() {
+        presenter.likeAction()
     }
 }
 

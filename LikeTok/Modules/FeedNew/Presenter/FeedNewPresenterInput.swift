@@ -8,7 +8,10 @@
 import Foundation
 
 protocol FeedNewPresenterInput: BasePresenting {
+    func selectItem(_ item: FeedResponse)
     func updateFeedType(_ type: FeedViewEnterOption)
+    func didTapComments()
+    func likeAction()
     func fetchMoreFeed()
     func reloadFeed()
 }

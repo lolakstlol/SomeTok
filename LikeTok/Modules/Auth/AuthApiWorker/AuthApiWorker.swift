@@ -25,7 +25,7 @@ struct SignUpUserModel {
 final class AuthApiWorker {
     
     func signUP(username: String, mail: String, password: String, completion: @escaping (Swift.Result<SignUpResponse?, NetworkError>) -> Void) {
-        Api.auth.signup(email: mail, name: username, pass: password).request.responseJSON { response in
+        Api.Auth.signup(email: mail, name: username, pass: password).request.responseJSON { response in
             let code = response.response?.statusCode ?? 0
             switch code {
             case 200:
@@ -40,7 +40,7 @@ final class AuthApiWorker {
     }
     
     func updateSettings(name: String?, phone: String?, completion: @escaping (Swift.Result<SignUpResponse?, NetworkError>) -> Void) {
-        Api.auth.updateSettings(phone: phone, name: name).request.responseJSON { response in
+        Api.Auth.updateSettings(phone: phone, name: name).request.responseJSON { response in
             let code = response.response?.statusCode ?? 0
             switch code {
             case 200:
@@ -55,7 +55,7 @@ final class AuthApiWorker {
     }
     
     func signIn(username: String, password: String, completion: @escaping (Swift.Result<SignInResponse?, NetworkError>) -> Void) {
-        Api.auth.login(login: username, pass: password).request.responseJSON { response in
+        Api.Auth.login(login: username, pass: password).request.responseJSON { response in
             let code = response.response?.statusCode ?? 0
             switch code {
             case 200:
@@ -70,7 +70,7 @@ final class AuthApiWorker {
     }
     
     func confirmMail(code: String, mail: String, completion: @escaping (Swift.Result<SignUpResponse?, NetworkError>) -> Void) {
-        Api.auth.confirmEmail(email: mail, code: code).request.responseJSON { response in
+        Api.Auth.confirmEmail(email: mail, code: code).request.responseJSON { response in
             let code = response.response?.statusCode ?? 0
             switch code {
             case 200:
@@ -85,7 +85,7 @@ final class AuthApiWorker {
     }
     
     func repeatCode( mail: String, completion: @escaping (Swift.Result<SignUpResponse?, NetworkError>) -> Void) {
-        Api.auth.repeatCode(email: mail).request.responseJSON { response in
+        Api.Auth.repeatCode(email: mail).request.responseJSON { response in
             let code = response.response?.statusCode ?? 0
             switch code {
             case 200:
@@ -100,7 +100,7 @@ final class AuthApiWorker {
     }
     
     func recoveryPassword(_ email: String, completion: @escaping (Swift.Result<RecoveryPasswordCodeResponse?, NetworkError>) -> Void) {
-        Api.auth.resetPass(email: email).request.responseJSON { response in
+        Api.Auth.resetPass(email: email).request.responseJSON { response in
             guard let statusCode = response.response?.statusCode
             else {
                 return
@@ -120,7 +120,7 @@ final class AuthApiWorker {
     }
     
     func recoveryPassword(_ email: String, password: String, code: String, completion: @escaping (Swift.Result<RecoveryPasswordCodeResponse?, NetworkError>) -> Void) {
-        Api.auth.confirmResetPass(email: email, pass: password, code: code).request.responseJSON { response in
+        Api.Auth.confirmResetPass(email: email, pass: password, code: code).request.responseJSON { response in
             guard let statusCode = response.response?.statusCode
             else {
                 return

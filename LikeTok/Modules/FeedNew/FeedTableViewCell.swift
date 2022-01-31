@@ -10,12 +10,14 @@ import GSPlayer
 
 protocol FeedTableViewCellDelegate: AnyObject {
     func didTapCommentsButton()
+    func didTapLikeButton()
 }
 
 class FeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -98,9 +100,26 @@ class FeedTableViewCell: UITableViewCell {
     
     func setupUserData(authorName: String, description: String, likesCount: Int, isLiked: Bool, commentsCount: Int) {
         userNameLabel.text = authorName
-        descriptionLabel.text = description
+//        descriptionLabel.text = description
         likesCountLabel.text = String(likesCount)
         commentsLabelCount.text = String(commentsCount)
+        updateLikes(shouldShowFilledLike: isLiked)
+        addLabelReadMoreTrailing()
+    }
+    
+    
+    func updateLikes(shouldShowFilledLike: Bool) {
+        let currentLikesCount = Int(likesCountLabel.text ?? "0") ?? .zero
+        
+//        switch type {
+//        case .filled:
+////            likeImageView.image = shouldShowFilledLike ? Assets.Feed.filledHeart.image : Assets.Feed.emptyHeart.image
+////            likeImageView.wiggle(amplitude: .high)
+//            likesCountLabel.text = String(currentLikesCount + 1)
+//        case .empty:
+////            likeImageView.image = Asset.Assets.Feed.emptyHeart.image
+//            likesCountLabel.text = String(currentLikesCount - 1)
+//        }
     }
     
     func play() {
@@ -118,6 +137,10 @@ class FeedTableViewCell: UITableViewCell {
     
     @IBAction func commentsButtonTap(_ sender: Any) {
         delegate?.didTapCommentsButton()
+    }
+    
+    @IBAction func likeButtonTap(_ sender: Any) {
+        delegate?.didTapLikeButton()
     }
 }
 
@@ -154,5 +177,16 @@ private extension FeedTableViewCell {
     func addGradient() {
         gradient.frame = contentView.bounds
         contentView.layer.insertSublayer(gradient, at: 2)
+    }
+    
+    func addLabelReadMoreTrailing() {
+        if descriptionLabel.text?.count ?? 0 > 1 {
+
+           let readmoreFont = UIFont(name: "Roboto-Regular", size: 12.0)
+            let readmoreFontColor = UIColor(red: 28/255, green: 125/255, blue: 228/255, alpha: 1)
+            DispatchQueue.main.async {
+                self.descriptionLabel.addTrailing(with: "... ", moreText: "Readmore", moreTextFont: readmoreFont!, moreTextColor: readmoreFontColor)
+            }
+        }
     }
 }

@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+protocol CommentsPresenterOutput: AnyObject {
+    func setupUI()
+    func setupComments(_ comments: [CommentDatum])
+    func onCommentPosted()
+}

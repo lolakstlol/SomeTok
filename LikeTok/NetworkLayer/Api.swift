@@ -71,21 +71,45 @@ enum Api {
             }
         }
     }
+    
+    enum Comments: ApiMethod {
+        case getComments(uuid: String)
+        case postComments(uuid: String, text: String)
+        
+        public var request: DataRequest {
+            switch self {
+            case .getComments(let uuid):
+                
+                let endPoint: String = "\(API.server)/user/post/\(uuid)/comments"
+                let request = Alamofire.request(endPoint, method: .get, headers: Api.headers)
+                return request.validate()
+            
+            case .postComments(let uuid, let text):
+                
+                let endPoint: String = "\(API.server)/user/post/\(uuid)/comments"
+                let parameters: Parameters = ["message" : text]
+                let request = Alamofire.request(endPoint, method: .post, parameters: parameters, headers: Api.headers)
+                return request.validate()
+            }
+        }
+    }
 
-    enum feed: ApiMethod {
+    enum Feed: ApiMethod {
         case getInitialFeed(type: FeedViewEnterOption),
-             getFeed(cursor: String, type: FeedViewEnterOption)
+             getFeed(cursor: String, type: FeedViewEnterOption),
+             createPostLike(postID: String),
+             deletePostLike(postID: String)
         public var request: DataRequest {
             switch self {
             case let .getFeed(cursor, type):
                 
-                let endpoint: String = "\(API.server)/user/feed/\(type.rawValue)"
+                let endPoint: String = "\(API.server)/user/feed/\(type.rawValue)"
                 let parameters: Parameters = [
                     "params": "",
                     "cursor": "\(cursor)"
                 ]
             
-                let request = Alamofire.request(endpoint, method: .get, parameters: parameters, headers: Api.headers)
+                let request = Alamofire.request(endPoint, method: .get, parameters: parameters, headers: Api.headers)
                 return request.validate()
                 
             case let .getInitialFeed(type):
@@ -96,6 +120,18 @@ enum Api {
                 ]
             
                 let request = Alamofire.request(endpoint, method: .get, parameters: parameters, headers: Api.headers)
+                return request.validate()
+                
+            case let .createPostLike(uuid):
+                
+                let endpoint: String = "\(API.server)/user/post/\(uuid)/like"
+                let request = Alamofire.request(endpoint, method: .put, headers: Api.headers)
+                return request.validate()
+                
+            case let .deletePostLike(uuid):
+                
+                let endpoint: String = "\(API.server)/user/post/\(uuid)/like"
+                let request = Alamofire.request(endpoint, method: .put, headers: Api.headers)
                 return request.validate()
             }
         }
@@ -165,7 +201,7 @@ enum Api {
         }
     }
     
-    enum auth: ApiMethod {
+    enum Auth: ApiMethod {
         case signup(email: String, name: String, pass: String),
              login (login: String, pass: String),
              confirmEmail(email: String, code: String),
