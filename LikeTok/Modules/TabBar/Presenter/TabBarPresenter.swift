@@ -32,7 +32,7 @@ final class TabBarPresenter: NSObject {
 
     
     private func getViewControllers() -> [UIViewController] {
-        let tabBarItems: [(UIViewController, TabBarItemModel)] = [(FeedNewAssembler.createModule(),
+        let tabBarItems: [(UIViewController, TabBarItemModel)] = [(FeedViewAssembler.createModule(type: .general, feedService: FeedService(), collectionManager: FeedCollectionManager()),
                                                                        TabBarItemModel(title: Strings.Tabbar.feed,
                                                                                        image: Assets.feedUnselected.image,
                                                                                        selectedImage: Assets.feedSelected.image)),

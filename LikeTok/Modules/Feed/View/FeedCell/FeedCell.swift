@@ -17,208 +17,211 @@ protocol FeedCellActionsOutput: AnyObject {
 final class FeedCell: UICollectionViewCell {
     
     // MARK: - @IBOutlets
-
-    @IBOutlet private var commentsLabel: UILabel!
-    @IBOutlet private var likeLabel: UILabel!
-    @IBOutlet private var likeImageView: UIImageView!
-    @IBOutlet weak var userImageView: UIImageView!
     
-    @IBOutlet private weak var userName: UILabel!
-    @IBOutlet private var topGradientView: UIView!
-    @IBOutlet private var bottomGradientView: UIView!
-    
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var backgroundImageView: UIImageView!
-    @IBOutlet weak var subscribeButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
-    
+    @IBOutlet weak var previewImageView: UIImageView!
+    @IBOutlet weak var shareView: UIView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var playerContainerView: UIView!
-    private var playerView: VideoPlayerView?
+    @IBOutlet weak var likeImageView: UIImageView!
+    @IBOutlet weak var likesCountLabel: UILabel!
+    @IBOutlet weak var subscribeButton: UIButton!
+    @IBOutlet weak var commentsCountLabel: UILabel!
+    @IBOutlet weak var playerView: VideoPlayerView!
     
     //http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
     // MARK: - Private properties
 
     private weak var output: FeedCellActionsOutput?
-//    private lazy var blurView: UIVisualEffectView = {
-//        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.systemChromeMaterialDark)
-//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = toCatalogButton.bounds
-//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        blurEffectView.layer.masksToBounds = true
-//        blurEffectView.layer.cornerRadius = 12
-//
-//        return blurEffectView
-//    }()
+    weak var delegate: FeedTableViewCellDelegate?
+    
+    private var isLiked: Bool = false
+    private var videoURL: URL?
+    private var previewImageString: String? {
+        didSet {
+            if let previewImageString = previewImageString,
+               let previewImageURL = URL(string: previewImageString) {
+                previewImageView.isHidden = false
+                previewImageView.kf.setImage(with: previewImageURL)
+            } else {
+                previewImageView.isHidden = true
+            }
+        }
+    }
+    
+    private var avatarImageString: String? {
+        didSet {
+            if let avatarImageString = avatarImageString,
+               let avatarImageURL = URL(string: avatarImageString) {
+                avatarImageView.isHidden = false
+                avatarImageView.kf.setImage(with: avatarImageURL)
+            } else {
+                avatarImageView.isHidden = true
+            }
+        }
+    }
+    
+    lazy var gradient: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        gradient.type = .axial
+        gradient.colors = [
+            UIColor.black.withAlphaComponent(0.5).cgColor,
+            UIColor.black.withAlphaComponent(0.25).cgColor,
+            UIColor.black.withAlphaComponent(0.25).cgColor,
+            UIColor.black.withAlphaComponent(0.9).cgColor,
+        ]
+        gradient.locations = [0, 0.25, 0.5, 1]
+        return gradient
+    }()
     
     private lazy var playImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "playButton")
-        imageView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        imageView.center = contentView.center
+        imageView.image = Assets.playButton.image.withAlpha(0.5)
+        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        imageView.center = previewImageView.center
         imageView.isHidden = true
         return imageView
     }()
     
-    // MARK: - Lifecycle
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupUI()
-        setUpPlayerView()
-        playerView?.addSubview(playImageView)
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        playerView?.removeFromSuperview()
-        playerView = nil
-        imageView.isHidden = false
-        userImageView.image = nil
-        backgroundImageView.image = nil
-        likeLabel.text = "0"
-        subscribeButton.setImage(nil, for: .normal)
-        setUpPlayerView()
+        addPlayerObserver()
+        addTapGesture()
+        contentView.addSubview(playImageView)
     }
     
-    // MARK: - @IBActions
-        
-    @IBAction private func commentsAction() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        addGradient()
+        shareView.layer.cornerRadius = 10
+        shareView.layer.borderColor = UIColor.white.cgColor
+        shareView.layer.borderWidth = 1.5
+        shareView.clipsToBounds = true
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        videoURL = nil
+        playerView.isHidden = true
+        avatarImageView.isHidden = true
+        previewImageView.isHidden = false
+        playImageView.isHidden = true
+        likeImageView.image = Assets.emptyHeart.image
+        likesCountLabel.text = "0"
+    }
+    
+    func set(videoURL: URL? = nil, previewImageString: String, avatarImageString: String) {
+        self.videoURL = videoURL
+        self.previewImageString = previewImageString
+        self.avatarImageString = avatarImageString
+    }
+    
+    func setupUserData(authorName: String, description: String, likesCount: Int, isLiked: Bool, commentsCount: Int) {
+        usernameLabel.text = authorName
+        descriptionLabel.text = description
+        likesCountLabel.text = String(likesCount)
+        commentsCountLabel.text = String(commentsCount)
+        setupLikeState(isLiked)
+    }
+    
+    func update(_ output: FeedCellActionsOutput, likes: (likesCount: Int, type: LikeType, shouldShowFilledLike: Bool), commentsCount: Int) {
+        self.output = output
+        self.commentsCountLabel.text = String(commentsCount)
+        self.likesCountLabel.text = String(likes.likesCount)
+        self.setupLikeState(likes.shouldShowFilledLike)
+        //
+    }
+    
+    func setupLikeState(_ isLiked: Bool) {
+        self.isLiked = isLiked
+//        let currentLikesCount = Int(likesCountLabel.text ?? "0") ?? .zero
+        likeImageView.image = isLiked ? Assets.filledHeart.image : Assets.emptyHeart.image
+//        likesCountLabel.text = isLiked ? String(currentLikesCount + 1) : String(currentLikesCount)
+    }
+    
+//    func updateLikeState() {
+//        isLiked = !isLiked
+//        let currentLikesCount = Int(likesCountLabel.text ?? "0") ?? .zero
+//        likeImageView.image = isLiked ? Assets.filledHeart.image : Assets.emptyHeart.image
+//        likesCountLabel.text = isLiked ? String(currentLikesCount + 1) : String(currentLikesCount - 1)
+//    }
+    
+    func play() {
+        if let videoURL = videoURL {
+            debugPrint("play video for \(videoURL.absoluteString), author \(usernameLabel.text)")
+            DispatchQueue.main.async {
+                self.playerView.play(for: videoURL)
+                self.playerView.isHidden = false
+                self.playImageView.isHidden = true
+            }
+        } else {
+            playerView.isHidden = true
+        }
+    }
+    
+    func pause() {
+        playerView.pause(reason: .hidden)
+    }
+    
+    @IBAction func commentsButtonTap(_ sender: Any) {
         output?.commentsTapAction()
     }
     
-    @IBAction private func likeAction() {
+    @IBAction func likeButtonTap(_ sender: Any) {
+//        updateLikeState()
         output?.likeTapAction(.iconTap)
-    }
-    
-    @IBAction private func profileAction() {
-        output?.profileTapAction()
-    }
-    
-    @IBAction private func shareAction() {
-        guard let image = imageView.image else { return }
-        output?.shareTapAction(image)
-    }
-    
-    @IBAction private func subscribeAction() {
-        output?.subscribeTapAction()
-    }
-    
-    @objc private func doubleTapLikeAction() {
-        output?.likeTapAction(.doubleTap)
-    }
-    
-    @objc private func screenTapAction() {
-        output?.screenTapAction()
-    }
-    
-    // MARK: - Public methods
-
-    func configure(_ output: FeedCellActionsOutput,
-                   _ likes: (likesCount: Int, type: LikeType, shouldShowFilledLike: Bool),
-                   _ commentsCount: Int,
-                   _ userImageURLString: String,
-                   _ videoURLString: String,
-                   _ description: String,
-                   _ isReadyToPlay: Bool) {
-        self.output = output
-//        playerView?.delegate = delegate
-        playVideo(videoURLString)
-        updatePlayerState(isReadyToPlay)
-        likeLabel.text = "\(likes.likesCount)"
-        descriptionLabel.text = description
-        commentsLabel.text = "\(commentsCount)"
-        imageView.backgroundColor = .clear
-//        if let videoURL = URL(string: videoURLString) {
-//            loadVideo(videoURL)
-//        }
-    }
-    
-    func updateLikes(type: LikeType, shouldShowFilledLike: Bool) {
-        let currentLikesCount = Int(likeLabel.text ?? "0") ?? .zero
-        switch type {
-        case .filled:
-//            likeImageView.image = shouldShowFilledLike ? Asset.Assets.Feed.filledHeart.image : Asset.Assets.Feed.emptyHeart.image
-//            likeImageView.wiggle(amplitude: .high)
-            likeLabel.text = String(currentLikesCount + 1)
-        case .empty:
-//            likeImageView.image = Asset.Assets.Feed.emptyHeart.image
-            likeLabel.text = String(currentLikesCount - 1)
-        }
-    }
-    
-    func playVideo(_ videoURLString: String) {
-        if let videoURL = URL(string: videoURLString) {
-            imageView.isHidden = true
-            playImageView.isHidden = true
-            playerView?.play(for: videoURL)
-        }
-    }
-    
-    func updatePlayerState(_ isReadyToPlay: Bool) {
-        if !isReadyToPlay {
-            playerView?.pause(reason: .hidden)
-        } else {
-            playerView?.seek(to: .zero)
-        }
-    }
-    
-    func setupUserData(userName: String) {
-        self.userName.text = userName
     }
 }
 
-// MARK: - UI
-
-extension FeedCell {
-    private func setupUI() {
-        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapLikeAction))
-        doubleTap.numberOfTapsRequired = 2
-        addGestureRecognizer(doubleTap)
-        
-        let userLoginRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileAction))
-        userName.isUserInteractionEnabled = true
-        userName.addGestureRecognizer(userLoginRecognizer)
-        
-        let screenTap = UITapGestureRecognizer(target: self, action: #selector(screenTapAction))
-        contentView.addGestureRecognizer(screenTap)
-        shareButton.layer.cornerRadius = 10
-        shareButton.layer.borderWidth = 1.5
-        shareButton.layer.borderColor = UIColor.white.cgColor
-//        userDataBottomConstraint.constant += Constants.General.safeArea?.bottom ?? .zero
-        applyGradient()
+private extension FeedCell {
+    func addTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        contentView.addGestureRecognizer(tap)
     }
     
-    private func applyGradient() {
-        let topGradient = CAGradientLayer()
-        let colors = [UIColor.black.withAlphaComponent(0.45),
-                      UIColor.black.withAlphaComponent(.zero)]
-        topGradient.colors = colors.map { $0.cgColor }
-        
-        topGradient.startPoint = CGPoint(x: 0.5, y: .zero)
-        topGradient.endPoint = CGPoint(x: 0.5, y: 1.0)
-        topGradient.frame = topGradientView.bounds
-        topGradientView.alpha = 0.9
-        topGradientView.layer.insertSublayer(topGradient, at: 1)
-
-        let bottomGradient = CAGradientLayer()
-        bottomGradient.colors = colors.map { $0.cgColor }
-        
-        bottomGradient.startPoint = CGPoint(x: 0.5, y: 1.0)
-        bottomGradient.endPoint = CGPoint(x: 0.5, y: .zero)
-        bottomGradient.frame = bottomGradientView.bounds
-        bottomGradientView.alpha = 1
-        bottomGradientView.layer.insertSublayer(bottomGradient, at: 1)
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        if let videoURL = videoURL {
+            if playerView.state == .playing {
+                playImageView.isHidden = false
+                playerView.pause(reason: .userInteraction)
+            } else{
+                playImageView.isHidden = true
+                playerView.play(for: videoURL)
+            }
+        }
     }
     
-    private func setUpPlayerView() {
-        playerView = VideoPlayerView()
-        playerContainerView.addSubview(playerView!)
-            
-        playerView?.translatesAutoresizingMaskIntoConstraints = false
-        playerView?.leadingAnchor.constraint(equalTo: playerContainerView.leadingAnchor).isActive = true
-        playerView?.trailingAnchor.constraint(equalTo: playerContainerView.trailingAnchor).isActive = true
-        playerView?.heightAnchor.constraint(equalTo: playerContainerView.widthAnchor, multiplier: 16/9).isActive = true
-        playerView?.centerYAnchor.constraint(equalTo: playerContainerView.centerYAnchor).isActive = true
+    func addPlayerObserver() {
+        playerView.stateDidChanged = { [weak self] state in
+            switch state {
+            case .none:
+                print("none")
+            case .error(let error):
+                print("error - \(error.localizedDescription)")
+            case .loading:
+                print("loading")
+            case .paused(let playing, let buffering):
+                print("paused - progress \(Int(playing * 100))% buffering \(Int(buffering * 100))%")
+            case .playing:
+                self?.previewImageView.isHidden = true
+                print("playing")
+            }
+        }
+    }
+    
+    func addGradient() {
+        gradient.frame = contentView.bounds
+        contentView.layer.insertSublayer(gradient, at: 2)
+    }
+    
+    func addLabelReadMoreTrailing() {
+        if descriptionLabel.text?.count ?? 0 > 1 {
+
+           let readmoreFont = UIFont(name: "Roboto-Regular", size: 12.0)
+            let readmoreFontColor = UIColor(red: 28/255, green: 125/255, blue: 228/255, alpha: 1)
+            DispatchQueue.main.async {
+                self.descriptionLabel.addTrailing(with: "... ", moreText: "Readmore", moreTextFont: readmoreFont!, moreTextColor: readmoreFontColor)
+            }
+        }
     }
 }

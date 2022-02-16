@@ -45,16 +45,11 @@ final class FeedCollectionManager: NSObject {
     private func setupCellItems() {
         guard let item = currentItem,
               let currentIndex = configurators.firstIndex(where: { $0.getModel().uuid == currentItem?.uuid }),
-              let delegate = output?.attach(),
-              let shouldShowFilledLikes = output?.shouldShowFilledLikes() else { return }
+              let delegate = output?.attach() else { return }
         
         configurators[currentIndex].updateCell(delegate: delegate,
-                                               likes: (item.likes, item.isLiked ? .filled : .empty, shouldShowFilledLikes),
-                                               commentsCount: item.comments,
-                                               imageUrlString: item.author.photo.preview ?? "",
-                                               videoURLString: item.media.last?.original ?? "",
-                                               description: item.title ?? "",
-                                               isReadyToPlay: isReadyToPlay)
+                                               likes: (item.likes, item.isLiked ? .filled : .empty, item.isLiked),
+                                               commentsCount: item.comments)
                                                 //item.user.avatarUrl)
     }
     
@@ -64,9 +59,12 @@ final class FeedCollectionManager: NSObject {
         output?.requestNextPosts(offset: configurators.count)
     }
     
-    private func updateState(_ isReadyToPlay: Bool) {
-        self.isReadyToPlay = isReadyToPlay
-        setupCellItems()
+    func checkVideoState() {
+        guard let currentIndex = configurators.firstIndex(where: { $0.getModel().uuid == currentItem?.uuid })
+        else {
+            return
+        }
+        configurators[currentIndex].playVideo()
     }
 }
 
@@ -91,6 +89,7 @@ extension FeedCollectionManager: UICollectionViewDataSource {
 // MARK: - FeedCollectionManagement
 
 extension FeedCollectionManager: FeedCollectionManagement {
+    
     func attach(_ collectionView: UICollectionView) {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -101,17 +100,17 @@ extension FeedCollectionManager: FeedCollectionManagement {
         self.collectionView = collectionView
     }
     
-    func stopVideo() {
-        updateState(false)
-    }
-    
-    func tapScreenAction() {
-        updateState(!isReadyToPlay)
-    }
-    
     func updateCellLikes(type: LikeType, at index: Int?) {
         guard let index = index, let shouldShowFilledLikes = output?.shouldShowFilledLikes() else { return }
-        configurators[index].cell?.updateLikes(type: type, shouldShowFilledLike: shouldShowFilledLikes)
+        configurators[index].cell?.setupLikeState(type == .filled ? true : false)
+    }
+    
+    func stopVideo() {
+        
+    }
+    
+    func playVideo() {
+       checkVideoState()
     }
     
     func updateItem(with model: FeedResponse, at index: Int) {
@@ -155,12 +154,18 @@ extension FeedCollectionManager: FeedCollectionManagement {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard let item = currentItem else { return }
         checkFeedPositionForRequest()
+        checkVideoState()
         output?.selectFeedItem(item)
-        updateState(true)
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        updateState(false)
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        checkVideoState()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? FeedCell {
+            cell.pause()
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

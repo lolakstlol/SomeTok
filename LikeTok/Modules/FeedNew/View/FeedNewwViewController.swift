@@ -13,10 +13,15 @@ final class FeedNewwViewController: UIViewController {
     var presenter: FeedNewPresenterInput!
 
     @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var generalButton: UIButton!
     @IBOutlet private var filterButtonsCollections: [UIButton]!
     
     private var cellIdentifier = String(describing: FeedTableViewCell.self)
     private var items: [FeedResponse] = []
+    private var newItems: [FeedResponse] = []
+    
+    private var isFirstAppUse: Bool = true
+    
     private var isRefreshingFeed: Bool = false
     
     override func viewDidLoad() {
@@ -24,6 +29,7 @@ final class FeedNewwViewController: UIViewController {
         presenter.viewDidLoad()
         setupTableView()
         configureRefreshControl()
+        setupFilterButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +65,9 @@ final class FeedNewwViewController: UIViewController {
 
 extension FeedNewwViewController: FeedNewPresenterOutput {
     func onLikeSuccess() {
-        
+        for i in items.indices where items[i].uuid == presenter.selectedUUID {
+            items[i].isLiked = !items[i].isLiked
+        }
     }
     
     func onLikeFailed() {
@@ -68,20 +76,40 @@ extension FeedNewwViewController: FeedNewPresenterOutput {
     
     
     func onTapComments(_ uuid: String) {
-        let commentsViewController = CommentsAssembler.createModule(uuid: uuid)
-//        commentsViewController.modalPresentationStyle = .overFullScreen
-//        commentsViewController.modalTransitionStyle = .coverVertical
-        presentPanModal(commentsViewController)
-//        present(commentsViewController, animated: true, completion: nil)
+//        let commentsViewController = CommentsAssembler.createModule(uuid: uuid)
+//        presentPanModal(commentsViewController)
     }
     
-    func onFetchFeed(_ items: [FeedResponse]) {
+    func onFetchFeed(_ newItems: [FeedResponse]) {
+//            self.tableView.refreshControl?.endRefreshing()
+//            self.items.append(contentsOf: items)
+//            self.tableView.reloadData()
+//            self.checkVideoState()
         DispatchQueue.main.async {
-            self.tableView.refreshControl?.endRefreshing()
-            self.items.append(contentsOf: items)
-            self.tableView.reloadData()
-            self.checkVideoState()
+            self.tableView.beginUpdates()
+            var indexPaths = [IndexPath]()
+            for row in (self.items.count..<(self.items.count + newItems.count)) {
+              indexPaths.append(IndexPath(row: row, section: 0))
+            }
+            self.items.append(contentsOf: newItems)
+            self.tableView.insertRows(at: indexPaths, with: .automatic)
+            self.tableView.endUpdates()
         }
+
+//        tableView.refreshControl?.endRefreshing()
+//        checkVideoState()
+    }
+    
+    func insertNewItems() {
+        tableView.beginUpdates()
+        var indexPaths = [IndexPath]()
+        for row in (items.count..<(items.count + newItems.count)) {
+          indexPaths.append(IndexPath(row: row, section: 0))
+        }
+        items.append(contentsOf: newItems)
+        debugPrint(indexPaths)
+        tableView.insertRows(at: indexPaths, with: .none)
+        tableView.endUpdates()
     }
     
     func onChangedFilter() {
@@ -93,6 +121,9 @@ private extension FeedNewwViewController {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.isPagingEnabled = true
         tableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
     
@@ -106,7 +137,7 @@ private extension FeedNewwViewController {
     func checkPreloading() {
         guard let lastRow = tableView.indexPathsForVisibleRows?.last?.row else { return }
         
-        if items.count - lastRow < 3 {
+        if items.count - lastRow < 5 {
             presenter.fetchMoreFeed()
         }
         
@@ -175,6 +206,15 @@ private extension FeedNewwViewController {
         selectedButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 16)
         selectedButton.titleLabel?.tintColor = .white
     }
+    
+    func setupFilterButtons() {
+        filterButtonsCollections.forEach {
+            $0.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
+            $0.titleLabel?.tintColor = .systemGray5
+        }
+        generalButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 16)
+        generalButton.titleLabel?.tintColor = .white
+    }
 
     @objc func handleRefreshControl() {
         items.removeAll()
@@ -207,8 +247,8 @@ extension FeedNewwViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let visibleIndexPath = tableView.indexPathsForVisibleRows?.first {
-            presenter.selectItem(items[visibleIndexPath.row])
+        if let visibleIndexPath = tableView.indexPathsForVisibleRows?.first, let item = items[safe: visibleIndexPath.row] {
+            presenter.selectItem(item)
         }
     }
     
@@ -219,15 +259,19 @@ extension FeedNewwViewController: UITableViewDelegate {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            checkPreloading()
-            checkVideoState()
-        }
+        checkPreloading()
+        checkVideoState()
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        if !newItems.isEmpty {
+//            insertNewItems()
+//            newItems.removeAll()
+//        }
+       
         checkPreloading()
-        checkVideoState()
+//            checkVideoState()
+
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {

@@ -20,6 +20,7 @@ protocol FeedViewInteractorInput: AnyObject {
     func subscribe(userId: String)
     func unsubscribe(userId: String)
     func stopVideo()
+    func playVideo()
     func screenTapAction()
 
     var configurators: [FeedCellConfigurator]? { get set }

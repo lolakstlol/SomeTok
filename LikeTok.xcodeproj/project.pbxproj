@@ -14,6 +14,9 @@
 		0F27EC19D3FF004B8A540DAC /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */; };
 		100F1F745E97FF68AD0A5786 /* SignInPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2CA03C6E46D5F372773B8 /* SignInPresenterOutput.swift */; };
 		1513CBF3272C214700855FC4 /* RecoveryPasswordCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1513CBF2272C214700855FC4 /* RecoveryPasswordCodeResponse.swift */; };
+		1534301427B48FD6000E6004 /* UIScrollView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1534301327B48FD6000E6004 /* UIScrollView+Ext.swift */; };
+		153D62AA27B05E780099B11B /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153D62A927B05E780099B11B /* UIImage+Ext.swift */; };
+		153ECFFD27BBD365001ABB4C /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153ECFFC27BBD365001ABB4C /* FeedResponse.swift */; };
 		153F2CCA273724F4002AF9FA /* FeedViewAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F2CB0273724F4002AF9FA /* FeedViewAssembler.swift */; };
 		153F2CCB273724F4002AF9FA /* FeedViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F2CB2273724F4002AF9FA /* FeedViewPresenter.swift */; };
 		153F2CCC273724F4002AF9FA /* FeedViewPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F2CB3273724F4002AF9FA /* FeedViewPresenterOutput.swift */; };
@@ -41,6 +44,7 @@
 		1544DE562794BF0A00DF6054 /* FeedNewPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1544DE552794BF0A00DF6054 /* FeedNewPresenterOutput.swift */; };
 		1544DE582794BF1500DF6054 /* FeedNewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1544DE572794BF1500DF6054 /* FeedNewPresenter.swift */; };
 		1544DE5C2794BF4000DF6054 /* FeedNewAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1544DE5B2794BF4000DF6054 /* FeedNewAssembler.swift */; };
+		1547A54727B92CC8001BBFB3 /* CGPoint+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1547A54627B92CC8001BBFB3 /* CGPoint+Ext.swift */; };
 		154DDB2B2732C8F30084A86F /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154DDB2A2732C8F30084A86F /* AuthCoordinator.swift */; };
 		15578A0C2761687D00D0267C /* NetworkApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15578A0B2761687D00D0267C /* NetworkApi.swift */; };
 		15578A0E276168BE00D0267C /* BaseRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15578A0D276168BE00D0267C /* BaseRequestProtocol.swift */; };
@@ -187,13 +191,13 @@
 		5B188BD1C68F3CBA6BAD4A62 /* MainSearchPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10903DBEE75BE566FD3E2265 /* MainSearchPresenterOutput.swift */; };
 		5C50BFBE4636070DDD39D74F /* CatalogFiltresPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D038C8FF610EBC7DF71205C /* CatalogFiltresPresenter.swift */; };
 		5E819C2B19C05F53AA221BEB /* OnboardingPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */; };
-		636858968F02AFE63D0020CA /* Pods_LikeTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F979E01E7B50A15EC31F8E75 /* Pods_LikeTok.framework */; };
 		636B10E029A88C5A60CF1E1A /* CatalogAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F838E8895EF397E5E39EA8 /* CatalogAssembler.swift */; };
 		681815494FF575FF1B5709E1 /* AuthPersonalDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26ACC02F979B25799CF28D5D /* AuthPersonalDataViewController.xib */; };
 		685665EE878B40B46970DA58 /* CatalogFiltresPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9868DEBB93BF8F4A75528678 /* CatalogFiltresPresenterOutput.swift */; };
 		6D089E666AFBBEAA7EC50D30 /* SignUpPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8651B45B181B0B85AA0CAF90 /* SignUpPresenterInput.swift */; };
 		73CF41B02B68472A51BB2A80 /* FilterCurrentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B048005B638827B6DC17D628 /* FilterCurrentViewController.xib */; };
 		766F7AD3BAC630F2C8674261 /* PasswordRecoveryFirstPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3059A40E4CA1336D6D06E1 /* PasswordRecoveryFirstPresenterInput.swift */; };
+		794E9972BC54B9608B82070D /* Pods_LikeTok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB031E79B2105E906C747189 /* Pods_LikeTok.framework */; };
 		7CD457E3F84E96672ECFF689 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B96BF1DFD3FE31BB2FD4143 /* SignUpPresenter.swift */; };
 		7E8C957C928DA406075B3066 /* MainSearchAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A7BB66013AE97F23B3E28C /* MainSearchAssembler.swift */; };
 		7EC8DB21FDD698ECEF3B5FB1 /* PasswordRecoverySecondPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C2C0CA8F993F8A6EF565A /* PasswordRecoverySecondPresenterInput.swift */; };
@@ -254,6 +258,9 @@
 		13C01C69EA5CC3C4B348427E /* SignUpAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpAssembler.swift; sourceTree = "<group>"; };
 		1408B8CE54322DAEF7CA052D /* SignUpPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpPresenterOutput.swift; sourceTree = "<group>"; };
 		1513CBF2272C214700855FC4 /* RecoveryPasswordCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordCodeResponse.swift; sourceTree = "<group>"; };
+		1534301327B48FD6000E6004 /* UIScrollView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ext.swift"; sourceTree = "<group>"; };
+		153D62A927B05E780099B11B /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		153ECFFC27BBD365001ABB4C /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
 		153F2CB0273724F4002AF9FA /* FeedViewAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewAssembler.swift; sourceTree = "<group>"; };
 		153F2CB2273724F4002AF9FA /* FeedViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewPresenter.swift; sourceTree = "<group>"; };
 		153F2CB3273724F4002AF9FA /* FeedViewPresenterOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewPresenterOutput.swift; sourceTree = "<group>"; };
@@ -281,6 +288,7 @@
 		1544DE552794BF0A00DF6054 /* FeedNewPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewPresenterOutput.swift; sourceTree = "<group>"; };
 		1544DE572794BF1500DF6054 /* FeedNewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewPresenter.swift; sourceTree = "<group>"; };
 		1544DE5B2794BF4000DF6054 /* FeedNewAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewAssembler.swift; sourceTree = "<group>"; };
+		1547A54627B92CC8001BBFB3 /* CGPoint+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Ext.swift"; sourceTree = "<group>"; };
 		154DDB2A2732C8F30084A86F /* AuthCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		15578A0B2761687D00D0267C /* NetworkApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkApi.swift; sourceTree = "<group>"; };
 		15578A0D276168BE00D0267C /* BaseRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequestProtocol.swift; sourceTree = "<group>"; };
@@ -448,15 +456,16 @@
 		9CF152F1E197EEC9955414CB /* AuthPersonalDataViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthPersonalDataViewController.swift; sourceTree = "<group>"; };
 		A3A7BB66013AE97F23B3E28C /* MainSearchAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchAssembler.swift; sourceTree = "<group>"; };
 		A752CCE2C475567406360EDE /* MainSearchViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
+		AB031E79B2105E906C747189 /* Pods_LikeTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B048005B638827B6DC17D628 /* FilterCurrentViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = FilterCurrentViewController.xib; sourceTree = "<group>"; };
 		B0D272114B07696150074BFD /* TabBarPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarPresenterOutput.swift; sourceTree = "<group>"; };
 		B72C9B0AB937F33E2F069014 /* AuthPersonalDataPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthPersonalDataPresenterOutput.swift; sourceTree = "<group>"; };
 		B97D9B79B2A3AEC421721266 /* StartSplashScreenPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenterOutput.swift; sourceTree = "<group>"; };
 		B9D7D0DF5E63F8CA247190EA /* PasswordRecoveryFirstViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryFirstViewController.swift; sourceTree = "<group>"; };
-		B9E93828B256A556479F5F37 /* Pods-LikeTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.debug.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.debug.xcconfig"; sourceTree = "<group>"; };
 		BC397E179C015E809CEDBA0A /* TabBarPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarPresenterInput.swift; sourceTree = "<group>"; };
 		BC4CDE74F6B40A800C97BB80 /* PasswordRecoveryFirstViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PasswordRecoveryFirstViewController.xib; sourceTree = "<group>"; };
 		BE358886ACD576C56BFF9E2A /* StartSplashScreenViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenViewController.swift; sourceTree = "<group>"; };
+		C2854C1D59FDAFB9254C6832 /* Pods-LikeTok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.release.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.release.xcconfig"; sourceTree = "<group>"; };
 		C2CDD1DB815F4CB0E0E9A7C3 /* SignInPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
 		C3B2CA03C6E46D5F372773B8 /* SignInPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInPresenterOutput.swift; sourceTree = "<group>"; };
 		C9B34057DF19D8B1537D177A /* AuthCodePresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthCodePresenterInput.swift; sourceTree = "<group>"; };
@@ -470,6 +479,7 @@
 		D3A53346F0ADC5FA7DE882C4 /* FilterCurrentPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FilterCurrentPresenterOutput.swift; sourceTree = "<group>"; };
 		D3D7AF7819A81E35498386C3 /* SignInPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInPresenterInput.swift; sourceTree = "<group>"; };
 		D5D22963DB671E1856D93D4C /* StartSplashScreenPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartSplashScreenPresenterInput.swift; sourceTree = "<group>"; };
+		D99A3BB441AB491FC79DFCE1 /* Pods-LikeTok.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.debug.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.debug.xcconfig"; sourceTree = "<group>"; };
 		DCCF954BE97992C0CEF49D45 /* OnboardingPresenterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPresenterInput.swift; sourceTree = "<group>"; };
 		DCFC12D44BA3282442DFA91E /* PasswordRecoverySecondPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PasswordRecoverySecondPresenterOutput.swift; sourceTree = "<group>"; };
 		E4A4E3941053B1AB5BC8AF9E /* OnboardingViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
@@ -478,8 +488,6 @@
 		EED464DE746B91118B2DC1B2 /* DeleteViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeleteViewController.swift; sourceTree = "<group>"; };
 		F45DAE7D2D83CC3EEE0F0494 /* SignInAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignInAssembler.swift; sourceTree = "<group>"; };
 		F9751DFADE9DFFF4B450710A /* FilterCurrentPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FilterCurrentPresenter.swift; sourceTree = "<group>"; };
-		F979E01E7B50A15EC31F8E75 /* Pods_LikeTok.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LikeTok.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9871D1368F1CAF476B65F8A /* Pods-LikeTok.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LikeTok.release.xcconfig"; path = "Target Support Files/Pods-LikeTok/Pods-LikeTok.release.xcconfig"; sourceTree = "<group>"; };
 		FB2909B36877A81EC0333E17 /* AuthCodeAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthCodeAssembler.swift; sourceTree = "<group>"; };
 		FDD0EC7C5F39557426DF4AE0 /* CatalogViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		FE8EDA9EAD07A247DB4F98D0 /* SignUpViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
@@ -490,7 +498,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				636858968F02AFE63D0020CA /* Pods_LikeTok.framework in Frameworks */,
+				794E9972BC54B9608B82070D /* Pods_LikeTok.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,14 +512,6 @@
 				5E7C99FA8AC97F1766DEB84B /* StartSplashScreenViewController.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		02A9DD3651C27698193631C7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F979E01E7B50A15EC31F8E75 /* Pods_LikeTok.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		06455F5CE129A9BF3765987A /* TabBar */ = {
@@ -554,6 +554,7 @@
 				153F2CBD273724F4002AF9FA /* View */,
 				153F2CC3273724F4002AF9FA /* Interactor */,
 				153F2CC7273724F4002AF9FA /* Router */,
+				153ECFFC27BBD365001ABB4C /* FeedResponse.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -738,6 +739,9 @@
 				15E3EA52279CC3F1004ED29A /* UITableView+Ext.swift */,
 				15E6CED927A4B371000239AB /* UIView+Ext.swift */,
 				15E9B93627A74547002963D5 /* UILabel+Ext.swift */,
+				153D62A927B05E780099B11B /* UIImage+Ext.swift */,
+				1534301327B48FD6000E6004 /* UIScrollView+Ext.swift */,
+				1547A54627B92CC8001BBFB3 /* CGPoint+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -846,7 +850,7 @@
 				17097381271D7B4200134ED7 /* LikeTok */,
 				17097380271D7B4200134ED7 /* Products */,
 				714882604AD2C953196A7E23 /* Pods */,
-				02A9DD3651C27698193631C7 /* Frameworks */,
+				4B6E2D1888D265A4CE52F6A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1191,6 +1195,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4B6E2D1888D265A4CE52F6A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB031E79B2105E906C747189 /* Pods_LikeTok.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4EB4558A0C7C4CB2DE88AE71 /* Assembler */ = {
 			isa = PBXGroup;
 			children = (
@@ -1329,8 +1341,8 @@
 		714882604AD2C953196A7E23 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B9E93828B256A556479F5F37 /* Pods-LikeTok.debug.xcconfig */,
-				F9871D1368F1CAF476B65F8A /* Pods-LikeTok.release.xcconfig */,
+				D99A3BB441AB491FC79DFCE1 /* Pods-LikeTok.debug.xcconfig */,
+				C2854C1D59FDAFB9254C6832 /* Pods-LikeTok.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1619,12 +1631,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17097393271D7B4400134ED7 /* Build configuration list for PBXNativeTarget "LikeTok" */;
 			buildPhases = (
-				018EF4159965144C4E0B62C8 /* [CP] Check Pods Manifest.lock */,
+				34243AA757310C86D3EA528C /* [CP] Check Pods Manifest.lock */,
 				1709737B271D7B4200134ED7 /* Sources */,
 				1709737C271D7B4200134ED7 /* Frameworks */,
 				1709737D271D7B4200134ED7 /* Resources */,
-				170973AB271D93E500134ED7 /* ShellScript */,
-				650D4E5FD745FE3886553CD2 /* [CP] Embed Pods Frameworks */,
+				170973AB271D93E500134ED7 /* Run Script */,
+				F72638D258FFEA98C43E329F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1725,7 +1737,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		018EF4159965144C4E0B62C8 /* [CP] Check Pods Manifest.lock */ = {
+		170973AB271D93E500134ED7 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi \n";
+		};
+		34243AA757310C86D3EA528C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1747,24 +1777,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		170973AB271D93E500134ED7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi \n";
-		};
-		650D4E5FD745FE3886553CD2 /* [CP] Embed Pods Frameworks */ = {
+		F72638D258FFEA98C43E329F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1833,6 +1846,7 @@
 				1544DE562794BF0A00DF6054 /* FeedNewPresenterOutput.swift in Sources */,
 				1558C60B2721D80A0051436E /* XCAssets+Generated.swift in Sources */,
 				158C8CFB2729E1C4001614D0 /* String+Ext.swift in Sources */,
+				153D62AA27B05E780099B11B /* UIImage+Ext.swift in Sources */,
 				5E819C2B19C05F53AA221BEB /* OnboardingPresenterInput.swift in Sources */,
 				17AA6C0427297E3E00CE276E /* DateFormatterService.swift in Sources */,
 				098AFF776E356795A9010F51 /* OnboardingPresenterOutput.swift in Sources */,
@@ -1853,6 +1867,7 @@
 				BFFDB7611EFD9494736FB1ED /* StartSplashScreenViewController.swift in Sources */,
 				153F2CD1273724F4002AF9FA /* FeedCollectionManagement.swift in Sources */,
 				15BDD2CD279A188A004F61BC /* CommentsPresenter.swift in Sources */,
+				1547A54727B92CC8001BBFB3 /* CGPoint+Ext.swift in Sources */,
 				17E71F93272ADE0D001B2CF0 /* AuthApiWorker.swift in Sources */,
 				17AA6BEE2729690600CE276E /* BaseTimer.swift in Sources */,
 				8E445F9A648A75D5369C11F0 /* StartSplashScreenPresenterInput.swift in Sources */,
@@ -1908,6 +1923,7 @@
 				153F2CD6273724F4002AF9FA /* FeedCell.swift in Sources */,
 				A7FD764AA9A0314249E048CB /* AuthCodePresenter.swift in Sources */,
 				8110DFA7ABCF252DE443A41D /* AuthCodeAssembler.swift in Sources */,
+				153ECFFD27BBD365001ABB4C /* FeedResponse.swift in Sources */,
 				CDB3F0037C4A4F7CB25A9A44 /* SignInViewController.swift in Sources */,
 				17AA6C1E27298DA200CE276E /* Closures.swift in Sources */,
 				17E71F96272ADEF6001B2CF0 /* SignUpResponse.swift in Sources */,
@@ -1921,6 +1937,7 @@
 				15BDD2C8279A17C5004F61BC /* CommentsViewController.swift in Sources */,
 				17AA6BF227297C6000CE276E /* DeepLinkOption.swift in Sources */,
 				EC5A914BF337C4762CE5240C /* SignInAssembler.swift in Sources */,
+				1534301427B48FD6000E6004 /* UIScrollView+Ext.swift in Sources */,
 				17CF73ED275BB776005C2067 /* CategoryDictionaryResponse.swift in Sources */,
 				FB634C9CCBB6588CC922B0AD /* DeleteViewController.swift in Sources */,
 				15E3EA44279CAEBA004ED29A /* CellConfiguration.swift in Sources */,
@@ -2131,16 +2148,20 @@
 		};
 		17097394271D7B4400134ED7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9E93828B256A556479F5F37 /* Pods-LikeTok.debug.xcconfig */;
+			baseConfigurationReference = D99A3BB441AB491FC79DFCE1 /* Pods-LikeTok.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To take photo";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "To record audio";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To add photo in Photos";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2154,7 +2175,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infoshell.like;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infoshell.like1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2164,16 +2185,20 @@
 		};
 		17097395271D7B4400134ED7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9871D1368F1CAF476B65F8A /* Pods-LikeTok.release.xcconfig */;
+			baseConfigurationReference = C2854C1D59FDAFB9254C6832 /* Pods-LikeTok.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To take photo";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "To record audio";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To add photo in Photos";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2187,7 +2212,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infoshell.like;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infoshell.like1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

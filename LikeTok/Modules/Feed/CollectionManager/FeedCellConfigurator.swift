@@ -34,39 +34,50 @@ final class FeedCellConfigurator {
     
     func playVideo() {
         debugPrint("-- play video \(model.author.username)")
-//        cell?.playVideo()
+        cell?.play()
     }
     
     func stopVideo() {
         debugPrint("-- stop video \(model.author.username)")
-//        cell?.stopVideo()
+        cell?.pause()
     }
     
     func setupCell(_ cell: UIView) {
-        guard let payload = model.media.first?.preview else { return }
+//        guard let payload = model.media.first?.preview else { return }
         self.cell = cell as? FeedCell
-        self.cell?.imageView.kf.setImage(with: URL(string: payload))
-        let userImage = model.author.photo.preview ?? ""
-        self.cell?.userImageView.kf.setImage(with: URL(string: userImage))
-//        self.cell?.imageView.image = Assets.onb1.image
-//        self.cell?.backgroundImageView.kf.setImage(with: URL(string: payload.blurImageUrl ?? ""))
-
-//        self.cell?.toCatalogButton.isHidden = !isMainFeed
-//        self.cell?.subscribeButton.isHidden = model.user.userId == UserDefaultsManager.shared.userId
-//        let time = AppDateFormatter.shared.howLongAgoWithDate(with: model.createdAt) ?? ""
-        self.cell?.setupUserData(userName: model.author.name ?? "")
-        guard let videoURL = model.media.last?.original, model.media.last?.type == .video else { return }
-        debugPrint("--- video is loading on \(videoURL)")
+//        self.cell?.previewImageView.kf.setImage(with: URL(string: payload))
+//        let userImage = model.author.photo.preview ?? ""
+//        self.cell?.avatarImageView.kf.setImage(with: URL(string: userImage))
+//        self.cell?.setupUserData(authorName: model.author.name ?? "", description: , likesCount: <#T##Int#>, isLiked: <#T##Bool#>, commentsCount: <#T##Int#>)
+//        guard let videoURL = model.media.last?.original, model.media.last?.type == .video else { return }
+        let payload = model.media
+        let previewImageString = payload.first?.preview ?? ""
+        let videoUrlString = payload.first(where: { $0.type == .video })?.original ?? ""
+        let avatarImageString = model.author.photo.preview ?? ""
+        let authorName = model.author.name ?? ""
+        let description = model.title ?? ""
+        let likesCount = model.likes
+        let isLiked = model.isLiked
+        let commentsCount = model.comments
+        
+        if let videoUrl = URL(string: videoUrlString) {
+            self.cell?.set(videoURL: videoUrl, previewImageString: previewImageString, avatarImageString: avatarImageString)
+        } else {
+            self.cell?.set(previewImageString: previewImageString, avatarImageString: avatarImageString)
+        }
+        self.cell?.setupUserData(authorName: authorName,
+                           description: description,
+                           likesCount: likesCount,
+                           isLiked: isLiked,
+                           commentsCount: commentsCount)
+        
+//        debugPrint("--- video is loading on \(videoURL)")
 //        self.cell?.loadVideo(URL(string: videoURL))
     }
     
     func updateCell(delegate: FeedCellActionsOutput,
                     likes: (likesCount: Int, type: LikeType, shouldShowFilledLike: Bool),
-                    commentsCount: Int,
-                    imageUrlString: String,
-                    videoURLString: String,
-                    description: String,
-                    isReadyToPlay: Bool) {
+                    commentsCount: Int) {
 //        if UserDefaultsManager.shared.userId != nil {
 //            self.cell?.subscribeButton.setImage((model.user.isSubscribed ?? false)
 //                                                ? Asset.Assets.Feed.Subscription.subscribed.image
@@ -75,29 +86,12 @@ final class FeedCellConfigurator {
 //            self.cell?.subscribeButton.setImage(Asset.Assets.Feed.Subscription.subscribe.image, for: .normal)
 //        }
 //        debugPrint("update cell")
-        cell?.configure(delegate, likes, commentsCount, imageUrlString, videoURLString, description, isReadyToPlay)
+        cell?.update(delegate, likes: likes, commentsCount: commentsCount)
     }
     
     
     func updateState(_ isReadyToPlay: Bool) {
         self.isReadyToPlay = isReadyToPlay
-    }
-    
-    
-    func processMedia(_ media: [FeedMedia]) -> (imageUrlString: String, videoUrlString: String){
-        var imageURL: String = ""
-        var videoURL: String = ""
-        
-        for item in media {
-            switch item.type {
-            case .video:
-                videoURL = item.original ?? ""
-            case .image:
-                imageURL = item.original ?? ""
-            }
-        }
-        
-        return (imageURL, videoURL)
     }
         
     func getCellSize(viewSize: CGSize?) -> CGSize {

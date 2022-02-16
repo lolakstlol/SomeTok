@@ -2,8 +2,12 @@ import Foundation
 
 // MARK: - Welcome
 struct CommentsResponse: Codable {
-    let data: [CommentDatum]
+    let data: CommentData
     let result: CommentResult
+}
+
+struct CommentData: Codable {
+    let data: [CommentDatum]
 }
 
 // MARK: - Datum

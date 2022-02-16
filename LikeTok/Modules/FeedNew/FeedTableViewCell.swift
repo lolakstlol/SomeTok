@@ -23,7 +23,6 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var subscibeButton: UIButton!
     @IBOutlet weak var shareView: UIView!
-    @IBOutlet weak var topGradientView: UIView!
     @IBOutlet weak var likesCountLabel: UILabel!
     @IBOutlet weak var commentsLabelCount: UILabel!
     @IBOutlet weak var bottomGradientView: UIView!
@@ -72,9 +71,10 @@ class FeedTableViewCell: UITableViewCell {
     
     private lazy var playImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "playButton")
+        imageView.image = Assets.playButton.image.withAlpha(0.5)
         imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         imageView.center = previewImageView.center
+        imageView.isHidden = true
         return imageView
     }()
     
@@ -82,13 +82,12 @@ class FeedTableViewCell: UITableViewCell {
         super.awakeFromNib()
         addPlayerObserver()
         addTapGesture()
-        addGradient()
-//        previewImageView.addSubview(playImageView)
         contentView.addSubview(playImageView)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        addGradient()
         shareView.layer.cornerRadius = 10
         shareView.layer.borderColor = UIColor.white.cgColor
         shareView.layer.borderWidth = 1.5
@@ -121,22 +120,25 @@ class FeedTableViewCell: UITableViewCell {
     func setupLikeState(_ isLiked: Bool) {
         self.isLiked = isLiked
         let currentLikesCount = Int(likesCountLabel.text ?? "0") ?? .zero
-        likeImageView.image = isLiked ? UIImage(named: "filledHeart") : Assets.emptyHeart.image
+        likeImageView.image = isLiked ? Assets.filledHeart.image : Assets.emptyHeart.image
         likesCountLabel.text = isLiked ? String(currentLikesCount + 1) : String(currentLikesCount)
     }
     
     func updateLikeState() {
         isLiked = !isLiked
         let currentLikesCount = Int(likesCountLabel.text ?? "0") ?? .zero
-        likeImageView.image = isLiked ? UIImage(named: "filledHeart") : Assets.emptyHeart.image
+        likeImageView.image = isLiked ? Assets.filledHeart.image : Assets.emptyHeart.image
         likesCountLabel.text = isLiked ? String(currentLikesCount + 1) : String(currentLikesCount - 1)
     }
     
     func play() {
         if let videoURL = videoURL {
-            playerView.play(for: videoURL)
-            playerView.isHidden = false
-            playImageView.isHidden = true
+            debugPrint("play video for \(videoURL.absoluteString), author \(userNameLabel.text)")
+            DispatchQueue.main.async {
+                self.playerView.play(for: videoURL)
+                self.playerView.isHidden = false
+                self.playImageView.isHidden = true
+            }
         } else {
             playerView.isHidden = true
         }

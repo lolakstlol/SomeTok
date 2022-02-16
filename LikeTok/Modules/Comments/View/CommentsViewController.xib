@@ -149,7 +149,7 @@
                                         <constraint firstItem="NZo-ui-892" firstAttribute="leading" secondItem="BUe-ER-qQN" secondAttribute="trailing" constant="8" id="eED-tf-a3N"/>
                                         <constraint firstItem="dyp-SJ-VgP" firstAttribute="leading" secondItem="BUe-ER-qQN" secondAttribute="trailing" constant="13" id="lGW-q2-ebg"/>
                                         <constraint firstAttribute="trailing" secondItem="SVs-t3-NDz" secondAttribute="trailing" constant="8" id="q35-ch-s91"/>
-                                        <constraint firstItem="SVs-t3-NDz" firstAttribute="top" secondItem="31z-8W-cbC" secondAttribute="top" constant="8" id="wOx-sJ-mcp"/>
+                                        <constraint firstAttribute="bottom" secondItem="SVs-t3-NDz" secondAttribute="bottom" constant="9.5" id="vVB-2j-VpN"/>
                                     </constraints>
                                 </view>
                             </subviews>

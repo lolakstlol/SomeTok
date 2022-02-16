@@ -20,6 +20,10 @@ final class FeedNewPresenter {
     
     private var cursor: String? = nil
 
+    var selectedUUID: String? {
+        return selectedItem?.uuid
+    }
+    
     init(_ view: FeedNewPresenterOutput, _ feedService: FeedServiceProtocol, type: FeedViewEnterOption) {
         self.view = view
         self.type = type
@@ -75,6 +79,10 @@ private extension FeedNewPresenter {
 }
 
 extension FeedNewPresenter: FeedNewPresenterInput {
+    
+    func updateSelectedItemLike() {
+       
+    }
     
     func didTapComments() {
         guard let uuid = selectedItem?.uuid else {

@@ -20,7 +20,6 @@ final class FeedViewViewController: BaseViewController {
     @IBOutlet private var messageTextView: UITextView!
     @IBOutlet private var messageTextViewMinConstraint: NSLayoutConstraint!
     @IBOutlet private var inputSendButton: UIButton!
-    @IBOutlet private var hoverView: UIView!
     @IBOutlet private var bottomInputConstraint: NSLayoutConstraint!
     @IBOutlet private var hudView: UIView!
     @IBOutlet private var hudViewLabel: UILabel!
@@ -54,28 +53,22 @@ final class FeedViewViewController: BaseViewController {
     
     // MARK: - Private methods
     
-    private func returnToFirstState() {
-        hoverView.isHidden = true
-        inputSendButton.isHidden = true
-        messageTextView.textContainerInset = UIEdgeInsets(top: Constants.Feed.topBottomInputInsetConstraint,
-                                                          left: Constants.Feed.rightLeftInputInsetConstraint,
-                                                          bottom: Constants.Feed.topBottomInputInsetConstraint,
-                                                          right: Constants.Feed.rightLeftInputInsetConstraint)
-    }
-    
-    private func setupGestures() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(hideHover))
-        hoverView.addGestureRecognizer(tap)
-        
-    }
-    
     private func updateFilterButtons(selectedButton: UIButton) {
         filterButtonsCollections.forEach {
-            $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .regular)
+            $0.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
             $0.titleLabel?.tintColor = .systemGray5
         }
-        selectedButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
+        selectedButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 16)
         selectedButton.titleLabel?.tintColor = .white
+    }
+    
+    func setupFilterButtons() {
+        filterButtonsCollections.forEach {
+            $0.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
+            $0.titleLabel?.tintColor = .systemGray5
+        }
+        generalFilterButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 16)
+        generalFilterButton.titleLabel?.tintColor = .white
     }
     
     // MARK: - @IBActions
@@ -95,7 +88,6 @@ final class FeedViewViewController: BaseViewController {
     }
     
     @IBAction private func sendMessage(_ sender: Any) {
-        returnToFirstState()
         messageTextView.resignFirstResponder()
         presenter.sendMessage(messageTextView.text)
         messageTextView.text = ""
@@ -107,7 +99,6 @@ final class FeedViewViewController: BaseViewController {
     }
     
     @objc private func hideHover() {
-        returnToFirstState()
         messageTextView.resignFirstResponder()
     }
     
@@ -143,11 +134,20 @@ extension FeedViewViewController {
 extension FeedViewViewController: FeedViewPresenterOutput {
     
     func tapScreenAction() {
-        collectionManager?.tapScreenAction()
+//        collectionManager?.tapScreenAction()
     }
     
     func stopVideo() {
-        collectionManager?.stopVideo()
+//        collectionManager?.stopVideo()
+    }
+    
+    func playVideo() {
+        collectionManager?.playVideo()
+    }
+    
+    func openComments(_ uuid: String) {
+        let commentsViewController = CommentsAssembler.createModule(delegate: self, uuid: uuid)
+        presentPanModal(commentsViewController)
     }
     
     func setupLike(_ type: LikeType, at index: Int?) {
@@ -174,6 +174,7 @@ extension FeedViewViewController: FeedViewPresenterOutput {
 //        messageTextView.delegate = self
         collectionManager?.attach(collectionView)
         collectionManager?.output = self
+        setupFilterButtons()
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
@@ -200,7 +201,6 @@ extension FeedViewViewController: FeedViewPresenterOutput {
                                        selector: #selector(updateFeed),
                                        name: .userLoggedOut,
                                        object: nil)
-        setupGestures()
         
     }
     
@@ -274,6 +274,12 @@ extension FeedViewViewController: FeedCellActionsOutput {
     
     func screenTapAction() {
         presenter.screenTapAction()
+    }
+}
+
+extension FeedViewViewController: CommentsDelegate {
+    func updateCommentCount(_ count: Int) {
+        presenter.setCommentsCount(with: count)
     }
 }
 
