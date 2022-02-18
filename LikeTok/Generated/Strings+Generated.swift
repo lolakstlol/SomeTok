@@ -33,6 +33,15 @@ public enum Strings {
     public static let title = Strings.tr("Localizable", "AuthPersonalData.title")
   }
 
+  public enum Camera {
+    public enum Publication {
+      /// Рекламный материал
+      public static let ad = Strings.tr("Localizable", "Camera.publication.ad")
+      /// Личная публикация
+      public static let nonad = Strings.tr("Localizable", "Camera.publication.nonad")
+    }
+  }
+
   public enum Filtres {
     /// Применить
     public static let accept = Strings.tr("Localizable", "Filtres.accept")

@@ -75,6 +75,7 @@ class FeedTableViewCell: UITableViewCell {
         imageView.image = UIImage(named: "playButton")
         imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         imageView.center = previewImageView.center
+        imageView.isHidden = true
         return imageView
     }()
     

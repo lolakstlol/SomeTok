@@ -9,6 +9,11 @@
 import UIKit
 import Photos
 
+enum PostType {
+    case ad
+    case nonAd
+}
+
 class CameraViewController: UIViewController {
     
     @IBOutlet weak var cameraContainer: UIView!
@@ -26,7 +31,7 @@ class CameraViewController: UIViewController {
     
     var cameraConfig: CameraConfiguration!
     let imagePickerController = UIImagePickerController()
-    private let selectedPostType: CategoriesType = .digital
+    private let selectedPostType: PostType = .ad
     
     var videoRecordingStarted: Bool = false {
         didSet{
@@ -74,6 +79,12 @@ class CameraViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(appCameToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
+    @IBAction func backCameraButton(_ sender: Any) {
+        guard let tabbar = tabBarController as? TabBarViewController else { return }
+        tabbar.tabBar.isHidden = false
+        tabbar.returnToPreviositem()
+    }
+    
     @objc func appMovedToBackground() {
         if videoRecordingStarted {
             videoRecordingStarted = false
@@ -96,11 +107,11 @@ class CameraViewController: UIViewController {
     }
     
     @IBAction func secondButtonDidTap(_ sender: Any) {
-        configure(withType: .material)
+        configure(withType: .ad)
     }
     
     @IBAction func firstButtonDidTap(_ sender: Any) {
-        configure(withType: .digital)
+        configure(withType: .nonAd)
     }
     
     @objc func appCameToForeground() {
@@ -119,8 +130,9 @@ class CameraViewController: UIViewController {
         }
         self.cameraButton.tintColor = UIColor.black
         registerNotification()
-        firstButton.setTitle(Strings.Search.Categories.first, for: .normal)
-        materialButton.setTitle(Strings.Search.Categories.second, for: .normal)
+        
+        firstButton.setTitle(Strings.Camera.Publication.ad, for: .normal)
+        materialButton.setTitle(Strings.Camera.Publication.nonad, for: .normal)
         materialButton.layer.cornerRadius = 14
         firstButton.layer.cornerRadius = 14
         switcherContainer.layer.cornerRadius = 17
@@ -131,6 +143,7 @@ class CameraViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -150,6 +163,10 @@ class CameraViewController: UIViewController {
             cameraConfig.flashMode = .auto
             self.toggleFlashButton.setImage(#imageLiteral(resourceName: "Light"), for: .normal)
         }
+    }
+    
+    func uploadVideoFlow(video: Data) {
+        
     }
     
     @objc fileprivate func showToastForSaved() {
@@ -179,6 +196,13 @@ class CameraViewController: UIViewController {
             showToast(message: "Saved", fontSize: 12.0)
         }
         print(video)
+    }
+    
+    private func showImagePicker() {
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
+        imagePickerController.mediaTypes = ["public.movie", "public.image"]
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     @IBAction func didTapOnTakePhotoButton(_ sender: Any) {
@@ -212,21 +236,24 @@ class CameraViewController: UIViewController {
                         print(error ?? "Video recording error")
                         return
                     }
+                    if let data = try? Data(contentsOf: url) {
+                        self.uploadVideoFlow(video: data)
+                    }
                     UISaveVideoAtPathToSavedPhotosAlbum(url.path, self, #selector(self.video(_:didFinishSavingWithError:contextInfo:)), nil)
                 }
             }
         }
     }
     
-    func configure(withType: CategoriesType) {
+    func configure(withType: PostType) {
         UIView.animate(withDuration: 0.3) {
             switch withType {
-            case .material:
+            case .ad:
                 self.materialButton.setTitleColor(.white, for: .normal)
                 self.materialButton.backgroundColor = Assets.mainRed.color
                 self.firstButton.setTitleColor(Assets.darkGrayText.color, for: .normal)
                 self.firstButton.backgroundColor = .clear
-            case .digital:
+            case .nonAd:
                 self.firstButton.setTitleColor(.white, for: .normal)
                 self.firstButton.backgroundColor = Assets.mainRed.color
                 self.materialButton.setTitleColor(Assets.darkGrayText.color, for: .normal)
