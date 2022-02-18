@@ -33,7 +33,6 @@ final class FeedCell: UICollectionViewCell {
     // MARK: - Private properties
 
     private weak var output: FeedCellActionsOutput?
-    weak var delegate: FeedTableViewCellDelegate?
     
     private var isLiked: Bool = false
     private var videoURL: URL?

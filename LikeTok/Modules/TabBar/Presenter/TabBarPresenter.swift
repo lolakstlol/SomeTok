@@ -50,7 +50,7 @@ final class TabBarPresenter: NSObject {
                                                                                        image: Assets.chatUnselected.image,
                                                                                        selectedImage:
                                                                                         Assets.chatSelected.image)),
-                                                                      (ProfileViewController(),
+                                                                  (UINavigationController(rootViewController: MyProfileAssembler.createModule()),
                                                                        TabBarItemModel(title: Strings.Tabbar.profile,
                                                                                        image: Assets.chatUnselected.image,
                                                                                        selectedImage:

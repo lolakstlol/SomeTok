@@ -2,7 +2,7 @@
 //  LikeResponse.swift
 //  LikeTok
 //
-//  Created by Daniel on 30.01.22.
+//  Created by Daniel on 17.02.22.
 //
 
 import Foundation
