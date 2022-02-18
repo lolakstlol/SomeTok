@@ -62,6 +62,9 @@
 "Search.categories.first" = "Цифровые продукты";
 "Search.categories.second" = "Материальные товары";
 
+"Camera.publication.ad" = "Рекламный материал";
+"Camera.publication.nonad" = "Личная публикация";
+
 "Filtres.country" = "Страна";
 "Filtres.city" = "Город";
 "Filtres.category" = "Категория";

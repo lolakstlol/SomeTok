@@ -71,3 +71,5 @@
 "Filtres.title" = "Фильтры";
 "Filtres.plug" = "Применены фильтры";
 
+"Camera.publication.ad" = "Рекламный материал";
+"Camera.publication.nonad" = "Личная публикация";

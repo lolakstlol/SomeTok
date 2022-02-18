@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -152,11 +152,24 @@
                         <action selector="selectVideoMode:" destination="-1" eventType="touchUpInside" id="C6y-N9-4gx"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOY-ki-Ebr">
+                    <rect key="frame" x="10" y="104" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="0Ng-YS-TnD"/>
+                        <constraint firstAttribute="height" constant="44" id="VHh-R1-23Z"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="Camera_back"/>
+                    <connections>
+                        <action selector="backCameraButton:" destination="-1" eventType="touchUpInside" id="UBo-Mn-ICh"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="gYD-re-Pk6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="2Ci-PZ-J86"/>
+                <constraint firstItem="zOY-ki-Ebr" firstAttribute="top" secondItem="gYD-re-Pk6" secondAttribute="bottom" constant="10" id="2Kf-d3-vOX"/>
                 <constraint firstItem="nzD-PH-VeJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7xC-jp-wvH"/>
                 <constraint firstItem="nzD-PH-VeJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8Yd-xW-xcn"/>
                 <constraint firstItem="nzD-PH-VeJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EcX-ln-94c"/>
@@ -167,6 +180,7 @@
                 <constraint firstItem="5hP-Ur-4VR" firstAttribute="top" secondItem="CNV-5q-B7d" secondAttribute="bottom" constant="10" id="KXO-km-Gsk"/>
                 <constraint firstItem="nzD-PH-VeJ" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="Kon-Ul-Yh5"/>
                 <constraint firstItem="Avh-Fl-aAe" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="SMk-5A-uYT"/>
+                <constraint firstItem="zOY-ki-Ebr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="T31-ga-Gls"/>
                 <constraint firstItem="gYD-re-Pk6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="U8M-i6-r47"/>
                 <constraint firstAttribute="bottom" secondItem="Avh-Fl-aAe" secondAttribute="bottom" constant="25" id="afX-GR-U15"/>
                 <constraint firstItem="5hP-Ur-4VR" firstAttribute="trailing" secondItem="CNV-5q-B7d" secondAttribute="trailing" id="avo-Ap-8vG"/>
@@ -179,6 +193,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Camera_back" width="44" height="44"/>
         <image name="Light" width="44" height="44"/>
         <image name="camera" width="48" height="48"/>
         <image name="photo_icon" width="48" height="48"/>

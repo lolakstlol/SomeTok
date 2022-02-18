@@ -30,6 +30,7 @@ internal enum Assets {
   internal static let authSplashScreen = ImageAsset(name: "authSplashScreen")
   internal static let avatarDefaulth = ImageAsset(name: "avatarDefaulth")
   internal static let password = ImageAsset(name: "password")
+  internal static let cameraBack = ImageAsset(name: "Camera_back")
   internal static let light = ImageAsset(name: "Light")
   internal static let lightOff = ImageAsset(name: "Light_off")
   internal static let filterButton = ImageAsset(name: "FilterButton")

@@ -93,6 +93,22 @@ enum Api {
             }
         }
     }
+    
+    enum Camera: ApiMethod {
+        case createPost(adv: Bool, title: String, text: String)
+       // case uploadVideo(uuid: String, preview: Data, video: Data)
+        public var request: DataRequest {
+            switch self {
+            case .createPost(adv: let adv, title: let title, text: let text):
+                var params:Parameters = Parameters()
+                params["adv"] = adv
+                params["text"] = text
+                params["title"] = title
+                let request = Alamofire.request("\(API.server)/user/post", method: .post, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+            }
+        }
+    }
 
     enum Feed: ApiMethod {
         case getInitialFeed(type: FeedViewEnterOption),

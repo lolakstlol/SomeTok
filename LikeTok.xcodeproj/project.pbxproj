@@ -100,6 +100,7 @@
 		15E9B93727A74547002963D5 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9B93627A74547002963D5 /* UILabel+Ext.swift */; };
 		15EFB04727BEEE15007A13D7 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFB04527BEEE15007A13D7 /* ProfileCollectionViewCell.swift */; };
 		15EFB04827BEEE15007A13D7 /* ProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15EFB04627BEEE15007A13D7 /* ProfileCollectionViewCell.xib */; };
+		1703CE6727B671D400A832F3 /* CameraApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1703CE6627B671D400A832F3 /* CameraApi.swift */; };
 		17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097382271D7B4200134ED7 /* AppDelegate.swift */; };
 		17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097384271D7B4200134ED7 /* SceneDelegate.swift */; };
 		17097387271D7B4200134ED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17097386271D7B4200134ED7 /* ViewController.swift */; };
@@ -347,6 +348,7 @@
 		15E9B93627A74547002963D5 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		15EFB04527BEEE15007A13D7 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		15EFB04627BEEE15007A13D7 /* ProfileCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCollectionViewCell.xib; sourceTree = "<group>"; };
+		1703CE6627B671D400A832F3 /* CameraApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraApi.swift; sourceTree = "<group>"; };
 		1709737F271D7B4200134ED7 /* LikeTok.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeTok.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17097382271D7B4200134ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17097384271D7B4200134ED7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -843,6 +845,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		1703CE6527B671C100A832F3 /* CameraApi */ = {
+			isa = PBXGroup;
+			children = (
+				1703CE6627B671D400A832F3 /* CameraApi.swift */,
+			);
+			path = CameraApi;
+			sourceTree = "<group>";
+		};
 		17097376271D7B4200134ED7 = {
 			isa = PBXGroup;
 			children = (
@@ -973,6 +983,7 @@
 		17447131279A085100F5A983 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				1703CE6527B671C100A832F3 /* CameraApi */,
 				1744713B279A08BB00F5A983 /* UIViewControllerExtensions.swift */,
 				17447136279A08A800F5A983 /* View */,
 				17447133279A088E00F5A983 /* CameraViewController.swift */,
@@ -1757,7 +1768,8 @@
 		};
 		34243AA757310C86D3EA528C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -1904,6 +1916,8 @@
 				15E3EA56279CCEF1004ED29A /* CommentsApiWorker.swift in Sources */,
 				55ECB4EC9BF8CFFECA4FC804 /* PasswordRecoverySecondViewController.swift in Sources */,
 				7EC8DB21FDD698ECEF3B5FB1 /* PasswordRecoverySecondPresenterInput.swift in Sources */,
+				1544DE542794BEFA00DF6054 /* FeedNewPresenterInput.swift in Sources */,
+				1703CE6727B671D400A832F3 /* CameraApi.swift in Sources */,
 				15E6CED827A4AA9A000239AB /* PostedCommentResponse.swift in Sources */,
 				AF052CFB648D99B02ED4C34F /* PasswordRecoverySecondPresenterOutput.swift in Sources */,
 				1513CBF3272C214700855FC4 /* RecoveryPasswordCodeResponse.swift in Sources */,
@@ -2153,8 +2167,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = GF84852H7J;
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;
@@ -2190,8 +2204,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = GF84852H7J;
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;

@@ -1,8 +1,8 @@
 import StoreKit
 
 enum AppReviewFlow {
-    case viewPositiveStatus
-    case firstPackageAdded
+    case viewThreeQuotes
+    case firstLikeQuote
     case settingsReviewRequest
 }
 
@@ -41,13 +41,6 @@ final class AppReviewService {
     }
     
     func requestReview(from flow: AppReviewFlow, delay: Double = 0) {
-        switch flow {
-        case .viewPositiveStatus:
-            showAppReview()
-        case .firstPackageAdded:
-            showAppReview()
-        case .settingsReviewRequest:
-            showAppReview()
-        }
-}
+       showRequest()
+    }
 }

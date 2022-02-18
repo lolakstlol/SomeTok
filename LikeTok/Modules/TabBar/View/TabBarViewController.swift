@@ -7,6 +7,7 @@ enum TabBarAppearance {
 
 final class TabBarViewController: UITabBarController {
 	var presenter: TabBarPresenterInput!
+    var previosSelectedItem: Int?
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,6 +16,8 @@ final class TabBarViewController: UITabBarController {
         tabBar.tintColor = .black
         tabBar.unselectedItemTintColor = .gray
         navigationController?.navigationBar.isHidden = true
+        delegate = self
+        previosSelectedItem = selectedIndex
     }
 }
 
@@ -54,5 +57,21 @@ extension TabBarViewController: TabBarPresenterOutput {
     func updateViews(vc: [UIViewController], selected: Int) {
         self.viewControllers = vc
         self.selectedIndex = selected
+    }
+    
+    func returnToPreviositem() {
+        selectedIndex = previosSelectedItem ?? .zero
+    }
+    
+}
+
+extension TabBarViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        previosSelectedItem = selectedIndex
+        return true
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
     }
 }
