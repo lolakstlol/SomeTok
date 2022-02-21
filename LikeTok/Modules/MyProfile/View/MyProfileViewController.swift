@@ -12,19 +12,28 @@ enum ContentType: String {
     case personal = "digital_products"
 }
 
-final class MyProfileViewController: UIViewController {
+final class MyProfileViewController: BaseViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private var avatarImageView: UIImageView!
+    @IBOutlet private var usernameLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var subscriptionsCountLabel: UILabel!
+    @IBOutlet private var subscribersCountLabel: UILabel!
+    @IBOutlet private var friendsCountLabel: UILabel!
     
-    @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var referalButton: UIButton!
-    @IBOutlet weak var balanceButton: UIButton!
+    @IBOutlet private var collectionView: UICollectionView!
     
-    @IBOutlet weak var advertismentButton: UIButton!
-    @IBOutlet weak var advertismentBottomView: UIView!
+    @IBOutlet private var editButton: UIButton!
+    @IBOutlet private var referalButton: UIButton!
+    @IBOutlet private var balanceButton: UIButton!
     
-    @IBOutlet weak var personalButton: UIButton!
-    @IBOutlet weak var personalBottomView: UIView!
+    @IBOutlet private var advertismentButton: UIButton!
+    @IBOutlet private var advertismentBottomView: UIView!
+    
+    @IBOutlet private var personalButton: UIButton!
+    @IBOutlet private var personalBottomView: UIView!
+    
+    @IBOutlet private var collectionViewHeightConstraint: NSLayoutConstraint!
     
     var presenter: MyProfilePresenterInput!
     
@@ -32,19 +41,19 @@ final class MyProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupButtons()
-        setupNavigationBar()
+        presenter.viewDidLoad()
+        showLoader()
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupCollectionView()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let height = collectionView.collectionViewLayout.collectionViewContentSize.height
+        collectionViewHeightConstraint.constant = height
+        self.view.layoutIfNeeded()
     }
     
     private func setupNavigationBar() {
-        title = "Дмитрий SMM"
-        
         let dotsBarButtonItem = UIBarButtonItem(image: Assets.moreHorizontal.image, style: .plain, target: self, action: #selector(dotsButtonTap))
         navigationItem.rightBarButtonItems = [dotsBarButtonItem]
         navigationController?.navigationBar.tintColor = .black
@@ -90,12 +99,16 @@ final class MyProfileViewController: UIViewController {
         }
     }
     
-    @IBAction func advertismentButtonTap(_ sender: Any) {
+    @IBAction private func advertismentButtonTap(_ sender: Any) {
         update(with: .advertisment)
     }
     
-    @IBAction func personalButtonTap(_ sender: Any) {
+    @IBAction private func personalButtonTap(_ sender: Any) {
         update(with: .personal)
+    }
+    
+    @IBAction private func editButtonTap(_ sender: Any) {
+        presenter.editButtonTap()
     }
     
     @objc private func dotsButtonTap() {
@@ -106,6 +119,48 @@ final class MyProfileViewController: UIViewController {
 
 extension MyProfileViewController: MyProfilePresenterOutput {
     
+    func onEditedProfile(_ model: EditProfileModel) {
+        title = model.name
+        if let preview = model.avatar {
+            avatarImageView.kf.setImage(with: URL(string: preview))
+        }
+        usernameLabel.text = model.username
+        descriptionLabel.text = model.description
+    }
+    
+    func setupUI() {
+        setupButtons()
+        setupNavigationBar()
+        setupCollectionView()
+        
+        avatarImageView.layer.cornerRadius = 35
+        avatarImageView.clipsToBounds = true
+    }
+    
+    func onFetchProfileDataSuccess(_ model: ProfileModel) {
+        title = model.name
+        if let preview = model.photo.preview {
+            avatarImageView.kf.setImage(with: URL(string: preview))
+        } else {
+            avatarImageView.image = Assets.avatarDefaulth.image
+        }
+        usernameLabel.text = model.username
+        descriptionLabel.text = model.description
+        subscriptionsCountLabel.text = String(model.subscriptions)
+        subscribersCountLabel.text = String(model.subscribers)
+        friendsCountLabel.text = String(model.friends)
+        hideLoader()
+    }
+    
+    func onFetchProfileDataFailure(_ error: NetworkError) {
+        hideLoader()
+        showToast(error.localizedDescription)
+    }
+    
+    func onEditButtonTap(_ controller: EditProfileViewController) {
+        controller.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 extension MyProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

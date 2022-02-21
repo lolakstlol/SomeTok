@@ -9,6 +9,8 @@
 import Foundation
 
 protocol SignUpPresenterInput: BasePresenting {
+    func showKeyboard(_ info: KeyboardObserver.KeyboardInfo)
+    func hideKeyboard()
     func signUP(email: String, name: String, pass: String)
     func loginDidTap()
 }

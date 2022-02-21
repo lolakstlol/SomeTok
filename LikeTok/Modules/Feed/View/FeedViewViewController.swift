@@ -42,8 +42,12 @@ final class FeedViewViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.viewWillAppear()
-//        navigationController?.navigationBar.isHidden = true
-//        tabBarController?.showTabBar(completion: nil)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presenter.viewDidAppear()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -138,7 +142,7 @@ extension FeedViewViewController: FeedViewPresenterOutput {
     }
     
     func stopVideo() {
-//        collectionManager?.stopVideo()
+        collectionManager?.stopVideo()
     }
     
     func playVideo() {
@@ -148,6 +152,12 @@ extension FeedViewViewController: FeedViewPresenterOutput {
     func openComments(_ uuid: String) {
         let commentsViewController = CommentsAssembler.createModule(delegate: self, uuid: uuid)
         presentPanModal(commentsViewController)
+    }
+    
+    func openProfile(_ uuid: String) {
+        let otherProfileViewController = OtherProfileAssembler.createModule(uuid)
+//        otherProfileViewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(otherProfileViewController, animated: true)
     }
     
     func setupLike(_ type: LikeType, at index: Int?) {

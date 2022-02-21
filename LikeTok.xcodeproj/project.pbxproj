@@ -68,6 +68,25 @@
 		158C8CEA2726FE26001614D0 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CE92726FE26001614D0 /* KeyboardObserver.swift */; };
 		158C8CFB2729E1C4001614D0 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CFA2729E1C4001614D0 /* String+Ext.swift */; };
 		15B1DE0C272E088400078D01 /* UINaviagationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */; };
+		15B5C2CB27C170B30058408D /* ProfileNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2CA27C170B30058408D /* ProfileNetworkService.swift */; };
+		15B5C2CD27C1719A0058408D /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2CC27C1719A0058408D /* ProfileResponse.swift */; };
+		15B5C2D127C1827B0058408D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2CF27C1827B0058408D /* EditProfileViewController.swift */; };
+		15B5C2D227C1827B0058408D /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B5C2D027C1827B0058408D /* EditProfileViewController.xib */; };
+		15B5C2D527C182970058408D /* EditProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2D427C182970058408D /* EditProfilePresenter.swift */; };
+		15B5C2D727C182A40058408D /* EditProfilePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2D627C182A40058408D /* EditProfilePresenterInput.swift */; };
+		15B5C2D927C182B00058408D /* EditProfilePresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2D827C182B00058408D /* EditProfilePresenterOutput.swift */; };
+		15B5C2DC27C182C40058408D /* EditProfileAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2DB27C182C40058408D /* EditProfileAssembler.swift */; };
+		15B5C2DF27C19A3E0058408D /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2DE27C19A3E0058408D /* ProfileModel.swift */; };
+		15B5C2E127C19B0F0058408D /* ToProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2E027C19B0F0058408D /* ToProfileModel.swift */; };
+		15B5C2E327C19FB50058408D /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2E227C19FB50058408D /* EditProfileModel.swift */; };
+		15B5C2E627C1A27B0058408D /* BaseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2E527C1A27B0058408D /* BaseResult.swift */; };
+		15B5C2ED27C24BC30058408D /* OtherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2EB27C24BC30058408D /* OtherProfileViewController.swift */; };
+		15B5C2EE27C24BC30058408D /* OtherProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B5C2EC27C24BC30058408D /* OtherProfileViewController.xib */; };
+		15B5C2F127C24C050058408D /* OtherProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2F027C24C050058408D /* OtherProfilePresenter.swift */; };
+		15B5C2F427C24C210058408D /* OtherProfilePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2F327C24C210058408D /* OtherProfilePresenterInput.swift */; };
+		15B5C2F627C24C320058408D /* OtherProfilePresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2F527C24C320058408D /* OtherProfilePresenterOutput.swift */; };
+		15B5C2F827C24C520058408D /* OtherProfileAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2F727C24C520058408D /* OtherProfileAssembler.swift */; };
+		15B5C2FB27C25A4E0058408D /* OtherProfileServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2FA27C25A4E0058408D /* OtherProfileServerResponse.swift */; };
 		15BDD2C8279A17C5004F61BC /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BDD2C6279A17C5004F61BC /* CommentsViewController.swift */; };
 		15BDD2C9279A17C5004F61BC /* CommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15BDD2C7279A17C5004F61BC /* CommentsViewController.xib */; };
 		15BDD2CD279A188A004F61BC /* CommentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BDD2CC279A188A004F61BC /* CommentsPresenter.swift */; };
@@ -316,6 +335,25 @@
 		158C8CE92726FE26001614D0 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		158C8CFA2729E1C4001614D0 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINaviagationController+Extension.swift"; sourceTree = "<group>"; };
+		15B5C2CA27C170B30058408D /* ProfileNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetworkService.swift; sourceTree = "<group>"; };
+		15B5C2CC27C1719A0058408D /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
+		15B5C2CF27C1827B0058408D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		15B5C2D027C1827B0058408D /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
+		15B5C2D427C182970058408D /* EditProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenter.swift; sourceTree = "<group>"; };
+		15B5C2D627C182A40058408D /* EditProfilePresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenterInput.swift; sourceTree = "<group>"; };
+		15B5C2D827C182B00058408D /* EditProfilePresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresenterOutput.swift; sourceTree = "<group>"; };
+		15B5C2DB27C182C40058408D /* EditProfileAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileAssembler.swift; sourceTree = "<group>"; };
+		15B5C2DE27C19A3E0058408D /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		15B5C2E027C19B0F0058408D /* ToProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToProfileModel.swift; sourceTree = "<group>"; };
+		15B5C2E227C19FB50058408D /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
+		15B5C2E527C1A27B0058408D /* BaseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResult.swift; sourceTree = "<group>"; };
+		15B5C2EB27C24BC30058408D /* OtherProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileViewController.swift; sourceTree = "<group>"; };
+		15B5C2EC27C24BC30058408D /* OtherProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherProfileViewController.xib; sourceTree = "<group>"; };
+		15B5C2F027C24C050058408D /* OtherProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfilePresenter.swift; sourceTree = "<group>"; };
+		15B5C2F327C24C210058408D /* OtherProfilePresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfilePresenterInput.swift; sourceTree = "<group>"; };
+		15B5C2F527C24C320058408D /* OtherProfilePresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfilePresenterOutput.swift; sourceTree = "<group>"; };
+		15B5C2F727C24C520058408D /* OtherProfileAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileAssembler.swift; sourceTree = "<group>"; };
+		15B5C2FA27C25A4E0058408D /* OtherProfileServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProfileServerResponse.swift; sourceTree = "<group>"; };
 		15BDD2C6279A17C5004F61BC /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		15BDD2C7279A17C5004F61BC /* CommentsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsViewController.xib; sourceTree = "<group>"; };
 		15BDD2CC279A188A004F61BC /* CommentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsPresenter.swift; sourceTree = "<group>"; };
@@ -721,6 +759,108 @@
 			path = FilterCurrent;
 			sourceTree = "<group>";
 		};
+		15B5C2CE27C1824B0058408D /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				15B5C2D327C182800058408D /* View */,
+				15B5C2DA27C182B40058408D /* Presenter */,
+				15B5C2DD27C182C70058408D /* Assembler */,
+				15B5C2E427C19FFE0058408D /* Model */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		15B5C2D327C182800058408D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				15B5C2CF27C1827B0058408D /* EditProfileViewController.swift */,
+				15B5C2D027C1827B0058408D /* EditProfileViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		15B5C2DA27C182B40058408D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				15B5C2D427C182970058408D /* EditProfilePresenter.swift */,
+				15B5C2D627C182A40058408D /* EditProfilePresenterInput.swift */,
+				15B5C2D827C182B00058408D /* EditProfilePresenterOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		15B5C2DD27C182C70058408D /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				15B5C2DB27C182C40058408D /* EditProfileAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		15B5C2E427C19FFE0058408D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				15B5C2E227C19FB50058408D /* EditProfileModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		15B5C2E727C1A7D50058408D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				15B5C2CC27C1719A0058408D /* ProfileResponse.swift */,
+				15B5C2DE27C19A3E0058408D /* ProfileModel.swift */,
+				15B5C2E027C19B0F0058408D /* ToProfileModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		15B5C2EA27C24BA30058408D /* OtherProfile */ = {
+			isa = PBXGroup;
+			children = (
+				15B5C2EF27C24BC90058408D /* View */,
+				15B5C2F227C24C0E0058408D /* Presenter */,
+				15B5C2F927C24C560058408D /* Assembler */,
+				15B5C2FC27C263ED0058408D /* Model */,
+			);
+			path = OtherProfile;
+			sourceTree = "<group>";
+		};
+		15B5C2EF27C24BC90058408D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				15B5C2EB27C24BC30058408D /* OtherProfileViewController.swift */,
+				15B5C2EC27C24BC30058408D /* OtherProfileViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		15B5C2F227C24C0E0058408D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				15B5C2F027C24C050058408D /* OtherProfilePresenter.swift */,
+				15B5C2F327C24C210058408D /* OtherProfilePresenterInput.swift */,
+				15B5C2F527C24C320058408D /* OtherProfilePresenterOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		15B5C2F927C24C560058408D /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				15B5C2F727C24C520058408D /* OtherProfileAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		15B5C2FC27C263ED0058408D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				15B5C2FA27C25A4E0058408D /* OtherProfileServerResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		15BDD2C5279A176A004F61BC /* Comments */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,10 +897,12 @@
 		15C36CD927BDB59C00E84D14 /* MyProfile */ = {
 			isa = PBXGroup;
 			children = (
+				15B5C2CA27C170B30058408D /* ProfileNetworkService.swift */,
 				15C36CDE27BDB5E900E84D14 /* Presenter */,
 				15C36CE527BDB65400E84D14 /* View */,
 				15C36CE827BDB67D00E84D14 /* Assembler */,
 				15EFB04927BEEE1B007A13D7 /* Cell */,
+				15B5C2E727C1A7D50058408D /* Model */,
 			);
 			path = MyProfile;
 			sourceTree = "<group>";
@@ -892,6 +1034,8 @@
 			isa = PBXGroup;
 			children = (
 				15C36CD927BDB59C00E84D14 /* MyProfile */,
+				15B5C2EA27C24BA30058408D /* OtherProfile */,
+				15B5C2CE27C1824B0058408D /* EditProfile */,
 				17447131279A085100F5A983 /* Camera */,
 				153F2CAE273724F4002AF9FA /* Feed */,
 				17AA6C1F2729D56700CE276E /* Auth */,
@@ -936,6 +1080,7 @@
 				1709739F271D915600134ED7 /* BaseNavigationController.swift */,
 				170973A0271D915600134ED7 /* BasePresenting.swift */,
 				15E3EA50279CC222004ED29A /* BaseTypes.swift */,
+				15B5C2E527C1A27B0058408D /* BaseResult.swift */,
 			);
 			path = BaseLayers;
 			sourceTree = "<group>";
@@ -1709,6 +1854,7 @@
 				1558C5F327216B1E0051436E /* Roboto-BlackItalic.ttf in Resources */,
 				1709738C271D7B4400134ED7 /* Assets.xcassets in Resources */,
 				1709738A271D7B4200134ED7 /* Main.storyboard in Resources */,
+				15B5C2D227C1827B0058408D /* EditProfileViewController.xib in Resources */,
 				17447134279A088E00F5A983 /* CameraViewController.xib in Resources */,
 				170973B4271D97B500134ED7 /* Localizable.strings in Resources */,
 				1558C5ED27216B1E0051436E /* Roboto-Black.ttf in Resources */,
@@ -1735,6 +1881,7 @@
 				CA7080CE9BB5F69724ED4097 /* DeleteViewController.xib in Resources */,
 				170D42802753951500509625 /* AccountsCollectionViewCell.xib in Resources */,
 				681815494FF575FF1B5709E1 /* AuthPersonalDataViewController.xib in Resources */,
+				15B5C2EE27C24BC30058408D /* OtherProfileViewController.xib in Resources */,
 				153F2CD4273724F4002AF9FA /* FeedViewViewController.xib in Resources */,
 				153F2CD7273724F4002AF9FA /* FeedCell.xib in Resources */,
 				17CF73E7275ADB50005C2067 /* CategoriesTypeCollectionViewCell.xib in Resources */,
@@ -1820,32 +1967,40 @@
 				17097387271D7B4200134ED7 /* ViewController.swift in Sources */,
 				17CF73F1275BCDA8005C2067 /* DictionaryListTableViewCell.swift in Sources */,
 				15C36CE427BDB64100E84D14 /* MyProfilePresenter.swift in Sources */,
+				15B5C2F627C24C320058408D /* OtherProfilePresenterOutput.swift in Sources */,
 				158C8CEA2726FE26001614D0 /* KeyboardObserver.swift in Sources */,
 				17AA6C0627297E3E00CE276E /* AppReviewService.swift in Sources */,
 				17097383271D7B4200134ED7 /* AppDelegate.swift in Sources */,
 				17AA6C122729804D00CE276E /* MainRouter.swift in Sources */,
 				15E3EA41279CACB7004ED29A /* CommentsResponse.swift in Sources */,
 				15E6CEDA27A4B371000239AB /* UIView+Ext.swift in Sources */,
+				15B5C2E127C19B0F0058408D /* ToProfileModel.swift in Sources */,
 				153F2CCC273724F4002AF9FA /* FeedViewPresenterOutput.swift in Sources */,
 				15414A2E27233781007AA93D /* InsetTextField.swift in Sources */,
 				17447135279A088E00F5A983 /* CameraViewController.swift in Sources */,
+				15B5C2E627C1A27B0058408D /* BaseResult.swift in Sources */,
 				17AA6C0727297E3E00CE276E /* DeepLinkService.swift in Sources */,
 				1744713A279A08A800F5A983 /* CameraConfiguration.swift in Sources */,
 				17CF73E6275ADB50005C2067 /* CategoriesTypeCollectionViewCell.swift in Sources */,
 				17AA6BEC2729690600CE276E /* BaseTimerOutput.swift in Sources */,
 				1558C5D9271F91C40051436E /* OnboardingCollectionViewCell.swift in Sources */,
 				17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */,
+				15B5C2CB27C170B30058408D /* ProfileNetworkService.swift in Sources */,
 				153F2CCB273724F4002AF9FA /* FeedViewPresenter.swift in Sources */,
+				15B5C2D527C182970058408D /* EditProfilePresenter.swift in Sources */,
 				170973A6271D915600134ED7 /* BaseXibView.swift in Sources */,
 				155FED71274B01D400548B01 /* FeedPlayerContainer.swift in Sources */,
 				15578A0C2761687D00D0267C /* NetworkApi.swift in Sources */,
 				170973A4271D915600134ED7 /* BaseViewControllerInput.swift in Sources */,
 				15E3EA49279CB149004ED29A /* CommentCell.swift in Sources */,
+				15B5C2F427C24C210058408D /* OtherProfilePresenterInput.swift in Sources */,
 				153F2CDC273724F4002AF9FA /* FeedViewRouter.swift in Sources */,
+				15B5C2D727C182A40058408D /* EditProfilePresenterInput.swift in Sources */,
 				170973A7271D915600134ED7 /* BaseNavigationController.swift in Sources */,
 				153F2CE027374391002AF9FA /* Constants.swift in Sources */,
 				1558C60F2721F9F60051436E /* UIButton+Ext.swift in Sources */,
 				153F2CDA273724F4002AF9FA /* FeedViewInteractor.swift in Sources */,
+				15B5C2E327C19FB50058408D /* EditProfileModel.swift in Sources */,
 				153F2CDE27374024002AF9FA /* UICollectionView+Ext.swift in Sources */,
 				170973A8271D915600134ED7 /* BasePresenting.swift in Sources */,
 				17AA6C0527297E3E00CE276E /* Settings.swift in Sources */,
@@ -1865,17 +2020,20 @@
 				1744713C279A08BB00F5A983 /* UIViewControllerExtensions.swift in Sources */,
 				153F2CD2273724F4002AF9FA /* FeedCellConfigurator.swift in Sources */,
 				15BDD2D1279A18F8004F61BC /* CommentsPresenterOutput.swift in Sources */,
+				15B5C2DF27C19A3E0058408D /* ProfileModel.swift in Sources */,
 				0F27EC19D3FF004B8A540DAC /* OnboardingPresenter.swift in Sources */,
 				17C66E0E2723043F0032F5F3 /* Api.swift in Sources */,
 				15C36CE227BDB63500E84D14 /* MyProfilePresenterOutput.swift in Sources */,
 				154DDB2B2732C8F30084A86F /* AuthCoordinator.swift in Sources */,
 				17C66E11272305130032F5F3 /* AccountManager.swift in Sources */,
 				153F2CD9273724F4002AF9FA /* FeedViewInteractorOutput.swift in Sources */,
+				15B5C2FB27C25A4E0058408D /* OtherProfileServerResponse.swift in Sources */,
 				C171F81CD9D2034DB44A4B20 /* OnboardingAssembler.swift in Sources */,
 				17CF73E9275BB592005C2067 /* CountryDictionaryResponse.swift in Sources */,
 				17AA6C132729804D00CE276E /* BaseCoordinator.swift in Sources */,
 				153F2CD8273724F4002AF9FA /* FeedViewInteractorInput.swift in Sources */,
 				15578A102761691E00D0267C /* BaseResponse.swift in Sources */,
+				15B5C2DC27C182C40058408D /* EditProfileAssembler.swift in Sources */,
 				17AA6C142729804D00CE276E /* Presentable.swift in Sources */,
 				BFFDB7611EFD9494736FB1ED /* StartSplashScreenViewController.swift in Sources */,
 				153F2CD1273724F4002AF9FA /* FeedCollectionManagement.swift in Sources */,
@@ -1916,13 +2074,13 @@
 				15E3EA56279CCEF1004ED29A /* CommentsApiWorker.swift in Sources */,
 				55ECB4EC9BF8CFFECA4FC804 /* PasswordRecoverySecondViewController.swift in Sources */,
 				7EC8DB21FDD698ECEF3B5FB1 /* PasswordRecoverySecondPresenterInput.swift in Sources */,
-				1544DE542794BEFA00DF6054 /* FeedNewPresenterInput.swift in Sources */,
 				1703CE6727B671D400A832F3 /* CameraApi.swift in Sources */,
 				15E6CED827A4AA9A000239AB /* PostedCommentResponse.swift in Sources */,
 				AF052CFB648D99B02ED4C34F /* PasswordRecoverySecondPresenterOutput.swift in Sources */,
 				1513CBF3272C214700855FC4 /* RecoveryPasswordCodeResponse.swift in Sources */,
 				A61CB9393EEE6EA81E760A5E /* PasswordRecoverySecondPresenter.swift in Sources */,
 				80A44D7850A9816EBFA54395 /* ResetPasswordNewPasswordAssembler.swift in Sources */,
+				15B5C2F827C24C520058408D /* OtherProfileAssembler.swift in Sources */,
 				17F43BE927576F980054D5AF /* SearchApiWorker.swift in Sources */,
 				17AA6C1C27298D7000CE276E /* OnboardingCordinator.swift in Sources */,
 				E1BCC80F51969E7A6B96A859 /* AuthCodeViewController.swift in Sources */,
@@ -1945,10 +2103,13 @@
 				15C36CD827BDB56600E84D14 /* LikeResponse.swift in Sources */,
 				100F1F745E97FF68AD0A5786 /* SignInPresenterOutput.swift in Sources */,
 				15578A0E276168BE00D0267C /* BaseRequestProtocol.swift in Sources */,
+				15B5C2F127C24C050058408D /* OtherProfilePresenter.swift in Sources */,
 				17AA6C18272980B100CE276E /* BundleExtentsion.swift in Sources */,
 				F9410D481A551E8331C2DC76 /* SignInPresenter.swift in Sources */,
 				15C36CE727BDB67900E84D14 /* MyProfileAssembler.swift in Sources */,
+				15B5C2ED27C24BC30058408D /* OtherProfileViewController.swift in Sources */,
 				15BDD2C8279A17C5004F61BC /* CommentsViewController.swift in Sources */,
+				15B5C2D927C182B00058408D /* EditProfilePresenterOutput.swift in Sources */,
 				17AA6BF227297C6000CE276E /* DeepLinkOption.swift in Sources */,
 				EC5A914BF337C4762CE5240C /* SignInAssembler.swift in Sources */,
 				1534301427B48FD6000E6004 /* UIScrollView+Ext.swift in Sources */,
@@ -1956,6 +2117,7 @@
 				15EFB04727BEEE15007A13D7 /* ProfileCollectionViewCell.swift in Sources */,
 				FB634C9CCBB6588CC922B0AD /* DeleteViewController.swift in Sources */,
 				15E3EA44279CAEBA004ED29A /* CellConfiguration.swift in Sources */,
+				15B5C2D127C1827B0058408D /* EditProfileViewController.swift in Sources */,
 				15E3EA37279C583D004ED29A /* UITextView+Ext.swift in Sources */,
 				35F61DE4A10A3926683EED8E /* DeletePresenterInput.swift in Sources */,
 				376DBBA31FE17358ADEE667F /* DeletePresenterOutput.swift in Sources */,
@@ -1994,6 +2156,7 @@
 				15E3EA4D279CB79F004ED29A /* Date+Ext.swift in Sources */,
 				936754568859E18DDDCB949D /* MainSearchPresenterInput.swift in Sources */,
 				5B188BD1C68F3CBA6BAD4A62 /* MainSearchPresenterOutput.swift in Sources */,
+				15B5C2CD27C1719A0058408D /* ProfileResponse.swift in Sources */,
 				801ECE81A95A9CF4E471F217 /* MainSearchPresenter.swift in Sources */,
 				7E8C957C928DA406075B3066 /* MainSearchAssembler.swift in Sources */,
 				3846774529F20896CF83B1C0 /* CatalogFiltresViewController.swift in Sources */,
@@ -2168,7 +2331,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;
@@ -2205,7 +2368,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;

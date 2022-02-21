@@ -66,7 +66,7 @@ final class FilterCurrentViewController: BaseViewController {
                 switch result {
                 case .success(let response):
                     var result: [CategoryDictionary] = []
-                    response?.data.forEach{ element in
+                    response?.data.data.forEach{ element in
                         if let subcategories = element.categories {
                             result.append(contentsOf: subcategories)
                         }

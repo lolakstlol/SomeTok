@@ -100,7 +100,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l06-44-eD1">
-                    <rect key="frame" x="173" y="139.5" width="68" height="33"/>
+                    <rect key="frame" x="173" y="139.5" width="68.5" height="33"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="28"/>
                     <color key="textColor" name="BlackText"/>
                     <nil key="highlightedColor"/>
@@ -120,7 +120,7 @@
                         <action selector="continueButtonDidTap:" destination="-1" eventType="touchUpInside" id="CeT-hz-IhM"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Прикрепите ссылки на свои социальные сети" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff2-kM-iWw">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Прикрепите ссылки на свои социальные сети" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff2-kM-iWw">
                     <rect key="frame" x="16" y="596" width="382" height="19"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                     <color key="textColor" red="0.53333333333333333" green="0.54117647058823526" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -192,10 +192,10 @@
     </objects>
     <designables>
         <designable name="SlD-uF-6YM">
-            <size key="intrinsicContentSize" width="58" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="sMG-Ou-m3Z">
-            <size key="intrinsicContentSize" width="58" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
     </designables>
     <resources>

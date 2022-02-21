@@ -20,16 +20,25 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lo6-GW-TeW">
                         <rect key="frame" x="0.0" y="0.0" width="152" height="271"/>
                     </imageView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="oH1-Pw-qQF">
+                        <rect key="frame" x="66" y="125.5" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="lo6-GW-TeW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="3dQ-Wl-BZy"/>
+                <constraint firstItem="oH1-Pw-qQF" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Hjh-6j-Fpd"/>
                 <constraint firstAttribute="bottom" secondItem="lo6-GW-TeW" secondAttribute="bottom" id="X5c-XQ-CR1"/>
                 <constraint firstItem="lo6-GW-TeW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="eu1-lh-NkS"/>
                 <constraint firstAttribute="trailing" secondItem="lo6-GW-TeW" secondAttribute="trailing" id="iON-Xs-Wrd"/>
+                <constraint firstItem="oH1-Pw-qQF" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="oik-36-ioi"/>
             </constraints>
             <size key="customSize" width="152" height="271"/>
+            <connections>
+                <outlet property="activityIndicator" destination="oH1-Pw-qQF" id="vy9-0p-xdA"/>
+                <outlet property="previewImageView" destination="lo6-GW-TeW" id="pvK-5w-BCM"/>
+            </connections>
             <point key="canvasLocation" x="205.79710144927537" y="204.57589285714286"/>
         </collectionViewCell>
     </objects>

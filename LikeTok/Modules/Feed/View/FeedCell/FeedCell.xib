@@ -128,13 +128,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaH-Xj-QYB">
+                                <rect key="frame" x="8" y="8" width="145.5" height="38"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="showProfileButtonTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="7Oq-DY-XhS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fBm-tN-wQZ" firstAttribute="top" secondItem="p6s-bo-A71" secondAttribute="bottom" constant="15" id="2Nv-q0-hHb"/>
+                            <constraint firstItem="RaH-Xj-QYB" firstAttribute="bottom" secondItem="ntx-xX-7bq" secondAttribute="bottom" constant="-8" id="B7h-xp-cem"/>
                             <constraint firstAttribute="height" constant="180" id="DmB-bB-koH"/>
+                            <constraint firstItem="RaH-Xj-QYB" firstAttribute="leading" secondItem="wqo-IR-SEl" secondAttribute="leading" constant="-2" id="NzR-gA-eUA"/>
                             <constraint firstItem="p6s-bo-A71" firstAttribute="leading" secondItem="e2C-kP-0ae" secondAttribute="leading" constant="10" id="QUC-vl-R5a"/>
+                            <constraint firstItem="RaH-Xj-QYB" firstAttribute="top" secondItem="ntx-xX-7bq" secondAttribute="top" constant="8" id="XEL-7C-PdO"/>
                             <constraint firstAttribute="bottom" secondItem="fBm-tN-wQZ" secondAttribute="bottom" constant="21" id="Y2T-If-jcO"/>
+                            <constraint firstItem="RaH-Xj-QYB" firstAttribute="trailing" secondItem="USr-WZ-Cln" secondAttribute="trailing" id="dxQ-EK-YU6"/>
                             <constraint firstItem="ntx-xX-7bq" firstAttribute="leading" secondItem="e2C-kP-0ae" secondAttribute="leading" constant="10" id="ibc-8x-v3Y"/>
                             <constraint firstItem="p6s-bo-A71" firstAttribute="top" secondItem="ntx-xX-7bq" secondAttribute="bottom" constant="10" id="ivF-NX-uZ6"/>
                             <constraint firstAttribute="trailing" secondItem="fBm-tN-wQZ" secondAttribute="trailing" constant="10" id="lgZ-Tb-bun"/>

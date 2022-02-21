@@ -17,6 +17,7 @@ protocol FeedViewPresenterOutput: AnyObject {
     func setupLike(_ type: LikeType, at index: Int?)
     func hideActivityIndicator()
     func openComments(_ uuid: String)
+    func openProfile(_ uuid: String)
     func stopVideo()
     func playVideo()
     func tapScreenAction()

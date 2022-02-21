@@ -11,7 +11,7 @@ import CustomToastView_swift
 
 extension UIViewController {
         
-    func showToast(_ title: String, leftImage: UIImage) {
+    func showToast(_ title: String, leftImage: UIImage? = nil) {
         Toast.Builder()
             .backgroundColor(.white)
             .textColor(.black)
@@ -19,7 +19,6 @@ extension UIViewController {
             .cornerRadius(10)
             .title(title)
             .orientation(.bottomToTop)
-            .timeDismissal(4)
             .build()
             .show(on: self)
     }

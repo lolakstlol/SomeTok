@@ -10,7 +10,8 @@ import Foundation
 enum MyProfileAssembler {
     static func createModule() -> MyProfileViewController {
         let viewController = MyProfileViewController()
-        let presenter = MyProfilePresenter(viewController)
+        let networkService = ProfileNetworkService()
+        let presenter = MyProfilePresenter(viewController, networkService)
         viewController.presenter = presenter
         return viewController
     }

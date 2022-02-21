@@ -87,6 +87,7 @@ final class FeedCell: UICollectionViewCell {
         addPlayerObserver()
         addTapGesture()
         contentView.addSubview(playImageView)
+//        playerView.currentBufferDuration = TimeInterval(5)
     }
     
     override func layoutSubviews() {
@@ -128,22 +129,12 @@ final class FeedCell: UICollectionViewCell {
         self.commentsCountLabel.text = String(commentsCount)
         self.likesCountLabel.text = String(likes.likesCount)
         self.setupLikeState(likes.shouldShowFilledLike)
-        //
     }
     
     func setupLikeState(_ isLiked: Bool) {
         self.isLiked = isLiked
-//        let currentLikesCount = Int(likesCountLabel.text ?? "0") ?? .zero
         likeImageView.image = isLiked ? Assets.filledHeart.image : Assets.emptyHeart.image
-//        likesCountLabel.text = isLiked ? String(currentLikesCount + 1) : String(currentLikesCount)
     }
-    
-//    func updateLikeState() {
-//        isLiked = !isLiked
-//        let currentLikesCount = Int(likesCountLabel.text ?? "0") ?? .zero
-//        likeImageView.image = isLiked ? Assets.filledHeart.image : Assets.emptyHeart.image
-//        likesCountLabel.text = isLiked ? String(currentLikesCount + 1) : String(currentLikesCount - 1)
-//    }
     
     func play() {
         if let videoURL = videoURL {
@@ -162,12 +153,15 @@ final class FeedCell: UICollectionViewCell {
         playerView.pause(reason: .hidden)
     }
     
+    @IBAction func showProfileButtonTap(_ sender: Any) {
+        output?.profileTapAction()
+    }
+    
     @IBAction func commentsButtonTap(_ sender: Any) {
         output?.commentsTapAction()
     }
     
     @IBAction func likeButtonTap(_ sender: Any) {
-//        updateLikeState()
         output?.likeTapAction(.iconTap)
     }
 }

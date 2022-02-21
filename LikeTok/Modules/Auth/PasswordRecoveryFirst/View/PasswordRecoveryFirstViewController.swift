@@ -53,7 +53,6 @@ final class PasswordRecoveryFirstViewController: BaseViewController {
      private func keyboardWillShow(_ info: KeyboardObserver.KeyboardInfo) {
           view.addGestureRecognizer(tapWhenKeyboardAppears)
           presenter.showKeyboard(info)
-
      }
 
     @IBAction private func onResumeButtonTap(_ sender: Any) {
@@ -93,10 +92,10 @@ extension PasswordRecoveryFirstViewController: PasswordRecoveryFirstPresenterOut
      }
      
      func onViewWillAppear() {
-         title = "Восстановление пароля"
-         navigationController?.navigationBar.isHidden = false
-         navigationItem.leftBarButtonItem = UIBarButtonItem(image: Assets.backButton.image, style: .plain, target: self, action: #selector(backButton))
-         navigationItem.leftBarButtonItem?.tintColor = .black
+          title = "Восстановление пароля"
+          navigationController?.setNavigationBarHidden(false, animated: false)
+          navigationItem.leftBarButtonItem = UIBarButtonItem(image: Assets.backButton.image, style: .plain, target: self, action: #selector(backButton))
+          navigationItem.leftBarButtonItem?.tintColor = .black
      }
      
      func onResetPasswordSucess(_ userEmail: String) {

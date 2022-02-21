@@ -8,6 +8,7 @@
 
 import class Foundation.NSObject
 import UIKit
+import GSPlayer
 
 protocol FeedCollectionOutput: AnyObject {
     func selectFeedItem(_ item: FeedResponse)
@@ -57,15 +58,26 @@ final class FeedCollectionManager: NSObject {
         guard let currentIndex = configurators.firstIndex(where: { $0.getModel().uuid == currentItem?.uuid }),
               configurators.count - currentIndex < Constants.Feed.minFeedIndexDifference  else { return } 
         output?.requestNextPosts(offset: configurators.count)
+        
+        let videoItems = configurators
+            .suffix(from: min(currentIndex + 1, configurators.count))
+            .prefix(4)
+            .flatMap { $0.getModel().media.map { $0.original ?? "" }}
+            .compactMap { URL(string: $0 )}
+        
+        VideoPreloadManager.shared.set(waiting: Array(videoItems))
+        debugPrint("???", videoItems)
     }
     
-    func checkVideoState() {
+    private func checkVideoState(needPlay: Bool) {
         guard let currentIndex = configurators.firstIndex(where: { $0.getModel().uuid == currentItem?.uuid })
         else {
             return
         }
-        configurators[currentIndex].playVideo()
+        needPlay ? configurators[currentIndex].playVideo() : configurators[currentIndex].stopVideo()
+
     }
+
 }
 
 // MARK: - UICollectionViewDataSource
@@ -106,11 +118,11 @@ extension FeedCollectionManager: FeedCollectionManagement {
     }
     
     func stopVideo() {
-        
+        checkVideoState(needPlay: false)
     }
     
     func playVideo() {
-       checkVideoState()
+       checkVideoState(needPlay: true)
     }
     
     func updateItem(with model: FeedResponse, at index: Int) {
@@ -154,12 +166,12 @@ extension FeedCollectionManager: FeedCollectionManagement {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard let item = currentItem else { return }
         checkFeedPositionForRequest()
-        checkVideoState()
         output?.selectFeedItem(item)
+        checkVideoState(needPlay: true)
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        checkVideoState()
+        checkVideoState(needPlay: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

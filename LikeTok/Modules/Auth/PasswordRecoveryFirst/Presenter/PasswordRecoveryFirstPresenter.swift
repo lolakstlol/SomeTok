@@ -84,7 +84,6 @@ extension PasswordRecoveryFirstPresenter: PasswordRecoveryFirstPresenterInput {
             isKeyboardAppears = true
             view.onShowKeyboard(insets)
         }
-
     }
     
     func hideKeyboard() {

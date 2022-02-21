@@ -31,7 +31,7 @@ final class FeedViewPresenter {
         interactor.getUser()
     }
     
-    func viewWillAppear() {
+    func viewDidAppear() {
         interactor.playVideo()
     }
     
@@ -154,8 +154,8 @@ extension FeedViewPresenter: FeedViewPresenterInput {
     }
     
     func profileTouchUpInside() {
-//        guard let userId = post?.user.userId else { return }
-//
+        guard let uuid = post?.author.uuid else { return }
+        view?.openProfile(uuid)
 //        switch interactor.type {
 //        case .profilePosts:
 //            router.dismiss()
