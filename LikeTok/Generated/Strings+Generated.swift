@@ -179,6 +179,23 @@ public enum Strings {
     /// Каталог
     public static let search = Strings.tr("Localizable", "Tabbar.search")
   }
+
+  public enum Upload {
+    /// Категория
+    public static let category = Strings.tr("Localizable", "Upload.category")
+    /// Опишите публикацию
+    public static let describe = Strings.tr("Localizable", "Upload.describe")
+    /// Хэштэг
+    public static let hastag = Strings.tr("Localizable", "Upload.hastag")
+    /// Ссылка товара с сайта партнера
+    public static let link = Strings.tr("Localizable", "Upload.link")
+    /// Услуги продвижения
+    public static let primitions = Strings.tr("Localizable", "Upload.primitions")
+    /// Опубликовать
+    public static let publish = Strings.tr("Localizable", "Upload.publish")
+    /// Рекламный материал
+    public static let title = Strings.tr("Localizable", "Upload.title")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

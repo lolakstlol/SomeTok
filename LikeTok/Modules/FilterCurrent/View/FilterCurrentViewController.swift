@@ -55,7 +55,7 @@ final class FilterCurrentViewController: BaseViewController {
             apiWorker.getCountryDictionaty(name: searchTextField.text ?? "") { result in
                 switch result {
                 case .success(let response):
-                    self.countiesDataSource = response?.data ?? []
+                    self.countiesDataSource = response?.data.data ?? []
                     self.tableView.reloadData()
                 case .failure(let error):
                     print(error)

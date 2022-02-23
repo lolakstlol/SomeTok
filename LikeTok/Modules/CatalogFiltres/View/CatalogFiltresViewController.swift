@@ -12,7 +12,6 @@ final class CatalogFiltresViewController: BaseViewController {
     @IBOutlet weak var countryTitleLabel: UILabel!
     @IBOutlet weak var cityTitleLabel: UILabel!
     @IBOutlet weak var categoryTitleLabel: UILabel!
-    var presenter: CatalogFiltresPresenterInput!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
@@ -20,10 +19,12 @@ final class CatalogFiltresViewController: BaseViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cityMoreButton: UIButton!
     @IBOutlet weak var categoryMoreButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var acceptButton: UIButton!
+    
+    var presenter: CatalogFiltresPresenterInput!
     var completion: ((CategoriesFiltres?) -> Void)?
     var filtres: CategoriesFiltres?
-    @IBOutlet var cancelButton: UIButton!
-    @IBOutlet weak var acceptButton: UIButton!
     
 	override func viewDidLoad() {
         super.viewDidLoad()

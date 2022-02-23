@@ -13,6 +13,12 @@
 		0D0450D36C619482ED7CBC50 /* SignUpAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C01C69EA5CC3C4B348427E /* SignUpAssembler.swift */; };
 		0F27EC19D3FF004B8A540DAC /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257E397BEC011ED50A286B36 /* OnboardingPresenter.swift */; };
 		100F1F745E97FF68AD0A5786 /* SignInPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B2CA03C6E46D5F372773B8 /* SignInPresenterOutput.swift */; };
+		150D8F8927C6E59D002D51C0 /* VideoUploadAdvertismentFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150D8F8727C6E59D002D51C0 /* VideoUploadAdvertismentFinalViewController.swift */; };
+		150D8F8A27C6E59D002D51C0 /* VideoUploadAdvertismentFinalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 150D8F8827C6E59D002D51C0 /* VideoUploadAdvertismentFinalViewController.xib */; };
+		150D8F8E27C6EA82002D51C0 /* VideoUploadAdvertismentFinalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150D8F8D27C6EA82002D51C0 /* VideoUploadAdvertismentFinalPresenter.swift */; };
+		150D8F9027C6EA8E002D51C0 /* VideoUploadAdvertismentFinalPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150D8F8F27C6EA8E002D51C0 /* VideoUploadAdvertismentFinalPresenterInput.swift */; };
+		150D8F9227C6EA97002D51C0 /* VideoUploadAdvertismentFinalPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150D8F9127C6EA97002D51C0 /* VideoUploadAdvertismentFinalPresenterOutput.swift */; };
+		150D8F9427C6EF28002D51C0 /* VideoUploadPersonalFinalAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150D8F9327C6EF28002D51C0 /* VideoUploadPersonalFinalAssembler.swift */; };
 		1513CBF3272C214700855FC4 /* RecoveryPasswordCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1513CBF2272C214700855FC4 /* RecoveryPasswordCodeResponse.swift */; };
 		1534301427B48FD6000E6004 /* UIScrollView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1534301327B48FD6000E6004 /* UIScrollView+Ext.swift */; };
 		153D62AA27B05E780099B11B /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153D62A927B05E780099B11B /* UIImage+Ext.swift */; };
@@ -277,6 +283,12 @@
 		10903DBEE75BE566FD3E2265 /* MainSearchPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSearchPresenterOutput.swift; sourceTree = "<group>"; };
 		13C01C69EA5CC3C4B348427E /* SignUpAssembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpAssembler.swift; sourceTree = "<group>"; };
 		1408B8CE54322DAEF7CA052D /* SignUpPresenterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignUpPresenterOutput.swift; sourceTree = "<group>"; };
+		150D8F8727C6E59D002D51C0 /* VideoUploadAdvertismentFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadAdvertismentFinalViewController.swift; sourceTree = "<group>"; };
+		150D8F8827C6E59D002D51C0 /* VideoUploadAdvertismentFinalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoUploadAdvertismentFinalViewController.xib; sourceTree = "<group>"; };
+		150D8F8D27C6EA82002D51C0 /* VideoUploadAdvertismentFinalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadAdvertismentFinalPresenter.swift; sourceTree = "<group>"; };
+		150D8F8F27C6EA8E002D51C0 /* VideoUploadAdvertismentFinalPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadAdvertismentFinalPresenterInput.swift; sourceTree = "<group>"; };
+		150D8F9127C6EA97002D51C0 /* VideoUploadAdvertismentFinalPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadAdvertismentFinalPresenterOutput.swift; sourceTree = "<group>"; };
+		150D8F9327C6EF28002D51C0 /* VideoUploadPersonalFinalAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoUploadPersonalFinalAssembler.swift; sourceTree = "<group>"; };
 		1513CBF2272C214700855FC4 /* RecoveryPasswordCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordCodeResponse.swift; sourceTree = "<group>"; };
 		1534301327B48FD6000E6004 /* UIScrollView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ext.swift"; sourceTree = "<group>"; };
 		153D62A927B05E780099B11B /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
@@ -584,6 +596,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		150D8F8B27C6EA36002D51C0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				150D8F8D27C6EA82002D51C0 /* VideoUploadAdvertismentFinalPresenter.swift */,
+				150D8F8F27C6EA8E002D51C0 /* VideoUploadAdvertismentFinalPresenterInput.swift */,
+				150D8F9127C6EA97002D51C0 /* VideoUploadAdvertismentFinalPresenterOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		150D8F8C27C6EA46002D51C0 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				150D8F9327C6EF28002D51C0 /* VideoUploadPersonalFinalAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
 		153F2CAE273724F4002AF9FA /* Feed */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,6 +787,25 @@
 				4EB4558A0C7C4CB2DE88AE71 /* Assembler */,
 			);
 			path = FilterCurrent;
+			sourceTree = "<group>";
+		};
+		15998ABE27C6DD43002FB098 /* VideoUploadPersonalFinal */ = {
+			isa = PBXGroup;
+			children = (
+				150D8F8C27C6EA46002D51C0 /* Assembler */,
+				150D8F8B27C6EA36002D51C0 /* Presenter */,
+				15998AC327C6DDE4002FB098 /* View */,
+			);
+			path = VideoUploadPersonalFinal;
+			sourceTree = "<group>";
+		};
+		15998AC327C6DDE4002FB098 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				150D8F8727C6E59D002D51C0 /* VideoUploadAdvertismentFinalViewController.swift */,
+				150D8F8827C6E59D002D51C0 /* VideoUploadAdvertismentFinalViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		15B5C2CE27C1824B0058408D /* EditProfile */ = {
@@ -1033,6 +1082,7 @@
 		17097396271D8AA900134ED7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				15998ABE27C6DD43002FB098 /* VideoUploadPersonalFinal */,
 				15C36CD927BDB59C00E84D14 /* MyProfile */,
 				15B5C2EA27C24BA30058408D /* OtherProfile */,
 				15B5C2CE27C1824B0058408D /* EditProfile */,
@@ -1846,6 +1896,7 @@
 				1558C5EA27216B1E0051436E /* Roboto-Medium.ttf in Resources */,
 				15C36CDD27BDB5D600E84D14 /* MyProfileViewController.xib in Resources */,
 				1558C5EC27216B1E0051436E /* Roboto-Italic.ttf in Resources */,
+				150D8F8A27C6E59D002D51C0 /* VideoUploadAdvertismentFinalViewController.xib in Resources */,
 				1558C5EB27216B1E0051436E /* Roboto-LightItalic.ttf in Resources */,
 				1709738F271D7B4400134ED7 /* LaunchScreen.storyboard in Resources */,
 				170973AF271D967A00134ED7 /* swiftgen.yml in Resources */,
@@ -1985,6 +2036,7 @@
 				17AA6BEC2729690600CE276E /* BaseTimerOutput.swift in Sources */,
 				1558C5D9271F91C40051436E /* OnboardingCollectionViewCell.swift in Sources */,
 				17097385271D7B4200134ED7 /* SceneDelegate.swift in Sources */,
+				150D8F9027C6EA8E002D51C0 /* VideoUploadAdvertismentFinalPresenterInput.swift in Sources */,
 				15B5C2CB27C170B30058408D /* ProfileNetworkService.swift in Sources */,
 				153F2CCB273724F4002AF9FA /* FeedViewPresenter.swift in Sources */,
 				15B5C2D527C182970058408D /* EditProfilePresenter.swift in Sources */,
@@ -1998,6 +2050,7 @@
 				15B5C2D727C182A40058408D /* EditProfilePresenterInput.swift in Sources */,
 				170973A7271D915600134ED7 /* BaseNavigationController.swift in Sources */,
 				153F2CE027374391002AF9FA /* Constants.swift in Sources */,
+				150D8F8E27C6EA82002D51C0 /* VideoUploadAdvertismentFinalPresenter.swift in Sources */,
 				1558C60F2721F9F60051436E /* UIButton+Ext.swift in Sources */,
 				153F2CDA273724F4002AF9FA /* FeedViewInteractor.swift in Sources */,
 				15B5C2E327C19FB50058408D /* EditProfileModel.swift in Sources */,
@@ -2006,6 +2059,7 @@
 				17AA6C0527297E3E00CE276E /* Settings.swift in Sources */,
 				17AA6C162729804D00CE276E /* Coordinator.swift in Sources */,
 				170973A2271D915600134ED7 /* BaseViewController.swift in Sources */,
+				150D8F9227C6EA97002D51C0 /* VideoUploadAdvertismentFinalPresenterOutput.swift in Sources */,
 				170973AA271D91F300134ED7 /* LoaderViewController.swift in Sources */,
 				170D427F2753951500509625 /* AccountsCollectionViewCell.swift in Sources */,
 				17C66E0C2723034E0032F5F3 /* Method.swift in Sources */,
@@ -2034,6 +2088,7 @@
 				153F2CD8273724F4002AF9FA /* FeedViewInteractorInput.swift in Sources */,
 				15578A102761691E00D0267C /* BaseResponse.swift in Sources */,
 				15B5C2DC27C182C40058408D /* EditProfileAssembler.swift in Sources */,
+				150D8F8927C6E59D002D51C0 /* VideoUploadAdvertismentFinalViewController.swift in Sources */,
 				17AA6C142729804D00CE276E /* Presentable.swift in Sources */,
 				BFFDB7611EFD9494736FB1ED /* StartSplashScreenViewController.swift in Sources */,
 				153F2CD1273724F4002AF9FA /* FeedCollectionManagement.swift in Sources */,
@@ -2118,6 +2173,7 @@
 				FB634C9CCBB6588CC922B0AD /* DeleteViewController.swift in Sources */,
 				15E3EA44279CAEBA004ED29A /* CellConfiguration.swift in Sources */,
 				15B5C2D127C1827B0058408D /* EditProfileViewController.swift in Sources */,
+				150D8F9427C6EF28002D51C0 /* VideoUploadPersonalFinalAssembler.swift in Sources */,
 				15E3EA37279C583D004ED29A /* UITextView+Ext.swift in Sources */,
 				35F61DE4A10A3926683EED8E /* DeletePresenterInput.swift in Sources */,
 				376DBBA31FE17358ADEE667F /* DeletePresenterOutput.swift in Sources */,

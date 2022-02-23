@@ -72,3 +72,11 @@
 "Filtres.clear" = "Очистить";
 "Filtres.title" = "Фильтры";
 "Filtres.plug" = "Применены фильтры";
+
+"Upload.title" = "Рекламный материал";
+"Upload.describe" = "Опишите публикацию";
+"Upload.link" = "Ссылка товара с сайта партнера";
+"Upload.hastag" = "Хэштэг";
+"Upload.category" = "Категория";
+"Upload.primitions" = "Услуги продвижения";
+"Upload.publish" = "Опубликовать";

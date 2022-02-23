@@ -73,3 +73,11 @@
 
 "Camera.publication.ad" = "Рекламный материал";
 "Camera.publication.nonad" = "Личная публикация";
+
+"Upload.title" = "Рекламный материал";
+"Upload.describe" = "Опишите публикацию";
+"Upload.link" = "Ссылка товара с сайта партнера";
+"Upload.hastag" = "Хэштэг";
+"Upload.category" = "Категория";
+"Upload.primitions" = "Услуги продвижения";
+"Upload.publish" = "Опубликовать";

@@ -36,6 +36,7 @@ internal enum Assets {
   internal static let filterButton = ImageAsset(name: "FilterButton")
   internal static let searchIcon = ImageAsset(name: "Search Icon")
   internal static let crossIcon = ImageAsset(name: "crossIcon")
+  internal static let moreBlackBottom = ImageAsset(name: "moreBlackBottom")
   internal static let blackText = ColorAsset(name: "BlackText")
   internal static let border = ColorAsset(name: "Border")
   internal static let borderButton = ColorAsset(name: "BorderButton")
