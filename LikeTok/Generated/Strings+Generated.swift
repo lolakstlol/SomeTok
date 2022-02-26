@@ -196,6 +196,15 @@ public enum Strings {
     /// Рекламный материал
     public static let title = Strings.tr("Localizable", "Upload.title")
   }
+
+  public enum UploadAbout {
+    /// Закрыть
+    public static let close = Strings.tr("Localizable", "UploadAbout.close")
+    /// Далее
+    public static let next = Strings.tr("Localizable", "UploadAbout.next")
+    /// Что такое “Личная публикация”?
+    public static let title = Strings.tr("Localizable", "UploadAbout.title")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

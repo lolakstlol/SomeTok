@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 protocol CommentsDelegate: AnyObject {
     func updateCommentCount(_ count: Int)
 }

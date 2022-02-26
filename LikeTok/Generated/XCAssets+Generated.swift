@@ -33,6 +33,8 @@ internal enum Assets {
   internal static let cameraBack = ImageAsset(name: "Camera_back")
   internal static let light = ImageAsset(name: "Light")
   internal static let lightOff = ImageAsset(name: "Light_off")
+  internal static let closeButton = ImageAsset(name: "closeButton")
+  internal static let info = ImageAsset(name: "info")
   internal static let filterButton = ImageAsset(name: "FilterButton")
   internal static let searchIcon = ImageAsset(name: "Search Icon")
   internal static let crossIcon = ImageAsset(name: "crossIcon")

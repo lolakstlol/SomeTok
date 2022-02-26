@@ -122,6 +122,12 @@
 		15E3EA56279CCEF1004ED29A /* CommentsApiWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E3EA55279CCEF1004ED29A /* CommentsApiWorker.swift */; };
 		15E6CED827A4AA9A000239AB /* PostedCommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6CED727A4AA9A000239AB /* PostedCommentResponse.swift */; };
 		15E6CEDA27A4B371000239AB /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6CED927A4B371000239AB /* UIView+Ext.swift */; };
+		15E97BEE27CA592F00F37D5D /* AboutPersonalPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E97BEC27CA592F00F37D5D /* AboutPersonalPostViewController.swift */; };
+		15E97BEF27CA592F00F37D5D /* AboutPersonalPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15E97BED27CA592F00F37D5D /* AboutPersonalPostViewController.xib */; };
+		15E97BF527CA685400F37D5D /* AboutPersonalPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E97BF427CA685400F37D5D /* AboutPersonalPostPresenter.swift */; };
+		15E97BF727CA685D00F37D5D /* AboutPersonalPostPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E97BF627CA685D00F37D5D /* AboutPersonalPostPresenterInput.swift */; };
+		15E97BF927CA687C00F37D5D /* AboutPersonalPostPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E97BF827CA687C00F37D5D /* AboutPersonalPostPresenterOutput.swift */; };
+		15E97BFB27CA68D400F37D5D /* AboutPersonalPostAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E97BFA27CA68D400F37D5D /* AboutPersonalPostAssembler.swift */; };
 		15E9B93727A74547002963D5 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E9B93627A74547002963D5 /* UILabel+Ext.swift */; };
 		15EFB04727BEEE15007A13D7 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFB04527BEEE15007A13D7 /* ProfileCollectionViewCell.swift */; };
 		15EFB04827BEEE15007A13D7 /* ProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15EFB04627BEEE15007A13D7 /* ProfileCollectionViewCell.xib */; };
@@ -395,6 +401,12 @@
 		15E3EA55279CCEF1004ED29A /* CommentsApiWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsApiWorker.swift; sourceTree = "<group>"; };
 		15E6CED727A4AA9A000239AB /* PostedCommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostedCommentResponse.swift; sourceTree = "<group>"; };
 		15E6CED927A4B371000239AB /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		15E97BEC27CA592F00F37D5D /* AboutPersonalPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPersonalPostViewController.swift; sourceTree = "<group>"; };
+		15E97BED27CA592F00F37D5D /* AboutPersonalPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutPersonalPostViewController.xib; sourceTree = "<group>"; };
+		15E97BF427CA685400F37D5D /* AboutPersonalPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPersonalPostPresenter.swift; sourceTree = "<group>"; };
+		15E97BF627CA685D00F37D5D /* AboutPersonalPostPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPersonalPostPresenterInput.swift; sourceTree = "<group>"; };
+		15E97BF827CA687C00F37D5D /* AboutPersonalPostPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPersonalPostPresenterOutput.swift; sourceTree = "<group>"; };
+		15E97BFA27CA68D400F37D5D /* AboutPersonalPostAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPersonalPostAssembler.swift; sourceTree = "<group>"; };
 		15E9B93627A74547002963D5 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		15EFB04527BEEE15007A13D7 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		15EFB04627BEEE15007A13D7 /* ProfileCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1027,6 +1039,43 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		15E97BF027CA593500F37D5D /* AboutPersonalPost */ = {
+			isa = PBXGroup;
+			children = (
+				15E97BF327CA595600F37D5D /* Assembler */,
+				15E97BF227CA594F00F37D5D /* Presenter */,
+				15E97BF127CA594100F37D5D /* AboutPersonalPost */,
+			);
+			path = AboutPersonalPost;
+			sourceTree = "<group>";
+		};
+		15E97BF127CA594100F37D5D /* AboutPersonalPost */ = {
+			isa = PBXGroup;
+			children = (
+				15E97BEC27CA592F00F37D5D /* AboutPersonalPostViewController.swift */,
+				15E97BED27CA592F00F37D5D /* AboutPersonalPostViewController.xib */,
+			);
+			path = AboutPersonalPost;
+			sourceTree = "<group>";
+		};
+		15E97BF227CA594F00F37D5D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				15E97BF427CA685400F37D5D /* AboutPersonalPostPresenter.swift */,
+				15E97BF627CA685D00F37D5D /* AboutPersonalPostPresenterInput.swift */,
+				15E97BF827CA687C00F37D5D /* AboutPersonalPostPresenterOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		15E97BF327CA595600F37D5D /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				15E97BFA27CA68D400F37D5D /* AboutPersonalPostAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
 		15EFB04927BEEE1B007A13D7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1097,6 +1146,7 @@
 				5A515267A99CF7BA748BB88E /* CatalogFiltres */,
 				15779179EFD895D03E9DFA98 /* FilterCurrent */,
 				15BDD2C5279A176A004F61BC /* Comments */,
+				15E97BF027CA593500F37D5D /* AboutPersonalPost */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1922,6 +1972,7 @@
 				17248E6E275BE27F002AAD4E /* FiltresCollectionViewCell.xib in Resources */,
 				F8ECE119F95ADC193B0B527D /* StartSplashScreenViewController.xib in Resources */,
 				18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */,
+				15E97BEF27CA592F00F37D5D /* AboutPersonalPostViewController.xib in Resources */,
 				15BDD2C9279A17C5004F61BC /* CommentsViewController.xib in Resources */,
 				15EFB04827BEEE15007A13D7 /* ProfileCollectionViewCell.xib in Resources */,
 				CF70D3E4E3B7FD5BFE6A9F6F /* PasswordRecoveryFirstViewController.xib in Resources */,
@@ -2025,6 +2076,7 @@
 				17AA6C122729804D00CE276E /* MainRouter.swift in Sources */,
 				15E3EA41279CACB7004ED29A /* CommentsResponse.swift in Sources */,
 				15E6CEDA27A4B371000239AB /* UIView+Ext.swift in Sources */,
+				15E97BEE27CA592F00F37D5D /* AboutPersonalPostViewController.swift in Sources */,
 				15B5C2E127C19B0F0058408D /* ToProfileModel.swift in Sources */,
 				153F2CCC273724F4002AF9FA /* FeedViewPresenterOutput.swift in Sources */,
 				15414A2E27233781007AA93D /* InsetTextField.swift in Sources */,
@@ -2128,6 +2180,7 @@
 				C80CE8A5E39AF8CB4E83A1A0 /* PasswordRecoveryFirstAssembler.swift in Sources */,
 				15E3EA56279CCEF1004ED29A /* CommentsApiWorker.swift in Sources */,
 				55ECB4EC9BF8CFFECA4FC804 /* PasswordRecoverySecondViewController.swift in Sources */,
+				15E97BF727CA685D00F37D5D /* AboutPersonalPostPresenterInput.swift in Sources */,
 				7EC8DB21FDD698ECEF3B5FB1 /* PasswordRecoverySecondPresenterInput.swift in Sources */,
 				1703CE6727B671D400A832F3 /* CameraApi.swift in Sources */,
 				15E6CED827A4AA9A000239AB /* PostedCommentResponse.swift in Sources */,
@@ -2154,6 +2207,8 @@
 				17E71F96272ADEF6001B2CF0 /* SignUpResponse.swift in Sources */,
 				155FED6F274AF90B00548B01 /* FeedRequest.swift in Sources */,
 				D034D4725C27C51BE38A6FA4 /* SignInPresenterInput.swift in Sources */,
+				15E97BFB27CA68D400F37D5D /* AboutPersonalPostAssembler.swift in Sources */,
+				15E97BF527CA685400F37D5D /* AboutPersonalPostPresenter.swift in Sources */,
 				153F2CCE273724F4002AF9FA /* LikeActionType.swift in Sources */,
 				15C36CD827BDB56600E84D14 /* LikeResponse.swift in Sources */,
 				100F1F745E97FF68AD0A5786 /* SignInPresenterOutput.swift in Sources */,
@@ -2161,6 +2216,7 @@
 				15B5C2F127C24C050058408D /* OtherProfilePresenter.swift in Sources */,
 				17AA6C18272980B100CE276E /* BundleExtentsion.swift in Sources */,
 				F9410D481A551E8331C2DC76 /* SignInPresenter.swift in Sources */,
+				15E97BF927CA687C00F37D5D /* AboutPersonalPostPresenterOutput.swift in Sources */,
 				15C36CE727BDB67900E84D14 /* MyProfileAssembler.swift in Sources */,
 				15B5C2ED27C24BC30058408D /* OtherProfileViewController.swift in Sources */,
 				15BDD2C8279A17C5004F61BC /* CommentsViewController.swift in Sources */,

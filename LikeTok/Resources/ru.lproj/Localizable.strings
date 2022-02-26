@@ -81,3 +81,7 @@
 "Upload.category" = "Категория";
 "Upload.primitions" = "Услуги продвижения";
 "Upload.publish" = "Опубликовать";
+
+"UploadAbout.title" = "Что такое “Личная публикация”?";
+"UploadAbout.next" = "Далее";
+"UploadAbout.close" = "Закрыть";
