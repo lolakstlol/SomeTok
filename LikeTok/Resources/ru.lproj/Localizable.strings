@@ -73,3 +73,5 @@
 
 "Camera.publication.ad" = "Рекламный материал";
 "Camera.publication.nonad" = "Личная публикация";
+"Camera.upload" = "Опубликовать";
+"Camera.description_placeholder" = "Опишите публикацию";

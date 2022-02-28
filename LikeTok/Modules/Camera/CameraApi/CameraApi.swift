@@ -1,5 +1,6 @@
 import UIKit
 import Alamofire
+import AVFoundation
 
 final class CameraApiWorker {
     
@@ -7,9 +8,67 @@ final class CameraApiWorker {
         var url: String = ""
     }
     
-    public static func upload(_ fileData: Data, with key: String, fileExtension: String, to url: String, _ callback: uploadCallback) {
+    static func encodeVideo(at videoURL: URL, completionHandler: ((Data?, Error?) -> Void)?)  {
+        let avAsset = AVURLAsset(url: videoURL, options: nil)
+
+        let startDate = Date()
+
+        //Create Export session
+        guard let exportSession = AVAssetExportSession(asset: avAsset, presetName: AVAssetExportPresetPassthrough) else {
+            completionHandler?(nil, nil)
+            return
+        }
+
+        //Creating temp path to save the converted video
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
+        let filePath = documentsDirectory.appendingPathComponent("\(UUID().uuidString)rendered-Video.mp4")
+
+        //Check if the file already exists then remove the previous file
+        if FileManager.default.fileExists(atPath: filePath.path) {
+            do {
+                try FileManager.default.removeItem(at: filePath)
+            } catch {
+                completionHandler?(nil, error)
+            }
+        }
+
+        exportSession.outputURL = filePath
+        exportSession.outputFileType = AVFileType.mp4
+        exportSession.shouldOptimizeForNetworkUse = true
+          let start = CMTimeMakeWithSeconds(0.0, preferredTimescale: 0)
+        let range = CMTimeRangeMake(start: start, duration: avAsset.duration)
+        exportSession.timeRange = range
+
+        exportSession.exportAsynchronously(completionHandler: {() -> Void in
+            switch exportSession.status {
+            case .failed:
+                print(exportSession.error ?? "NO ERROR")
+                completionHandler?(nil, exportSession.error)
+            case .cancelled:
+                print("Export canceled")
+                completionHandler?(nil, nil)
+            case .completed:
+                //Video conversion finished
+                let endDate = Date()
+
+                let time = endDate.timeIntervalSince(startDate)
+                print(time)
+                print("Successful!")
+                print(exportSession.outputURL ?? "NO OUTPUT URL")
+                let fileData = try? Data(contentsOf: exportSession.outputURL ?? videoURL)
+                completionHandler?(fileData, nil)
+
+                default: break
+            }
+
+        })
+    }
+    
+    public static func upload(_ fileData: Data, with key: String, fileExtension: String, to url: String, preview: Data, _ completion: @escaping (Swift.Result<String,Error>) -> Void) {
         Alamofire.upload(multipartFormData: { (data) in
-            data.append(fileData, withName: key, fileName: "file\(Date().timeIntervalSince1970).\(fileExtension)", mimeType: "\(key)/*")
+            data.append(fileData, withName: "video", fileName: "file\(Date().timeIntervalSince1970)video.mov", mimeType: "video/mp4")
+            data.append(preview, withName: "preview", fileName: "file\(Date().timeIntervalSince1970)preview.jpg", mimeType: "preview/*")
+            print(data)
         }, to: url, method: .post, headers: Api.headers) { (encodingResult) in
             switch encodingResult {
             case .success(let uploadRequest, _, _):
@@ -25,11 +84,11 @@ final class CameraApiWorker {
                 uploadRequest.validate().responseObject { (response: DataResponse<UploadResponse>) in
                     switch response.result {
                     case .success(let value):
-                        callback.onSuccess(model: value)
+                        completion(.success("uuid"))
                         print("# uploadRequest: success")
                     case .failure(let error):
                         print(error)
-                        callback.onFailed()
+                        completion(.failure(error))
                         print("# uploadRequest: error")
                     }
                 }
@@ -41,8 +100,8 @@ final class CameraApiWorker {
         }
     }
     
-    func recoveryPassword(_ email: String, password: String, code: String, completion: @escaping (Swift.Result<RecoveryPasswordCodeResponse?, NetworkError>) -> Void) {
-        Api.Auth.confirmResetPass(email: email, pass: password, code: code).request.responseJSON { response in
+    func createPost(_ adv: Bool, title: String = "mobile", text: String, completion: @escaping (Swift.Result<CreatePostResponse?, NetworkError>) -> Void) {
+        Api.Camera.createPost(adv: adv, title: title, text: text).request.responseJSON { response in
             guard let statusCode = response.response?.statusCode
             else {
                 return
@@ -50,7 +109,27 @@ final class CameraApiWorker {
             switch statusCode {
             case 200:
                 if let data = response.data,
-                   let response = try? JSONDecoder().decode(RecoveryPasswordCodeResponse.self, from: data) {
+                   let response = try? JSONDecoder().decode(CreatePostResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    completion(.failure(.deserialization))
+                }
+            default: completion(.failure(.undefined))
+                
+            }
+        }
+    }
+    
+    func publishPost(_ post: String, completion: @escaping (Swift.Result<PublishPostResponse?, NetworkError>) -> Void) {
+        Api.Camera.publishPost(uuid: post).request.responseJSON { response in
+            guard let statusCode = response.response?.statusCode
+            else {
+                return
+            }
+            switch statusCode {
+            case 200:
+                if let data = response.data,
+                   let response = try? JSONDecoder().decode(PublishPostResponse.self, from: data) {
                     completion(.success(response))
                 } else {
                     completion(.failure(.deserialization))
@@ -62,11 +141,11 @@ final class CameraApiWorker {
     }
     
     func uploadAvatar(image: UIImage, completion: @escaping (Swift.Result<Any?, NetworkError>) -> Void) {
-    //        Api.profile.uploadAvatar(image: image) { result in
-    //            print(result)
-    //        }.request.responseJSON { response in
-    //            print(response)
-    //        }
+        //        Api.profile.uploadAvatar(image: image) { result in
+        //            print(result)
+        //        }.request.responseJSON { response in
+        //            print(response)CreatePostResponse
+        //        }
     }
     
     private func catchError<T: Decodable>(data: Data, type: T.Type) throws {

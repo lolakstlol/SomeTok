@@ -183,6 +183,7 @@ private extension FeedTableViewCell {
             case .error(let error):
                 print("error - \(error.localizedDescription)")
             case .loading:
+                print(self?.videoURL)
                 print("loading")
             case .paused(let playing, let buffering):
                 print("paused - progress \(Int(playing * 100))% buffering \(Int(buffering * 100))%")

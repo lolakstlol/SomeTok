@@ -34,6 +34,10 @@ public enum Strings {
   }
 
   public enum Camera {
+    /// Опишите публикацию
+    public static let descriptionPlaceholder = Strings.tr("Localizable", "Camera.description_placeholder")
+    /// Опубликовать
+    public static let upload = Strings.tr("Localizable", "Camera.upload")
     public enum Publication {
       /// Рекламный материал
       public static let ad = Strings.tr("Localizable", "Camera.publication.ad")

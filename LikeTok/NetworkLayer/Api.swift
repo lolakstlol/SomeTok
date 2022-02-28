@@ -96,7 +96,7 @@ enum Api {
     
     enum Camera: ApiMethod {
         case createPost(adv: Bool, title: String, text: String)
-       // case uploadVideo(uuid: String, preview: Data, video: Data)
+        case publishPost(uuid: String)
         public var request: DataRequest {
             switch self {
             case .createPost(adv: let adv, title: let title, text: let text):
@@ -105,6 +105,10 @@ enum Api {
                 params["text"] = text
                 params["title"] = title
                 let request = Alamofire.request("\(API.server)/user/post", method: .post, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+            case .publishPost(uuid: let uuid):
+                var params:Parameters = Parameters()
+                let request = Alamofire.request("\(API.server)/user/post/\(uuid)/publish", method: .put, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
                 return request.validate()
             }
         }

@@ -14,7 +14,14 @@ enum PostType {
     case nonAd
 }
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, uploadCallback {
+    func onSuccess(model: UploadResponse) {
+        print(model)
+    }
+    
+    func onFailed() {
+        print("hyevo")
+    }
     
     @IBOutlet weak var cameraContainer: UIView!
     @IBOutlet weak var switcherContainer: UIView!
@@ -31,7 +38,7 @@ class CameraViewController: UIViewController {
     
     var cameraConfig: CameraConfiguration!
     let imagePickerController = UIImagePickerController()
-    private let selectedPostType: PostType = .ad
+    private var selectedPostType: PostType = .ad
     
     var videoRecordingStarted: Bool = false {
         didSet{
@@ -107,11 +114,11 @@ class CameraViewController: UIViewController {
     }
     
     @IBAction func secondButtonDidTap(_ sender: Any) {
-        configure(withType: .ad)
+        configure(withType: .nonAd)
     }
     
     @IBAction func firstButtonDidTap(_ sender: Any) {
-        configure(withType: .nonAd)
+        configure(withType: .ad)
     }
     
     @objc func appCameToForeground() {
@@ -165,8 +172,34 @@ class CameraViewController: UIViewController {
         }
     }
     
-    func uploadVideoFlow(video: Data) {
-        
+    func uploadVideoFlow(video: Data, preview: UIImage) {
+        switch selectedPostType {
+        case .ad:
+            return
+        case .nonAd:
+            guard let data = preview.jpegData(compressionQuality: 1) else { return }
+            let vc = CreatePrivatePostAssembler.createModule(video: video, preview: data)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        return
+//        CameraApiWorker().createPost(false, text: "test") { response in
+//            switch response {
+//            case .success(let result):
+//                let uuid = result?.data.uuid ?? "1"
+//                CameraApiWorker.upload(video, with: "video", fileExtension: "mp4", to: "\(API.server)/user/post/\(uuid)/video/upload", preview: preview.jpegData(compressionQuality: 1)!) { result in
+//                    switch result {
+//                    case .success:
+//                        CameraApiWorker().publishPost(uuid) { result in
+//                            print(result)
+//                        }
+//                    case .failure(let error):
+//                        print(error)
+//                    }
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
     
     @objc fileprivate func showToastForSaved() {
@@ -237,7 +270,11 @@ class CameraViewController: UIViewController {
                         return
                     }
                     if let data = try? Data(contentsOf: url) {
-                        self.uploadVideoFlow(video: data)
+                        CameraApiWorker.encodeVideo(at: url) { data, error in
+                            DispatchQueue.main.async {
+                                self.uploadVideoFlow(video: data!, preview: self.videoSnapshot(vidURL: url)!)
+                            }
+                        }
                     }
                     UISaveVideoAtPathToSavedPhotosAlbum(url.path, self, #selector(self.video(_:didFinishSavingWithError:contextInfo:)), nil)
                 }
@@ -245,21 +282,41 @@ class CameraViewController: UIViewController {
         }
     }
     
+    func videoSnapshot(vidURL: URL) -> UIImage? {
+
+        let asset = AVURLAsset(url: vidURL)
+        let generator = AVAssetImageGenerator(asset: asset)
+        generator.appliesPreferredTrackTransform = true
+
+        let timestamp = CMTime(seconds: 1, preferredTimescale: 60)
+
+        do {
+            let imageRef = try generator.copyCGImage(at: timestamp, actualTime: nil)
+            return UIImage(cgImage: imageRef)
+        }
+        catch let error as NSError
+        {
+            print("Image generation failed with error \(error)")
+            return nil
+        }
+    }
+    
     func configure(withType: PostType) {
         UIView.animate(withDuration: 0.3) {
             switch withType {
             case .ad:
-                self.materialButton.setTitleColor(.white, for: .normal)
-                self.materialButton.backgroundColor = Assets.mainRed.color
-                self.firstButton.setTitleColor(Assets.darkGrayText.color, for: .normal)
-                self.firstButton.backgroundColor = .clear
-            case .nonAd:
                 self.firstButton.setTitleColor(.white, for: .normal)
                 self.firstButton.backgroundColor = Assets.mainRed.color
                 self.materialButton.setTitleColor(Assets.darkGrayText.color, for: .normal)
                 self.materialButton.backgroundColor = .clear
+            case .nonAd:
+                self.materialButton.setTitleColor(.white, for: .normal)
+                self.materialButton.backgroundColor = Assets.mainRed.color
+                self.firstButton.setTitleColor(Assets.darkGrayText.color, for: .normal)
+                self.firstButton.backgroundColor = .clear
             }
         }
+        selectedPostType = withType
     }
     
     
