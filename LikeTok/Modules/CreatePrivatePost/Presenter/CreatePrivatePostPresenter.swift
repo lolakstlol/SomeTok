@@ -30,15 +30,15 @@ final class CreatePrivatePostPresenter {
 
 extension CreatePrivatePostPresenter: CreatePrivatePostPresenterInput {
     func uploadVideo(with description: String) {
-        CameraApiWorker().createPost(false, title: description) { response in
+        CameraApiWorker().createPost(false, title: description) {  response in
             switch response {
             case .success(let result):
                 let uuid = result?.data.uuid ?? "1"
-                CameraApiWorker.upload(self.videoData, with: "video", fileExtension: "mp4", to: "\(API.server)/user/post/\(uuid)/video/upload", preview: self.preview) { result in
+                CameraApiWorker.upload(self.videoData, with: "video", fileExtension: "mp4", to: "\(API.server)/user/post/\(uuid)/video/upload", preview: self.preview) { [weak self] result in
                     switch result {
                     case .success:
                         CameraApiWorker().publishPost(uuid) { result in
-                            self.view.didPublishPost()
+                            self?.view.didPublishPost()
                         }
                     case .failure(let error):
                         print(error)

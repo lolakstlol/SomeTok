@@ -60,7 +60,7 @@ class VideoUploadAdvertismentFinalViewController: UIViewController {
     }
     
     @IBAction func publishButtonTap(_ sender: Any) {
-        presenter.publishButtonTap()
+        presenter.publishButtonTap(description: descriptionTextView.text)
     }
     
     func didPublishPost() {

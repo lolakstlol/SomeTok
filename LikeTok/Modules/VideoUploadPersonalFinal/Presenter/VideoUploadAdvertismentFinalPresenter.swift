@@ -27,8 +27,25 @@ final class VideoUploadAdvertismentFinalPresenter {
 }
 
 extension VideoUploadAdvertismentFinalPresenter: VideoUploadAdvertismentFinalPresenterInput {
-    func publishButtonTap() {
-        
+    func publishButtonTap(description: String) {
+        CameraApiWorker().createPost(true, title: description) {  response in
+            switch response {
+            case .success(let result):
+                let uuid = result?.data.uuid ?? "1"
+                CameraApiWorker.upload(self.video, with: "video", fileExtension: "mp4", to: "\(API.server)/user/post/\(uuid)/video/upload", preview: self.preview) { [weak self] result in
+                    switch result {
+                    case .success:
+                        CameraApiWorker().publishPost(uuid) { result in
+                            self?.view.didPublishPost()
+                        }
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
 }

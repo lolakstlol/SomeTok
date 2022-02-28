@@ -10,4 +10,5 @@ import Foundation
 protocol VideoUploadAdvertismentFinalPresenterOutput: AnyObject {
 //    func onFetchOnboardingData(_ data: [OnboardingPage])
     func setupUI(preview: Data)
+    func didPublishPost()
 }

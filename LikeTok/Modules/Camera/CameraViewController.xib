@@ -117,12 +117,12 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hP-Ur-4VR">
                     <rect key="frame" x="354" y="158" width="44" height="44"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" image="switch_camera"/>
+                    <state key="normal" image="cameraSwap"/>
                     <connections>
                         <action selector="toggleCamera:" destination="-1" eventType="touchUpInside" id="eqN-hi-yWT"/>
                     </connections>
                 </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b00-iJ-L3I">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b00-iJ-L3I">
                     <rect key="frame" x="320" y="815" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="AtR-1s-5Hd"/>
@@ -164,6 +164,18 @@
                         <action selector="backCameraButton:" destination="-1" eventType="touchUpInside" id="UBo-Mn-ICh"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdE-8a-I6i">
+                    <rect key="frame" x="54" y="815" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="XWS-Ki-7Qj"/>
+                        <constraint firstAttribute="width" constant="40" id="ifl-hg-TTv"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="infoCamera"/>
+                    <connections>
+                        <action selector="infoDidTap:" destination="-1" eventType="touchUpInside" id="qfA-f7-61s"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -184,9 +196,11 @@
                 <constraint firstItem="gYD-re-Pk6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="U8M-i6-r47"/>
                 <constraint firstAttribute="bottom" secondItem="Avh-Fl-aAe" secondAttribute="bottom" constant="25" id="afX-GR-U15"/>
                 <constraint firstItem="5hP-Ur-4VR" firstAttribute="trailing" secondItem="CNV-5q-B7d" secondAttribute="trailing" id="avo-Ap-8vG"/>
+                <constraint firstItem="zdE-8a-I6i" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="54" id="goQ-eX-eWC"/>
                 <constraint firstAttribute="trailing" secondItem="CNV-5q-B7d" secondAttribute="trailing" constant="16" id="n4i-dE-ybN"/>
                 <constraint firstAttribute="trailing" secondItem="gYD-re-Pk6" secondAttribute="trailing" constant="10" id="ocf-K7-Lfn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nzD-PH-VeJ" secondAttribute="trailing" id="onF-Q2-3cw"/>
+                <constraint firstItem="zdE-8a-I6i" firstAttribute="centerY" secondItem="Avh-Fl-aAe" secondAttribute="centerY" id="r8w-6e-oUe"/>
                 <constraint firstItem="CNV-5q-B7d" firstAttribute="top" secondItem="gYD-re-Pk6" secondAttribute="bottom" constant="10" id="s7T-wx-wyW"/>
             </constraints>
             <point key="canvasLocation" x="88.125" y="156.33802816901408"/>
@@ -194,10 +208,11 @@
     </objects>
     <resources>
         <image name="Camera_back" width="44" height="44"/>
-        <image name="Light" width="44" height="44"/>
+        <image name="Light" width="26" height="26"/>
         <image name="camera" width="48" height="48"/>
+        <image name="cameraSwap" width="24" height="24"/>
+        <image name="infoCamera" width="40" height="40"/>
         <image name="photo_icon" width="48" height="48"/>
-        <image name="switch_camera" width="48" height="48"/>
         <image name="videocam" width="48" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

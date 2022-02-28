@@ -31,8 +31,8 @@ final class CreatePrivatePostViewController: BaseViewController {
 
 extension CreatePrivatePostViewController: CreatePrivatePostPresenterOutput {
     func didPublishPost() {
-        guard let tabBar = tabBarController as? TabBarViewController else { return }
-        tabBar.returnToPreviositem()
+//        guard let tabBar = tabBarController as? TabBarViewController else { return }
+//        tabBar.returnToPreviositem()
         navigationController?.popToRootViewController(animated: false)
     }
 

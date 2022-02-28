@@ -241,7 +241,7 @@ extension CameraConfiguration {
     }
     
     func stopRecording(completion: @escaping (Error?)->Void) {
-        if let data = try? rearCamera?.lockForConfiguration() {
+        if let data = try? rearCamera?.lockForConfiguration(), currentCameraPosition == .rear {
             rearCamera?.focusMode = .continuousAutoFocus
             rearCamera?.torchMode = flashMode == .on ? .on : .off
             rearCamera?.unlockForConfiguration()
@@ -251,7 +251,7 @@ extension CameraConfiguration {
             return
         }
         self.videoOutput?.stopRecording()
-        if let data = try? rearCamera?.lockForConfiguration() {
+        if let data = try? rearCamera?.lockForConfiguration(), currentCameraPosition == .rear {
             rearCamera?.focusMode = .continuousAutoFocus
             rearCamera?.torchMode = flashMode == .on ? .on : .off
             rearCamera?.unlockForConfiguration()
