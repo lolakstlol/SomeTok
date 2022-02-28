@@ -33,14 +33,14 @@ class API  {
     }
 }
 
-protocol uploadCallback {
+protocol UploadCallback {
     func onSuccess(model: UploadResponse)
-    func onFailed()
+    func onFailure(_ error: Error)
 }
 
 enum Api {
     static var headers: HTTPHeaders = [:]
-    public static func upload(_ fileData: Data, with key: String, fileExtension: String, to url: String, _ callback: uploadCallback) {
+    public static func upload(_ fileData: Data, with key: String, fileExtension: String, to url: String, _ callback: UploadCallback) {
         Alamofire.upload(multipartFormData: { (data) in
             data.append(fileData, withName: key, fileName: "file\(Date().timeIntervalSince1970).\(fileExtension)", mimeType: "\(key)/*")
         }, to: url, method: .put, headers: Api.headers) { (encodingResult) in
@@ -62,7 +62,7 @@ enum Api {
                         print("# uploadRequest: success")
                     case .failure(let error):
                         print(error)
-                        callback.onFailed()
+                        callback.onFailure(error)
                         print("# uploadRequest: error")
                     }
                 }
@@ -232,7 +232,7 @@ enum Api {
         public var request: DataRequest {
             switch self {
             case let .signup(email, name, pass):
-                var params:Parameters = Parameters()
+                var params: Parameters = Parameters()
                 params["email"] = email
                 params["password"] = pass
                 params["username"] = name
@@ -240,39 +240,90 @@ enum Api {
                 let request = Alamofire.request("\(API.server)/auth/signup", method: .post, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
                 return request.validate()
             case let .login(login, pass):
-                var params:Parameters = Parameters()
+                var params: Parameters = Parameters()
                 params["login_or_email"] = login
                 params["password"] = pass
                 let request = Alamofire.request("\(API.server)/auth/login", method: .post, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
                 return request.validate()
             case .confirmEmail(email: let email, code: let code):
-                var params:Parameters = Parameters()
+                var params: Parameters = Parameters()
                 params["email"] = email
                 params["code_confirm"] = code
                 let request = Alamofire.request("\(API.server)/auth/confirm", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
                 return request.validate()
             case .repeatCode(email: let email):
-                var params:Parameters = Parameters()
+                var params: Parameters = Parameters()
                 params["email"] = email
                 let request = Alamofire.request("\(API.server)/auth/signup/code-repeat", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
                 return request.validate()
             case .resetPass(email: let email):
-                var params:Parameters = Parameters()
+                var params: Parameters = Parameters()
                 params["email"] = email
                 let request = Alamofire.request("\(API.server)/auth/forgot", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
                 return request.validate()
             case .confirmResetPass(email: let email, pass: let pass, code: let code):
-                var params:Parameters = Parameters()
+                var params: Parameters = Parameters()
                 params["email"] = email
                 params["password"] = pass
                 params["code_confirm"] = code
                 let request = Alamofire.request("\(API.server)/auth/password", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
                 return request.validate()
             case .updateSettings(phone: let phone, name: let name):
-                var params:Parameters = Parameters()
+                var params: Parameters = Parameters()
                 params["name"] = name
                 params["phone"] = phone
                 let request = Alamofire.request("\(API.server)/user/settings", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
+                return request.validate()
+            }
+        }
+    }
+    
+    enum Profile: ApiMethod {
+        case user(_ uuid: String)
+        case settings
+        case updateSettings(_ model: EditedProfileModel)
+        case follow(_ uuid: String)
+        public var request: DataRequest {
+            switch self {
+            case .user(let uuid):
+                let request = Alamofire.request("\(API.server)/user/\(uuid)", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                //request.request?.addValue(Locale.current.regionCode ?? "", forHTTPHeaderField: "LANG")
+                return request.validate()
+                
+            case .settings:
+                let request = Alamofire.request("\(API.server)/user/settings", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                //request.request?.addValue(Locale.current.regionCode ?? "", forHTTPHeaderField: "LANG")
+                return request.validate()
+            
+            case .updateSettings(let model):
+                var params: Parameters = Parameters()
+                if let name = model.name, !name.isEmpty {
+                    params["name"] = name
+                }
+                if let username = model.username, !username.isEmpty {
+                    params["username"] = username
+                }
+                if let email = model.email, !email.isEmpty {
+                    params["email"] = email
+                }
+                if let description = model.description, !description.isEmpty {
+                    params["description"] = description
+                }
+                if let phone = model.phone, !phone.isEmpty {
+                    params["phone"] = phone
+                }
+                if let country = model.country, !country.isEmpty {
+                    params["country"] = country
+                }
+                if let city = model.city, !city.isEmpty  {
+                    params["city"] = city
+                }
+                let request = Alamofire.request("\(API.server)/user/settings", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
+                return request.validate()
+                
+            case .follow(let uuid):
+                let request = Alamofire.request("\(API.server)/user/\(uuid)/follow", method: .put, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                //request.request?.addValue(Locale.current.regionCode ?? "", forHTTPHeaderField: "LANG")
                 return request.validate()
             }
         }

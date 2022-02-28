@@ -16,6 +16,6 @@ protocol FeedCollectionManagement: AnyObject {
     func updateCellLikes(type: LikeType, at index: Int?)
     func scrollToTop()
     func stopVideo()
-    func tapScreenAction()
+    func playVideo()
     func setFeedIndex(_ index: Int)
 }

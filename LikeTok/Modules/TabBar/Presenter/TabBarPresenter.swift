@@ -32,7 +32,7 @@ final class TabBarPresenter: NSObject {
 
     
     private func getViewControllers() -> [UIViewController] {
-        let tabBarItems: [(UIViewController, TabBarItemModel)] = [(FeedNewAssembler.createModule(),
+        let tabBarItems: [(UIViewController, TabBarItemModel)] = [(UINavigationController(rootViewController: FeedViewAssembler.createModule(type: .general, feedService: FeedService(), collectionManager:                                                                           FeedCollectionManager())),
                                                                        TabBarItemModel(title: Strings.Tabbar.feed,
                                                                                        image: Assets.feedUnselected.image,
                                                                                        selectedImage: Assets.feedSelected.image)),
@@ -50,7 +50,7 @@ final class TabBarPresenter: NSObject {
                                                                                        image: Assets.chatUnselected.image,
                                                                                        selectedImage:
                                                                                         Assets.chatSelected.image)),
-                                                                      (ProfileViewController(),
+                                                                  (UINavigationController(rootViewController: MyProfileAssembler.createModule()),
                                                                        TabBarItemModel(title: Strings.Tabbar.profile,
                                                                                        image: Assets.chatUnselected.image,
                                                                                        selectedImage:

@@ -69,7 +69,8 @@ extension PasswordRecoveryFirstPresenter: PasswordRecoveryFirstPresenterInput {
                 case .success(_):
                     self?.view.onResetPasswordSucess(email)
                 case .failure(let error):
-                    self?.view.onResetPasswordFailure(error)
+                    debugPrint(error.localizedDescription)
+                    self?.view.onResetPasswordFailure(PasswordRecoveryError.invalidEmail)
                 }
             }
         } else {
@@ -84,7 +85,6 @@ extension PasswordRecoveryFirstPresenter: PasswordRecoveryFirstPresenterInput {
             isKeyboardAppears = true
             view.onShowKeyboard(insets)
         }
-
     }
     
     func hideKeyboard() {

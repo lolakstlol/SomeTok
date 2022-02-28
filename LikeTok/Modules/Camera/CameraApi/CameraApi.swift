@@ -66,7 +66,7 @@ final class CameraApiWorker {
     
     public static func upload(_ fileData: Data, with key: String, fileExtension: String, to url: String, preview: Data, _ completion: @escaping (Swift.Result<String,Error>) -> Void) {
         Alamofire.upload(multipartFormData: { (data) in
-            data.append(fileData, withName: "video", fileName: "file\(Date().timeIntervalSince1970)video.mov", mimeType: "video/mp4")
+            data.append(fileData, withName: "video", fileName: "file\(Date().timeIntervalSince1970)video.mp4", mimeType: "video/mp4")
             data.append(preview, withName: "preview", fileName: "file\(Date().timeIntervalSince1970)preview.jpg", mimeType: "preview/*")
             print(data)
         }, to: url, method: .post, headers: Api.headers) { (encodingResult) in
@@ -100,7 +100,7 @@ final class CameraApiWorker {
         }
     }
     
-    func createPost(_ adv: Bool, title: String = "mobile", text: String, completion: @escaping (Swift.Result<CreatePostResponse?, NetworkError>) -> Void) {
+    func createPost(_ adv: Bool, title: String, text: String = "mobile", completion: @escaping (Swift.Result<CreatePostResponse?, NetworkError>) -> Void) {
         Api.Camera.createPost(adv: adv, title: title, text: text).request.responseJSON { response in
             guard let statusCode = response.response?.statusCode
             else {

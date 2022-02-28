@@ -4,11 +4,10 @@
 "SplashScreen.begin" = "Начать";
 
 "PasswordRecovery.First.title" = "Восстановление пароля";
-"PasswordRecovery.First.text" = "На ваш электронный адрес будет
-отправлен код подтверждения";
+"PasswordRecovery.First.text" = "На ваш электронный адрес будет отправлен код подтверждения";
 "PasswordRecovery.First.resume" = "Продолжить";
 
-"PasswordRecovery.First.badEmail" = "Проверьте email";
+"PasswordRecovery.First.badEmail" = "Ошибка восстановления пароля. Проверьте корректность введенного email";
 "PasswordRecovery.First.responseError" = "Ошибка Сервера.";
 "PasswordRecovery.First.noUserError" = "Такого пользователя нет. Пожалуйста, проверьте правильность email.";
 
@@ -75,3 +74,15 @@
 "Camera.publication.nonad" = "Личная публикация";
 "Camera.upload" = "Опубликовать";
 "Camera.description_placeholder" = "Опишите публикацию";
+
+"Upload.title" = "Рекламный материал";
+"Upload.describe" = "Опишите публикацию";
+"Upload.link" = "Ссылка товара с сайта партнера";
+"Upload.hastag" = "Хэштэг";
+"Upload.category" = "Категория";
+"Upload.primitions" = "Услуги продвижения";
+"Upload.publish" = "Опубликовать";
+
+"UploadAbout.title" = "Что такое “Личная публикация”?";
+"UploadAbout.next" = "Далее";
+"UploadAbout.close" = "Закрыть";

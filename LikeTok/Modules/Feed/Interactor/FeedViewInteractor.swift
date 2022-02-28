@@ -49,9 +49,13 @@ extension FeedViewInteractor: FeedViewInteractorInput {
     func updateType(_ type: FeedViewEnterOption) {
         self.type = type
     }
-    
+
     func stopVideo() {
         output?.stopVideo()
+    }
+    
+    func playVideo() {
+        output?.playVideo()
     }
     
     func screenTapAction() {
@@ -112,17 +116,17 @@ extension FeedViewInteractor: FeedViewInteractorInput {
     }
     
     func createLike() {
-//        guard let postId = post?.postId else { return }
-//        feedService.createPostLike(postId: postId) { [weak output] result in
-//            output?.didCreateLike(with: result)
-//        }
+        guard let postId = post?.uuid else { return }
+        feedService.createPostLike(postId: postId) { [weak output] result in
+            output?.didCreateLike(with: result)
+        }
     }
     
     func deleteLike() {
-//        guard let postId = post?.postId else { return }
-//        feedService.deletePostLike(postId: postId) { [weak output] result in
-//            output?.didDeleteLike(with: result)
-//        }
+        guard let postId = post?.uuid else { return }
+        feedService.deletePostLike(postId: postId) { [weak output] result in
+            output?.didDeleteLike(with: result)
+        }
     }
     
     func isAuthorized() -> Bool {
@@ -153,7 +157,7 @@ extension FeedViewInteractor: FeedViewInteractorInput {
     }
     
     func setCurrentPost(_ post: FeedResponse) {
-//        self.post = post
+        self.post = post
 //        isUserFeed = post.user.userId == UserDefaultsManager.shared.userId
     }
 }

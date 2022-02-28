@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 struct SearchPaginationModel {
     var page: Int
@@ -13,7 +14,8 @@ enum MainSearchTypes {
 
 final class MainSearchPresenter {
     private unowned let view: MainSearchPresenterOutput
-    private let apiWorker: SearchApiWorker = SearchApiWorker()
+    private let searchApiWorker: SearchApiWorker = SearchApiWorker()
+    private let profileApiWorker: ProfileNetworkServiceProtocol = ProfileNetworkService()
 
     init(_ view: MainSearchPresenterOutput) {
         self.view = view
@@ -24,7 +26,7 @@ final class MainSearchPresenter {
     }
     
     func loadAccounts(predict: String) {
-        apiWorker.searchAccounts(tag: predict) { result in
+        searchApiWorker.searchAccounts(tag: predict) { result in
             switch result {
             case .success(let accounts):
                 self.view.setAccounts(models: accounts?.data.data ?? [])
@@ -35,7 +37,7 @@ final class MainSearchPresenter {
     }
     
     func loadCategories(predict: String) {
-        apiWorker.searchCategories(tag: predict) { result in
+        searchApiWorker.searchCategories(tag: predict) { result in
             switch result {
             case .success(let categories):
                 self.view.setCategories(models: categories?.data?.data ?? [])
@@ -46,7 +48,7 @@ final class MainSearchPresenter {
     }
     
     func loadVideos(predict: String) {
-        apiWorker.searchTags(tag: predict) { result in
+        searchApiWorker.searchTags(tag: predict) { result in
             switch result {
             case .success(let videos):
                 self.view.setVideos(models: videos?.data.data ?? [])
@@ -66,6 +68,22 @@ extension MainSearchPresenter: MainSearchPresenterInput {
             loadVideos(predict: predict)
         case .categories:
             loadCategories(predict: predict)
+        }
+    }
+    
+    func followButtonTap(_ uuid: String) {
+        profileApiWorker.follow(uuid) { [weak self] result in
+            switch result {
+            case .success(let followModel):
+                if let following = followModel?.data.following {
+                    self?.view.onFollowSuccess(following, uuid: uuid)
+                } else {
+                    self?.view.onFollowFailure(.noData)
+                }
+            
+            case .failure(let error):
+                self?.view.onFollowFailure(error)
+            }
         }
     }
 }

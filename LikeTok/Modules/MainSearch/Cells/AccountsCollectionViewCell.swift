@@ -7,17 +7,25 @@
 
 import UIKit
 
-class AccountsCollectionViewCell: UICollectionViewCell {
+protocol AcoountCollectionViewCellDelegate: AnyObject {
+    func followButtonTap(_ uuid: String)
+}
 
-    @IBOutlet weak var avatarImage: UIImageView!
-    @IBOutlet weak var subTitleLabel: UILabel!
-    @IBOutlet weak var loginLabel: UILabel!
-    @IBOutlet weak var subscribeButton: UIButton!
+final class AccountsCollectionViewCell: UICollectionViewCell {
+
+    @IBOutlet private weak var avatarImage: UIImageView!
+    @IBOutlet private weak var subTitleLabel: UILabel!
+    @IBOutlet private weak var loginLabel: UILabel!
+    @IBOutlet private weak var subscribeButton: UIButton!
+    
+    private var uuid: String?
+    
+    weak var delegate: AcoountCollectionViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupView()
     }
-
     
     private func setupView() {
         avatarImage.layer.cornerRadius = 22
@@ -41,10 +49,23 @@ class AccountsCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configure(with model: SearchAccountsDatum) {
+    func configure(with model: SearchAccountsDatum, delegate: AcoountCollectionViewCellDelegate) {
+        self.delegate = delegate
+        self.uuid = model.uuid
         updateSubscribeButton(isFollow: model.isFollow)
         loginLabel.text = model.username ?? ""
         subTitleLabel.text = model.name ?? ""
-        avatarImage.setImageFromUrl(urlImage: model.photo.preview ?? "")
+        if let urlString = model.photo.preview {
+            avatarImage.kf.setImage(with: URL(string: urlString))
+        } else {
+            avatarImage.image = Assets.avatarDefaulth.image
+        }
+    }
+    
+    @IBAction func followButtonTap(_ sender: Any) {
+        guard let uuid = uuid else {
+            return
+        }
+        delegate?.followButtonTap(uuid)
     }
 }

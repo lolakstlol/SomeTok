@@ -7,16 +7,23 @@
 
 import Foundation
 
+protocol CommentsDelegate: AnyObject {
+    func updateCommentCount(_ count: Int)
+}
+
 final class CommentsPresenter {
     
     private unowned let view: CommentsPresenterOutput
     private var commentsService: CommentsApiWorkerProtocol?
     private var uuid = String()
+    
+    weak var delegate: CommentsDelegate?
 
-    init(_ view: CommentsPresenterOutput, _ commentsService: CommentsApiWorkerProtocol, _ uuid: String) {
+    init(_ view: CommentsPresenterOutput, _ commentsService: CommentsApiWorkerProtocol, _ uuid: String, delegate: CommentsDelegate) {
         self.view = view
         self.commentsService = commentsService
         self.uuid = uuid
+        self.delegate = delegate
     }
 
     func viewDidLoad() {
@@ -54,8 +61,10 @@ private extension CommentsPresenter {
     
     func handleFeedRequstResult(result: Result<CommentsResponse, NetworkError>) {
         switch result {
-        case .success(let comments):
-            view.setupComments(comments.data)
+        case .success(let commentsResult):
+            let comments = commentsResult.data.data
+            view.setupComments(comments)
+            delegate?.updateCommentCount(comments.count)
         case .failure(let error):
             debugPrint(error.localizedDescription)
         }

@@ -3,23 +3,41 @@
 
 "SplashScreen.begin" = "Начать";
 
-"PasswordRecovery.First.title" = "Password recovery";
-"PasswordRecovery.First.text" = "A confirmation code will be sent to your email address";
-"PasswordRecovery.First.resume" = "Resume";
+//"PasswordRecovery.First.title" = "Password recovery";
+//"PasswordRecovery.First.text" = "A confirmation code will be sent to your email address";
+//"PasswordRecovery.First.resume" = "Resume";
+//
+//"PasswordRecovery.First.badEmail" = "Check the correctness of your mail";
+//"PasswordRecovery.First.responseError" = "Server error. Check your internet connection.";
+//"PasswordRecovery.First.noUserError" = "There is no such user. Please check the correctness of the mail.";
+//
+//"PasswordRecovery.error" = "Error";
+//
+//"PasswordRecovery.Second.title" = "Password recovery";
+//"PasswordRecovery.Second.text" = "Enter a new password";
+//"PasswordRecovery.Second.enterThePassword" = "Enter the password";
+//"PasswordRecovery.Second.resume" = "Resume";
+//"PasswordRecovery.Second.code" = "Enter the code from the email";
+//
+//"PasswordRecovery.Second.invalidPassword" = "You entered invalid characters";
 
-"PasswordRecovery.First.badEmail" = "Check the correctness of your mail";
-"PasswordRecovery.First.responseError" = "Server error. Check your internet connection.";
-"PasswordRecovery.First.noUserError" = "There is no such user. Please check the correctness of the mail.";
+"PasswordRecovery.First.title" = "Восстановление пароля";
+"PasswordRecovery.First.text" = "На ваш электронный адрес будет отправлен код подтверждения";
+"PasswordRecovery.First.resume" = "Продолжить";
 
-"PasswordRecovery.error" = "Error";
+"PasswordRecovery.First.badEmail" = "Ошибка восстановления пароля. Проверьте корректность введенного email";
+"PasswordRecovery.First.responseError" = "Ошибка Сервера.";
+"PasswordRecovery.First.noUserError" = "Такого пользователя нет. Пожалуйста, проверьте правильность email.";
 
-"PasswordRecovery.Second.title" = "Password recovery";
-"PasswordRecovery.Second.text" = "Enter a new password";
-"PasswordRecovery.Second.enterThePassword" = "Enter the password";
-"PasswordRecovery.Second.resume" = "Resume";
-"PasswordRecovery.Second.code" = "Enter the code from the email";
+"PasswordRecovery.error" = "Ошибка";
 
-"PasswordRecovery.Second.invalidPassword" = "You entered invalid characters";
+"PasswordRecovery.Second.title" = "Восстановление пароля";
+"PasswordRecovery.Second.text" = "Введите новый пароль";
+"PasswordRecovery.Second.enterThePassword" = "Введите пароль";
+"PasswordRecovery.Second.resume" = "Продолжить";
+"PasswordRecovery.Second.code" = "Введите код из пиьсма";
+
+"PasswordRecovery.Second.invalidPassword" = "Недопустимые символы";
 
 "SignUP.placeHolder.mail" = "E-mail";
 "SignUP.placeHolder.login" = "Логин";
@@ -74,3 +92,15 @@
 "Filtres.clear" = "Очистить";
 "Filtres.title" = "Фильтры";
 "Filtres.plug" = "Применены фильтры";
+
+"Upload.title" = "Рекламный материал";
+"Upload.describe" = "Опишите публикацию";
+"Upload.link" = "Ссылка товара с сайта партнера";
+"Upload.hastag" = "Хэштэг";
+"Upload.category" = "Категория";
+"Upload.primitions" = "Услуги продвижения";
+"Upload.publish" = "Опубликовать";
+
+"UploadAbout.title" = "Что такое “Личная публикация”?";
+"UploadAbout.next" = "Далее";
+"UploadAbout.close" = "Закрыть";

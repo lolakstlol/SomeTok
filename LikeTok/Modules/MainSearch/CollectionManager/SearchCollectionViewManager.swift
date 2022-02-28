@@ -2,6 +2,11 @@
 import UIKit
 import class Foundation.NSObject
 
+protocol SearchCollectionViewOutput: AnyObject {
+    func openOtherProfile(_ viewController: OtherProfileViewController)
+    func followButtonTap(_ uuid: String)
+}
+
 final class SearchCollectionViewManager: NSObject {
     
     // MARK: - Private properties
@@ -26,6 +31,8 @@ final class SearchCollectionViewManager: NSObject {
             updatelayout()
         }
     }
+    
+    weak var output: SearchCollectionViewOutput?
     
 //    weak var output: BPCollectionManagerProtocolOutput?
     
@@ -105,7 +112,7 @@ final class SearchCollectionViewManager: NSObject {
         switch collectionType {
         case .accounts:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AccountsCollectionViewCell", for: indexPath) as! AccountsCollectionViewCell
-            cell.configure(with: peeopleDataSource[indexPath.row])
+            cell.configure(with: peeopleDataSource[indexPath.row], delegate: self)
             return cell
         case .videos:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCollectionViewCell", for: indexPath) as! VideoCollectionViewCell
@@ -153,14 +160,22 @@ final class SearchCollectionViewManager: NSObject {
          }
          collectionView.reloadData()
     }
+    
+    func updateFollowState(_ following: Bool, uuid: String) {
+        for i in peeopleDataSource.indices where peeopleDataSource[i].uuid == uuid{
+            peeopleDataSource[i].isFollow = following
+        }
+        collectionView?.reloadData()
+    }
 
 }
 
 // MARK: - BPCollectionManagerProtocol
 
 extension SearchCollectionViewManager {
-    func attach(_ collectionView: UICollectionView) {
+    func attach(_ collectionView: UICollectionView, output: SearchCollectionViewOutput) {
         self.collectionView = collectionView
+        self.output = output
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .white
@@ -192,6 +207,20 @@ extension SearchCollectionViewManager: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       print(indexPath)
+        switch collectionType {
+        case .accounts:
+            let uuid = peeopleDataSource[indexPath.row].uuid
+            let otherProfileViewController = OtherProfileAssembler.createModule(uuid)
+            output?.openOtherProfile(otherProfileViewController)
+            
+        default:
+            debugPrint("add logic")
+        }
+    }
+}
+
+extension SearchCollectionViewManager: AcoountCollectionViewCellDelegate {
+    func followButtonTap(_ uuid: String) {
+        output?.followButtonTap(uuid)
     }
 }

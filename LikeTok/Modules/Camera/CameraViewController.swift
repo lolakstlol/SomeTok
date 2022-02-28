@@ -14,7 +14,7 @@ enum PostType {
     case nonAd
 }
 
-class CameraViewController: UIViewController, uploadCallback {
+class CameraViewController: UIViewController {
     func onSuccess(model: UploadResponse) {
         print(model)
     }
@@ -182,24 +182,6 @@ class CameraViewController: UIViewController, uploadCallback {
             navigationController?.pushViewController(vc, animated: true)
         }
         return
-//        CameraApiWorker().createPost(false, text: "test") { response in
-//            switch response {
-//            case .success(let result):
-//                let uuid = result?.data.uuid ?? "1"
-//                CameraApiWorker.upload(video, with: "video", fileExtension: "mp4", to: "\(API.server)/user/post/\(uuid)/video/upload", preview: preview.jpegData(compressionQuality: 1)!) { result in
-//                    switch result {
-//                    case .success:
-//                        CameraApiWorker().publishPost(uuid) { result in
-//                            print(result)
-//                        }
-//                    case .failure(let error):
-//                        print(error)
-//                    }
-//                }
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
     }
     
     @objc fileprivate func showToastForSaved() {

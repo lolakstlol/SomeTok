@@ -10,4 +10,5 @@ import Foundation
 
 protocol MainSearchPresenterInput: BasePresenting {
     func load(predict: String, type: MainSearchTypes)
+    func followButtonTap(_ uuid: String)
 }

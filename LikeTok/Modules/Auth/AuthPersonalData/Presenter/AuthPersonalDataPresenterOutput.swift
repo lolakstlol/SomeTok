@@ -11,4 +11,6 @@ import Foundation
 protocol AuthPersonalDataPresenterOutput: AnyObject {
     func setupView()
     func openPickerView()
+    func onUploadSuccess()
+    func onUploadFailure(_ error: Error)
 }

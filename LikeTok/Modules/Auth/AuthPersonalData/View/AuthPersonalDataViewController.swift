@@ -9,9 +9,11 @@ final class AuthPersonalDataViewController: BaseViewController {
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var nameLabel: InsetTextField!
     @IBOutlet weak var numberLabel: InsetTextField!
-    var presenter: AuthPersonalDataPresenterInput!
+    
     let imagePickerController = UIImagePickerController()
     var avatarImage: UIImage? = nil
+    
+    var presenter: AuthPersonalDataPresenterInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,15 @@ final class AuthPersonalDataViewController: BaseViewController {
 }
 
 extension AuthPersonalDataViewController: AuthPersonalDataPresenterOutput {
+    func onUploadSuccess() {
+        hideLoader()
+    }
+    
+    func onUploadFailure(_ error: Error) {
+        hideLoader()
+        showToast(error.localizedDescription, toastType: .failured)
+    }
+    
     func openPickerView() {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             imagePickerController.delegate = self
@@ -78,5 +89,6 @@ extension AuthPersonalDataViewController: UIImagePickerControllerDelegate & UINa
         guard let image = info[.originalImage] as? UIImage else { return }
         avatarView.image = image
         presenter.uploadAvatar(image: image)
+        showLoader()
     }
 }

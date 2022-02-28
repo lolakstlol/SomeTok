@@ -9,9 +9,11 @@
 import UIKit
 
 final class FilterCurrentViewController: BaseViewController {
+    
     @IBOutlet weak var searchTextField: UITextField!
-    var presenter: FilterCurrentPresenterInput!
     @IBOutlet weak var tableView: UITableView!
+    
+    var presenter: FilterCurrentPresenterInput!
     var filterType: FilterType?
     var cityDataSource: [CityDictionary] = []
     var countiesDataSource: [CountryDictionary] = []
@@ -24,6 +26,8 @@ final class FilterCurrentViewController: BaseViewController {
         presenter.viewDidLoad()
         setupTableView()
         loadDict()
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     private func setupTableView() {
@@ -55,7 +59,7 @@ final class FilterCurrentViewController: BaseViewController {
             apiWorker.getCountryDictionaty(name: searchTextField.text ?? "") { result in
                 switch result {
                 case .success(let response):
-                    self.countiesDataSource = response?.data ?? []
+                    self.countiesDataSource = response?.data.data ?? []
                     self.tableView.reloadData()
                 case .failure(let error):
                     print(error)
@@ -66,7 +70,7 @@ final class FilterCurrentViewController: BaseViewController {
                 switch result {
                 case .success(let response):
                     var result: [CategoryDictionary] = []
-                    response?.data.forEach{ element in
+                    response?.data.data.forEach{ element in
                         if let subcategories = element.categories {
                             result.append(contentsOf: subcategories)
                         }

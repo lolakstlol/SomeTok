@@ -71,34 +71,34 @@ public enum Strings {
   }
 
   public enum PasswordRecovery {
-    /// Error
+    /// Ошибка
     public static let error = Strings.tr("Localizable", "PasswordRecovery.error")
     public enum First {
-      /// Check the correctness of your mail
+      /// Ошибка восстановления пароля. Проверьте корректность введенного email
       public static let badEmail = Strings.tr("Localizable", "PasswordRecovery.First.badEmail")
-      /// There is no such user. Please check the correctness of the mail.
+      /// Такого пользователя нет. Пожалуйста, проверьте правильность email.
       public static let noUserError = Strings.tr("Localizable", "PasswordRecovery.First.noUserError")
-      /// Server error. Check your internet connection.
+      /// Ошибка Сервера.
       public static let responseError = Strings.tr("Localizable", "PasswordRecovery.First.responseError")
-      /// Resume
+      /// Продолжить
       public static let resume = Strings.tr("Localizable", "PasswordRecovery.First.resume")
-      /// A confirmation code will be sent to your email address
+      /// На ваш электронный адрес будет отправлен код подтверждения
       public static let text = Strings.tr("Localizable", "PasswordRecovery.First.text")
-      /// Password recovery
+      /// Восстановление пароля
       public static let title = Strings.tr("Localizable", "PasswordRecovery.First.title")
     }
     public enum Second {
-      /// Enter the code from the email
+      /// Введите код из пиьсма
       public static let code = Strings.tr("Localizable", "PasswordRecovery.Second.code")
-      /// Enter the password
+      /// Введите пароль
       public static let enterThePassword = Strings.tr("Localizable", "PasswordRecovery.Second.enterThePassword")
-      /// You entered invalid characters
+      /// Недопустимые символы
       public static let invalidPassword = Strings.tr("Localizable", "PasswordRecovery.Second.invalidPassword")
-      /// Resume
+      /// Продолжить
       public static let resume = Strings.tr("Localizable", "PasswordRecovery.Second.resume")
-      /// Enter a new password
+      /// Введите новый пароль
       public static let text = Strings.tr("Localizable", "PasswordRecovery.Second.text")
-      /// Password recovery
+      /// Восстановление пароля
       public static let title = Strings.tr("Localizable", "PasswordRecovery.Second.title")
     }
   }
@@ -182,6 +182,32 @@ public enum Strings {
     public static let profile = Strings.tr("Localizable", "Tabbar.profile")
     /// Каталог
     public static let search = Strings.tr("Localizable", "Tabbar.search")
+  }
+
+  public enum Upload {
+    /// Категория
+    public static let category = Strings.tr("Localizable", "Upload.category")
+    /// Опишите публикацию
+    public static let describe = Strings.tr("Localizable", "Upload.describe")
+    /// Хэштэг
+    public static let hastag = Strings.tr("Localizable", "Upload.hastag")
+    /// Ссылка товара с сайта партнера
+    public static let link = Strings.tr("Localizable", "Upload.link")
+    /// Услуги продвижения
+    public static let primitions = Strings.tr("Localizable", "Upload.primitions")
+    /// Опубликовать
+    public static let publish = Strings.tr("Localizable", "Upload.publish")
+    /// Рекламный материал
+    public static let title = Strings.tr("Localizable", "Upload.title")
+  }
+
+  public enum UploadAbout {
+    /// Закрыть
+    public static let close = Strings.tr("Localizable", "UploadAbout.close")
+    /// Далее
+    public static let next = Strings.tr("Localizable", "UploadAbout.next")
+    /// Что такое “Личная публикация”?
+    public static let title = Strings.tr("Localizable", "UploadAbout.title")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

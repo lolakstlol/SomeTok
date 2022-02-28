@@ -22,9 +22,9 @@ final class ChatViewController: UIViewController {
     }
 }
 
-final class ProfileViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .gray
-    }
-}
+//final class ProfileViewController: UIViewController {
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        view.backgroundColor = .gray
+//    }
+//}

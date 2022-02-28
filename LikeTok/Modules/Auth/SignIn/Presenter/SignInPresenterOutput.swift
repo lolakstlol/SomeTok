@@ -11,4 +11,5 @@ import Foundation
 protocol SignInPresenterOutput: AnyObject {
     func setupView()
     func showPasswordRecovery()
+    func onSignInFailed(_ error: String)
 }

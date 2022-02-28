@@ -31,6 +31,10 @@ final class FeedViewPresenter {
         interactor.getUser()
     }
     
+    func viewDidAppear() {
+        interactor.playVideo()
+    }
+    
     func viewWillDisappear() {
         interactor.stopVideo()
     }
@@ -111,20 +115,20 @@ extension FeedViewPresenter: FeedViewPresenterInput {
     }
     
     func likeTouchUpInside(_ type: LikeActionType) {
-//        guard interactor.isAuthorized(), let post = post else {
+        guard interactor.isAuthorized(), let post = post else {
 //            router.presentAuthModule {}
-//            return
-//        }
+            return
+        }
 //
-//        if post.isLiked ?? false {
-//            guard type == .iconTap else { return }
-//            interactor.deleteLike()
-//            likeAction(.empty)
-//        } else {
-//            interactor.createLike()
-//            likeAction(.filled)
-//        }
-//
+        if post.isLiked {
+            guard type == .iconTap else { return }
+            interactor.deleteLike()
+            likeAction(.empty)
+        } else {
+            interactor.createLike()
+            likeAction(.filled)
+        }
+
 //        UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
     
@@ -150,8 +154,8 @@ extension FeedViewPresenter: FeedViewPresenterInput {
     }
     
     func profileTouchUpInside() {
-//        guard let userId = post?.user.userId else { return }
-//
+        guard let uuid = post?.author.uuid else { return }
+        view?.openProfile(uuid)
 //        switch interactor.type {
 //        case .profilePosts:
 //            router.dismiss()
@@ -201,6 +205,9 @@ extension FeedViewPresenter: FeedViewPresenterInput {
     }
     
     func openComments() {
+        guard let post = post else { return }
+        view?.openComments(post.uuid)
+
 //        guard let post = post else { return }
 //        router.openComments(postId: post.postId, userId: post.user.userId)
     }
@@ -224,6 +231,10 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
     
     func stopVideo() {
         view?.stopVideo()
+    }
+    
+    func playVideo() {
+        view?.playVideo()
     }
     
     func didReceivedPost(with result: Result<FeedResponse?, NetworkError>) {
@@ -311,18 +322,22 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
         }
     }
     
-    func didCreateLike(with result: String?) {
-        debugPrint(result)
+    func didCreateLike(with result: Result<LikeResponse, NetworkError>) {
+        switch result {
+        case .success(_):
+            debugPrint("put like success")
+        case .failure(let error):
+            debugPrint(error.localizedDescription)
+        }
     }
     
-    func didDeleteLike(with result: String?) {
-        debugPrint(result)
-//        switch result {
-//        case .success:
-//            DispatchQueue.main.async {}
-//        case .failure:
-//            DispatchQueue.main.async {}
-//        }
+    func didDeleteLike(with result: Result<LikeResponse, NetworkError>) {
+        switch result {
+        case .success(_):
+            debugPrint("delete like success")
+        case .failure(let error):
+            debugPrint(error.localizedDescription)
+        }
     }
     
     func likeAction(_ type: LikeType) {
