@@ -2,8 +2,12 @@
 
 // MARK: - CategoryDictionaryResponse
 struct CategoryDictionaryResponse: Codable {
-    let data: [CategoryDictionary]
+    let data: CategoryDictionaryData
     let result: ResponseResult
+}
+
+struct CategoryDictionaryData: Codable {
+    let data: [CategoryDictionary]
 }
 
 // MARK: - Datum

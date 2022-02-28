@@ -7,7 +7,7 @@ final class CameraApiWorker {
         var url: String = ""
     }
     
-    public static func upload(_ fileData: Data, with key: String, fileExtension: String, to url: String, _ callback: uploadCallback) {
+    public static func upload(_ fileData: Data, with key: String, fileExtension: String, to url: String, _ callback: UploadCallback) {
         Alamofire.upload(multipartFormData: { (data) in
             data.append(fileData, withName: key, fileName: "file\(Date().timeIntervalSince1970).\(fileExtension)", mimeType: "\(key)/*")
         }, to: url, method: .post, headers: Api.headers) { (encodingResult) in
@@ -29,7 +29,7 @@ final class CameraApiWorker {
                         print("# uploadRequest: success")
                     case .failure(let error):
                         print(error)
-                        callback.onFailed()
+                        callback.onFailure(error)
                         print("# uploadRequest: error")
                     }
                 }

@@ -32,13 +32,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZz-kJ-Ttc">
+                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="XZz-kJ-Ttc" customClass="VideoPlayerView" customModule="GSPlayer">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="utN-3T-br6" userLabel="BackgroundImageView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kmW-e2-CHT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     </imageView>
@@ -54,9 +51,6 @@
                                         <state key="normal" title="Поделиться">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="shareAction" destination="gTV-IL-0wX" eventType="touchUpInside" id="dqR-0g-LZS"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -122,9 +116,6 @@
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="-1" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Подписаться"/>
-                                        <connections>
-                                            <action selector="subscribeAction" destination="gTV-IL-0wX" eventType="touchUpInside" id="Blw-5k-eKa"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -137,13 +128,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaH-Xj-QYB">
+                                <rect key="frame" x="8" y="8" width="145.5" height="38"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="showProfileButtonTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="7Oq-DY-XhS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fBm-tN-wQZ" firstAttribute="top" secondItem="p6s-bo-A71" secondAttribute="bottom" constant="15" id="2Nv-q0-hHb"/>
+                            <constraint firstItem="RaH-Xj-QYB" firstAttribute="bottom" secondItem="ntx-xX-7bq" secondAttribute="bottom" constant="-8" id="B7h-xp-cem"/>
                             <constraint firstAttribute="height" constant="180" id="DmB-bB-koH"/>
+                            <constraint firstItem="RaH-Xj-QYB" firstAttribute="leading" secondItem="wqo-IR-SEl" secondAttribute="leading" constant="-2" id="NzR-gA-eUA"/>
                             <constraint firstItem="p6s-bo-A71" firstAttribute="leading" secondItem="e2C-kP-0ae" secondAttribute="leading" constant="10" id="QUC-vl-R5a"/>
+                            <constraint firstItem="RaH-Xj-QYB" firstAttribute="top" secondItem="ntx-xX-7bq" secondAttribute="top" constant="8" id="XEL-7C-PdO"/>
                             <constraint firstAttribute="bottom" secondItem="fBm-tN-wQZ" secondAttribute="bottom" constant="21" id="Y2T-If-jcO"/>
+                            <constraint firstItem="RaH-Xj-QYB" firstAttribute="trailing" secondItem="USr-WZ-Cln" secondAttribute="trailing" id="dxQ-EK-YU6"/>
                             <constraint firstItem="ntx-xX-7bq" firstAttribute="leading" secondItem="e2C-kP-0ae" secondAttribute="leading" constant="10" id="ibc-8x-v3Y"/>
                             <constraint firstItem="p6s-bo-A71" firstAttribute="top" secondItem="ntx-xX-7bq" secondAttribute="bottom" constant="10" id="ivF-NX-uZ6"/>
                             <constraint firstAttribute="trailing" secondItem="fBm-tN-wQZ" secondAttribute="trailing" constant="10" id="lgZ-Tb-bun"/>
@@ -183,7 +185,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tb2-hb-Qgz">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="53"/>
                                         <connections>
-                                            <action selector="likeAction" destination="gTV-IL-0wX" eventType="touchUpInside" id="3H4-Ed-gl9"/>
+                                            <action selector="likeButtonTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Fh8-KL-ffw"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -224,7 +226,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFs-aX-mai">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="61"/>
                                         <connections>
-                                            <action selector="commentsAction" destination="gTV-IL-0wX" eventType="touchUpInside" id="McV-uM-NrG"/>
+                                            <action selector="commentsButtonTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="i1Y-SK-22f"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -251,17 +253,13 @@
             <constraints>
                 <constraint firstItem="Y2J-cj-ywN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2hd-np-agI"/>
                 <constraint firstAttribute="bottom" secondItem="kmW-e2-CHT" secondAttribute="bottom" id="4wc-as-rqT"/>
-                <constraint firstItem="utN-3T-br6" firstAttribute="top" secondItem="kmW-e2-CHT" secondAttribute="top" id="6Bg-Yx-e6R"/>
                 <constraint firstItem="XZz-kJ-Ttc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Oow-ER-PkO"/>
-                <constraint firstItem="utN-3T-br6" firstAttribute="trailing" secondItem="kmW-e2-CHT" secondAttribute="trailing" id="Ptq-Zw-YwR"/>
                 <constraint firstAttribute="bottom" secondItem="e2C-kP-0ae" secondAttribute="bottom" id="Sl8-m3-LY4"/>
                 <constraint firstItem="Y2J-cj-ywN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TA5-AR-lSm"/>
                 <constraint firstItem="kmW-e2-CHT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="TZt-Tp-DiK"/>
                 <constraint firstItem="e2C-kP-0ae" firstAttribute="top" secondItem="A5M-e4-dFd" secondAttribute="bottom" id="V0x-gV-DcW"/>
                 <constraint firstAttribute="trailing" secondItem="kmW-e2-CHT" secondAttribute="trailing" id="WU3-d0-eeR"/>
-                <constraint firstItem="utN-3T-br6" firstAttribute="bottom" secondItem="kmW-e2-CHT" secondAttribute="bottom" id="XTE-j8-YEP"/>
                 <constraint firstAttribute="trailing" secondItem="e2C-kP-0ae" secondAttribute="trailing" id="cPh-WW-gpq"/>
-                <constraint firstItem="utN-3T-br6" firstAttribute="leading" secondItem="kmW-e2-CHT" secondAttribute="leading" id="cz6-Mh-Cp5"/>
                 <constraint firstAttribute="trailing" secondItem="XZz-kJ-Ttc" secondAttribute="trailing" id="emn-f9-eGK"/>
                 <constraint firstItem="XZz-kJ-Ttc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jRc-ol-0Wl"/>
                 <constraint firstAttribute="bottom" secondItem="XZz-kJ-Ttc" secondAttribute="bottom" id="nqA-3U-RMD"/>
@@ -271,19 +269,16 @@
                 <constraint firstItem="kmW-e2-CHT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zk1-3p-MCd"/>
             </constraints>
             <connections>
-                <outlet property="backgroundImageView" destination="utN-3T-br6" id="yBh-0L-jAT"/>
-                <outlet property="bottomGradientView" destination="e2C-kP-0ae" id="fu4-IO-cOh"/>
-                <outlet property="commentsLabel" destination="BHU-6D-0R0" id="lRU-Os-xEv"/>
-                <outlet property="descriptionLabel" destination="p6s-bo-A71" id="3Tj-q2-BnK"/>
-                <outlet property="imageView" destination="kmW-e2-CHT" id="hJl-HB-X0v"/>
-                <outlet property="likeImageView" destination="LiB-kf-RSB" id="1uD-8R-VuC"/>
-                <outlet property="likeLabel" destination="QO2-fT-XwS" id="Aw5-4Z-SfZ"/>
-                <outlet property="playerContainerView" destination="XZz-kJ-Ttc" id="edE-s4-ypW"/>
-                <outlet property="shareButton" destination="dXq-Ie-aFn" id="CXs-L9-tyS"/>
-                <outlet property="subscribeButton" destination="eHL-3q-Ll3" id="VhZ-jC-iIP"/>
-                <outlet property="topGradientView" destination="Y2J-cj-ywN" id="c2p-Hw-ic2"/>
-                <outlet property="userImageView" destination="J5Y-Wb-erS" id="2C1-XS-din"/>
-                <outlet property="userName" destination="USr-WZ-Cln" id="AfZ-V5-3bH"/>
+                <outlet property="avatarImageView" destination="J5Y-Wb-erS" id="3CL-sv-gS6"/>
+                <outlet property="commentsCountLabel" destination="BHU-6D-0R0" id="OG5-YM-dGV"/>
+                <outlet property="descriptionLabel" destination="p6s-bo-A71" id="c0d-Mj-RCp"/>
+                <outlet property="likeImageView" destination="LiB-kf-RSB" id="K6O-dx-b3N"/>
+                <outlet property="likesCountLabel" destination="QO2-fT-XwS" id="yta-XQ-zs9"/>
+                <outlet property="playerView" destination="XZz-kJ-Ttc" id="VRY-5S-v36"/>
+                <outlet property="previewImageView" destination="kmW-e2-CHT" id="3uH-CI-XZE"/>
+                <outlet property="shareView" destination="fBm-tN-wQZ" id="LkT-Yc-auH"/>
+                <outlet property="subscribeButton" destination="eHL-3q-Ll3" id="kbw-cM-16b"/>
+                <outlet property="usernameLabel" destination="USr-WZ-Cln" id="1sL-Na-TOy"/>
             </connections>
             <point key="canvasLocation" x="-1116" y="293.70314842578711"/>
         </collectionViewCell>
@@ -291,7 +286,7 @@
     <resources>
         <image name="avatarDefaulth" width="130" height="130"/>
         <image name="comments" width="35" height="35"/>
-        <image name="emptyHeart" width="35" height="35"/>
+        <image name="emptyHeart" width="40" height="39"/>
         <namedColor name="General/white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

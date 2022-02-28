@@ -1,8 +1,9 @@
 import Foundation
 import UIKit
 
-final class AuthPersonalDataPresenter: uploadCallback {
-    let apiWorker = AuthApiWorker()
+final class AuthPersonalDataPresenter {
+    
+    private let apiWorker = AuthApiWorker()
     private unowned let view: AuthPersonalDataPresenterOutput
     var finishFlow: EmptyClosure?
 
@@ -13,13 +14,16 @@ final class AuthPersonalDataPresenter: uploadCallback {
     func viewDidLoad() {
         view.setupView()
     }
-    
+
+}
+
+extension AuthPersonalDataPresenter: UploadCallback {
     func onSuccess(model: UploadResponse) {
         print(model)
     }
     
-    func onFailed() {
-        print("faield")
+    func onFailure(_ error: Error) {
+        view.onUploadFailure(error)
     }
 }
 
@@ -38,7 +42,7 @@ extension AuthPersonalDataPresenter: AuthPersonalDataPresenterInput {
             case .success(_):
                 self.finishFlow?()
             case .failure(_):
-                print("залупа")
+                print("error")
             }
         }
     }

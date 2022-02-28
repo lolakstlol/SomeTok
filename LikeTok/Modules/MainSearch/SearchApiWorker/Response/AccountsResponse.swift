@@ -14,7 +14,7 @@ struct SearchAccountsDataClass: Codable {
 // MARK: - Datum
 struct SearchAccountsDatum: Codable {
     let type, uuid: String
-    let isFollow, isFriend: Bool
+    var isFollow, isFriend: Bool
     let username, name, lastActive: String?
     let photo: Photo
 

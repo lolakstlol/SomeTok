@@ -12,7 +12,6 @@ final class CatalogFiltresViewController: BaseViewController {
     @IBOutlet weak var countryTitleLabel: UILabel!
     @IBOutlet weak var cityTitleLabel: UILabel!
     @IBOutlet weak var categoryTitleLabel: UILabel!
-    var presenter: CatalogFiltresPresenterInput!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
@@ -20,10 +19,12 @@ final class CatalogFiltresViewController: BaseViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cityMoreButton: UIButton!
     @IBOutlet weak var categoryMoreButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var acceptButton: UIButton!
+    
+    var presenter: CatalogFiltresPresenterInput!
     var completion: ((CategoriesFiltres?) -> Void)?
     var filtres: CategoriesFiltres?
-    @IBOutlet var cancelButton: UIButton!
-    @IBOutlet weak var acceptButton: UIButton!
     
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,14 +59,22 @@ final class CatalogFiltresViewController: BaseViewController {
     
     @IBAction func countryDidTap(_ sender: Any) {
         let vc = FilterCurrentAssembler.createModule(type: .country, completion: { data in
-            self.filtres?.countries = data as! CountryDictionary
+            guard let countries = data as? CountryDictionary
+            else {
+                return
+            }
+            self.filtres?.countries = countries
             self.setupTitles()
         })
         navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func cityDidTap(_ sender: Any) {
         let vc = FilterCurrentAssembler.createModule(type: .city, completion: { data in
-            self.filtres?.cities = data as! CityDictionary
+            guard let cities = data as? CityDictionary
+            else {
+                return
+            }
+            self.filtres?.cities = cities
             self.setupTitles()
         })
         navigationController?.pushViewController(vc, animated: true)
@@ -73,7 +82,11 @@ final class CatalogFiltresViewController: BaseViewController {
     
     @IBAction func categoryDidTap(_ sender: Any) {
         let vc = FilterCurrentAssembler.createModule(type: .category, completion: { data in
-            self.filtres?.categories = data as! CategoryDictionary
+            guard let categories = data as? CategoryDictionary
+            else {
+                return
+            }
+            self.filtres?.categories = categories
             self.setupTitles()
         })
         navigationController?.pushViewController(vc, animated: true)

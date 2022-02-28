@@ -34,7 +34,7 @@ final class SignInViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     @IBAction func securyButtonDidTap(_ sender: Any) {
@@ -60,6 +60,11 @@ final class SignInViewController: BaseViewController {
 }
 
 extension SignInViewController: SignInPresenterOutput {
+    
+    func onSignInFailed(_ error: String) {
+        showToast(error, toastType: .failured)
+    }
+    
     func showPasswordRecovery() {
         let vc = PasswordRecoveryFirstAssembler.createModule()
         navigationController?.pushViewController(vc, animated: true)

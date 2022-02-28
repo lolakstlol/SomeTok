@@ -8,9 +8,9 @@
 import Foundation
 
 final class CommentsAssembler {
-    static func createModule(commentsService: CommentsApiWorkerProtocol = CommentsApiWorker(), uuid: String) -> CommentsViewController {
+    static func createModule(commentsService: CommentsApiWorkerProtocol = CommentsApiWorker(), delegate: CommentsDelegate, uuid: String) -> CommentsViewController {
         let viewController = CommentsViewController()
-        let presenter = CommentsPresenter(viewController, commentsService, uuid)
+        let presenter = CommentsPresenter(viewController, commentsService, uuid, delegate: delegate)
         viewController.presenter = presenter
         return viewController
     }

@@ -8,6 +8,7 @@
 import UIKit
 import PanModal
 
+
 final class CommentsViewController: BaseViewController {
 
     @IBOutlet private var panView: UIView!
@@ -21,6 +22,7 @@ final class CommentsViewController: BaseViewController {
     @IBOutlet private var commentTextView: UITextView!
     @IBOutlet private var minHeightConstraint: NSLayoutConstraint!
     @IBOutlet private var bottomConstraint: NSLayoutConstraint!
+    
     
     private var comments: [CommentDatum] = [] {
         didSet {
@@ -68,7 +70,6 @@ final class CommentsViewController: BaseViewController {
     }
     
     @objc private func hideCover() {
-        coverView.isHidden = true
         commentTextView.resignFirstResponder()
     }
     
@@ -81,6 +82,7 @@ final class CommentsViewController: BaseViewController {
 extension CommentsViewController: CommentsPresenterOutput {
     
     func onCommentPosted() {
+        commentTextView.text = ""
         hideLoader()
         presenter.reloadComments()
     }
@@ -176,7 +178,6 @@ extension CommentsViewController: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-//        coverView.isHidden = true
         minHeightConstraint.constant = Constants.lineHeight
     }
     
@@ -184,13 +185,20 @@ extension CommentsViewController: UITextViewDelegate {
         sendButton.isEnabled = !textView.text.isEmpty
         messagePlaceholderLabel.isHidden = !textView.text.isEmpty
         
-        if textView.numberOfLines > Constants.maxNumberOfLines {
+        if textView.text.isEmpty {
+            minHeightConstraint.constant = Constants.lineHeight
+            textView.isScrollEnabled = false
+        } else if textView.numberOfLines > Constants.maxNumberOfLines {
             textView.isScrollEnabled = true
             minHeightConstraint.constant = Constants.maxLineHeight
         } else if textView.numberOfLines == Constants.maxNumberOfLines {
             textView.isScrollEnabled = false
         } else {
             minHeightConstraint.constant -= Constants.lineHeight
+        }
+        
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
         }
     }
 }

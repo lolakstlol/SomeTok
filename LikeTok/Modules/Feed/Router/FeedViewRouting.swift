@@ -6,8 +6,8 @@
 //  Copyright © 2020 BSL. All rights reserved.
 //
 
-import UIKit.UIImage
-
+//import UIKit.UIImage
+//
 //protocol FeedViewRouting: BaseRouting {
 //    func openComments(postId: String, userId: String)
 //    func presentUserProfile(userId: String)
