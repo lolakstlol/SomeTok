@@ -13,6 +13,8 @@ final class OtherProfileViewController: BaseViewController {
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var subscriptionsCountLabel: UILabel!
+    @IBOutlet weak var subscribersCountLabel: UILabel!
     
     @IBOutlet weak var subscribeButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -47,6 +49,7 @@ final class OtherProfileViewController: BaseViewController {
         navigationController?.navigationBar.isHidden = false
         let backButton = UIBarButtonItem(image: Assets.backButton.image, style: .plain, target: self, action: #selector(backButtonTap))
         navigationItem.leftBarButtonItem = backButton
+        navigationController?.navigationBar.tintColor = .black
     }
 
     private func update(with type: ContentType) {
@@ -72,22 +75,28 @@ final class OtherProfileViewController: BaseViewController {
         collectionView.dataSource = self
     }
     
-    private func setupButtons(_ isFollow: Bool) {
+    private func setupButtons() {
         subscribeButton.layer.cornerRadius = 5
         subscribeButton.clipsToBounds = true
-        if isFollow {
-            subscribeButton.layer.borderColor = Assets.borderButton.color.cgColor
-            subscribeButton.layer.borderWidth = 1.5
-        } else {
-            subscribeButton.backgroundColor = Assets.mainRed.color
-            subscribeButton.setTitleColor(UIColor.white, for: .normal)
-            subscribeButton.setTitle("Подписаться", for: .normal)
-        }
         
         sendMessageButton.layer.cornerRadius = 5
         sendMessageButton.clipsToBounds = true
         sendMessageButton.layer.borderColor = Assets.borderButton.color.cgColor
         sendMessageButton.layer.borderWidth = 1.5
+    }
+    
+    private func updateSubscribeButton(_ isFollow: Bool) {
+        if isFollow {
+            subscribeButton.layer.borderColor = Assets.borderButton.color.cgColor
+            subscribeButton.layer.borderWidth = 1.5
+            subscribeButton.backgroundColor = .clear
+            subscribeButton.setTitleColor(UIColor.black, for: .normal)
+            subscribeButton.setTitle("Вы подписаны", for: .normal)
+        } else {
+            subscribeButton.backgroundColor = Assets.mainRed.color
+            subscribeButton.setTitleColor(UIColor.white, for: .normal)
+            subscribeButton.setTitle("Подписаться", for: .normal)
+        }
     }
     
     @IBAction private func advertismentButtonTap(_ sender: Any) {
@@ -98,9 +107,16 @@ final class OtherProfileViewController: BaseViewController {
         update(with: .personal)
     }
     
+    @IBAction func followButtonTap(_ sender: Any) {
+        presenter.followButtonTap()
+        showLoader()
+    }
+    
     @objc private func backButtonTap() {
         navigationController?.popViewController(animated: true)
     }
+    
+  
 }
 
 extension OtherProfileViewController: OtherProfilePresenterOutput {
@@ -108,6 +124,7 @@ extension OtherProfileViewController: OtherProfilePresenterOutput {
     func setupUI() {
         setupNavigationBar()
         setupCollectionView()
+        showLoader()
     }
 
     func onFetchProfileDataSuccess(_ model: OtherProfileServerDatum) {
@@ -118,14 +135,28 @@ extension OtherProfileViewController: OtherProfilePresenterOutput {
             avatarImageView.image = Assets.avatarDefaulth.image
         }
         usernameLabel.text = model.username
-//        descriptionLabel.text = model.
-        setupButtons(model.isFollow)
+        descriptionLabel.text = model.dataDescription
+        subscriptionsCountLabel.text = String(model.subscriptions)
+        subscribersCountLabel.text = String(model.subscribers)
+        setupButtons()
+        updateSubscribeButton(model.isFollow)
         hideLoader()
     }
     
     func onFetchProfileDataFailure(_ error: NetworkError) {
         hideLoader()
-        showToast(error.localizedDescription)
+        showToast(error.localizedDescription, toastType: .failured)
+    }
+    
+    func onFollowSuccess(_ following: Bool, subscribersCount: Int) {
+        subscribersCountLabel.text = String(subscribersCount)
+        updateSubscribeButton(following)
+        hideLoader()
+    }
+    
+    func onFollowFailure(_ error: NetworkError) {
+        hideLoader()
+        showToast(error.localizedDescription, toastType: .failured)
     }
     
 }

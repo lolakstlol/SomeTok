@@ -67,34 +67,34 @@ public enum Strings {
   }
 
   public enum PasswordRecovery {
-    /// Error
+    /// Ошибка
     public static let error = Strings.tr("Localizable", "PasswordRecovery.error")
     public enum First {
-      /// Check the correctness of your mail
+      /// Ошибка восстановления пароля. Проверьте корректность введенного email
       public static let badEmail = Strings.tr("Localizable", "PasswordRecovery.First.badEmail")
-      /// There is no such user. Please check the correctness of the mail.
+      /// Такого пользователя нет. Пожалуйста, проверьте правильность email.
       public static let noUserError = Strings.tr("Localizable", "PasswordRecovery.First.noUserError")
-      /// Server error. Check your internet connection.
+      /// Ошибка Сервера.
       public static let responseError = Strings.tr("Localizable", "PasswordRecovery.First.responseError")
-      /// Resume
+      /// Продолжить
       public static let resume = Strings.tr("Localizable", "PasswordRecovery.First.resume")
-      /// A confirmation code will be sent to your email address
+      /// На ваш электронный адрес будет отправлен код подтверждения
       public static let text = Strings.tr("Localizable", "PasswordRecovery.First.text")
-      /// Password recovery
+      /// Восстановление пароля
       public static let title = Strings.tr("Localizable", "PasswordRecovery.First.title")
     }
     public enum Second {
-      /// Enter the code from the email
+      /// Введите код из пиьсма
       public static let code = Strings.tr("Localizable", "PasswordRecovery.Second.code")
-      /// Enter the password
+      /// Введите пароль
       public static let enterThePassword = Strings.tr("Localizable", "PasswordRecovery.Second.enterThePassword")
-      /// You entered invalid characters
+      /// Недопустимые символы
       public static let invalidPassword = Strings.tr("Localizable", "PasswordRecovery.Second.invalidPassword")
-      /// Resume
+      /// Продолжить
       public static let resume = Strings.tr("Localizable", "PasswordRecovery.Second.resume")
-      /// Enter a new password
+      /// Введите новый пароль
       public static let text = Strings.tr("Localizable", "PasswordRecovery.Second.text")
-      /// Password recovery
+      /// Восстановление пароля
       public static let title = Strings.tr("Localizable", "PasswordRecovery.Second.title")
     }
   }

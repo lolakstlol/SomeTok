@@ -20,7 +20,8 @@ struct ProfileServerData: Codable {
 
 // MARK: - DataData
 struct ProfileServerDatum: Codable {
-    let uuid, name, username, phone: String
+    let uuid, username, phone: String?
+    let name: String?
     let email: String
     let dataDescription: String?
     let type: String?
@@ -48,7 +49,7 @@ struct ProfileServerDatum: Codable {
 // MARK: - Location
 struct ProfileServerLocation: Codable {
     let country: String?
-    let city: String
+    let city: String?
 }
 
 // MARK: - Photo

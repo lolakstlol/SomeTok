@@ -10,6 +10,7 @@ import UIKit
 protocol EditProfilePresenterOutput: AnyObject {
     func setupUI()
     func setupUserData(_ model: EditProfileModel)
+    func setupNavigationBar()
     func onShowKeyboard(_ insets: UIEdgeInsets)
     func onHideKeyboard(_ insets: UIEdgeInsets)
     func onUpdateSuccess()

@@ -31,19 +31,21 @@ extension SignInPresenter: SignInPresenterInput {
     }
     
     func loginDidTap(email: String, pass: String) {
-        apiWorker.signIn(username: email, password: pass) { result in
+        apiWorker.signIn(username: email, password: pass) { [weak self] result in
             switch result {
             case .success(let response):
                 if let token = response?.data.token,
                    let userId = response?.data.uuid {
                     AccountManager.saveUserId(userId: userId)
                     AccountManager.saveAccount(token: token)
-                    self.finishFlow?()
+                    self?.finishFlow?()
                 } else {
+                    self?.view.onSignInFailed(NetworkError.noData.localizedDescription)
                     // something went wrong
                 }
             case .failure(let error):
-                print(error)
+                debugPrint(error.localizedDescription)
+                self?.view.onSignInFailed("Ошибка авторизации, пожалуйста проверьте введенные данные.")
             }
         }
     }

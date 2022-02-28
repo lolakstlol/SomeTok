@@ -71,7 +71,7 @@ final class PasswordRecoveryFirstViewController: BaseViewController {
 extension PasswordRecoveryFirstViewController: PasswordRecoveryFirstPresenterOutput {
      func onResetPasswordFailure(_ error: T) {
 //          presenter.showAlert(error)
-          showToast(error.localizedDescription, leftImage: UIImage())
+          showToast(error.localizedDescription, toastType: .failured)
      }
      
      func onViewDidLoad() {

@@ -8,5 +8,6 @@
 import Foundation
 
 protocol OtherProfilePresenterInput: BasePresenting {
+    func followButtonTap()
 //    func completeOnboarding()
 }

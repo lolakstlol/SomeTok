@@ -11,9 +11,25 @@ protocol ProfileNetworkServiceProtocol: AnyObject {
     func user(_ uuid: String, completion: @escaping (Swift.Result<OtherProfileServerModel?, NetworkError>) -> Void) 
     func settings(completion: @escaping (Swift.Result<ProfileServerModel?, NetworkError>) -> Void)
     func updateSettings(_ model: EditedProfileModel, completion: @escaping (Swift.Result<BaseResponse?, NetworkError>) -> Void)
+    func follow(_ uuid: String, completion: @escaping (Swift.Result<FollowResponse?, NetworkError>) -> Void)
 }
 
 final class ProfileNetworkService: ProfileNetworkServiceProtocol {
+    
+    func follow(_ uuid: String, completion: @escaping (Result<FollowResponse?, NetworkError>) -> Void) {
+        Api.Profile.follow(uuid).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(FollowResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    completion(.failure(.deserialization))
+                }
+            default: completion(.failure(.undefined))
+            }
+        }
+    }
     
     func user(_ uuid: String, completion: @escaping (Swift.Result<OtherProfileServerModel?, NetworkError>) -> Void) {
         
@@ -59,6 +75,7 @@ final class ProfileNetworkService: ProfileNetworkServiceProtocol {
                 } else {
                     completion(.failure(.deserialization))
                 }
+            case 422: completion(.failure(.noData)) //
             default: completion(.failure(.undefined))
             }
         }

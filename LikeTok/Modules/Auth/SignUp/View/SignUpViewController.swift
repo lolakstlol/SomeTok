@@ -83,6 +83,10 @@ final class SignUpViewController: BaseViewController {
 
 extension SignUpViewController: SignUpPresenterOutput {
     
+    func onSignInFailure(_ error: String) {
+        showToast(error, toastType: .failured)
+    }
+    
     func showCodeConfirm(model: SignUpUserModel, completion: @escaping EmptyClosure) {
         let vc = AuthCodeAssembler.createModule(model: model) {
             completion()

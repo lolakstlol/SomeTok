@@ -13,7 +13,7 @@ final class OtherProfilePresenter {
     private var networkService: ProfileNetworkServiceProtocol
     private var uuid: String
     
-    private var model: ProfileModel?
+    private var model: OtherProfileServerDatum?
     
     init(_ view: OtherProfilePresenterOutput, _ networkService: ProfileNetworkServiceProtocol, _ uuid: String) {
         self.view = view
@@ -34,6 +34,7 @@ private extension OtherProfilePresenter {
             switch result {
             case .success(let model):
                 if let model = model?.data.data {
+                    self?.model = model
                     self?.view.onFetchProfileDataSuccess(model)
                 } else {
                     self?.view.onFetchProfileDataFailure(.noData)
@@ -48,4 +49,22 @@ private extension OtherProfilePresenter {
 
 extension OtherProfilePresenter: OtherProfilePresenterInput {
     
+    func followButtonTap() {
+        networkService.follow(uuid) { [weak self] result in
+            switch result {
+            case .success(let followModel):
+                if let following = followModel?.data.following {
+                    let subscribersCount = self?.model?.subscribers ?? 0
+                    let newSubscribersCount = following ? subscribersCount + 1 : subscribersCount - 1
+                    self?.model?.subscribers = newSubscribersCount
+                    self?.view.onFollowSuccess(following, subscribersCount: newSubscribersCount)
+                } else {
+                    self?.view.onFollowFailure(.noData)
+                }
+            
+            case .failure(let error):
+                self?.view.onFollowFailure(error)
+            }
+        }
+    }
 }

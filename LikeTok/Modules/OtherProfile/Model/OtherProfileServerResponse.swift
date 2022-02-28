@@ -24,15 +24,18 @@ struct OtherProfileServerDatum: Codable {
     let lastActive: String
     let url: String?
     let isFollow, isFriend: Bool
+    let dataDescription: String?
     let photo: Photo
+    var friends, subscriptions, subscribers: Int
 
     enum CodingKeys: String, CodingKey {
         case uuid, username, name, type
         case lastActive = "last_active"
         case url
+        case dataDescription = "description"
         case isFollow = "is_follow"
         case isFriend = "is_friend"
-        case photo
+        case photo, friends, subscriptions, subscribers
     }
 }
 

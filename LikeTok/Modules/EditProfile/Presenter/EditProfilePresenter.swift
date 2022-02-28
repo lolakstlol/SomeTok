@@ -28,6 +28,10 @@ final class EditProfilePresenter {
         view.setupUI()
         view.setupUserData(model)
     }
+    
+    func viewWillAppear() {
+        view.setupNavigationBar()
+    }
 
 }
 

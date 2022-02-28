@@ -154,7 +154,7 @@ extension MyProfileViewController: MyProfilePresenterOutput {
     
     func onFetchProfileDataFailure(_ error: NetworkError) {
         hideLoader()
-        showToast(error.localizedDescription)
+        showToast(error.localizedDescription, toastType: .failured)
     }
     
     func onEditButtonTap(_ controller: EditProfileViewController) {

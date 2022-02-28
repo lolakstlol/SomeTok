@@ -52,7 +52,7 @@ extension AuthPersonalDataViewController: AuthPersonalDataPresenterOutput {
     
     func onUploadFailure(_ error: Error) {
         hideLoader()
-        showToast(error.localizedDescription)
+        showToast(error.localizedDescription, toastType: .failured)
     }
     
     func openPickerView() {

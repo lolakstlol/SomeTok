@@ -59,14 +59,22 @@ final class CatalogFiltresViewController: BaseViewController {
     
     @IBAction func countryDidTap(_ sender: Any) {
         let vc = FilterCurrentAssembler.createModule(type: .country, completion: { data in
-            self.filtres?.countries = data as! CountryDictionary
+            guard let countries = data as? CountryDictionary
+            else {
+                return
+            }
+            self.filtres?.countries = countries
             self.setupTitles()
         })
         navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func cityDidTap(_ sender: Any) {
         let vc = FilterCurrentAssembler.createModule(type: .city, completion: { data in
-            self.filtres?.cities = data as! CityDictionary
+            guard let cities = data as? CityDictionary
+            else {
+                return
+            }
+            self.filtres?.cities = cities
             self.setupTitles()
         })
         navigationController?.pushViewController(vc, animated: true)
@@ -74,7 +82,11 @@ final class CatalogFiltresViewController: BaseViewController {
     
     @IBAction func categoryDidTap(_ sender: Any) {
         let vc = FilterCurrentAssembler.createModule(type: .category, completion: { data in
-            self.filtres?.categories = data as! CategoryDictionary
+            guard let categories = data as? CategoryDictionary
+            else {
+                return
+            }
+            self.filtres?.categories = categories
             self.setupTitles()
         })
         navigationController?.pushViewController(vc, animated: true)

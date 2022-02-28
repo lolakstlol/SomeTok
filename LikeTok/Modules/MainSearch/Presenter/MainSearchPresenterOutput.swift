@@ -12,4 +12,6 @@ protocol MainSearchPresenterOutput: AnyObject {
     func setAccounts(models: [SearchAccountsDatum])
     func setCategories(models: [CategoriesDatum])
     func setVideos(models: [CategoriesPost])
+    func onFollowSuccess(_ following: Bool, uuid: String)
+    func onFollowFailure(_ error: NetworkError)
 }

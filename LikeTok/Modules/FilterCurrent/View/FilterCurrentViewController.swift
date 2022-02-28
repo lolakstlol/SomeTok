@@ -9,9 +9,11 @@
 import UIKit
 
 final class FilterCurrentViewController: BaseViewController {
+    
     @IBOutlet weak var searchTextField: UITextField!
-    var presenter: FilterCurrentPresenterInput!
     @IBOutlet weak var tableView: UITableView!
+    
+    var presenter: FilterCurrentPresenterInput!
     var filterType: FilterType?
     var cityDataSource: [CityDictionary] = []
     var countiesDataSource: [CountryDictionary] = []
@@ -24,6 +26,8 @@ final class FilterCurrentViewController: BaseViewController {
         presenter.viewDidLoad()
         setupTableView()
         loadDict()
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     private func setupTableView() {

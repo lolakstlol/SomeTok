@@ -12,4 +12,6 @@ protocol OtherProfilePresenterOutput: AnyObject {
     func setupUI()
     func onFetchProfileDataSuccess(_ model: OtherProfileServerDatum)
     func onFetchProfileDataFailure(_ error: NetworkError)
+    func onFollowSuccess(_ following: Bool, subscribersCount: Int)
+    func onFollowFailure(_ error: NetworkError)
 }

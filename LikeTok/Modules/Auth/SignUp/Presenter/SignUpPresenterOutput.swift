@@ -14,4 +14,5 @@ protocol SignUpPresenterOutput: AnyObject {
     func onHideKeyboard(_ insets: UIEdgeInsets)
     func showCodeConfirm(model: SignUpUserModel ,completion: @escaping EmptyClosure)
     func signIn(completion: @escaping EmptyClosure)
+    func onSignInFailure(_ error: String)
 }

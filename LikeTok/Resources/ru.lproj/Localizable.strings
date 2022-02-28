@@ -4,11 +4,10 @@
 "SplashScreen.begin" = "Начать";
 
 "PasswordRecovery.First.title" = "Восстановление пароля";
-"PasswordRecovery.First.text" = "На ваш электронный адрес будет
-отправлен код подтверждения";
+"PasswordRecovery.First.text" = "На ваш электронный адрес будет отправлен код подтверждения";
 "PasswordRecovery.First.resume" = "Продолжить";
 
-"PasswordRecovery.First.badEmail" = "Проверьте email";
+"PasswordRecovery.First.badEmail" = "Ошибка восстановления пароля. Проверьте корректность введенного email";
 "PasswordRecovery.First.responseError" = "Ошибка Сервера.";
 "PasswordRecovery.First.noUserError" = "Такого пользователя нет. Пожалуйста, проверьте правильность email.";
 

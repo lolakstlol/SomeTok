@@ -60,6 +60,11 @@ final class SignInViewController: BaseViewController {
 }
 
 extension SignInViewController: SignInPresenterOutput {
+    
+    func onSignInFailed(_ error: String) {
+        showToast(error, toastType: .failured)
+    }
+    
     func showPasswordRecovery() {
         let vc = PasswordRecoveryFirstAssembler.createModule()
         navigationController?.pushViewController(vc, animated: true)

@@ -32,6 +32,8 @@
                 <outlet property="personalButton" destination="Zg6-x2-2i2" id="3Cp-aY-NoX"/>
                 <outlet property="sendMessageButton" destination="S0O-Ap-bDF" id="lCN-v7-Nh9"/>
                 <outlet property="subscribeButton" destination="UeO-Vw-DeC" id="Z9Q-as-TNW"/>
+                <outlet property="subscribersCountLabel" destination="LiU-rW-ivO" id="HKa-nJ-enk"/>
+                <outlet property="subscriptionsCountLabel" destination="g2Z-50-27t" id="r9N-9r-vtQ"/>
                 <outlet property="usernameLabel" destination="l4H-fA-tJE" id="kvK-Fc-y6m"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -137,6 +139,9 @@
                                                             <color key="tintColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" title="Подписаться"/>
+                                                            <connections>
+                                                                <action selector="followButtonTap:" destination="-1" eventType="touchUpInside" id="zHa-4y-Xek"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0O-Ap-bDF">
                                                             <rect key="frame" x="180" y="0.0" width="175" height="29"/>

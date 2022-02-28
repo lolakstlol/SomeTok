@@ -278,6 +278,7 @@ enum Api {
         case user(_ uuid: String)
         case settings
         case updateSettings(_ model: EditedProfileModel)
+        case follow(_ uuid: String)
         public var request: DataRequest {
             switch self {
             case .user(let uuid):
@@ -292,14 +293,33 @@ enum Api {
             
             case .updateSettings(let model):
                 var params: Parameters = Parameters()
-                params["name"] = model.name
-                if let username = model.username {
+                if let name = model.name, !name.isEmpty {
+                    params["name"] = name
+                }
+                if let username = model.username, !username.isEmpty {
                     params["username"] = username
                 }
-                params["phone"] = model.phone
-                params["email"] = model.email
-//                params["country"] = model.country
+                if let email = model.email, !email.isEmpty {
+                    params["email"] = email
+                }
+                if let description = model.description, !description.isEmpty {
+                    params["description"] = description
+                }
+                if let phone = model.phone, !phone.isEmpty {
+                    params["phone"] = phone
+                }
+                if let country = model.country, !country.isEmpty {
+                    params["country"] = country
+                }
+                if let city = model.city, !city.isEmpty  {
+                    params["city"] = city
+                }
                 let request = Alamofire.request("\(API.server)/user/settings", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
+                return request.validate()
+                
+            case .follow(let uuid):
+                let request = Alamofire.request("\(API.server)/user/\(uuid)/follow", method: .put, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                //request.request?.addValue(Locale.current.regionCode ?? "", forHTTPHeaderField: "LANG")
                 return request.validate()
             }
         }

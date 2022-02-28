@@ -48,8 +48,14 @@ final class MainSearchViewController: BaseViewController {
         backButoon.setTitle("", for: .normal)
         setupCollection()
         collectionManager = SearchCollectionViewManager()
-        collectionManager?.attach(collectionView)
+        collectionManager?.attach(collectionView, output: self)
         collectionManager?.collectionType = .accounts
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.navigationBar.isHidden = true
     }
     
     private func setupCollection() {
@@ -156,5 +162,23 @@ extension MainSearchViewController: MainSearchPresenterOutput {
     
     func setVideos(models: [CategoriesPost]) {
         collectionManager?.setVideos(models: models)
+    }
+    
+    func onFollowSuccess(_ following: Bool, uuid: String) {
+        collectionManager?.updateFollowState(following, uuid: uuid)
+    }
+    
+    func onFollowFailure(_ error: NetworkError) {
+        showToast(error.localizedDescription, toastType: .failured)
+    }
+}
+
+extension MainSearchViewController: SearchCollectionViewOutput {
+    func openOtherProfile(_ viewController: OtherProfileViewController) {
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func followButtonTap(_ uuid: String) {
+        presenter.followButtonTap(uuid)
     }
 }

@@ -19,11 +19,11 @@ struct EditProfileModel {
 }
 
 struct EditedProfileModel {
-    let name: String
+    let name: String?
     var username: String?
     let email: String?
     let phone: String?
-    let country: String
-    let city: String
-    let description: String
+    let country: String?
+    let city: String?
+    let description: String?
 }
