@@ -30,7 +30,7 @@ final class CreatePrivatePostPresenter {
 
 extension CreatePrivatePostPresenter: CreatePrivatePostPresenterInput {
     func uploadVideo(with description: String) {
-        CameraApiWorker().createPost(false, title: description) {  response in
+        CameraApiWorker().createPost(false, title: description, tag: "", category: "") {  response in
             switch response {
             case .success(let result):
                 let uuid = result?.data.uuid ?? "1"

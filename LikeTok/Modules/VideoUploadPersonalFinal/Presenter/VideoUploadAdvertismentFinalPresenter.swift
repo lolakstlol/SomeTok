@@ -27,8 +27,11 @@ final class VideoUploadAdvertismentFinalPresenter {
 }
 
 extension VideoUploadAdvertismentFinalPresenter: VideoUploadAdvertismentFinalPresenterInput {
-    func publishButtonTap(description: String) {
-        CameraApiWorker().createPost(true, title: description) {  response in
+  
+    func publishButtonTap(description: String, tag: String?, category: String?) {
+        let hashtag: String = tag ?? ""
+        let uploadCategory: String = category ?? ""
+        CameraApiWorker().createPost(true, title: description, tag: hashtag, category: uploadCategory) {  response in
             switch response {
             case .success(let result):
                 let uuid = result?.data.uuid ?? "1"

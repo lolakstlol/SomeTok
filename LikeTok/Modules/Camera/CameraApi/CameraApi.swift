@@ -55,7 +55,7 @@ final class CameraApiWorker {
                 print(time)
                 print("Successful!")
                 print(exportSession.outputURL ?? "NO OUTPUT URL")
-                let fileData = try? Data(contentsOf: exportSession.outputURL ?? videoURL)
+                let fileData = try? Data(contentsOf: exportSession.outputURL!)
                 completionHandler?(fileData, nil)
 
                 default: break
@@ -100,8 +100,8 @@ final class CameraApiWorker {
         }
     }
     
-    func createPost(_ adv: Bool, title: String, text: String = "mobile", completion: @escaping (Swift.Result<CreatePostResponse?, NetworkError>) -> Void) {
-        Api.Camera.createPost(adv: adv, title: title, text: text).request.responseJSON { response in
+    func createPost(_ adv: Bool, title: String, text: String = "mobile", tag: String, category: String, completion: @escaping (Swift.Result<CreatePostResponse?, NetworkError>) -> Void) {
+        Api.Camera.createPost(adv: adv, title: title, text: text, tag: tag, category: category).request.responseJSON { response in
             guard let statusCode = response.response?.statusCode
             else {
                 return

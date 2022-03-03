@@ -120,6 +120,23 @@ final class SearchApiWorker {
         }
     }
     
+    func getHashtagsDictionaty(name: String, completion: @escaping (Swift.Result<HashtagsDictionaryResponse?, NetworkError>) -> Void) {
+        Api.Dictionary.hashtag(name: name).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(HashtagsDictionaryResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    try? self.catchError(data: response.data!, type: HashtagsDictionaryResponse.self)
+                    completion(.failure(.deserialization))
+                }
+            case 204: completion(.failure(.noData))
+            default: completion(.failure(.undefined))
+            }
+        }
+    }
+    
     private func catchError<T: Decodable>(data: Data, type: T.Type) throws {
         let decoder = JSONDecoder()
         do {

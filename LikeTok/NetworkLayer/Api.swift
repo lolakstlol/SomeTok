@@ -95,12 +95,18 @@ enum Api {
     }
     
     enum Camera: ApiMethod {
-        case createPost(adv: Bool, title: String, text: String)
+        case createPost(adv: Bool, title: String, text: String, tag: String, category: String)
         case publishPost(uuid: String)
         public var request: DataRequest {
             switch self {
-            case .createPost(adv: let adv, title: let title, text: let text):
+            case .createPost(adv: let adv, title: let title, text: let text, let tag, let category):
                 var params:Parameters = Parameters()
+                if tag != "" {
+                    params["tags"] = [tag]
+                }
+                if category != "" {
+                    params["categories"] = [category]
+                }
                 params["adv"] = adv
                 params["text"] = text
                 params["title"] = title
@@ -161,6 +167,7 @@ enum Api {
         case city(name: String)
         case category(name: String)
         case country(name: String)
+        case hashtag(name: String)
         public var request: DataRequest {
             switch self {
             case .city(let name):
@@ -177,6 +184,11 @@ enum Api {
                 var params:Parameters = Parameters()
                 params["name"] = name
                 let request = Alamofire.request("\(API.server)/dictionary/countries", method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+            case .hashtag(let name):
+                var params:Parameters = Parameters()
+                params["name"] = name
+                let request = Alamofire.request("\(API.server)/dictionary/hashtags", method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
                 return request.validate()
             }
         }

@@ -262,10 +262,11 @@ class CameraViewController: UIViewController {
                         print(error ?? "Video recording error")
                         return
                     }
-                    if let data = try? Data(contentsOf: url) {
+                    if let _ = try? Data(contentsOf: url) {
                         CameraApiWorker.encodeVideo(at: url) { data, error in
+                            guard let videoData = data else { return }
                             DispatchQueue.main.async {
-                                self.uploadVideoFlow(video: data!, preview: self.videoSnapshot(vidURL: url)!)
+                                self.uploadVideoFlow(video: videoData, preview: self.videoSnapshot(vidURL: url)!)
                             }
                         }
                     }

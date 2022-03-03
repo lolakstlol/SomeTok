@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 final class FilterCurrentViewController: BaseViewController {
     
@@ -18,6 +19,7 @@ final class FilterCurrentViewController: BaseViewController {
     var cityDataSource: [CityDictionary] = []
     var countiesDataSource: [CountryDictionary] = []
     var categoriesDataSorce: [CategoryDictionary] = []
+    var hashtagsDataSource: [HashtagsDictionaryHashtag] = []
     let apiWorker: SearchApiWorker = SearchApiWorker()
     var completion: ((Any?) -> Void)?
     
@@ -81,6 +83,18 @@ final class FilterCurrentViewController: BaseViewController {
                     print(error)
                 }
             }
+        case .hashtag:
+            apiWorker.getHashtagsDictionaty(name: searchTextField.text ?? "") { result in
+                switch result {
+                case .success(let response):
+                    var result: [HashtagsDictionaryHashtag] = []
+                    result = response?.data.data ?? []
+                    self.hashtagsDataSource = result
+                    self.tableView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
         }
     }
     
@@ -101,6 +115,8 @@ extension FilterCurrentViewController: UITableViewDelegate, UITableViewDataSourc
             completion?(countiesDataSource[indexPath.row] as Any)
         case .category:
             completion?(categoriesDataSorce[indexPath.row] as Any)
+        case .hashtag:
+            completion?(hashtagsDataSource[indexPath.row] as Any)
         }
         navigationController?.popViewController(animated: true)
     }
@@ -114,6 +130,8 @@ extension FilterCurrentViewController: UITableViewDelegate, UITableViewDataSourc
             return countiesDataSource.count
         case .category:
             return categoriesDataSorce.count
+        case .hashtag:
+            return hashtagsDataSource.count
         }
     }
     
@@ -127,6 +145,8 @@ extension FilterCurrentViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.setTitle(text: countiesDataSource[indexPath.row].name)
             case .category:
                 cell.setTitle(text: categoriesDataSorce[indexPath.row].name)
+            case .hashtag:
+                cell.setTitle(text: hashtagsDataSource[indexPath.row].name)
             }
         }
         return cell

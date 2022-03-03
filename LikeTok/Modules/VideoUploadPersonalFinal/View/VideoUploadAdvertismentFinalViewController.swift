@@ -7,7 +7,18 @@
 
 import UIKit
 
-class VideoUploadAdvertismentFinalViewController: UIViewController {
+struct UploadVideoModel {
+    var tag: String?
+    var category: String?
+    
+    
+    init() {
+        tag = nil
+        category = nil
+    }
+}
+
+class VideoUploadAdvertismentFinalViewController: BaseViewController {
 
     @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var placeholderLabel: UILabel!
@@ -23,7 +34,7 @@ class VideoUploadAdvertismentFinalViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     var presenter: VideoUploadAdvertismentFinalPresenterInput!
-    var filtres: CategoriesFiltres?
+    var filtres: UploadVideoModel = UploadVideoModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +42,8 @@ class VideoUploadAdvertismentFinalViewController: UIViewController {
     }
 
     private func setupTitles() {
-        guard let filtres = filtres else {
-            return
-        }
-        hashtagLabel.text = filtres.countries?.name ?? ""
-        categoryLabel.text = filtres.categories?.name ?? ""
+        hashtagLabel.text = filtres.tag
+        categoryLabel.text = filtres.category
     }
     
     @objc
@@ -44,8 +52,8 @@ class VideoUploadAdvertismentFinalViewController: UIViewController {
     }
     
     @IBAction func hashTagDidTap(_ sender: Any) {
-        let vc = FilterCurrentAssembler.createModule(type: .country, completion: { data in
-            self.filtres?.countries = data as! CountryDictionary
+        let vc = FilterCurrentAssembler.createModule(type: .hashtag, completion: { data in
+            self.filtres.tag = (data as! HashtagsDictionaryHashtag).name
             self.setupTitles()
         })
         navigationController?.pushViewController(vc, animated: true)
@@ -53,20 +61,22 @@ class VideoUploadAdvertismentFinalViewController: UIViewController {
     
     @IBAction func categoryDidTap(_ sender: Any) {
         let vc = FilterCurrentAssembler.createModule(type: .category, completion: { data in
-            self.filtres?.categories = data as! CategoryDictionary
+            self.filtres.category = (data as! CategoryDictionary).slug
             self.setupTitles()
         })
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func publishButtonTap(_ sender: Any) {
-        presenter.publishButtonTap(description: descriptionTextView.text)
+        showLoader()
+        presenter.publishButtonTap(description: descriptionTextView.text, tag: filtres.tag, category: filtres.category)
     }
     
     func didPublishPost() {
+        hideLoader()
         navigationController?.popToRootViewController(animated: false)
-        guard let tabBar = tabBarController as? TabBarViewController else { return }
-        tabBar.returnToPreviositem()
+//        guard let tabBar = tabBarController as? TabBarViewController else { return }
+//        tabBar.returnToPreviositem()
     }
 }
 

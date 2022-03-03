@@ -25,6 +25,7 @@ final class CreatePrivatePostViewController: BaseViewController {
     }
     
     @IBAction func uploadbuttonDidTap(_ sender: Any) {
+        showLoader()
         presenter.uploadVideo(with: descriptionTextView.text)
     }
 }
@@ -33,6 +34,7 @@ extension CreatePrivatePostViewController: CreatePrivatePostPresenterOutput {
     func didPublishPost() {
 //        guard let tabBar = tabBarController as? TabBarViewController else { return }
 //        tabBar.returnToPreviositem()
+        hideLoader()
         navigationController?.popToRootViewController(animated: false)
     }
 
@@ -42,6 +44,8 @@ extension CreatePrivatePostViewController: CreatePrivatePostPresenterOutput {
         uploadButton.layer.cornerRadius = 10
         uploadButton.setTitle(Strings.Camera.upload, for: .normal)
         title = Strings.Camera.Publication.nonad
+        descriptionTextView.text = Strings.Camera.descriptionPlaceholder
+        descriptionTextView.textColor = UIColor.lightGray
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: Assets.backButton.image, style: .plain, target: self, action: #selector(backButton))
         navigationItem.leftBarButtonItem?.tintColor = .black
     }

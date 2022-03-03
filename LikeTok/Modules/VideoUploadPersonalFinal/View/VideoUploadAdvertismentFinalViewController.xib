@@ -152,7 +152,7 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRe-93-uOM">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRe-93-uOM">
                                                             <rect key="frame" x="354" y="0.0" width="40" height="51"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="gml-6U-CwI"/>
@@ -213,7 +213,7 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEl-Gl-kPQ">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AEl-Gl-kPQ">
                                                             <rect key="frame" x="354" y="0.0" width="40" height="51"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="KNI-bx-yDO"/>

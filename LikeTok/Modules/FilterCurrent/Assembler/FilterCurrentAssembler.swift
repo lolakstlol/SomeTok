@@ -12,6 +12,7 @@ enum FilterType {
     case city
     case country
     case category
+    case hashtag
 }
 
 enum FilterCurrentAssembler {

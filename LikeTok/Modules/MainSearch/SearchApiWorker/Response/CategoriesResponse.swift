@@ -52,7 +52,7 @@ struct CategoriesPost: Codable {
 struct Author: Codable {
     let type, uuid: String
     let isFollow, isFriend: Bool
-    let username, name, lastActive: String
+    let username, name, lastActive: String?
     let photo: Photo
 
     enum CodingKeys: String, CodingKey {

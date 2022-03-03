@@ -10,5 +10,5 @@ import Foundation
 protocol VideoUploadAdvertismentFinalPresenterInput: BasePresenting {
 //    func completeOnboarding()
 //    func editButtonTap()
-      func publishButtonTap(description: String)
+    func publishButtonTap(description: String, tag: String?, category: String?)
 }
