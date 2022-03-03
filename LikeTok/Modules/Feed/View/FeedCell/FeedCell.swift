@@ -195,10 +195,10 @@ private extension FeedCell {
             case .loading:
                 print("loading")
             case .paused(let playing, let buffering):
-                print("paused - progress \(Int(playing * 100))% buffering \(Int(buffering * 100))%")
+                print("---paused - progress \(Int(playing * 100))% buffering \(Int(buffering * 100))%")
             case .playing:
                 self?.previewImageView.isHidden = true
-                print("playing")
+                print("---playing")
             }
         }
     }

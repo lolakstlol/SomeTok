@@ -59,14 +59,14 @@ final class FeedCollectionManager: NSObject {
               configurators.count - currentIndex < Constants.Feed.minFeedIndexDifference  else { return } 
         output?.requestNextPosts(offset: configurators.count)
         
-        let videoItems = configurators
-            .suffix(from: min(currentIndex + 1, configurators.count))
-            .prefix(4)
-            .flatMap { $0.getModel().media.map { $0.original ?? "" }}
-            .compactMap { URL(string: $0 )}
-        
-        VideoPreloadManager.shared.set(waiting: Array(videoItems))
-        debugPrint("???", videoItems)
+//        let videoItems = configurators
+//            .suffix(from: min(currentIndex + 1, configurators.count))
+//            .prefix(4)
+//            .flatMap { $0.getModel().media.map { $0.original ?? "" }}
+//            .compactMap { URL(string: $0 )}
+//
+//        VideoPreloadManager.shared.set(waiting: Array(videoItems))
+//        debugPrint("???", videoItems)
     }
     
     private func checkVideoState(needPlay: Bool) {
@@ -118,7 +118,7 @@ extension FeedCollectionManager: FeedCollectionManagement {
     }
     
     func stopVideo() {
-        checkVideoState(needPlay: false)
+//        checkVideoState(needPlay: false)
     }
     
     func playVideo() {
@@ -171,11 +171,12 @@ extension FeedCollectionManager: FeedCollectionManagement {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        checkVideoState(needPlay: true)
+//        checkVideoState(needPlay: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let cell = cell as? FeedCell {
+            debugPrint("---", indexPath)
             cell.pause()
         }
     }
