@@ -139,6 +139,7 @@ final class FeedCell: UICollectionViewCell {
     func play() {
         if let videoURL = videoURL {
             debugPrint("play video for \(videoURL.absoluteString), author \(usernameLabel.text)")
+            debugPrint("preview video for \(previewImageString), author \(usernameLabel.text)")
             DispatchQueue.main.async {
                 self.playerView.play(for: videoURL)
                 self.playerView.isHidden = false

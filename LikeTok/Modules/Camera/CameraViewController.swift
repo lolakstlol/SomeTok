@@ -354,6 +354,14 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
         }
         if let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
             print("videoURL:\(String(describing: videoURL))")
+            if let _ = try? Data(contentsOf: videoURL) {
+                CameraApiWorker.encodeVideo(at: videoURL) { data, error in
+                    guard let videoData = data else { return }
+                    DispatchQueue.main.async {
+                        self.uploadVideoFlow(video: videoData, preview: self.videoSnapshot(vidURL: videoURL)!)
+                    }
+                }
+            }
         }
         
         self.dismiss(animated: true, completion: nil)

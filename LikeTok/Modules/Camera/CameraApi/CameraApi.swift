@@ -11,8 +11,6 @@ final class CameraApiWorker {
     static func encodeVideo(at videoURL: URL, completionHandler: ((Data?, Error?) -> Void)?)  {
         let avAsset = AVURLAsset(url: videoURL, options: nil)
 
-        let startDate = Date()
-
         //Create Export session
         guard let exportSession = AVAssetExportSession(asset: avAsset, presetName: AVAssetExportPresetPassthrough) else {
             completionHandler?(nil, nil)
@@ -35,7 +33,7 @@ final class CameraApiWorker {
         exportSession.outputURL = filePath
         exportSession.outputFileType = AVFileType.mp4
         exportSession.shouldOptimizeForNetworkUse = true
-          let start = CMTimeMakeWithSeconds(0.0, preferredTimescale: 0)
+        let start = CMTimeMakeWithSeconds(0.0, preferredTimescale: 0)
         let range = CMTimeRangeMake(start: start, duration: avAsset.duration)
         exportSession.timeRange = range
 
@@ -49,10 +47,6 @@ final class CameraApiWorker {
                 completionHandler?(nil, nil)
             case .completed:
                 //Video conversion finished
-                let endDate = Date()
-
-                let time = endDate.timeIntervalSince(startDate)
-                print(time)
                 print("Successful!")
                 print(exportSession.outputURL ?? "NO OUTPUT URL")
                 let fileData = try? Data(contentsOf: exportSession.outputURL!)
@@ -66,8 +60,12 @@ final class CameraApiWorker {
     
     public static func upload(_ fileData: Data, with key: String, fileExtension: String, to url: String, preview: Data, _ completion: @escaping (Swift.Result<String,Error>) -> Void) {
         Alamofire.upload(multipartFormData: { (data) in
-            data.append(fileData, withName: "video", fileName: "file\(Date().timeIntervalSince1970)video.mp4", mimeType: "video/mp4")
-            data.append(preview, withName: "preview", fileName: "file\(Date().timeIntervalSince1970)preview.jpg", mimeType: "preview/*")
+            data.append(fileData, withName: "video",
+                        fileName: "file\(Date().timeIntervalSince1970)video.mp4",
+                        mimeType: "video/mp4")
+            data.append(preview, withName: "preview",
+                        fileName: "file\(Date().timeIntervalSince1970)preview.jpg",
+                        mimeType: "image/jpeg")
             print(data)
         }, to: url, method: .post, headers: Api.headers) { (encodingResult) in
             switch encodingResult {
