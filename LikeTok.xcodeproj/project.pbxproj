@@ -362,6 +362,7 @@
 		155FED70274B01D400548B01 /* FeedPlayerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPlayerContainer.swift; sourceTree = "<group>"; };
 		158C8CE92726FE26001614D0 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		158C8CFA2729E1C4001614D0 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		159AF2EC27CEE7F20009416C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINaviagationController+Extension.swift"; sourceTree = "<group>"; };
 		15B5C2CA27C170B30058408D /* ProfileNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetworkService.swift; sourceTree = "<group>"; };
 		15B5C2CC27C1719A0058408D /* ProfileServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServerModel.swift; sourceTree = "<group>"; };
@@ -2384,6 +2385,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1558C5FC2721AC1D0051436E /* ru */,
+				159AF2EC27CEE7F20009416C /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -2517,7 +2519,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;
@@ -2554,7 +2556,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -32,6 +32,7 @@
                 <outlet property="promotionsButton" destination="ru2-MK-M7Z" id="FFL-ge-MUB"/>
                 <outlet property="promotionsLabel" destination="iaA-qf-y3Y" id="tas-xU-Xxa"/>
                 <outlet property="publishButton" destination="JxM-h0-Wwk" id="4KC-qD-x1s"/>
+                <outlet property="scrollView" destination="7S0-WS-mRe" id="rpp-NV-yLB"/>
                 <outlet property="view" destination="7qw-Iv-awQ" id="CC2-N6-VI6"/>
             </connections>
         </placeholder>
@@ -160,7 +161,7 @@
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" image="moreBlack"/>
                                                             <connections>
-                                                                <action selector="hashTagDidTap:" destination="-1" eventType="touchUpInside" id="FYv-13-gPQ"/>
+                                                                <action selector="hashTagButtonTap:" destination="-1" eventType="touchUpInside" id="pEq-e6-4Um"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -221,7 +222,7 @@
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" image="moreBlack"/>
                                                             <connections>
-                                                                <action selector="categoryDidTap:" destination="-1" eventType="touchUpInside" id="kUE-Vz-Bgp"/>
+                                                                <action selector="categoryButtonTap:" destination="-1" eventType="touchUpInside" id="1wz-xp-BFE"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>

@@ -10,5 +10,7 @@ import Foundation
 protocol VideoUploadAdvertismentFinalPresenterInput: BasePresenting {
 //    func completeOnboarding()
 //    func editButtonTap()
-      func publishButtonTap(description: String)
+    func showKeyboard(_ info: KeyboardObserver.KeyboardInfo)
+    func hideKeyboard()
+    func publishButtonTap(description: String)
 }

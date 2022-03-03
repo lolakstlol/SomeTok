@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VideoUploadAdvertismentFinalViewController: UIViewController {
+class VideoUploadAdvertismentFinalViewController: BaseViewController {
 
     @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var placeholderLabel: UILabel!
@@ -15,6 +15,7 @@ class VideoUploadAdvertismentFinalViewController: UIViewController {
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var promotionsLabel: UILabel!
     @IBOutlet weak var promotionsButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var publishButton: UIButton!
     @IBOutlet weak var categoryTitleLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
@@ -22,8 +23,11 @@ class VideoUploadAdvertismentFinalViewController: UIViewController {
     @IBOutlet weak var hashtagLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    private let keyboardObserver = KeyboardObserver()
+    private lazy var tapWhenKeyboardAppears = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+    private var filtres: CategoriesFiltres?
+    
     var presenter: VideoUploadAdvertismentFinalPresenterInput!
-    var filtres: CategoriesFiltres?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +42,35 @@ class VideoUploadAdvertismentFinalViewController: UIViewController {
         categoryLabel.text = filtres.categories?.name ?? ""
     }
     
+    private func addKeyboardObservers() {
+        keyboardObserver.keyboardWillShow = { [weak self] info in
+            guard let self = self else { return }
+            self.keyboardWillShow(info)
+        }
+
+        keyboardObserver.keyboardWillHide = { [weak self] info in
+            guard let self = self else { return }
+            self.keyboardWillHide(info)
+        }
+    }
+   
+    private func keyboardWillHide(_ info: KeyboardObserver.KeyboardInfo) {
+         view.removeGestureRecognizer(tapWhenKeyboardAppears)
+         presenter.hideKeyboard()
+
+    }
+
+    private func keyboardWillShow(_ info: KeyboardObserver.KeyboardInfo) {
+         view.addGestureRecognizer(tapWhenKeyboardAppears)
+         presenter.showKeyboard(info)
+    }
+    
     @objc
     func backButtonDidTap(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func hashTagDidTap(_ sender: Any) {
+    @IBAction func hashTagButtonTap(_ sender: Any) {
         let vc = FilterCurrentAssembler.createModule(type: .country, completion: { data in
             self.filtres?.countries = data as! CountryDictionary
             self.setupTitles()
@@ -51,7 +78,7 @@ class VideoUploadAdvertismentFinalViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func categoryDidTap(_ sender: Any) {
+    @IBAction func categoryButtonTap(_ sender: Any) {
         let vc = FilterCurrentAssembler.createModule(type: .category, completion: { data in
             self.filtres?.categories = data as! CategoryDictionary
             self.setupTitles()
@@ -59,15 +86,13 @@ class VideoUploadAdvertismentFinalViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
     @IBAction func publishButtonTap(_ sender: Any) {
+        showLoader()
         presenter.publishButtonTap(description: descriptionTextView.text)
     }
     
-    func didPublishPost() {
-        navigationController?.popToRootViewController(animated: false)
-        guard let tabBar = tabBarController as? TabBarViewController else { return }
-        tabBar.returnToPreviositem()
-    }
+ 
 }
 
 extension VideoUploadAdvertismentFinalViewController: VideoUploadAdvertismentFinalPresenterOutput {
@@ -84,9 +109,34 @@ extension VideoUploadAdvertismentFinalViewController: VideoUploadAdvertismentFin
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: Assets.backButton.image, style: .plain, target: self, action: #selector(backButtonDidTap))
         navigationItem.leftBarButtonItem?.tintColor = .black
         previewImageView.image = UIImage(data: preview)
-        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tapGesture)
+        addKeyboardObservers()
         setupTitles()
+    }
+    
+    func onPublishPost() {
+        hideLoader()
+        navigationController?.popToRootViewController(animated: false)
+        guard let tabBar = tabBarController as? TabBarViewController else { return }
+        tabBar.returnToPreviositem()
+    }
+    
+    func onShowKeyboard(_ insets: UIEdgeInsets) {
+         scrollView.contentInset = insets
+         scrollView.scrollIndicatorInsets = insets
+
+         UIView.animate(withDuration: 0.4) {
+             self.view.setNeedsLayout()
+         }
+    }
+    
+    func onHideKeyboard(_ insets: UIEdgeInsets) {
+
+         scrollView.contentInset = insets
+         scrollView.scrollIndicatorInsets = insets
+        
+         UIView.animate(withDuration: 0.4) {
+             self.view.setNeedsLayout()
+         }
     }
     
 }
