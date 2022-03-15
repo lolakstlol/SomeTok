@@ -174,6 +174,10 @@ extension MainSearchViewController: MainSearchPresenterOutput {
 }
 
 extension MainSearchViewController: SearchCollectionViewOutput {
+    func updateEmptyLabel(_ isEmpty: Bool) {
+        emptyLabel.isHidden = isEmpty
+    }
+    
     func openOtherProfile(_ viewController: OtherProfileViewController) {
         navigationController?.pushViewController(viewController, animated: true)
     }

@@ -68,12 +68,12 @@
 "Tabbar.search" = "Каталог";
 "Tabbar.add" = "Добавить";
 
-"Search.control.accounts" = "1";
-"Search.control.categories" = "1";
-"Search.control.tags" = "1";
-"Search.plug.categories" = "1 не найдено";
-"Search.plug.tags" = "#тег не 1";
-"Search.plug.people" = "1 не найден";
+"Search.control.accounts" = "Аккаунт";
+"Search.control.categories" = "Категория";
+"Search.control.tags" = "Хэштег";
+"Search.plug.categories" = "Категория не найдена";
+"Search.plug.tags" = "Хэштег не найден";
+"Search.plug.people" = "Аккаунт не найден";
 "Search.more" = "more";
 "Search.accounts.sub" = "Подписаться";
 "Search.accounts.unsub" = "Отписаться";

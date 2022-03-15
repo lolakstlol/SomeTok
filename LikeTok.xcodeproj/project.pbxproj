@@ -100,6 +100,7 @@
 		15BDD2CF279A18A4004F61BC /* CommentsPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BDD2CE279A18A4004F61BC /* CommentsPresenterInput.swift */; };
 		15BDD2D1279A18F8004F61BC /* CommentsPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BDD2D0279A18F8004F61BC /* CommentsPresenterOutput.swift */; };
 		15BDD2D3279A1A5D004F61BC /* HalfSizePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BDD2D2279A1A5D004F61BC /* HalfSizePresentationController.swift */; };
+		15C0191C27D691C600FD43F0 /* PanNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0191B27D691C600FD43F0 /* PanNavigationController.swift */; };
 		15C36CD827BDB56600E84D14 /* LikeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C36CD727BDB56600E84D14 /* LikeResponse.swift */; };
 		15C36CDC27BDB5D600E84D14 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C36CDA27BDB5D600E84D14 /* MyProfileViewController.swift */; };
 		15C36CDD27BDB5D600E84D14 /* MyProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C36CDB27BDB5D600E84D14 /* MyProfileViewController.xib */; };
@@ -361,6 +362,7 @@
 		1558C60E2721F9F50051436E /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		155FED6E274AF90B00548B01 /* FeedRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRequest.swift; sourceTree = "<group>"; };
 		155FED70274B01D400548B01 /* FeedPlayerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPlayerContainer.swift; sourceTree = "<group>"; };
+		156A3F8627DFCA8000E84277 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		158C8CE92726FE26001614D0 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		158C8CFA2729E1C4001614D0 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINaviagationController+Extension.swift"; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 		15BDD2CE279A18A4004F61BC /* CommentsPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsPresenterInput.swift; sourceTree = "<group>"; };
 		15BDD2D0279A18F8004F61BC /* CommentsPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsPresenterOutput.swift; sourceTree = "<group>"; };
 		15BDD2D2279A1A5D004F61BC /* HalfSizePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfSizePresentationController.swift; sourceTree = "<group>"; };
+		15C0191B27D691C600FD43F0 /* PanNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanNavigationController.swift; sourceTree = "<group>"; };
 		15C36CD727BDB56600E84D14 /* LikeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeResponse.swift; sourceTree = "<group>"; };
 		15C36CDA27BDB5D600E84D14 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		15C36CDB27BDB5D600E84D14 /* MyProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProfileViewController.xib; sourceTree = "<group>"; };
@@ -703,9 +706,9 @@
 		153F2CBD273724F4002AF9FA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				153F2CC0273724F4002AF9FA /* FeedCell */,
 				153F2CBE273724F4002AF9FA /* FeedViewViewController.xib */,
 				153F2CBF273724F4002AF9FA /* FeedViewViewController.swift */,
-				153F2CC0273724F4002AF9FA /* FeedCell */,
 				155FED70274B01D400548B01 /* FeedPlayerContainer.swift */,
 			);
 			path = View;
@@ -744,6 +747,7 @@
 			children = (
 				15414A2D27233781007AA93D /* InsetTextField.swift */,
 				158C8CE92726FE26001614D0 /* KeyboardObserver.swift */,
+				15C0191B27D691C600FD43F0 /* PanNavigationController.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -2167,6 +2171,7 @@
 				17D98AE327D0DB2600CC2ECF /* HashtagDictionayResponse.swift in Sources */,
 				155FED71274B01D400548B01 /* FeedPlayerContainer.swift in Sources */,
 				15578A0C2761687D00D0267C /* NetworkApi.swift in Sources */,
+				15C0191C27D691C600FD43F0 /* PanNavigationController.swift in Sources */,
 				170973A4271D915600134ED7 /* BaseViewControllerInput.swift in Sources */,
 				15E3EA49279CB149004ED29A /* CommentCell.swift in Sources */,
 				15B5C2F427C24C210058408D /* OtherProfilePresenterInput.swift in Sources */,
@@ -2388,6 +2393,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1558C5FC2721AC1D0051436E /* ru */,
+				156A3F8627DFCA8000E84277 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -2521,7 +2527,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;
@@ -2542,7 +2548,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infoshell.like;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infoshell.like1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2558,7 +2564,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;
@@ -2579,7 +2585,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infoshell.like;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infoshell.like1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

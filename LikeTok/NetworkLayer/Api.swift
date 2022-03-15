@@ -1,6 +1,7 @@
 import Alamofire
 import AlamofireMapper
 import AlamofireNetworkActivityLogger
+import AVFoundation
 
 struct UploadResponse: Codable {
     let data: UploadDataClass
@@ -73,12 +74,13 @@ enum Api {
     }
     
     enum Comments: ApiMethod {
-        case getComments(uuid: String)
+        case getInitialComments(uuid: String)
+        case getComments(uuid: String, cursor: String)
         case postComments(uuid: String, text: String)
         
         public var request: DataRequest {
             switch self {
-            case .getComments(let uuid):
+            case .getInitialComments(let uuid):
                 
                 let endPoint: String = "\(API.server)/user/post/\(uuid)/comments"
                 let request = Alamofire.request(endPoint, method: .get, headers: Api.headers)
@@ -89,6 +91,13 @@ enum Api {
                 let endPoint: String = "\(API.server)/user/post/\(uuid)/comments"
                 let parameters: Parameters = ["message" : text]
                 let request = Alamofire.request(endPoint, method: .post, parameters: parameters, headers: Api.headers)
+                return request.validate()
+                
+            case .getComments(uuid: let uuid, cursor: let cursor):
+                
+                let endPoint: String = "\(API.server)/user/post/\(uuid)/comments"
+                let parameters: Parameters = ["cursor" : cursor]
+                let request = Alamofire.request(endPoint, method: .get, parameters: parameters, headers: Api.headers)
                 return request.validate()
             }
         }

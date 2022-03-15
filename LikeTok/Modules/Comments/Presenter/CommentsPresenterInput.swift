@@ -12,5 +12,6 @@ protocol CommentsPresenterInput: BasePresenting {
 //    func fetchMoreFeed()
 //    func reloadFeed()
     func sendComment(_ text: String)
-    func reloadComments()
+    func fetchMoreComments()
+    func profileTapAction(_ uuid: String)
 }

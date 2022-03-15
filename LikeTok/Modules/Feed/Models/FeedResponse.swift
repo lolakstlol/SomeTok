@@ -72,12 +72,12 @@ struct FeedMedia: Codable {
 // MARK: - Links
 struct FeedLinks: Codable {
     let first, last, prev: String?
-    let next: String
+    let next: String?
 }
 
 // MARK: - Meta
 struct FeedMeta: Codable {
-    let cursor: String
+    let cursor: String?
     let path: String
     let perPage: String
 

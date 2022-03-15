@@ -23,8 +23,7 @@ final class CommentsViewController: BaseViewController {
     @IBOutlet private var minHeightConstraint: NSLayoutConstraint!
     @IBOutlet private var bottomConstraint: NSLayoutConstraint!
     
-    
-    private var comments: [CommentDatum] = [] {
+    private var comments: [CommentsDatum] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -75,20 +74,52 @@ final class CommentsViewController: BaseViewController {
     
     @IBAction func sendButtonTap(_ sender: Any) {
         presenter.sendComment(commentTextView.text)
+        commentTextView.text = ""
         showLoader()
     }
 }
 
 extension CommentsViewController: CommentsPresenterOutput {
+    func onCommentPostSuccess(_ newComment: CommentsDatum) {
+        hideLoader()
+        comments.append(newComment)
+        DispatchQueue.main.async {
+            self.tableView.scrollToBottom()
+        }
+    }
+    
+    func onCommentPostFailure(_ error: NetworkError) {
+        hideLoader()
+        showToast(error.localizedDescription, toastType: .failured)
+    }
+    
+    
+    func openOtherProfile(_ viewController: OtherProfileViewController) {
+//        viewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func onScrolledToBottom() {
+        let spinner = UIActivityIndicatorView(style: .medium)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+
+        tableView.tableFooterView = spinner
+        tableView.tableFooterView?.isHidden = false
+    }
+    
+    func onListEnd() {
+        tableView.tableFooterView = nil
+    }
     
     func onCommentPosted() {
         commentTextView.text = ""
         hideLoader()
-        presenter.reloadComments()
+        presenter.fetchMoreComments()
     }
     
-    func setupComments(_ comments: [CommentDatum]) {
-        self.comments = comments
+    func setupComments(_ comments: [CommentsDatum]) {
+        self.comments += comments
     }
     
     func setupUI() {
@@ -110,10 +141,8 @@ extension CommentsViewController: CommentsPresenterOutput {
         commentBorderedView.layer.borderColor = UIColor(red: 235/255, green: 234/255, blue: 236/255, alpha: 1).cgColor
         commentBorderedView.layer.borderWidth = 1
 //        showLoader()
-        tableView.contentInset = .init(top: 0, left: 0, bottom: commentContainerView.frame.height, right: 0)
+        tableView.contentInset = .init(top: 0, left: 0, bottom: 0, right: 0)
 
-//        tableManager.attach(tableView)
-//        tableManager.output = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(nibOfClass: CommentCell.self)
@@ -135,15 +164,16 @@ extension CommentsViewController: CommentsPresenterOutput {
                                        selector: #selector(keyboardWillHide(notification:)),
                                        name: UIResponder.keyboardWillHideNotification,
                                        object: nil)
-        
-//        tableManager.cellImageTapAction = { userId, profileType in
-//            self.presenter.cellImageTouchUpInside(userId, profileType)
-//        }
+
     }
 }
 
 extension CommentsViewController: UITableViewDelegate {
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if ((scrollView.contentOffset.y + scrollView.frame.size.height) > scrollView.contentSize.height) {
+            presenter.fetchMoreComments()
+        }
+    }
 }
 
 
@@ -153,20 +183,18 @@ extension CommentsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = comments[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: CommentCell.cellIdentifier, for: indexPath) as! CommentCell
-        let time = AppDateFormatter.shared.howLongAgoWithDate(with: model.createdAt) ?? ""
-        let name = model.author.name
-        let text = model.message
-        let preview = model.author.photo.preview
-        cell.configure(CommentDataModel(text: text, username: name, avatar: preview, time: time))
-//        cell.imageTapAction = { [weak self] userId, profileType in
-//            self?.cellImageTapAction?(userId, profileType)
-//        }
+        let model = comments[indexPath.row]
+        cell.configure(model, output: self)
         return cell
     }
     
-    
+}
+
+extension CommentsViewController: CommentCellOutput {
+    func imageTapAction(_ uuid: String) {
+        presenter.profileTapAction(uuid)
+    }
 }
 
 extension CommentsViewController: UITextViewDelegate {

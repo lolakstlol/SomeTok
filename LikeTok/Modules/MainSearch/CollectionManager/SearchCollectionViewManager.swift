@@ -5,6 +5,7 @@ import class Foundation.NSObject
 protocol SearchCollectionViewOutput: AnyObject {
     func openOtherProfile(_ viewController: OtherProfileViewController)
     func followButtonTap(_ uuid: String)
+    func updateEmptyLabel(_ isEmpty: Bool)
 }
 
 final class SearchCollectionViewManager: NSObject {
@@ -93,13 +94,16 @@ final class SearchCollectionViewManager: NSObject {
     private func numberOfItemsInSection(section: Int) -> Int {
         switch collectionType {
         case .accounts:
-          //  emptyLabel.isHidden = peeopleDataSource.count > 1 ? true : false
+//            emptyLabel.isHidden = peeopleDataSource.count > 1 ? true : false
+            output?.updateEmptyLabel(peeopleDataSource.count > 1 ? true : false)
             return peeopleDataSource.count
         case .categories:
-           // emptyLabel.isHidden = categoriesDataSource.count > 1 ? true : false
+//            emptyLabel.isHidden = categoriesDataSource.count > 1 ? true : false
+            output?.updateEmptyLabel(categoriesDataSource.count > 1 ? true : false)
             return categoriesDataSource.count
         case .videos:
-          //  emptyLabel.isHidden = videosDataSource.count > 1 ? true : false
+//            emptyLabel.isHidden = videosDataSource.count > 1 ? true : false
+            output?.updateEmptyLabel(videosDataSource.count > 1 ? true : false)
             return videosDataSource.count
         }
     }
