@@ -278,8 +278,8 @@ extension FeedViewViewController: FeedCellActionsOutput {
         presenter.likeTouchUpInside(type)
     }
     
-    func shareTapAction(_ image: UIImage) {
-        presenter.shareTouchUpInside(image)
+    func shareTapAction() {
+        presenter.shareTouchUpInside()
     }
     
     func screenTapAction() {

@@ -9,7 +9,7 @@ protocol FeedCellActionsOutput: AnyObject {
     func commentsTapAction()
     func profileTapAction()
     func likeTapAction(_ tapType: LikeActionType)
-    func shareTapAction(_ image: UIImage)
+    func shareTapAction()
     func subscribeTapAction()
     func screenTapAction()
 }
@@ -165,6 +165,10 @@ final class FeedCell: UICollectionViewCell {
     
     @IBAction func likeButtonTap(_ sender: Any) {
         output?.likeTapAction(.iconTap)
+    }
+    
+    @IBAction func shareButtonTap(_ sender: Any) {
+        output?.shareTapAction()
     }
 }
 

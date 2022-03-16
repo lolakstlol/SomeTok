@@ -132,7 +132,7 @@ extension FeedViewPresenter: FeedViewPresenterInput {
 //        UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
     
-    func shareTouchUpInside(_ image: UIImage) {
+    func shareTouchUpInside() {
 //        guard interactor.isAuthorized() else {
 //            router.presentAuthModule {}
 //            return
