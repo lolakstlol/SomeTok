@@ -26,6 +26,7 @@ final class FeedViewInteractor {
 }
 
 extension FeedViewInteractor: FeedViewInteractorInput {
+    
     func attach(_ output: FeedViewInteractorOutput) {
         self.output = output
     }
@@ -43,6 +44,23 @@ extension FeedViewInteractor: FeedViewInteractorInput {
         feedService.getInitialFeed(with: offset, type: type) { [weak output] result in
             output?.didReceivedFeed(with: offset, result: result)
             self.isFeedLoading = false
+        }
+    }
+    
+    func createShareLink(postUUID: String) {
+        Api.Feed.createShareLink(postID: postUUID).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let result = try? JSONDecoder().decode(ShareLinkResponse.self, from: data) {
+                    self.output?.didReceivedShareLink(with: result.data.referalLink)
+                } else {
+                    
+                }
+            default:
+                
+                break
+            }
         }
     }
     

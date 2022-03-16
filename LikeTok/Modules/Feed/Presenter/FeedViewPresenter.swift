@@ -132,13 +132,9 @@ extension FeedViewPresenter: FeedViewPresenterInput {
 //        UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
     
-    func shareTouchUpInside() {
-//        guard interactor.isAuthorized() else {
-//            router.presentAuthModule {}
-//            return
-//        }
-//
-//        router.presentShareModule(image)
+    func shareTouchUpInside(postUUID: String) {
+        print(postUUID)
+        interactor.createShareLink(postUUID: postUUID)
     }
 
     func isMoreButtonVisible() -> Bool {
@@ -220,11 +216,48 @@ extension FeedViewPresenter: FeedViewPresenterInput {
         interactor.getInitialFeed(with: .zero)
         view?.scrollToTop()
     }
+    
+    func shareLink(link: String) {
+        
+           // Setting url
+           let secondActivityItem : NSURL = NSURL(string: link)!
+           
+           let activityViewController : UIActivityViewController = UIActivityViewController(
+               activityItems: [secondActivityItem], applicationActivities: nil)
+           
+           // This lines is for the popover you need to show in iPad
+           activityViewController.popoverPresentationController?.sourceView = (view as! UIViewController).view
+           
+           // Pre-configuring activity items
+           activityViewController.activityItemsConfiguration = [
+           UIActivity.ActivityType.message
+           ] as? UIActivityItemsConfigurationReading
+           
+           // Anything you want to exclude
+           activityViewController.excludedActivityTypes = [
+               UIActivity.ActivityType.postToWeibo,
+               UIActivity.ActivityType.print,
+               UIActivity.ActivityType.assignToContact,
+               UIActivity.ActivityType.saveToCameraRoll,
+               UIActivity.ActivityType.addToReadingList,
+               UIActivity.ActivityType.postToFlickr,
+               UIActivity.ActivityType.postToVimeo,
+               UIActivity.ActivityType.postToTencentWeibo,
+               UIActivity.ActivityType.postToFacebook
+           ]
+           
+           activityViewController.isModalInPresentation = true
+           (view as! UIViewController).present(activityViewController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - FeedViewInteractorOutput
 
 extension FeedViewPresenter: FeedViewInteractorOutput {
+    func didReceivedShareLink(with link: String) {
+        shareLink(link: link)
+    }
+    
     func didTapScreen() {
         view?.tapScreenAction()
     }

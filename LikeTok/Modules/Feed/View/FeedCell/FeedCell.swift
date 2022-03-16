@@ -9,7 +9,7 @@ protocol FeedCellActionsOutput: AnyObject {
     func commentsTapAction()
     func profileTapAction()
     func likeTapAction(_ tapType: LikeActionType)
-    func shareTapAction()
+    func shareTapAction(postUUID: String)
     func subscribeTapAction()
     func screenTapAction()
 }
@@ -36,6 +36,8 @@ final class FeedCell: UICollectionViewCell {
     
     private var isLiked: Bool = false
     private var videoURL: URL?
+    private var postUUID: String?
+    
     private var previewImageString: String? {
         didSet {
             if let previewImageString = previewImageString,
@@ -110,10 +112,11 @@ final class FeedCell: UICollectionViewCell {
         likesCountLabel.text = "0"
     }
     
-    func set(videoURL: URL? = nil, previewImageString: String, avatarImageString: String) {
+    func set(videoURL: URL? = nil, previewImageString: String, avatarImageString: String, postUUID: String) {
         self.videoURL = videoURL
         self.previewImageString = previewImageString
         self.avatarImageString = avatarImageString
+        self.postUUID = postUUID
     }
     
     func setupUserData(authorName: String, description: String, likesCount: Int, isLiked: Bool, commentsCount: Int) {
@@ -168,7 +171,7 @@ final class FeedCell: UICollectionViewCell {
     }
     
     @IBAction func shareButtonTap(_ sender: Any) {
-        output?.shareTapAction()
+        output?.shareTapAction(postUUID: postUUID ?? "")
     }
 }
 

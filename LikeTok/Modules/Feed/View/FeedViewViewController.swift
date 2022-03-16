@@ -258,6 +258,10 @@ extension FeedViewViewController: FeedCollectionOutput {
 // MARK: - FeedCellActionsOutput
 
 extension FeedViewViewController: FeedCellActionsOutput {
+    func shareTapAction(postUUID: String) {
+        presenter.shareTouchUpInside(postUUID: postUUID)
+    }
+    
     func subscribeTapAction() {
         presenter.subscribeTapAction()
     }
@@ -276,10 +280,6 @@ extension FeedViewViewController: FeedCellActionsOutput {
     
     func likeTapAction(_ type: LikeActionType) {
         presenter.likeTouchUpInside(type)
-    }
-    
-    func shareTapAction() {
-        presenter.shareTouchUpInside()
     }
     
     func screenTapAction() {
