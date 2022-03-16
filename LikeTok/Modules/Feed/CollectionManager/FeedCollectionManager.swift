@@ -118,7 +118,7 @@ extension FeedCollectionManager: FeedCollectionManagement {
     }
     
     func stopVideo() {
-//        checkVideoState(needPlay: false)
+        checkVideoState(needPlay: false)
     }
     
     func playVideo() {

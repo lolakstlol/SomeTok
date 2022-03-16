@@ -275,7 +275,7 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
         switch result {
         case .success(let response):
             let categoriesRespone = response.data.data
-            self.cursor = response.data.meta.cursor
+            self.cursor = response.data.meta.cursor ?? ""
             DispatchQueue.main.async {
                 self.view?.updateConfigurators([])
             }
