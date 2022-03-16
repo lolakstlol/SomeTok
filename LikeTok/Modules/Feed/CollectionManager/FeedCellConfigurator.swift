@@ -89,10 +89,6 @@ final class FeedCellConfigurator {
         cell?.update(delegate, likes: likes, commentsCount: commentsCount)
     }
     
-    
-    func updateState(_ isReadyToPlay: Bool) {
-        self.isReadyToPlay = isReadyToPlay
-    }
         
     func getCellSize(viewSize: CGSize?) -> CGSize {
         guard let viewSize = viewSize else { return .zero }

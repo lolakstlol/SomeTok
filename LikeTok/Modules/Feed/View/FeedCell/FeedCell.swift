@@ -55,7 +55,7 @@ final class FeedCell: UICollectionViewCell {
                 avatarImageView.isHidden = false
                 avatarImageView.kf.setImage(with: avatarImageURL)
             } else {
-                avatarImageView.isHidden = true
+                avatarImageView.image = Assets.avatarDefaulth.image
             }
         }
     }
@@ -78,7 +78,6 @@ final class FeedCell: UICollectionViewCell {
         imageView.image = Assets.playButton.image.withAlpha(0.5)
         imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         imageView.center = previewImageView.center
-        imageView.isHidden = true
         return imageView
     }()
     
@@ -87,6 +86,7 @@ final class FeedCell: UICollectionViewCell {
         addPlayerObserver()
         addTapGesture()
         contentView.addSubview(playImageView)
+        
 //        playerView.currentBufferDuration = TimeInterval(5)
     }
     
@@ -103,7 +103,7 @@ final class FeedCell: UICollectionViewCell {
         super.prepareForReuse()
         videoURL = nil
         playerView.isHidden = true
-        avatarImageView.isHidden = true
+//        avatarImageView.isHidden = true
         previewImageView.isHidden = false
         playImageView.isHidden = true
         likeImageView.image = Assets.emptyHeart.image
@@ -143,6 +143,7 @@ final class FeedCell: UICollectionViewCell {
             DispatchQueue.main.async {
                 self.playerView.play(for: videoURL)
                 self.playerView.isHidden = false
+                self.playerView.volume = 0.0
                 self.playImageView.isHidden = true
             }
         } else {

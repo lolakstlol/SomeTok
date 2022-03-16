@@ -9,6 +9,10 @@
 import UIKit
 import Kingfisher
 
+protocol CommentCellOutput: AnyObject {
+    func imageTapAction(_ uuid: String)
+}
+
 final class CommentCell: UITableViewCell {
     
     // MARK: - @IBOutlets
@@ -18,13 +22,15 @@ final class CommentCell: UITableViewCell {
     @IBOutlet private weak var commentLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
     
-    var imageTapAction: VoidHandler?
+    private var uuid: String?
     
+    weak var output: CommentCellOutput?
+        
     // MARK: - Lifecycle
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        profileImageView.image = nil
+//        profileImageView.image = nil
     }
     
     override func awakeFromNib() {
@@ -35,12 +41,14 @@ final class CommentCell: UITableViewCell {
     
     // MARK: - Public methods
 
-    func configure(_ data: CommentDataModel) {
-        commentLabel.text = data.text
-        usernameLabel.text = data.username
-        timeLabel.text = data.time
+    func configure(_ data: CommentsDatum, output: CommentCellOutput) {
+        self.output = output
+        uuid = data.uuid
+        commentLabel.text = data.message
+        usernameLabel.text = data.author.name
+        timeLabel.text = AppDateFormatter.shared.howLongAgoWithDate(with: data.createdAt) ?? ""
         
-        if let avatar = data.avatar {
+        if let avatar = data.author.photo.preview {
             profileImageView.kf.setImage(with: URL(string: avatar))
         } else {
             profileImageView.image = Assets.avatarDefaulth.image
@@ -58,6 +66,9 @@ final class CommentCell: UITableViewCell {
     // MARK: - @IBActions
     
     @IBAction private func imageTouchUpInside() {
-        imageTapAction?()
+        guard let uuid = uuid else {
+            return
+        }
+        output?.imageTapAction(uuid)
     }
 }

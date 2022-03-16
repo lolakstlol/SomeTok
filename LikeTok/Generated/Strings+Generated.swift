@@ -119,19 +119,19 @@ public enum Strings {
       public static let second = Strings.tr("Localizable", "Search.categories.second")
     }
     public enum Control {
-      /// 1
+      /// Аккаунт
       public static let accounts = Strings.tr("Localizable", "Search.control.accounts")
-      /// 1
+      /// Категория
       public static let categories = Strings.tr("Localizable", "Search.control.categories")
-      /// 1
+      /// Хэштег
       public static let tags = Strings.tr("Localizable", "Search.control.tags")
     }
     public enum Plug {
-      /// 1 не найдено
+      /// Категория не найдена
       public static let categories = Strings.tr("Localizable", "Search.plug.categories")
-      /// 1 не найден
+      /// Аккаунт не найден
       public static let people = Strings.tr("Localizable", "Search.plug.people")
-      /// #тег не 1
+      /// Хэштег не найден
       public static let tags = Strings.tr("Localizable", "Search.plug.tags")
     }
   }

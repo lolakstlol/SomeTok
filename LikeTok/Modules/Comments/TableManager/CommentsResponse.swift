@@ -1,25 +1,29 @@
 import Foundation
 
-// MARK: - Welcome
 struct CommentsResponse: Codable {
-    let data: CommentData
-    let result: CommentResult
+    let data: CommentsDataClass
+    let result: BaseResult
 }
 
-struct CommentData: Codable {
-    let data: [CommentDatum]
+// MARK: - DataClass
+struct CommentsDataClass: Codable {
+    let data: [CommentsDatum]
+    let meta: CommentsMeta
+    let links: CommentsLinks
 }
 
 // MARK: - Datum
-struct CommentDatum: Codable {
+struct CommentsDatum: Codable {
+    let countComments: Int
     let uuid: String
     let adv: Bool
-    let author: CommentAuthor
+    let author: CommentsAuthor
     let userLastActive, createdAt, updatedAt, message: String
     let like: Bool
-    let post: CommentPost
+    let post: CommentsPost
 
     enum CodingKeys: String, CodingKey {
+        case countComments = "count_comments"
         case uuid, adv, author
         case userLastActive = "user_last_active"
         case createdAt = "created_at"
@@ -29,28 +33,32 @@ struct CommentDatum: Codable {
 }
 
 // MARK: - Author
-struct CommentAuthor: Codable {
+struct CommentsAuthor: Codable {
     let uuid, username, name, type: String
     let lastActive: String
+    let url, authorDescription: String?
     let isFollow, isFriend: Bool
-    let photo: CommentPhoto
+    let photo: CommentsPhoto
+    let friends, subscriptions, subscribers: Int
 
     enum CodingKeys: String, CodingKey {
         case uuid, username, name, type
         case lastActive = "last_active"
+        case url
+        case authorDescription = "description"
         case isFollow = "is_follow"
         case isFriend = "is_friend"
-        case photo
+        case photo, friends, subscriptions, subscribers
     }
 }
 
 // MARK: - Photo
-struct CommentPhoto: Codable {
+struct CommentsPhoto: Codable {
     let preview: String?
 }
 
 // MARK: - Post
-struct CommentPost: Codable {
+struct CommentsPost: Codable {
     let title, text: String?
     let isLike: Bool
     let likes: Int
@@ -62,35 +70,20 @@ struct CommentPost: Codable {
     }
 }
 
-// MARK: - Result
-struct CommentResult: Codable {
-    let message: String
-    let status: Bool
+// MARK: - Links
+struct CommentsLinks: Codable {
+    let first, last, prev: String?
+    let next: String?
 }
 
-// MARK: - Encode/decode helpers
+// MARK: - Meta
+struct CommentsMeta: Codable {
+    let cursor: String?
+    let path: String
+    let perPage: String
 
-//class CommentsJSONNull: Codable, Hashable {
-//
-//    public static func == (lhs: CommentsJSONNull, rhs: CommentsJSONNull) -> Bool {
-//        return true
-//    }
-//
-//    public var hashValue: Int {
-//        return 0
-//    }
-//
-//    public init() {}
-//
-//    public required init(from decoder: Decoder) throws {
-//        let container = try decoder.singleValueContainer()
-//        if !container.decodeNil() {
-//            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-//        }
-//    }
-//
-//    public func encode(to encoder: Encoder) throws {
-//        var container = encoder.singleValueContainer()
-//        try container.encodeNil()
-//    }
-//}
+    enum CodingKeys: String, CodingKey {
+        case cursor, path
+        case perPage = "per_page"
+    }
+}

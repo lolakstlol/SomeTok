@@ -67,7 +67,7 @@ extension SignUpPresenter: SignUpPresenterInput {
                 }
             case .failure(let error):
                 debugPrint(error.localizedDescription)
-                self?.view.onSignInFailure("Пользователь с таким логином уже существует. Попробуйте использовать другой.")
+//                self?.view.onSignInFailure("Пользователь с таким логином уже существует. Попробуйте использовать другой.")
             }
         }
     }

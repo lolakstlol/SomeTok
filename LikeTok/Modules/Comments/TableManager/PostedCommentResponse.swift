@@ -15,7 +15,7 @@ struct PostedCommentResponse: Codable {
 
 // MARK: - DataClass
 struct PostedCommentDataClass: Codable {
-    let uuid: String
+    let data: CommentsDatum
 }
 
 // MARK: - Result
