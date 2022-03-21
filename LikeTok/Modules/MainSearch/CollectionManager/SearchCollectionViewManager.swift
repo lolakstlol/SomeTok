@@ -223,7 +223,7 @@ extension SearchCollectionViewManager: UICollectionViewDataSource, UICollectionV
     }
 }
 
-extension SearchCollectionViewManager: AcoountCollectionViewCellDelegate {
+extension SearchCollectionViewManager: AccountCollectionViewCellDelegate {
     func followButtonTap(_ uuid: String) {
         output?.followButtonTap(uuid)
     }

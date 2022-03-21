@@ -13,10 +13,8 @@ final class FeedViewViewController: BaseViewController {
     
     // MARK: - @IBOutlets
     
-    @IBOutlet private var advertisingFilterButton: UIButton!
     @IBOutlet private var collectionView: UICollectionView!
-    @IBOutlet private var subscribesFilterButton: UIButton!
-    @IBOutlet private var generalFilterButton: UIButton!
+   
     @IBOutlet private var messageTextView: UITextView!
     @IBOutlet private var messageTextViewMinConstraint: NSLayoutConstraint!
     @IBOutlet private var inputSendButton: UIButton!
@@ -26,7 +24,6 @@ final class FeedViewViewController: BaseViewController {
     @IBOutlet private var placeholderLabel: UILabel!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     
-    @IBOutlet var filterButtonsCollections: [UIButton]!
     // MARK: - Public properties
 
     var presenter: FeedViewPresenterInput!
@@ -56,40 +53,6 @@ final class FeedViewViewController: BaseViewController {
     }
     
     // MARK: - Private methods
-    
-    private func updateFilterButtons(selectedButton: UIButton) {
-        filterButtonsCollections.forEach {
-            $0.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
-            $0.titleLabel?.tintColor = .systemGray5
-        }
-        selectedButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 16)
-        selectedButton.titleLabel?.tintColor = .white
-    }
-    
-    func setupFilterButtons() {
-        filterButtonsCollections.forEach {
-            $0.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
-            $0.titleLabel?.tintColor = .systemGray5
-        }
-        generalFilterButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 16)
-        generalFilterButton.titleLabel?.tintColor = .white
-    }
-    
-    // MARK: - @IBActions
-    @IBAction private func subscribesFilterTap(_ sender: UIButton) {
-        updateFilterButtons(selectedButton: sender)
-        presenter.updateFeedType(.subscriptions)
-    }
-    
-    @IBAction func advertismentFilterTap(_ sender: UIButton) {
-        updateFilterButtons(selectedButton: sender)
-        presenter.updateFeedType(.advertisment)
-    }
-    
-    @IBAction func generalFilterTap(_ sender: UIButton) {
-        updateFilterButtons(selectedButton: sender)
-        presenter.updateFeedType(.general)
-    }
     
     @IBAction private func sendMessage(_ sender: Any) {
         messageTextView.resignFirstResponder()
@@ -184,7 +147,6 @@ extension FeedViewViewController: FeedViewPresenterOutput {
 //        messageTextView.delegate = self
         collectionManager?.attach(collectionView)
         collectionManager?.output = self
-        setupFilterButtons()
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self,
@@ -217,6 +179,10 @@ extension FeedViewViewController: FeedViewPresenterOutput {
     func updateConfigurators(_ configurators: [FeedCellConfigurator]) {
         collectionManager?.update(with: configurators)
         hideLoader()
+    }
+    
+    func clearConfigurators() {
+        collectionManager?.clearConfigurators()
     }
     
     func scrollToTop() {

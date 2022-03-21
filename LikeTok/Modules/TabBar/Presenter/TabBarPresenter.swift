@@ -30,9 +30,9 @@ final class TabBarPresenter: NSObject {
         view.updateAppearance(appearance: .transparent)
     }
 
-    
-    private func getViewControllers() -> [UIViewController] {
-        let tabBarItems: [(UIViewController, TabBarItemModel)] = [(UINavigationController(rootViewController: FeedViewAssembler.createModule(type: .general, feedService: FeedService(), collectionManager:                                                                           FeedCollectionManager())),
+    //(UINavigationController(rootViewController: FeedViewAssembler.createModule(type: .general, feedService: FeedService(), collectionManager:                                                                           FeedCollectionManager()))
+    private func getViewControllers() -> [UIViewController] { 
+        let tabBarItems: [(UIViewController, TabBarItemModel)] = [(FeedPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal),
                                                                        TabBarItemModel(title: Strings.Tabbar.feed,
                                                                                        image: Assets.feedUnselected.image,
                                                                                        selectedImage: Assets.feedSelected.image)),

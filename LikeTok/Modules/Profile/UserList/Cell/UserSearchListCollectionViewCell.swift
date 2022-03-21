@@ -1,17 +1,17 @@
 //
-//  AccountsCollectionViewCell.swift
+//  UserListCollectionViewCell.swift
 //  LikeTok
 //
-//  Created by Artem Holod on 28.11.21.
+//  Created by Daniel on 20.03.22.
 //
 
 import UIKit
 
-protocol AccountCollectionViewCellDelegate: AnyObject {
+protocol UserSearchListCollectionViewCellDelegate: AnyObject {
     func followButtonTap(_ uuid: String)
 }
 
-final class AccountsCollectionViewCell: UICollectionViewCell {
+final class UserSearchListCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var avatarImage: UIImageView!
     @IBOutlet private weak var subTitleLabel: UILabel!
@@ -20,7 +20,7 @@ final class AccountsCollectionViewCell: UICollectionViewCell {
     
     private var uuid: String?
     
-    weak var delegate: AccountCollectionViewCellDelegate?
+    weak var delegate: UserSearchListCollectionViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,12 +49,12 @@ final class AccountsCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configure(with model: SearchAccountsDatum, delegate: AccountCollectionViewCellDelegate) {
+    func configure(with model: UserListDatum, delegate: UserSearchListCollectionViewCellDelegate) {
         self.delegate = delegate
         self.uuid = model.uuid
-        updateSubscribeButton(isFollow: model.isFollow)
-        loginLabel.text = model.username ?? ""
-        subTitleLabel.text = model.name ?? ""
+        updateSubscribeButton(isFollow: true)
+        loginLabel.text = model.username
+        subTitleLabel.text = model.name
         if let urlString = model.photo.preview {
             avatarImage.kf.setImage(with: URL(string: urlString))
         } else {

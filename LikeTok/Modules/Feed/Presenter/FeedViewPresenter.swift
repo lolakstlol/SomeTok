@@ -17,7 +17,7 @@ final class FeedViewPresenter {
     private var post: FeedResponse?
     private var postIndex: Int?
     private var cursor: String = ""
-
+    
     init(_ interactor: FeedViewInteractorInput,
          _ view: FeedViewPresenterOutput) {
         self.interactor = interactor
@@ -73,10 +73,11 @@ extension FeedViewPresenter: FeedViewPresenterInput {
 //            interactor.subscribe(userId: post.user.userId)
     }
     
-    func updateFeedType(_ type: FeedViewEnterOption) {
-        interactor.updateType(type)
-        getFeedWithScrollToTop()
-    }
+//    func updateFeedEnterOption(_ enterOption: FeedViewEnterOption){
+////        interactor.updateType(type)
+////        getFeedWithScrollToTop()
+//        delegate?.didChangedPage(with: enterOption)
+//    }
     
     func screenTapAction() {
         interactor.screenTapAction()
@@ -217,8 +218,10 @@ extension FeedViewPresenter: FeedViewPresenterInput {
     }
     
     func getFeedWithScrollToTop() {
+//        interactor.configurators = []
         interactor.getInitialFeed(with: .zero)
         view?.scrollToTop()
+        view?.clearConfigurators()
     }
 }
 
@@ -276,9 +279,9 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
         case .success(let response):
             let categoriesRespone = response.data.data
             self.cursor = response.data.meta.cursor ?? ""
-            DispatchQueue.main.async {
-                self.view?.updateConfigurators([])
-            }
+//            DispatchQueue.main.async {
+//                self.view?.updateConfigurators([])
+//            }
             var feedConfigurators = [FeedCellConfigurator]()
             categoriesRespone.forEach {
                 var isMainFeed = true
@@ -296,7 +299,7 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
                 self.view?.hideActivityIndicator()
                 if offset != .zero, self.interactor.configurators != nil {
                     self.interactor.configurators! += feedConfigurators
-                    self.view?.updateConfigurators(self.interactor.configurators ?? [])
+                    self.view?.updateConfigurators(feedConfigurators)//self.interactor.configurators ?? [])
                 } else {
                     if let post = categoriesRespone.first {
                         self.interactor.setCurrentPost(post)

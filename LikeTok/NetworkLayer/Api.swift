@@ -304,6 +304,7 @@ enum Api {
         case settings
         case updateSettings(_ model: EditedProfileModel)
         case follow(_ uuid: String)
+//        case feed(_ uuid: String)
         public var request: DataRequest {
             switch self {
             case .user(let uuid):
@@ -345,6 +346,26 @@ enum Api {
             case .follow(let uuid):
                 let request = Alamofire.request("\(API.server)/user/\(uuid)/follow", method: .put, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
                 //request.request?.addValue(Locale.current.regionCode ?? "", forHTTPHeaderField: "LANG")
+                return request.validate()
+            }
+        }
+    }
+    
+    enum UserList: ApiMethod {
+        case subscriptions
+        case subscribers
+        case friends
+    
+        public var request: DataRequest {
+            switch self {
+            case .subscriptions:
+                let request = Alamofire.request("\(API.server)/user/subscriptions", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+            case .subscribers:
+                let request = Alamofire.request("\(API.server)/user/subscribers", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+            case .friends:
+                let request = Alamofire.request("\(API.server)/user/friends", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
                 return request.validate()
             }
         }

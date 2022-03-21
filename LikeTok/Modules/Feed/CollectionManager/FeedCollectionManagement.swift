@@ -14,6 +14,7 @@ protocol FeedCollectionManagement: AnyObject {
     func update(with configurators: [FeedCellConfigurator])
     func updateItem(with model: FeedResponse, at index: Int)
     func updateCellLikes(type: LikeType, at index: Int?)
+    func clearConfigurators()
     func scrollToTop()
     func stopVideo()
     func playVideo()

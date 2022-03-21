@@ -101,7 +101,7 @@ extension FeedCollectionManager: UICollectionViewDataSource {
 // MARK: - FeedCollectionManagement
 
 extension FeedCollectionManager: FeedCollectionManagement {
-    
+
     func attach(_ collectionView: UICollectionView) {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -115,6 +115,10 @@ extension FeedCollectionManager: FeedCollectionManagement {
     func updateCellLikes(type: LikeType, at index: Int?) {
         guard let index = index, let shouldShowFilledLikes = output?.shouldShowFilledLikes() else { return }
         configurators[index].cell?.setupLikeState(type == .filled ? true : false)
+    }
+    
+    func clearConfigurators() {
+        configurators = []
     }
     
     func stopVideo() {
@@ -131,14 +135,19 @@ extension FeedCollectionManager: FeedCollectionManagement {
         }
     }
     
-    func update(with configurators: [FeedCellConfigurator]) {
-        self.configurators = configurators
-        collectionView?.reloadData()
-        if let index = itemIndex {
-            collectionView?.scrollToItem(at: IndexPath(row: index, section: .zero),
-                                         at: UICollectionView.ScrollPosition(rawValue: .zero),
-                                         animated: false)
+    func update(with newConfigurators: [FeedCellConfigurator]) {
+        var indexPathes = [IndexPath]()
+        for index in configurators.count..<configurators.count + newConfigurators.count {
+            indexPathes.append(IndexPath(row: index, section: .zero))
         }
+        self.configurators += newConfigurators
+        collectionView?.insertItems(at: indexPathes)
+//        collectionView?.reloadData()
+//        if let index = itemIndex {
+//            collectionView?.scrollToItem(at: IndexPath(row: index, section: .zero),
+//                                         at: UICollectionView.ScrollPosition(rawValue: .zero),
+//                                         animated: false)
+//        }
         guard let item = currentItem else {
             return
         }

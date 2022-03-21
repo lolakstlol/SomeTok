@@ -74,6 +74,21 @@
 		155FED71274B01D400548B01 /* FeedPlayerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155FED70274B01D400548B01 /* FeedPlayerContainer.swift */; };
 		158C8CEA2726FE26001614D0 /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CE92726FE26001614D0 /* KeyboardObserver.swift */; };
 		158C8CFB2729E1C4001614D0 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158C8CFA2729E1C4001614D0 /* String+Ext.swift */; };
+		158CA20027E7760900334D15 /* UserSearchListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158CA1FF27E7760900334D15 /* UserSearchListResponse.swift */; };
+		158CA20427E7766E00334D15 /* UserSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158CA20227E7766E00334D15 /* UserSearchListViewController.swift */; };
+		158CA20527E7766E00334D15 /* UserSearchListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158CA20327E7766E00334D15 /* UserSearchListViewController.xib */; };
+		158CA20727E7776900334D15 /* UserSearchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158CA20627E7776900334D15 /* UserSearchListPresenter.swift */; };
+		158CA20A27E7785100334D15 /* UserSearchListInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158CA20927E7785100334D15 /* UserSearchListInput.swift */; };
+		158CA20C27E7785E00334D15 /* UserSearchListOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158CA20B27E7785E00334D15 /* UserSearchListOutput.swift */; };
+		158CA20E27E7B9B300334D15 /* UserSearchListApiWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158CA20D27E7B9B300334D15 /* UserSearchListApiWorker.swift */; };
+		158CA21027E7C3AD00334D15 /* UserSearchListCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158CA20F27E7C3AD00334D15 /* UserSearchListCollectionViewManager.swift */; };
+		158CA21527E7CA5B00334D15 /* UserSearchListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158CA21327E7CA5B00334D15 /* UserSearchListCollectionViewCell.swift */; };
+		158CA21627E7CA5B00334D15 /* UserSearchListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158CA21427E7CA5B00334D15 /* UserSearchListCollectionViewCell.xib */; };
+		158CA21C27E7CDB100334D15 /* UserListAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158CA21B27E7CDB100334D15 /* UserListAssembler.swift */; };
+		158CA22227E7D3EE00334D15 /* MyProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 158CA22027E7D3EE00334D15 /* MyProfileViewController.xib */; };
+		158CA22327E7D3EE00334D15 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158CA22127E7D3EE00334D15 /* MyProfileViewController.swift */; };
+		159D42B827E28C010050DEAB /* FeedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159D42B627E28C010050DEAB /* FeedPageViewController.swift */; };
+		159D42B927E28C010050DEAB /* FeedPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 159D42B727E28C010050DEAB /* FeedPageViewController.xib */; };
 		15B1DE0C272E088400078D01 /* UINaviagationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */; };
 		15B5C2CB27C170B30058408D /* ProfileNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2CA27C170B30058408D /* ProfileNetworkService.swift */; };
 		15B5C2CD27C1719A0058408D /* ProfileServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5C2CC27C1719A0058408D /* ProfileServerModel.swift */; };
@@ -102,8 +117,6 @@
 		15BDD2D3279A1A5D004F61BC /* HalfSizePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BDD2D2279A1A5D004F61BC /* HalfSizePresentationController.swift */; };
 		15C0191C27D691C600FD43F0 /* PanNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C0191B27D691C600FD43F0 /* PanNavigationController.swift */; };
 		15C36CD827BDB56600E84D14 /* LikeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C36CD727BDB56600E84D14 /* LikeResponse.swift */; };
-		15C36CDC27BDB5D600E84D14 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C36CDA27BDB5D600E84D14 /* MyProfileViewController.swift */; };
-		15C36CDD27BDB5D600E84D14 /* MyProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C36CDB27BDB5D600E84D14 /* MyProfileViewController.xib */; };
 		15C36CE027BDB5FC00E84D14 /* MyProfilePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C36CDF27BDB5FC00E84D14 /* MyProfilePresenterInput.swift */; };
 		15C36CE227BDB63500E84D14 /* MyProfilePresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C36CE127BDB63500E84D14 /* MyProfilePresenterOutput.swift */; };
 		15C36CE427BDB64100E84D14 /* MyProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C36CE327BDB64100E84D14 /* MyProfilePresenter.swift */; };
@@ -365,6 +378,21 @@
 		156A3F8627DFCA8000E84277 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		158C8CE92726FE26001614D0 /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		158C8CFA2729E1C4001614D0 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		158CA1FF27E7760900334D15 /* UserSearchListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchListResponse.swift; sourceTree = "<group>"; };
+		158CA20227E7766E00334D15 /* UserSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchListViewController.swift; sourceTree = "<group>"; };
+		158CA20327E7766E00334D15 /* UserSearchListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSearchListViewController.xib; sourceTree = "<group>"; };
+		158CA20627E7776900334D15 /* UserSearchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchListPresenter.swift; sourceTree = "<group>"; };
+		158CA20927E7785100334D15 /* UserSearchListInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchListInput.swift; sourceTree = "<group>"; };
+		158CA20B27E7785E00334D15 /* UserSearchListOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchListOutput.swift; sourceTree = "<group>"; };
+		158CA20D27E7B9B300334D15 /* UserSearchListApiWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchListApiWorker.swift; sourceTree = "<group>"; };
+		158CA20F27E7C3AD00334D15 /* UserSearchListCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchListCollectionViewManager.swift; sourceTree = "<group>"; };
+		158CA21327E7CA5B00334D15 /* UserSearchListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchListCollectionViewCell.swift; sourceTree = "<group>"; };
+		158CA21427E7CA5B00334D15 /* UserSearchListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSearchListCollectionViewCell.xib; sourceTree = "<group>"; };
+		158CA21B27E7CDB100334D15 /* UserListAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListAssembler.swift; sourceTree = "<group>"; };
+		158CA22027E7D3EE00334D15 /* MyProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileViewController.xib; sourceTree = "<group>"; };
+		158CA22127E7D3EE00334D15 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		159D42B627E28C010050DEAB /* FeedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPageViewController.swift; sourceTree = "<group>"; };
+		159D42B727E28C010050DEAB /* FeedPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedPageViewController.xib; sourceTree = "<group>"; };
 		15B1DE0B272E088400078D01 /* UINaviagationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINaviagationController+Extension.swift"; sourceTree = "<group>"; };
 		15B5C2CA27C170B30058408D /* ProfileNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetworkService.swift; sourceTree = "<group>"; };
 		15B5C2CC27C1719A0058408D /* ProfileServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServerModel.swift; sourceTree = "<group>"; };
@@ -393,8 +421,6 @@
 		15BDD2D2279A1A5D004F61BC /* HalfSizePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfSizePresentationController.swift; sourceTree = "<group>"; };
 		15C0191B27D691C600FD43F0 /* PanNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanNavigationController.swift; sourceTree = "<group>"; };
 		15C36CD727BDB56600E84D14 /* LikeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeResponse.swift; sourceTree = "<group>"; };
-		15C36CDA27BDB5D600E84D14 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
-		15C36CDB27BDB5D600E84D14 /* MyProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProfileViewController.xib; sourceTree = "<group>"; };
 		15C36CDF27BDB5FC00E84D14 /* MyProfilePresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfilePresenterInput.swift; sourceTree = "<group>"; };
 		15C36CE127BDB63500E84D14 /* MyProfilePresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfilePresenterOutput.swift; sourceTree = "<group>"; };
 		15C36CE327BDB64100E84D14 /* MyProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfilePresenter.swift; sourceTree = "<group>"; };
@@ -710,6 +736,7 @@
 				153F2CBE273724F4002AF9FA /* FeedViewViewController.xib */,
 				153F2CBF273724F4002AF9FA /* FeedViewViewController.swift */,
 				155FED70274B01D400548B01 /* FeedPlayerContainer.swift */,
+				159D42BA27E28C0D0050DEAB /* FeedPageController */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -824,6 +851,82 @@
 			path = FilterCurrent;
 			sourceTree = "<group>";
 		};
+		158CA1FE27E775F700334D15 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				158CA20127E7766100334D15 /* UserList */,
+				15B5C2EA27C24BA30058408D /* OtherProfile */,
+				15C36CD927BDB59C00E84D14 /* MyProfile */,
+				158CA1FF27E7760900334D15 /* UserSearchListResponse.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		158CA20127E7766100334D15 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				158CA21827E7CD8C00334D15 /* View */,
+				158CA20827E7784400334D15 /* Presenter */,
+				158CA21F27E7D0E600334D15 /* UserSearchListApiWorker */,
+				158CA21E27E7D0D900334D15 /* CollectionManager */,
+				158CA21727E7CA6000334D15 /* Cell */,
+				158CA21D27E7D0C500334D15 /* Assembler */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		158CA20827E7784400334D15 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				158CA20627E7776900334D15 /* UserSearchListPresenter.swift */,
+				158CA20927E7785100334D15 /* UserSearchListInput.swift */,
+				158CA20B27E7785E00334D15 /* UserSearchListOutput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		158CA21727E7CA6000334D15 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				158CA21327E7CA5B00334D15 /* UserSearchListCollectionViewCell.swift */,
+				158CA21427E7CA5B00334D15 /* UserSearchListCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		158CA21827E7CD8C00334D15 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				158CA20227E7766E00334D15 /* UserSearchListViewController.swift */,
+				158CA20327E7766E00334D15 /* UserSearchListViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		158CA21D27E7D0C500334D15 /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				158CA21B27E7CDB100334D15 /* UserListAssembler.swift */,
+			);
+			path = Assembler;
+			sourceTree = "<group>";
+		};
+		158CA21E27E7D0D900334D15 /* CollectionManager */ = {
+			isa = PBXGroup;
+			children = (
+				158CA20F27E7C3AD00334D15 /* UserSearchListCollectionViewManager.swift */,
+			);
+			path = CollectionManager;
+			sourceTree = "<group>";
+		};
+		158CA21F27E7D0E600334D15 /* UserSearchListApiWorker */ = {
+			isa = PBXGroup;
+			children = (
+				158CA20D27E7B9B300334D15 /* UserSearchListApiWorker.swift */,
+			);
+			path = UserSearchListApiWorker;
+			sourceTree = "<group>";
+		};
 		15998ABE27C6DD43002FB098 /* VideoUploadPersonalFinal */ = {
 			isa = PBXGroup;
 			children = (
@@ -841,6 +944,15 @@
 				150D8F8827C6E59D002D51C0 /* VideoUploadAdvertismentFinalViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		159D42BA27E28C0D0050DEAB /* FeedPageController */ = {
+			isa = PBXGroup;
+			children = (
+				159D42B627E28C010050DEAB /* FeedPageViewController.swift */,
+				159D42B727E28C010050DEAB /* FeedPageViewController.xib */,
+			);
+			path = FeedPageController;
 			sourceTree = "<group>";
 		};
 		15B5C2CE27C1824B0058408D /* EditProfile */ = {
@@ -1005,8 +1117,8 @@
 		15C36CE527BDB65400E84D14 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				15C36CDA27BDB5D600E84D14 /* MyProfileViewController.swift */,
-				15C36CDB27BDB5D600E84D14 /* MyProfileViewController.xib */,
+				158CA22127E7D3EE00334D15 /* MyProfileViewController.swift */,
+				158CA22027E7D3EE00334D15 /* MyProfileViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1156,9 +1268,8 @@
 		17097396271D8AA900134ED7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				158CA1FE27E775F700334D15 /* Profile */,
 				15998ABE27C6DD43002FB098 /* VideoUploadPersonalFinal */,
-				15C36CD927BDB59C00E84D14 /* MyProfile */,
-				15B5C2EA27C24BA30058408D /* OtherProfile */,
 				15B5C2CE27C1824B0058408D /* EditProfile */,
 				17447131279A085100F5A983 /* Camera */,
 				153F2CAE273724F4002AF9FA /* Feed */,
@@ -2017,7 +2128,6 @@
 			files = (
 				1558C5EE27216B1E0051436E /* Roboto-Thin.ttf in Resources */,
 				1558C5EA27216B1E0051436E /* Roboto-Medium.ttf in Resources */,
-				15C36CDD27BDB5D600E84D14 /* MyProfileViewController.xib in Resources */,
 				1558C5EC27216B1E0051436E /* Roboto-Italic.ttf in Resources */,
 				150D8F8A27C6E59D002D51C0 /* VideoUploadAdvertismentFinalViewController.xib in Resources */,
 				1558C5EB27216B1E0051436E /* Roboto-LightItalic.ttf in Resources */,
@@ -2025,6 +2135,7 @@
 				170973AF271D967A00134ED7 /* swiftgen.yml in Resources */,
 				1558C5F127216B1E0051436E /* Roboto-Bold.ttf in Resources */,
 				1558C5F027216B1E0051436E /* Roboto-Light.ttf in Resources */,
+				158CA21627E7CA5B00334D15 /* UserSearchListCollectionViewCell.xib in Resources */,
 				1558C5F327216B1E0051436E /* Roboto-BlackItalic.ttf in Resources */,
 				1709738C271D7B4400134ED7 /* Assets.xcassets in Resources */,
 				1709738A271D7B4200134ED7 /* Main.storyboard in Resources */,
@@ -2032,6 +2143,7 @@
 				17447134279A088E00F5A983 /* CameraViewController.xib in Resources */,
 				170973B4271D97B500134ED7 /* Localizable.strings in Resources */,
 				1558C5ED27216B1E0051436E /* Roboto-Black.ttf in Resources */,
+				158CA20527E7766E00334D15 /* UserSearchListViewController.xib in Resources */,
 				1558C5E927216B1E0051436E /* Roboto-ThinItalic.ttf in Resources */,
 				1558C5EF27216B1E0051436E /* Roboto-Regular.ttf in Resources */,
 				1558C5DA271F91C40051436E /* OnboardingCollectionViewCell.xib in Resources */,
@@ -2040,6 +2152,7 @@
 				170D42852753953900509625 /* VideoCollectionViewCell.xib in Resources */,
 				15E3EA48279CB149004ED29A /* CommentCell.xib in Resources */,
 				17B4093827308DA700229977 /* TabBarViewController.storyboard in Resources */,
+				159D42B927E28C010050DEAB /* FeedPageViewController.xib in Resources */,
 				53B0ABC6AFD0C97685059F24 /* OnboardingViewController.xib in Resources */,
 				170D427C275394FB00509625 /* CategoryCollectionViewCell.xib in Resources */,
 				17248E6E275BE27F002AAD4E /* FiltresCollectionViewCell.xib in Resources */,
@@ -2047,6 +2160,7 @@
 				18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */,
 				15E97BEF27CA592F00F37D5D /* AboutPersonalPostViewController.xib in Resources */,
 				15BDD2C9279A17C5004F61BC /* CommentsViewController.xib in Resources */,
+				158CA22227E7D3EE00334D15 /* MyProfileViewController.xib in Resources */,
 				15EFB04827BEEE15007A13D7 /* ProfileCollectionViewCell.xib in Resources */,
 				CF70D3E4E3B7FD5BFE6A9F6F /* PasswordRecoveryFirstViewController.xib in Resources */,
 				24276C267034F8D4D276B900 /* PasswordRecoverySecondViewController.xib in Resources */,
@@ -2136,6 +2250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				158CA21027E7C3AD00334D15 /* UserSearchListCollectionViewManager.swift in Sources */,
 				15E3EA3A279C97E8004ED29A /* CommentsAssembler.swift in Sources */,
 				1558C6002721B0B70051436E /* Strings+Generated.swift in Sources */,
 				153F2CD5273724F4002AF9FA /* FeedViewViewController.swift in Sources */,
@@ -2169,6 +2284,7 @@
 				15B5C2D527C182970058408D /* EditProfilePresenter.swift in Sources */,
 				170973A6271D915600134ED7 /* BaseXibView.swift in Sources */,
 				17D98AE327D0DB2600CC2ECF /* HashtagDictionayResponse.swift in Sources */,
+				158CA20727E7776900334D15 /* UserSearchListPresenter.swift in Sources */,
 				155FED71274B01D400548B01 /* FeedPlayerContainer.swift in Sources */,
 				15578A0C2761687D00D0267C /* NetworkApi.swift in Sources */,
 				15C0191C27D691C600FD43F0 /* PanNavigationController.swift in Sources */,
@@ -2199,6 +2315,7 @@
 				153D62AA27B05E780099B11B /* UIImage+Ext.swift in Sources */,
 				5E819C2B19C05F53AA221BEB /* OnboardingPresenterInput.swift in Sources */,
 				17AA6C0427297E3E00CE276E /* DateFormatterService.swift in Sources */,
+				158CA20027E7760900334D15 /* UserSearchListResponse.swift in Sources */,
 				1734D9DB27C2E3FD008E6958 /* PublishPostResponse.swift in Sources */,
 				098AFF776E356795A9010F51 /* OnboardingPresenterOutput.swift in Sources */,
 				1744713C279A08BB00F5A983 /* UIViewControllerExtensions.swift in Sources */,
@@ -2234,11 +2351,13 @@
 				ABE6EA2FE68D11FC321FD228 /* StartSplashScreenAssembler.swift in Sources */,
 				15E3EA53279CC3F1004ED29A /* UITableView+Ext.swift in Sources */,
 				9908C11211654A50BF6ECD9A /* SignUpViewController.swift in Sources */,
+				158CA21C27E7CDB100334D15 /* UserListAssembler.swift in Sources */,
 				153F2CD3273724F4002AF9FA /* FeedCollectionManager.swift in Sources */,
 				6D089E666AFBBEAA7EC50D30 /* SignUpPresenterInput.swift in Sources */,
 				D681C28A5D6C3CAE25ECCFAF /* SignUpPresenterOutput.swift in Sources */,
 				7CD457E3F84E96672ECFF689 /* SignUpPresenter.swift in Sources */,
 				153F2CCF273724F4002AF9FA /* LikeType.swift in Sources */,
+				158CA21527E7CA5B00334D15 /* UserSearchListCollectionViewCell.swift in Sources */,
 				0D0450D36C619482ED7CBC50 /* SignUpAssembler.swift in Sources */,
 				17B246B3273433C2002E35D4 /* TabBarMoksScreens.swift in Sources */,
 				170D42892753C96300509625 /* SearchCollectionViewManager.swift in Sources */,
@@ -2259,6 +2378,7 @@
 				15E3EA56279CCEF1004ED29A /* CommentsApiWorker.swift in Sources */,
 				55ECB4EC9BF8CFFECA4FC804 /* PasswordRecoverySecondViewController.swift in Sources */,
 				15E97BF727CA685D00F37D5D /* AboutPersonalPostPresenterInput.swift in Sources */,
+				158CA20C27E7785E00334D15 /* UserSearchListOutput.swift in Sources */,
 				7EC8DB21FDD698ECEF3B5FB1 /* PasswordRecoverySecondPresenterInput.swift in Sources */,
 				1703CE6727B671D400A832F3 /* CameraApi.swift in Sources */,
 				15E6CED827A4AA9A000239AB /* PostedCommentResponse.swift in Sources */,
@@ -2288,6 +2408,7 @@
 				15E97BFB27CA68D400F37D5D /* AboutPersonalPostAssembler.swift in Sources */,
 				15E97BF527CA685400F37D5D /* AboutPersonalPostPresenter.swift in Sources */,
 				153F2CCE273724F4002AF9FA /* LikeActionType.swift in Sources */,
+				158CA20427E7766E00334D15 /* UserSearchListViewController.swift in Sources */,
 				15C36CD827BDB56600E84D14 /* LikeResponse.swift in Sources */,
 				100F1F745E97FF68AD0A5786 /* SignInPresenterOutput.swift in Sources */,
 				15578A0E276168BE00D0267C /* BaseRequestProtocol.swift in Sources */,
@@ -2297,6 +2418,7 @@
 				F9410D481A551E8331C2DC76 /* SignInPresenter.swift in Sources */,
 				15E97BF927CA687C00F37D5D /* AboutPersonalPostPresenterOutput.swift in Sources */,
 				15C36CE727BDB67900E84D14 /* MyProfileAssembler.swift in Sources */,
+				158CA20E27E7B9B300334D15 /* UserSearchListApiWorker.swift in Sources */,
 				15B5C2ED27C24BC30058408D /* OtherProfileViewController.swift in Sources */,
 				15BDD2C8279A17C5004F61BC /* CommentsViewController.swift in Sources */,
 				15B5C2D927C182B00058408D /* EditProfilePresenterOutput.swift in Sources */,
@@ -2316,6 +2438,7 @@
 				FA11C1534543F680AAF1A468 /* DeleteAssembler.swift in Sources */,
 				15BDD2CF279A18A4004F61BC /* CommentsPresenterInput.swift in Sources */,
 				15C36CE027BDB5FC00E84D14 /* MyProfilePresenterInput.swift in Sources */,
+				158CA20A27E7785100334D15 /* UserSearchListInput.swift in Sources */,
 				ADD3D928650CA2EAE587F8D7 /* AuthPersonalDataViewController.swift in Sources */,
 				15E3EA3F279CA0DE004ED29A /* CommentsTableManager.swift in Sources */,
 				1DAFE1EF40339ECC072D7F3E /* AuthPersonalDataPresenterInput.swift in Sources */,
@@ -2329,7 +2452,6 @@
 				15E37EDF275AFB0100B800E9 /* UIViewController+Ext.swift in Sources */,
 				A641C6E4474EF5D2A1D8D536 /* TabBarPresenter.swift in Sources */,
 				17CF73E2275A3BC4005C2067 /* UiImageView + KF .swift in Sources */,
-				15C36CDC27BDB5D600E84D14 /* MyProfileViewController.swift in Sources */,
 				17248E6D275BE27F002AAD4E /* FiltresCollectionViewCell.swift in Sources */,
 				A247F03458B971AC13B6E44D /* TabBarAssembler.swift in Sources */,
 				153F2CD0273724F4002AF9FA /* FeedViewEnterOption.swift in Sources */,
@@ -2361,9 +2483,11 @@
 				EECD796E0DFCCF4E2A8B5BC3 /* FilterCurrentPresenter.swift in Sources */,
 				DD99D6BF3454EC44BAB513CE /* FilterCurrentAssembler.swift in Sources */,
 				EAB88FB5C3715D7C26CCDD04 /* CreatePrivatePostViewController.swift in Sources */,
+				159D42B827E28C010050DEAB /* FeedPageViewController.swift in Sources */,
 				801756B1F77EE500E4A124E8 /* CreatePrivatePostPresenterInput.swift in Sources */,
 				B1E97DCBAB22812962C25BA2 /* CreatePrivatePostPresenterOutput.swift in Sources */,
 				F353CF246C833FCD69CE3152 /* CreatePrivatePostPresenter.swift in Sources */,
+				158CA22327E7D3EE00334D15 /* MyProfileViewController.swift in Sources */,
 				0F82F4DF7B655C4D77C36C6B /* CreatePrivatePostAssembler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2548,7 +2672,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infoshell.like;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infoshell.like1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2585,7 +2709,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infoshell.like;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infoshell.like1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

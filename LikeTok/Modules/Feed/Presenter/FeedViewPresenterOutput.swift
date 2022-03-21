@@ -11,6 +11,7 @@ import CoreLocation
 protocol FeedViewPresenterOutput: AnyObject {
     func setupUI()
     func updateConfigurators(_ configurators: [FeedCellConfigurator])
+    func clearConfigurators()
     func updateItem(with model: FeedResponse, at index: Int)
     func scrollToTop()
     func setupUserFeed(with index: Int)
