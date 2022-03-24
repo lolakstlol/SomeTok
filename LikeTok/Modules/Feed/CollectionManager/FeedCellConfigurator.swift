@@ -61,9 +61,9 @@ final class FeedCellConfigurator {
         let commentsCount = model.comments
         
         if let videoUrl = URL(string: videoUrlString) {
-            self.cell?.set(videoURL: videoUrl, previewImageString: previewImageString, avatarImageString: avatarImageString)
+            self.cell?.set(videoURL: videoUrl, previewImageString: previewImageString, avatarImageString: avatarImageString, postUUID: model.uuid)
         } else {
-            self.cell?.set(previewImageString: previewImageString, avatarImageString: avatarImageString)
+            self.cell?.set(previewImageString: previewImageString, avatarImageString: avatarImageString, postUUID: model.uuid)
         }
         self.cell?.setupUserData(authorName: authorName,
                            description: description,

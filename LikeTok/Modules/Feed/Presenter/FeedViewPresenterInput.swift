@@ -20,7 +20,7 @@ protocol FeedViewPresenterInput: BasePresenting {
     func closeButtonTouchUpInside()
     func profileTouchUpInside()
     func likeTouchUpInside(_ type: LikeActionType)
-    func shareTouchUpInside()
+    func shareTouchUpInside(postUUID: String)
     func moreTouchUpInside()
     func subscribeTapAction()
     func screenTapAction()

@@ -133,7 +133,8 @@ enum Api {
         case getInitialFeed(type: FeedViewEnterOption),
              getFeed(cursor: String, type: FeedViewEnterOption),
              createPostLike(postID: String),
-             deletePostLike(postID: String)
+             deletePostLike(postID: String),
+             createShareLink(postID: String)
         public var request: DataRequest {
             switch self {
             case let .getFeed(cursor, type):
@@ -167,6 +168,11 @@ enum Api {
                 
                 let endpoint: String = "\(API.server)/user/post/\(uuid)/like"
                 let request = Alamofire.request(endpoint, method: .put, headers: Api.headers)
+                return request.validate()
+            case .createShareLink(postID: let postID):
+                
+                let endpoint: String = "\(API.server)/user/post/\(postID)/refer"
+                let request = Alamofire.request(endpoint, method: .post, headers: Api.headers)
                 return request.validate()
             }
         }

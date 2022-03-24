@@ -187,6 +187,7 @@
 		17248E6E275BE27F002AAD4E /* FiltresCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17248E6C275BE27F002AAD4E /* FiltresCollectionViewCell.xib */; };
 		1734D9D927C14DE0008E6958 /* CreatePostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734D9D827C14DE0008E6958 /* CreatePostResponse.swift */; };
 		1734D9DB27C2E3FD008E6958 /* PublishPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1734D9DA27C2E3FD008E6958 /* PublishPostResponse.swift */; };
+		17395F2427E26105001B3457 /* ShareLinkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17395F2327E26105001B3457 /* ShareLinkResponse.swift */; };
 		17447134279A088E00F5A983 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17447132279A088E00F5A983 /* CameraViewController.xib */; };
 		17447135279A088E00F5A983 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17447133279A088E00F5A983 /* CameraViewController.swift */; };
 		17447139279A08A800F5A983 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17447137279A08A800F5A983 /* CustomButton.swift */; };
@@ -506,6 +507,7 @@
 		17248E6C275BE27F002AAD4E /* FiltresCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltresCollectionViewCell.xib; sourceTree = "<group>"; };
 		1734D9D827C14DE0008E6958 /* CreatePostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostResponse.swift; sourceTree = "<group>"; };
 		1734D9DA27C2E3FD008E6958 /* PublishPostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostResponse.swift; sourceTree = "<group>"; };
+		17395F2327E26105001B3457 /* ShareLinkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareLinkResponse.swift; sourceTree = "<group>"; };
 		17447132279A088E00F5A983 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		17447133279A088E00F5A983 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		17447137279A08A800F5A983 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -806,6 +808,7 @@
 				153F2CB8273724F4002AF9FA /* FeedViewEnterOption.swift */,
 				155FED6E274AF90B00548B01 /* FeedRequest.swift */,
 				15C36CD727BDB56600E84D14 /* LikeResponse.swift */,
+				17395F2327E26105001B3457 /* ShareLinkResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2496,6 +2499,7 @@
 				15E3EA4F279CBE7A004ED29A /* UITableViewCell+Ext.swift in Sources */,
 				15E3EA51279CC222004ED29A /* BaseTypes.swift in Sources */,
 				15E9B93727A74547002963D5 /* UILabel+Ext.swift in Sources */,
+				17395F2427E26105001B3457 /* ShareLinkResponse.swift in Sources */,
 				17447139279A08A800F5A983 /* CustomButton.swift in Sources */,
 				C80CE8A5E39AF8CB4E83A1A0 /* PasswordRecoveryFirstAssembler.swift in Sources */,
 				15E3EA56279CCEF1004ED29A /* CommentsApiWorker.swift in Sources */,
@@ -2779,7 +2783,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = GF84852H7J;
+				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;
@@ -2816,7 +2820,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = GF84852H7J;
+				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;
