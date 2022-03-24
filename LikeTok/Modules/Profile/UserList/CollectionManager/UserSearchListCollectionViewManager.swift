@@ -9,9 +9,11 @@ import UIKit
 import class Foundation.NSObject
 
 protocol UserSearchListCollectionViewOutput: AnyObject {
+    func didChangeType(_ type: UserSearchTypes)
     func openOtherProfile(_ viewController: OtherProfileViewController)
     func followButtonTap(_ uuid: String)
     func updateEmptyLabel(_ isEmpty: Bool)
+    func loadMore(_ type: UserSearchTypes)
 }
 
 final class UserSearchListCollectionViewManager: NSObject {
@@ -28,14 +30,46 @@ final class UserSearchListCollectionViewManager: NSObject {
         case categories
     }
     
-    var subscribersDataSourse: [UserListDatum] = []
-    var subscriptionsDataSource: [UserListDatum] = []
-    var friendsDataSource: [UserListDatum] = []
+    private var subscribersDataSourse: [UserListDatum] = []
+    private var subscriptionsDataSource: [UserListDatum] = []
+    private var friendsDataSource: [UserListDatum] = []
+    
+    private var currentDataSourse: [UserListDatum] {
+        get {
+            switch collectionType {
+            case .friends:
+                return friendsDataSource
+            case .subscriptions:
+                return subscriptionsDataSource
+            case .subscribers:
+                return subscribersDataSourse
+            default:
+                return []
+            }
+        }
+        
+        set {
+            switch collectionType {
+            case .friends:
+                friendsDataSource = newValue
+            case .subscriptions:
+                subscriptionsDataSource = newValue
+            case .subscribers:
+                subscribersDataSourse = newValue
+            default:
+                break
+            }
+        }
 
-    var collectionType: UserSearchTypes = .subscribers {
+    }
+    
+    var collectionType: UserSearchTypes? {
         didSet {
-//            output?.changeCollectionType(collectionType: collectionType)
-            updatelayout()
+            guard let collectionType = collectionType else {
+                return
+            }
+            output?.didChangeType(collectionType)
+            setupPostLayout()
         }
     }
     
@@ -43,18 +77,6 @@ final class UserSearchListCollectionViewManager: NSObject {
     
     
     // MARK: - Private methods
-    
-    private func updatelayout() {
-//        switch collectionType {
-//        case .categories:
-//            setupCategoriesLayout()
-//        case .videos:
-//            setupVideosLayout()
-//        case .accounts:
-        setupPostLayout()
-//        }
-        collectionView?.reloadData()
-    }
     
     private func setupPostLayout() {
         guard let collectionView = collectionView else {return }
@@ -70,20 +92,8 @@ final class UserSearchListCollectionViewManager: NSObject {
     }
     
     private func numberOfItemsInSection(section: Int) -> Int {
-        switch collectionType {
-        case .subscribers:
-//            emptyLabel.isHidden = peeopleDataSource.count > 1 ? true : false
-            output?.updateEmptyLabel(subscribersDataSourse.count > 1 ? true : false)
-            return subscribersDataSourse.count
-        case .subscriptions:
-//            emptyLabel.isHidden = categoriesDataSource.count > 1 ? true : false
-            output?.updateEmptyLabel(subscriptionsDataSource.count > 1 ? true : false)
-            return subscriptionsDataSource.count
-        case .friends:
-//            emptyLabel.isHidden = videosDataSource.count > 1 ? true : false
-            output?.updateEmptyLabel(friendsDataSource.count > 1 ? true : false)
-            return friendsDataSource.count
-        }
+        output?.updateEmptyLabel(currentDataSourse.count > 0 ? true : false)
+        return currentDataSourse.count
     }
     
     private func numberOfSections() -> Int {
@@ -91,63 +101,51 @@ final class UserSearchListCollectionViewManager: NSObject {
     }
     
     private func cellForItemAt(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        switch collectionType {
-        case .subscriptions:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserListCollectionViewCell", for: indexPath) as! UserSearchListCollectionViewCell
-            cell.configure(with: subscriptionsDataSource[indexPath.row], delegate: self)
-            return cell
-        case .subscribers:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserListCollectionViewCell", for: indexPath) as! UserSearchListCollectionViewCell
-            cell.configure(with: subscribersDataSourse[indexPath.row], delegate: self)
-            return cell
-        case .friends:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserListCollectionViewCell", for: indexPath) as! UserSearchListCollectionViewCell
-            cell.configure(with: friendsDataSource[indexPath.row], delegate: self)
-            return cell
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserSearchListCollectionViewCell", for: indexPath) as! UserSearchListCollectionViewCell
+        cell.configure(with: currentDataSourse[indexPath.row], delegate: self)
+        return cell
     }
     
-     func appendVideos(models: [CategoriesPost]) {
-        
+    func clearCurrentDataSourse() {
+        currentDataSourse.removeAll()
     }
     
-     func appendCategories(models: [CategoriesDatum]) {
-        
+    
+    func appendSubscribers(models: [UserListDatum]) {
+         subscribersDataSourse += models
+         collectionView?.reloadData()
     }
     
-     func appendAccount(models: [SearchAccountsDatum]) {
-        
+    func appendFriends(models: [UserListDatum]) {
+         friendsDataSource += models
+         collectionView?.reloadData()
     }
     
-     func setSubscribers(models: [UserListDatum]) {
+    func appendSubscriptions(models: [UserListDatum]) {
+         subscriptionsDataSource += models
+         collectionView?.reloadData()
+    }
+    
+    func setSubscribers(models: [UserListDatum]) {
          subscribersDataSourse = models
-         guard let collectionView = collectionView else {
-             return
-         }
-         collectionView.reloadData()
+         collectionView?.reloadData()
     }
     
-     func setSubscriptions(models: [UserListDatum]) {
+    func setSubscriptions(models: [UserListDatum]) {
          subscriptionsDataSource = models
-         guard let collectionView = collectionView else {
-             return
-         }
-         collectionView.reloadData()
+         collectionView?.reloadData()
     }
     
-     func setFriends(models: [UserListDatum]) {
+    func setFriends(models: [UserListDatum]) {
          friendsDataSource = models
-         guard let collectionView = collectionView else {
-             return
-         }
-         collectionView.reloadData()
+         collectionView?.reloadData()
     }
     
     func updateFollowState(_ following: Bool, uuid: String) {
-//        for i in peeopleDataSource.indices where peeopleDataSource[i].uuid == uuid{
-//            peeopleDataSource[i].isFollow = following
-//        }
-//        collectionView?.reloadData()
+        for i in currentDataSourse.indices where currentDataSourse[i].uuid == uuid {
+            currentDataSourse[i].isFollow = following
+        }
+        collectionView?.reloadData()
     }
 
 }
@@ -184,16 +182,21 @@ extension UserSearchListCollectionViewManager: UICollectionViewDataSource, UICol
         return cellForItemAt(collectionView: collectionView, indexPath: indexPath)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch collectionType {
-        case .subscribers:
-            let uuid = subscribersDataSourse[indexPath.row].uuid
-            let otherProfileViewController = OtherProfileAssembler.createModule(uuid)
-            output?.openOtherProfile(otherProfileViewController)
-            
-        default:
-            debugPrint("add logic")
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        debugPrint("willDisplay", indexPath)
+        guard indexPath.row == currentDataSourse.count - 1,
+            let collectionType = collectionType else {
+            return
         }
+        output?.loadMore(collectionType)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let uuid = currentDataSourse[indexPath.row].uuid else {
+            return
+        }
+        let otherProfileViewController = OtherProfileAssembler.createModule(uuid)
+        output?.openOtherProfile(otherProfileViewController)
     }
 }
 

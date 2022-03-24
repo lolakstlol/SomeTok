@@ -21,13 +21,16 @@ struct UserListDataClass: Codable {
 
 // MARK: - Datum
 struct UserListDatum: Codable {
-    let uuid, username, name, type: String
+    let uuid, username, name, type: String?
     let lastActive: String
-    let photo: UserListPhoto
+    var isFollow, isFriend: Bool
+    let photo: Photo
 
     enum CodingKeys: String, CodingKey {
         case uuid, username, name, type
         case lastActive = "last_active"
+        case isFollow = "is_follow"
+        case isFriend = "is_friend"
         case photo
     }
 }

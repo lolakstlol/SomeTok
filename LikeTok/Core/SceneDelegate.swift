@@ -14,6 +14,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private var applicationCoordinator: Coordinator?
     
     private var deepLinkService = DeepLinkService.shared
+    
+    private var navigationController: UINavigationController?
+
+    
+    override init() {
+        super.init()
+        subscribeNotifications()
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -78,5 +86,16 @@ private extension SceneDelegate {
         let coordinatorFactory = CoordinatorFactory()
         let router = MainRouter(window: window)
         return ApplicationCoordinator(coordinatorFactory: coordinatorFactory, router: router)
+    }
+    
+    private func subscribeNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(forceLogOut), name: .userLoggedOut, object: nil)
+    }
+    
+    @objc private func forceLogOut() {
+        AccountManager.logout()
+        applicationCoordinator = makeCoordinator(window: window)
+        deepLinkService.coordinator = applicationCoordinator
+        applicationCoordinator?.start()
     }
 }

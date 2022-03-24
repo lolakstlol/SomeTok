@@ -12,16 +12,13 @@ final class EditProfilePresenter {
     private unowned let view: EditProfilePresenterOutput
     private var networkService: ProfileNetworkServiceProtocol
     private var model: EditProfileModel
-    
-    var onEditFinished: ((EditProfileModel) -> ())?
-    
+        
     private var isKeyboardAppears: Bool = false
     
-    init(_ view: EditProfilePresenterOutput, _ networkService: ProfileNetworkServiceProtocol, _ model: EditProfileModel, _ completion: ((EditProfileModel) -> ())?) {
+    init(_ view: EditProfilePresenterOutput, _ networkService: ProfileNetworkServiceProtocol, _ model: EditProfileModel) {
         self.view = view
         self.networkService = networkService
         self.model = model
-        self.onEditFinished = completion
     }
 
     func viewDidLoad() {
@@ -84,7 +81,6 @@ extension EditProfilePresenter: EditProfilePresenterInput {
         networkService.updateSettings(checkedEditedModel(editedModel)) { [weak self] result in
             switch result {
             case .success(_):
-                self?.onEditFinished?(editedModel)
                 self?.view.onUpdateSuccess()
             case .failure(let error):
                 self?.view.onUpdateFailure(error)

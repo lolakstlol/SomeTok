@@ -9,11 +9,12 @@ import UIKit
 
 class UserSearchListViewController: BaseViewController {
 
+    @IBOutlet weak var friendsTab: UIView!
     @IBOutlet weak var subscribersButton: UIButton!
     @IBOutlet weak var subscribtionsButton: UIButton!
     @IBOutlet weak var friendsButton: UIButton!
     @IBOutlet weak var subscribersTagView: UIView!
-    @IBOutlet weak var subscribtionsButtonTagView: UIView!
+    @IBOutlet weak var subscribtionsTagView: UIView!
     @IBOutlet weak var friendsTagView: UIView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var clearSearchButton: UIButton!
@@ -30,13 +31,13 @@ class UserSearchListViewController: BaseViewController {
         didSet {
             switch selectedSearchType {
             case .subscriptions:
-                emptyLabel.text = Strings.Search.Plug.people
+                emptyLabel.text = Strings.UserList.Empty.subscriptions
 //                presenter.load(.subscriptions)
             case .subscribers:
-                emptyLabel.text = Strings.Search.Plug.tags
+                emptyLabel.text = Strings.UserList.Empty.subscribers
 //                presenter.load(.subscribers)
             case .friends:
-                emptyLabel.text = Strings.Search.Plug.categories
+                emptyLabel.text = Strings.UserList.Empty.friends
             }
         }
     }
@@ -46,23 +47,11 @@ class UserSearchListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-        subscribersButton.setTitle(Strings.Search.Control.accounts, for: .normal)
-        subscribtionsButton.setTitle(Strings.Search.Control.categories, for: .normal)
-        friendsButton.setTitle(Strings.Search.Control.tags, for: .normal)
-        select(type: selectedSearchType)
-        searchTextField.delegate = self
-        searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-        emptyLabel.text = Strings.Search.Plug.people
-        filterButton.setTitle("", for: .normal)
-        backButoon.setTitle("", for: .normal)
-        setupCollection()
-        collectionManager = UserSearchListCollectionViewManager()
-        collectionManager?.attach(collectionView, output: self)
-        collectionManager?.collectionType = .subscribers
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        presenter.viewWillAppear()
         navigationController?.setNavigationBarHidden(true, animated: false)
         navigationController?.navigationBar.isHidden = true
     }
@@ -82,16 +71,16 @@ class UserSearchListViewController: BaseViewController {
     private func select(type: UserSearchTypes) {
         clearAllTags()
         switch type {
-        case .subscriptions:
+        case .subscribers:
             UIView.animate(withDuration: 0.2) {
                 self.subscribersTagView.backgroundColor = self.selectedColor
             }
-            collectionManager?.collectionType = .subscriptions
-        case .subscribers:
-            UIView.animate(withDuration: 0.2) {
-                self.subscribtionsButtonTagView.backgroundColor = self.selectedColor
-            }
             collectionManager?.collectionType = .subscribers
+        case .subscriptions:
+            UIView.animate(withDuration: 0.2) {
+                self.subscribtionsTagView.backgroundColor = self.selectedColor
+            }
+            collectionManager?.collectionType = .subscriptions
         case .friends:
             UIView.animate(withDuration: 0.2) {
                 self.friendsTagView.backgroundColor = self.selectedColor
@@ -103,10 +92,18 @@ class UserSearchListViewController: BaseViewController {
     }
     
     private func clearAllTags() {
-        [subscribersTagView, subscribtionsButtonTagView, friendsTagView].forEach {
+        [subscribersTagView, subscribtionsTagView, friendsTagView].forEach {
             $0?.backgroundColor = unselectedColor
         }
     }
+    
+    private func setupControllerType(_ baseControllerType: ProfileType) {
+        guard baseControllerType == .other else {
+            return
+        }
+        friendsTab.removeFromSuperview()
+    }
+    
     @IBAction func clearButtonDidTap(_ sender: Any) {
         searchTextField.text = ""
         clearSearchButton.isHidden = true
@@ -114,6 +111,7 @@ class UserSearchListViewController: BaseViewController {
 //        collectionManager?.setCategories(models: [])
 //        collectionManager?.setAccounts(models: [])
 //        collectionView.reloadData()
+        presenter.load(selectedSearchType)
     }
     
     @IBAction func backButtonDidtap(_ sender: Any) {
@@ -146,21 +144,42 @@ extension UserSearchListViewController: UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if (textField.text == "") {
             clearSearchButton.isHidden = true
-//            collectionManager?.setVideos(models: [])
-//            collectionManager?.setCategories(models: [])
-//            collectionManager?.setAccounts(models: [])
-//            collectionView.reloadData()
+            collectionManager?.clearCurrentDataSourse()
+            collectionView.reloadData()
+            presenter.load(selectedSearchType)
         } else {
             clearSearchButton.isHidden = false
         }
-        guard let predict = textField.text, predict != "" else {
+        guard let predictate = textField.text, predictate != "" else {
             return
         }
-//        presenter.load(predict: predict, type: selectedSearchType)
+        presenter.load(predictate, type: selectedSearchType)
     }
 }
 
 extension UserSearchListViewController: UserSearchListOutput {
+    
+    func setupUI(_ baseControllerType: ProfileType) {
+        setupControllerType(baseControllerType)
+        subscribersButton.setTitle(Strings.UserList.subscribers, for: .normal)
+        subscribtionsButton.setTitle(Strings.UserList.subscriptions, for: .normal)
+        friendsButton.setTitle(Strings.UserList.friends, for: .normal)
+        select(type: selectedSearchType)
+        searchTextField.delegate = self
+        searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+//        emptyLabel.text = Strings.UserList.Empty.subscriptions
+        searchTextField.text = ""
+        filterButton.setTitle("", for: .normal)
+        backButoon.setTitle("", for: .normal)
+        setupCollection()
+        collectionManager = UserSearchListCollectionViewManager()
+        collectionManager?.attach(collectionView, output: self)
+    }
+    
+    func setupInitialType(_ type: UserSearchTypes) {
+        select(type: type)
+    }
+    
     func setSubscriptions(models: [UserListDatum]) {
         collectionManager?.setSubscriptions(models: models)
     }
@@ -173,6 +192,19 @@ extension UserSearchListViewController: UserSearchListOutput {
         collectionManager?.setFriends(models: models)
     }
     
+    func appendSubscriptions(models: [UserListDatum]) {
+        collectionManager?.appendSubscriptions(models: models)
+    }
+    
+    func appendSubscribers(models: [UserListDatum]) {
+        collectionManager?.appendSubscribers(models: models)
+    }
+    
+    func appendFriends(models: [UserListDatum]) {
+        collectionManager?.appendFriends(models: models)
+    }
+    
+    
     func onFollowSuccess(_ following: Bool, uuid: String) {
         collectionManager?.updateFollowState(following, uuid: uuid)
     }
@@ -183,6 +215,15 @@ extension UserSearchListViewController: UserSearchListOutput {
 }
 
 extension UserSearchListViewController: UserSearchListCollectionViewOutput {
+    
+    func didChangeType(_ type: UserSearchTypes) {
+        presenter.updateSelectedType(type)
+    }
+    
+    func loadMore(_ type: UserSearchTypes) {
+        presenter.loadMore(type)
+    }
+    
     func updateEmptyLabel(_ isEmpty: Bool) {
         emptyLabel.isHidden = isEmpty
     }

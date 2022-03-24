@@ -22,10 +22,12 @@ final class OtherProfilePresenter {
     }
 
     func viewDidLoad() {
-        view.setupUI()
         fetchProfileData()
     }
-
+    
+    func viewWillAppear() {
+        view.setupUI()
+    }
 }
 
 private extension OtherProfilePresenter {
@@ -48,6 +50,18 @@ private extension OtherProfilePresenter {
 }
 
 extension OtherProfilePresenter: OtherProfilePresenterInput {
+    
+    func openSubscibersList() {
+        let userListViewController = UserSearchListAssembler.createModule(selectedSearchType: .subscribers, baseControllerModel: BaseProfile(baseProfileType: .other, uuid: uuid))
+        userListViewController.hidesBottomBarWhenPushed = true
+        view.pushUsersList(userListViewController)
+    }
+    
+    func openSubsciptionsList() {
+        let userListViewController = UserSearchListAssembler.createModule(selectedSearchType: .subscriptions, baseControllerModel: BaseProfile(baseProfileType: .other, uuid: uuid))
+        userListViewController.hidesBottomBarWhenPushed = true
+        view.pushUsersList(userListViewController)
+    }
     
     func followButtonTap() {
         networkService.follow(uuid) { [weak self] result in

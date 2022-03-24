@@ -21,11 +21,14 @@
                 <outlet property="collectionView" destination="fFv-jZ-UUh" id="2AT-67-gZm"/>
                 <outlet property="emptyLabel" destination="hWZ-tV-7Aj" id="5OL-om-dKG"/>
                 <outlet property="filterButton" destination="uzO-yp-dob" id="2BC-do-esX"/>
-                <outlet property="friendsButton" destination="t4J-0n-Wbx" id="dyl-Nw-hhf"/>
-                <outlet property="friendsTagView" destination="kq5-15-MqM" id="ZcQ-X4-hDf"/>
+                <outlet property="friendsButton" destination="ySU-7R-DH0" id="b7E-AJ-x7K"/>
+                <outlet property="friendsTab" destination="azg-wV-FYk" id="5hn-7p-MGM"/>
+                <outlet property="friendsTagView" destination="wOM-93-Phc" id="W8B-rd-9Nn"/>
                 <outlet property="searchTextField" destination="wsW-zk-ERH" id="WPF-9t-C3e"/>
-                <outlet property="subscribersButton" destination="7cD-Nu-Nq8" id="DdP-Cp-Ehp"/>
-                <outlet property="subscribersTagView" destination="8xu-kr-8Ws" id="UkV-vF-w57"/>
+                <outlet property="subscribersButton" destination="t4J-0n-Wbx" id="hA1-vd-YJC"/>
+                <outlet property="subscribersTagView" destination="kq5-15-MqM" id="XqH-Ns-zBm"/>
+                <outlet property="subscribtionsButton" destination="7cD-Nu-Nq8" id="P2O-JW-Opd"/>
+                <outlet property="subscribtionsTagView" destination="8xu-kr-8Ws" id="EH0-YR-HUW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -132,7 +135,7 @@
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
-                                                <action selector="subscribersDidTap:" destination="-1" eventType="touchUpInside" id="3an-8Q-bCn"/>
+                                                <action selector="subscriptionsDidTap:" destination="-1" eventType="touchUpInside" id="v83-bm-qCX"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xu-kr-8Ws">
@@ -165,7 +168,7 @@
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
-                                                <action selector="friendsDidTap:" destination="-1" eventType="touchUpInside" id="whG-st-eM3"/>
+                                                <action selector="subscribersDidTap:" destination="-1" eventType="touchUpInside" id="96x-1M-4Vc"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kq5-15-MqM">
@@ -198,7 +201,7 @@
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
-                                                <action selector="subscriptionsDidTap:" destination="-1" eventType="touchUpInside" id="cfj-uL-Qgh"/>
+                                                <action selector="friendsDidTap:" destination="-1" eventType="touchUpInside" id="jtF-Ph-8cL"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOM-93-Phc">

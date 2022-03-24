@@ -44,7 +44,8 @@ final class SignInViewController: BaseViewController {
     @IBAction func loginDidTap(_ sender: Any) {
         if let mail = loginTextField.text,
            let pass = passwordTextField.text {
-        presenter.loginDidTap(email: mail, pass: pass)
+            presenter.loginDidTap(email: mail, pass: pass)
+            showLoader()
         } else {
            // handle
         }

@@ -13,5 +13,4 @@ protocol MyProfilePresenterOutput: AnyObject {
     func onFetchProfileDataSuccess(_ model: ProfileModel)
     func onFetchProfileDataFailure(_ error: NetworkError)
     func onEditButtonTap(_ controller: EditProfileViewController)
-    func onEditedProfile(_ model: EditProfileModel)
 }

@@ -8,10 +8,10 @@
 import Foundation
 
 enum EditProfileAssembler {
-    static func createModule(_ model: EditProfileModel, completion: ((EditProfileModel) -> ())?) -> EditProfileViewController {
+    static func createModule(_ model: EditProfileModel) -> EditProfileViewController {
         let viewController = EditProfileViewController()
         let networkService = ProfileNetworkService()
-        let presenter = EditProfilePresenter(viewController, networkService, model, completion)
+        let presenter = EditProfilePresenter(viewController, networkService, model)
         viewController.presenter = presenter
         return viewController
     }

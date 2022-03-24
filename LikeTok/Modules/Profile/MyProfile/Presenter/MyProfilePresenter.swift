@@ -20,6 +20,10 @@ final class MyProfilePresenter {
     }
 
     func viewDidLoad() {
+        fetchProfileData()
+    }
+    
+    func viewWillAppear() {
         view.setupUI()
         fetchProfileData()
     }
@@ -59,9 +63,7 @@ extension MyProfilePresenter: MyProfilePresenterInput {
                                          country: model.location.country ?? "",
                                          city: model.location.city,
                                          description: model.description ?? "")
-        let controller = EditProfileAssembler.createModule(editModel) { [weak self] editedModel in
-            self?.view.onEditedProfile(editedModel)
-        }
+        let controller = EditProfileAssembler.createModule(editModel)
         view.onEditButtonTap(controller)
     }
 }

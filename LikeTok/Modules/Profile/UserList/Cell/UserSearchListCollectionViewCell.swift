@@ -27,6 +27,11 @@ final class UserSearchListCollectionViewCell: UICollectionViewCell {
         setupView()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        avatarImage.image = nil
+    }
+    
     private func setupView() {
         avatarImage.layer.cornerRadius = 22
         updateSubscribeButton(isFollow: false)
@@ -52,7 +57,7 @@ final class UserSearchListCollectionViewCell: UICollectionViewCell {
     func configure(with model: UserListDatum, delegate: UserSearchListCollectionViewCellDelegate) {
         self.delegate = delegate
         self.uuid = model.uuid
-        updateSubscribeButton(isFollow: true)
+        updateSubscribeButton(isFollow: model.isFollow)
         loginLabel.text = model.username
         subTitleLabel.text = model.name
         if let urlString = model.photo.preview {

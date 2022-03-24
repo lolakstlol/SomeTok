@@ -35,7 +35,12 @@ final class OtherProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-   }
+        showLoader()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        presenter.viewWillAppear()
+    }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -116,15 +121,25 @@ final class OtherProfileViewController: BaseViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func openSubscibersList(_ sender: Any) {
+        presenter.openSubscibersList()
+    }
+    
+    @IBAction func openSubscriptionsList(_ sender: Any) {
+        presenter.openSubsciptionsList()
+    }
   
 }
 
 extension OtherProfileViewController: OtherProfilePresenterOutput {
+    
+    func pushUsersList(_ viewController: UserSearchListViewController) {
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 
     func setupUI() {
         setupNavigationBar()
         setupCollectionView()
-        showLoader()
     }
 
     func onFetchProfileDataSuccess(_ model: OtherProfileServerDatum) {

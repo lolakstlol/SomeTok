@@ -86,3 +86,11 @@
 "UploadAbout.title" = "Что такое “Личная публикация”?";
 "UploadAbout.next" = "Далее";
 "UploadAbout.close" = "Закрыть";
+
+"UserList.subscribers" = "Подписчики";
+"UserList.subscriptions" = "Подписки";
+"UserList.friends" = "Друзья";
+
+"UserList.Empty.subscribers" = "Подписчики не найдены";
+"UserList.Empty.subscriptions" = "Подписки не найдены";
+"UserList.Empty.friends" = "Друзья не найдены";
