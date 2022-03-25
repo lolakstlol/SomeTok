@@ -131,7 +131,7 @@ extension FeedViewViewController: FeedViewPresenterOutput {
         activityIndicator.isHidden = true
     }
     
-    func updateItem(with model: FeedResponse, at index: Int) {
+    func updateItem(with model: FeedPost, at index: Int) {
         collectionManager?.updateItem(with: model, at: index)
     }
     
@@ -212,7 +212,7 @@ extension FeedViewViewController: FeedCollectionOutput {
         presenter.feedIsScrollingToEnd(with: offset)
     }
     
-    func selectFeedItem(_ item: FeedResponse) {
+    func selectFeedItem(_ item: FeedPost) {
         presenter.setCurrentPost(item)
     }
     

@@ -35,7 +35,8 @@ final class SettingsPresenter: NSObject {
     }
             
     func changePasswordAction() {
-        debugPrint("Смена пароля")
+        let vc = ChangePasswordAssembler.createModule()
+        view.showPasswordRecovery(vc)
     }
     
     func logoutAction() {

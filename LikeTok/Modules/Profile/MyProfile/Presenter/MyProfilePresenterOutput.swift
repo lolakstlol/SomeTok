@@ -10,6 +10,10 @@ import Foundation
 protocol MyProfilePresenterOutput: AnyObject {
 //    func onFetchOnboardingData(_ data: [OnboardingPage])
     func setupUI()
+    func setPersonalFeed(_ models: [FeedPost])
+    func setAdvertismentFeed(_ models: [FeedPost])
+    func reloadCollectionView()
+    func onFetchFeedFailrue(_ error: NetworkError)
     func onFetchProfileDataSuccess(_ model: ProfileModel)
     func onFetchProfileDataFailure(_ error: NetworkError)
     func onEditButtonTap(_ controller: EditProfileViewController)

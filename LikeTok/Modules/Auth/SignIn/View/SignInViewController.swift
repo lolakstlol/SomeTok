@@ -63,6 +63,7 @@ final class SignInViewController: BaseViewController {
 extension SignInViewController: SignInPresenterOutput {
     
     func onSignInFailed(_ error: String) {
+        hideLoader()
         showToast(error, toastType: .failured)
     }
     

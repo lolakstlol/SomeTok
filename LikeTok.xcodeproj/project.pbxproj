@@ -23,7 +23,7 @@
 		1513CBF3272C214700855FC4 /* RecoveryPasswordCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1513CBF2272C214700855FC4 /* RecoveryPasswordCodeResponse.swift */; };
 		1534301427B48FD6000E6004 /* UIScrollView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1534301327B48FD6000E6004 /* UIScrollView+Ext.swift */; };
 		153D62AA27B05E780099B11B /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153D62A927B05E780099B11B /* UIImage+Ext.swift */; };
-		153ECFFD27BBD365001ABB4C /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153ECFFC27BBD365001ABB4C /* FeedResponse.swift */; };
+		153ECFFD27BBD365001ABB4C /* FeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153ECFFC27BBD365001ABB4C /* FeedPost.swift */; };
 		153F2CCA273724F4002AF9FA /* FeedViewAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F2CB0273724F4002AF9FA /* FeedViewAssembler.swift */; };
 		153F2CCB273724F4002AF9FA /* FeedViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F2CB2273724F4002AF9FA /* FeedViewPresenter.swift */; };
 		153F2CCC273724F4002AF9FA /* FeedViewPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F2CB3273724F4002AF9FA /* FeedViewPresenterOutput.swift */; };
@@ -46,6 +46,14 @@
 		153F2CDE27374024002AF9FA /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F2CDD27374024002AF9FA /* UICollectionView+Ext.swift */; };
 		153F2CE027374391002AF9FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F2CDF27374391002AF9FA /* Constants.swift */; };
 		153F2CE22737453F002AF9FA /* UICollectionViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F2CE12737453F002AF9FA /* UICollectionViewCell+Ext.swift */; };
+		15402D0127EC99FB00209341 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15402CFF27EC99FB00209341 /* ChangePasswordViewController.swift */; };
+		15402D0227EC99FB00209341 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15402D0027EC99FB00209341 /* ChangePasswordViewController.xib */; };
+		15402D0627EC9C6200209341 /* ChangePasswordPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15402D0527EC9C6200209341 /* ChangePasswordPresenterInput.swift */; };
+		15402D0827EC9C6E00209341 /* ChangePasswordPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15402D0727EC9C6E00209341 /* ChangePasswordPresenterOutput.swift */; };
+		15402D0A27EC9C7500209341 /* ChangePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15402D0927EC9C7500209341 /* ChangePasswordPresenter.swift */; };
+		15402D0C27EC9C7F00209341 /* ChangePasswordAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15402D0B27EC9C7F00209341 /* ChangePasswordAssembler.swift */; };
+		15402D0E27ECA90F00209341 /* ChangePasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15402D0D27ECA90F00209341 /* ChangePasswordResponse.swift */; };
+		15402D1027ECF1BE00209341 /* ProfileCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15402D0F27ECF1BE00209341 /* ProfileCollectionViewManager.swift */; };
 		15414A2E27233781007AA93D /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15414A2D27233781007AA93D /* InsetTextField.swift */; };
 		1547A54727B92CC8001BBFB3 /* CGPoint+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1547A54627B92CC8001BBFB3 /* CGPoint+Ext.swift */; };
 		154DDB2B2732C8F30084A86F /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154DDB2A2732C8F30084A86F /* AuthCoordinator.swift */; };
@@ -338,7 +346,7 @@
 		1513CBF2272C214700855FC4 /* RecoveryPasswordCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordCodeResponse.swift; sourceTree = "<group>"; };
 		1534301327B48FD6000E6004 /* UIScrollView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ext.swift"; sourceTree = "<group>"; };
 		153D62A927B05E780099B11B /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
-		153ECFFC27BBD365001ABB4C /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
+		153ECFFC27BBD365001ABB4C /* FeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPost.swift; sourceTree = "<group>"; };
 		153F2CB0273724F4002AF9FA /* FeedViewAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewAssembler.swift; sourceTree = "<group>"; };
 		153F2CB2273724F4002AF9FA /* FeedViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewPresenter.swift; sourceTree = "<group>"; };
 		153F2CB3273724F4002AF9FA /* FeedViewPresenterOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewPresenterOutput.swift; sourceTree = "<group>"; };
@@ -361,6 +369,14 @@
 		153F2CDD27374024002AF9FA /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
 		153F2CDF27374391002AF9FA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		153F2CE12737453F002AF9FA /* UICollectionViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Ext.swift"; sourceTree = "<group>"; };
+		15402CFF27EC99FB00209341 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		15402D0027EC99FB00209341 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
+		15402D0527EC9C6200209341 /* ChangePasswordPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordPresenterInput.swift; sourceTree = "<group>"; };
+		15402D0727EC9C6E00209341 /* ChangePasswordPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordPresenterOutput.swift; sourceTree = "<group>"; };
+		15402D0927EC9C7500209341 /* ChangePasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordPresenter.swift; sourceTree = "<group>"; };
+		15402D0B27EC9C7F00209341 /* ChangePasswordAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordAssembler.swift; sourceTree = "<group>"; };
+		15402D0D27ECA90F00209341 /* ChangePasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordResponse.swift; sourceTree = "<group>"; };
+		15402D0F27ECF1BE00209341 /* ProfileCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewManager.swift; sourceTree = "<group>"; };
 		15414A2D27233781007AA93D /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
 		1547A54627B92CC8001BBFB3 /* CGPoint+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Ext.swift"; sourceTree = "<group>"; };
 		154DDB2A2732C8F30084A86F /* AuthCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
@@ -802,7 +818,7 @@
 		153F2CB5273724F4002AF9FA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				153ECFFC27BBD365001ABB4C /* FeedResponse.swift */,
+				153ECFFC27BBD365001ABB4C /* FeedPost.swift */,
 				153F2CB6273724F4002AF9FA /* LikeActionType.swift */,
 				153F2CB7273724F4002AF9FA /* LikeType.swift */,
 				153F2CB8273724F4002AF9FA /* FeedViewEnterOption.swift */,
@@ -861,6 +877,36 @@
 				153F2CC9273724F4002AF9FA /* FeedViewRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		15402D0427EC9A0800209341 /* ChangePassword */ = {
+			isa = PBXGroup;
+			children = (
+				15402CFF27EC99FB00209341 /* ChangePasswordViewController.swift */,
+				15402D0027EC99FB00209341 /* ChangePasswordViewController.xib */,
+				15402D0527EC9C6200209341 /* ChangePasswordPresenterInput.swift */,
+				15402D0727EC9C6E00209341 /* ChangePasswordPresenterOutput.swift */,
+				15402D0927EC9C7500209341 /* ChangePasswordPresenter.swift */,
+				15402D0B27EC9C7F00209341 /* ChangePasswordAssembler.swift */,
+				15402D0D27ECA90F00209341 /* ChangePasswordResponse.swift */,
+			);
+			path = ChangePassword;
+			sourceTree = "<group>";
+		};
+		15402D1127ECF4E700209341 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				15B5C2CA27C170B30058408D /* ProfileNetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		15402D1227ECF4F600209341 /* CollectionManager */ = {
+			isa = PBXGroup;
+			children = (
+				15402D0F27ECF1BE00209341 /* ProfileCollectionViewManager.swift */,
+			);
+			path = CollectionManager;
 			sourceTree = "<group>";
 		};
 		15414A2C2723376B007AA93D /* Custom */ = {
@@ -1220,7 +1266,8 @@
 			isa = PBXGroup;
 			children = (
 				15AE5C6D27E8FF6300E540A1 /* View */,
-				15B5C2CA27C170B30058408D /* ProfileNetworkService.swift */,
+				15402D1227ECF4F600209341 /* CollectionManager */,
+				15402D1127ECF4E700209341 /* Network */,
 				15C36CDE27BDB5E900E84D14 /* Presenter */,
 				15C36CE827BDB67D00E84D14 /* Assembler */,
 				15EFB04927BEEE1B007A13D7 /* Cell */,
@@ -1384,6 +1431,7 @@
 		17097396271D8AA900134ED7 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				15402D0427EC9A0800209341 /* ChangePassword */,
 				15B5CB9527EBBF1900F273B1 /* Confrimation */,
 				15AE5C7427EB7AB800E540A1 /* Settings */,
 				158CA1FE27E775F700334D15 /* Profile */,
@@ -2277,6 +2325,7 @@
 				170D427C275394FB00509625 /* CategoryCollectionViewCell.xib in Resources */,
 				17248E6E275BE27F002AAD4E /* FiltresCollectionViewCell.xib in Resources */,
 				F8ECE119F95ADC193B0B527D /* StartSplashScreenViewController.xib in Resources */,
+				15402D0227EC99FB00209341 /* ChangePasswordViewController.xib in Resources */,
 				18B262F73FA1EDA52769D50F /* SignUpViewController.xib in Resources */,
 				15E97BEF27CA592F00F37D5D /* AboutPersonalPostViewController.xib in Resources */,
 				15BDD2C9279A17C5004F61BC /* CommentsViewController.xib in Resources */,
@@ -2480,6 +2529,7 @@
 				6D089E666AFBBEAA7EC50D30 /* SignUpPresenterInput.swift in Sources */,
 				D681C28A5D6C3CAE25ECCFAF /* SignUpPresenterOutput.swift in Sources */,
 				7CD457E3F84E96672ECFF689 /* SignUpPresenter.swift in Sources */,
+				15402D1027ECF1BE00209341 /* ProfileCollectionViewManager.swift in Sources */,
 				153F2CCF273724F4002AF9FA /* LikeType.swift in Sources */,
 				158CA21527E7CA5B00334D15 /* UserSearchListCollectionViewCell.swift in Sources */,
 				0D0450D36C619482ED7CBC50 /* SignUpAssembler.swift in Sources */,
@@ -2487,6 +2537,7 @@
 				15AE5C7A27EBA1EB00E540A1 /* SettingsPresenter.swift in Sources */,
 				15AE5C7C27EBA21200E540A1 /* SettingsPresenterInput.swift in Sources */,
 				170D42892753C96300509625 /* SearchCollectionViewManager.swift in Sources */,
+				15402D0627EC9C6200209341 /* ChangePasswordPresenterInput.swift in Sources */,
 				17AA6C1A272982F700CE276E /* UIAplicationExtentsion.swift in Sources */,
 				17AA6C152729804D00CE276E /* Router.swift in Sources */,
 				3FC4BE4728AC28828A3658ED /* PasswordRecoveryFirstViewController.swift in Sources */,
@@ -2510,8 +2561,10 @@
 				7EC8DB21FDD698ECEF3B5FB1 /* PasswordRecoverySecondPresenterInput.swift in Sources */,
 				1703CE6727B671D400A832F3 /* CameraApi.swift in Sources */,
 				15E6CED827A4AA9A000239AB /* PostedCommentResponse.swift in Sources */,
+				15402D0A27EC9C7500209341 /* ChangePasswordPresenter.swift in Sources */,
 				AF052CFB648D99B02ED4C34F /* PasswordRecoverySecondPresenterOutput.swift in Sources */,
 				15AE5C8427EBA83D00E540A1 /* SettingsAssembler.swift in Sources */,
+				15402D0E27ECA90F00209341 /* ChangePasswordResponse.swift in Sources */,
 				1513CBF3272C214700855FC4 /* RecoveryPasswordCodeResponse.swift in Sources */,
 				A61CB9393EEE6EA81E760A5E /* PasswordRecoverySecondPresenter.swift in Sources */,
 				80A44D7850A9816EBFA54395 /* ResetPasswordNewPasswordAssembler.swift in Sources */,
@@ -2528,9 +2581,10 @@
 				153F2CD6273724F4002AF9FA /* FeedCell.swift in Sources */,
 				A7FD764AA9A0314249E048CB /* AuthCodePresenter.swift in Sources */,
 				8110DFA7ABCF252DE443A41D /* AuthCodeAssembler.swift in Sources */,
-				153ECFFD27BBD365001ABB4C /* FeedResponse.swift in Sources */,
+				153ECFFD27BBD365001ABB4C /* FeedPost.swift in Sources */,
 				CDB3F0037C4A4F7CB25A9A44 /* SignInViewController.swift in Sources */,
 				15AE5C7E27EBA21C00E540A1 /* SettingsPresenterOutput.swift in Sources */,
+				15402D0827EC9C6E00209341 /* ChangePasswordPresenterOutput.swift in Sources */,
 				17AA6C1E27298DA200CE276E /* Closures.swift in Sources */,
 				17E71F96272ADEF6001B2CF0 /* SignUpResponse.swift in Sources */,
 				155FED6F274AF90B00548B01 /* FeedRequest.swift in Sources */,
@@ -2542,6 +2596,7 @@
 				15C36CD827BDB56600E84D14 /* LikeResponse.swift in Sources */,
 				100F1F745E97FF68AD0A5786 /* SignInPresenterOutput.swift in Sources */,
 				15578A0E276168BE00D0267C /* BaseRequestProtocol.swift in Sources */,
+				15402D0C27EC9C7F00209341 /* ChangePasswordAssembler.swift in Sources */,
 				15B5C2F127C24C050058408D /* OtherProfilePresenter.swift in Sources */,
 				17AA6C18272980B100CE276E /* BundleExtentsion.swift in Sources */,
 				15E97BFD27CAF14400F37D5D /* FollowResponse.swift in Sources */,
@@ -2607,6 +2662,7 @@
 				24144995A37AF20018CAF4EA /* CatalogFiltresPresenterInput.swift in Sources */,
 				685665EE878B40B46970DA58 /* CatalogFiltresPresenterOutput.swift in Sources */,
 				5C50BFBE4636070DDD39D74F /* CatalogFiltresPresenter.swift in Sources */,
+				15402D0127EC99FB00209341 /* ChangePasswordViewController.swift in Sources */,
 				892C87A12359C52E599CDCA5 /* CatalogFiltresAssembler.swift in Sources */,
 				1D9338B9E8D640F770A3EA5C /* FilterCurrentViewController.swift in Sources */,
 				19DEDAB36F635F9A93C0C184 /* FilterCurrentPresenterInput.swift in Sources */,
@@ -2783,7 +2839,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;
@@ -2820,7 +2876,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = 6T5CJA2ZKV;
+				DEVELOPMENT_TEAM = GF84852H7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeTok/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LikeTok;

@@ -14,7 +14,7 @@ import os.log
 final class FeedViewPresenter {
     private let interactor: FeedViewInteractorInput
     private weak var view: FeedViewPresenterOutput?
-    private var post: FeedResponse?
+    private var post: FeedPost?
     private var postIndex: Int?
     private var cursor: String = ""
     
@@ -195,7 +195,7 @@ extension FeedViewPresenter: FeedViewPresenterInput {
 //        }
     }
     
-    func setCurrentPost(_ post: FeedResponse) {
+    func setCurrentPost(_ post: FeedPost) {
         self.post = post
         interactor.setCurrentPost(post)
         postIndex = (interactor.configurators?.firstIndex(where: { $0.getModel().uuid == post.uuid })) ?? .zero
@@ -273,7 +273,7 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
         view?.playVideo()
     }
     
-    func didReceivedPost(with result: Result<FeedResponse?, NetworkError>) {
+    func didReceivedPost(with result: Result<FeedPost?, NetworkError>) {
         switch result {
          case .success(let response):
              guard let categoriesRespone = response else {

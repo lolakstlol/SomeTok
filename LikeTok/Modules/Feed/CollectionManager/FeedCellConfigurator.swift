@@ -13,7 +13,7 @@ import Kingfisher
 final class FeedCellConfigurator {
     static var cellIdentifier: String = FeedCell.cellIdentifier
     
-    private var model: FeedResponse
+    private var model: FeedPost
     private(set) var cell: FeedCell?
     private let isMainFeed: Bool
     private var isReadyToPlay: Bool = false {
@@ -22,7 +22,7 @@ final class FeedCellConfigurator {
         }
     }
     
-    init(_ model: FeedResponse, isMainFeed: Bool) {
+    init(_ model: FeedPost, isMainFeed: Bool) {
         self.model = model
         self.isMainFeed = isMainFeed
         
@@ -95,12 +95,12 @@ final class FeedCellConfigurator {
         return viewSize
     }
     
-    func updateModel(model: FeedResponse, completion: @escaping EmptyClosure = {}) {
+    func updateModel(model: FeedPost, completion: @escaping EmptyClosure = {}) {
         self.model = model
         completion()
     }
     
-    func getModel() -> FeedResponse {
+    func getModel() -> FeedPost {
         return model
     }
 }

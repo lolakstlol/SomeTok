@@ -27,10 +27,9 @@ final class OtherProfileViewController: BaseViewController {
     @IBOutlet private var personalBottomView: UIView!
     
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
-    
-    private var data: [UIColor] = [.blue, .black, .red, .magenta, .brown, .darkGray, .yellow, .red, .yellow, .green, .link, .magenta]
-    
+        
     var presenter: OtherProfilePresenterInput!
+    var collectionManager: ProfileCollectionViewManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +43,13 @@ final class OtherProfileViewController: BaseViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        updateCollectionViewSize()
+    }
+    
+    private func updateCollectionViewSize() {
         let height = collectionView.collectionViewLayout.collectionViewContentSize.height
         collectionViewHeightConstraint.constant = height
+        debugPrint("!--", height)
         self.view.layoutIfNeeded()
     }
     
@@ -65,20 +69,22 @@ final class OtherProfileViewController: BaseViewController {
                 self.advertismentBottomView.backgroundColor = Assets.mainRed.color
                 self.personalButton.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
                 self.personalBottomView.backgroundColor = .clear
+                self.collectionManager?.collectionType = .advertisment
             case .personal:
                 self.personalButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 16)
                 self.personalBottomView.backgroundColor = Assets.mainRed.color
                 self.advertismentButton.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
                 self.advertismentBottomView.backgroundColor = .clear
+                self.collectionManager?.collectionType = .personal
             }
         }
     }
     
-    private func setupCollectionView() {
-        collectionView.register(UINib(nibName: ProfileCollectionViewCell.id, bundle: nil), forCellWithReuseIdentifier: ProfileCollectionViewCell.id)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-    }
+//    private func setupCollectionView() {
+//        collectionView.register(UINib(nibName: ProfileCollectionViewCell.id, bundle: nil), forCellWithReuseIdentifier: ProfileCollectionViewCell.id)
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
+//    }
     
     private func setupButtons() {
         subscribeButton.layer.cornerRadius = 5
@@ -133,13 +139,34 @@ final class OtherProfileViewController: BaseViewController {
 
 extension OtherProfileViewController: OtherProfilePresenterOutput {
     
+    func reloadCollectionView() {
+        collectionView.reloadData()
+        updateCollectionViewSize()
+    }
+    
+    func setAdvertisment(_ model: [FeedPost]) {
+        collectionManager?.setAdvertisment(models: model)
+    }
+    
+    func appendAdvertisment(_ model: [FeedPost]) {
+        collectionManager?.appendAdvertisment(models: model)
+        updateCollectionViewSize()
+    }
+    
+    func onFetchFeedFailrue(_ error: NetworkError) {
+        debugPrint(error.localizedDescription)
+    }
+    
     func pushUsersList(_ viewController: UserSearchListViewController) {
         navigationController?.pushViewController(viewController, animated: true)
     }
 
     func setupUI() {
         setupNavigationBar()
-        setupCollectionView()
+//        setupCollectionView()
+        collectionManager = ProfileCollectionViewManager()
+        collectionManager?.attach(collectionView, output: self)
+        collectionManager?.collectionType = .advertisment
     }
 
     func onFetchProfileDataSuccess(_ model: OtherProfileServerDatum) {
@@ -176,51 +203,18 @@ extension OtherProfileViewController: OtherProfilePresenterOutput {
     
 }
 
-extension OtherProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return data.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.id, for: indexPath) as! ProfileCollectionViewCell
-//        cell.configure(data: data[indexPath.row])
-        cell.backgroundColor = data[indexPath.row]
-        return cell
-    }
-
-    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        interactor.likedMeMatchingType(userId: data[indexPath.row].userId)
-//        delegate?.openLikedMeMatching()
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
-        let widthPerItem = collectionView.frame.width / Constants.itemsInLine - Constants.interItemSpacing
-        return CGSize(width: widthPerItem, height: widthPerItem / Constants.imageRatio)
-    }
-
-    func collectionView(_: UICollectionView, willDisplay _: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        if interactor.loadMore(index: indexPath.row) {
-//            loadLikedMe(showLoading: false)
-//        }
+extension OtherProfileViewController: ProfileCollectionViewOutput {
+    
+    func didChangeType(_ type: ContentType) {
+        
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    func updateEmptyLabel(_ isEmpty: Bool) {
+        
     }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+    
+    func loadMore(_ type: ContentType) {
+        presenter.loadMore(type)
     }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
-    }
-}
-
-extension OtherProfileViewController {
-    private enum Constants {
-        static let itemsInLine: CGFloat = 3
-        static let imageRatio: CGFloat = 9/16
-        static let interItemSpacing: CGFloat = 2
-    }
+    
 }

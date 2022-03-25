@@ -95,15 +95,15 @@ final class SearchCollectionViewManager: NSObject {
         switch collectionType {
         case .accounts:
 //            emptyLabel.isHidden = peeopleDataSource.count > 1 ? true : false
-            output?.updateEmptyLabel(peeopleDataSource.count > 1 ? true : false)
+            output?.updateEmptyLabel(peeopleDataSource.count > 0 ? true : false)
             return peeopleDataSource.count
         case .categories:
 //            emptyLabel.isHidden = categoriesDataSource.count > 1 ? true : false
-            output?.updateEmptyLabel(categoriesDataSource.count > 1 ? true : false)
+            output?.updateEmptyLabel(categoriesDataSource.count > 0 ? true : false)
             return categoriesDataSource.count
         case .videos:
 //            emptyLabel.isHidden = videosDataSource.count > 1 ? true : false
-            output?.updateEmptyLabel(videosDataSource.count > 1 ? true : false)
+            output?.updateEmptyLabel(videosDataSource.count > 0 ? true : false)
             return videosDataSource.count
         }
     }

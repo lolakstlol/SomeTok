@@ -13,6 +13,10 @@ final class OtherProfilePresenter {
     private var networkService: ProfileNetworkServiceProtocol
     private var uuid: String
     
+    private var advertismentCursor: String?
+    
+    private var isLoadingAdvertismentPage: Bool = false
+    
     private var model: OtherProfileServerDatum?
     
     init(_ view: OtherProfilePresenterOutput, _ networkService: ProfileNetworkServiceProtocol, _ uuid: String) {
@@ -22,10 +26,12 @@ final class OtherProfilePresenter {
     }
 
     func viewDidLoad() {
-        fetchProfileData()
+        
     }
     
     func viewWillAppear() {
+        fetchProfileData()
+        fetchUserFeed()
         view.setupUI()
     }
 }
@@ -47,6 +53,37 @@ private extension OtherProfilePresenter {
             }
         }
     }
+    
+    func fetchUserFeed() {
+        networkService.feedAdvertisment(uuid: uuid) { result in
+            switch result {
+            case .success(let model):
+                self.advertismentCursor = model?.data.meta.cursor
+                self.view.setAdvertisment(model?.data.data ?? [])
+                self.view.reloadCollectionView()
+            case .failure(let error):
+                self.view.onFetchFeedFailrue(error)
+            }
+        }
+    }
+    
+    func fetchUserFeedMore() {
+        guard let cursor = advertismentCursor, !isLoadingAdvertismentPage else {
+            return
+        }
+        isLoadingAdvertismentPage = true
+        networkService.feedAdvertismentMore(uuid: uuid, cursor: cursor) { result in
+            switch result {
+            case .success(let model):
+                self.advertismentCursor = model?.data.meta.cursor
+                self.view.appendAdvertisment(model?.data.data ?? [])
+                self.isLoadingAdvertismentPage = false
+            case .failure(let error):
+                self.view.onFetchFeedFailrue(error)
+            }
+        }
+    }
+    
 }
 
 extension OtherProfilePresenter: OtherProfilePresenterInput {
@@ -80,5 +117,9 @@ extension OtherProfilePresenter: OtherProfilePresenterInput {
                 self?.view.onFollowFailure(error)
             }
         }
+    }
+    
+    func loadMore(_ type: ContentType) {
+        fetchUserFeedMore()
     }
 }

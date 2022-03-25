@@ -11,5 +11,6 @@ protocol OtherProfilePresenterInput: BasePresenting {
     func followButtonTap()
     func openSubscibersList()
     func openSubsciptionsList()
+    func loadMore(_ type: ContentType)
 //    func completeOnboarding()
 }

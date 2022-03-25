@@ -51,13 +51,14 @@ final class UserSearchListPresenter {
 
     func viewDidLoad() {
         view.setupUI(baseControllerModel.baseProfileType)
-    }
-    
-    func viewWillAppear() {
         loadSubscribers()
         loadSubscriptions()
         loadFriends()
         view.setupInitialType(selectedType)
+    }
+    
+    func viewWillAppear() {
+
     }
 }
 

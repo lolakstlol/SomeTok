@@ -33,6 +33,10 @@ class SettingsViewController: UIViewController {
 }
 
 extension SettingsViewController: SettingsPresenterOutput {
+    func showPasswordRecovery(_ view: UIViewController) {
+        navigationController?.pushViewController(view, animated: true)
+    }
+    
     func showConfrimationScreen(_ view: ConfrimationViewController) {
         view.modalPresentationStyle = .overCurrentContext
         present(view, animated: true, completion: nil)
@@ -73,6 +77,10 @@ extension SettingsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SettingsTableViewCell.self), for: indexPath) as! SettingsTableViewCell
         cell.setup(dataSourse[indexPath.row].title)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
     
 }

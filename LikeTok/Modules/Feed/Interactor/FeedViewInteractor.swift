@@ -12,7 +12,7 @@ final class FeedViewInteractor {
     private weak var output: FeedViewInteractorOutput?
     private let feedService: FeedServiceProtocol
 
-    private var post: FeedResponse?
+    private var post: FeedPost?
     private var isFeedLoading = false
     var isUserFeed = false
     var type: FeedViewEnterOption
@@ -174,14 +174,14 @@ extension FeedViewInteractor: FeedViewInteractorInput {
 //        }
     }
     
-    func setCurrentPost(_ post: FeedResponse) {
+    func setCurrentPost(_ post: FeedPost) {
         self.post = post
 //        isUserFeed = post.user.userId == UserDefaultsManager.shared.userId
     }
 }
 
 protocol FeedServiceProtocol {
-    func getPost(by postId: String, completion: @escaping (_ items: Swift.Result<FeedResponse?, NetworkError>) -> Void)
+    func getPost(by postId: String, completion: @escaping (_ items: Swift.Result<FeedPost?, NetworkError>) -> Void)
     func getInitialFeed(with offset: Int, type: FeedViewEnterOption, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void)
     func getFeed(with offset: Int, cursor: String, type: FeedViewEnterOption, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void)
     func deletePostLike(postId: String, completion: @escaping (Swift.Result<LikeResponse, NetworkError>) -> Void)
@@ -192,7 +192,7 @@ protocol FeedServiceProtocol {
 
 final class FeedService: FeedServiceProtocol {
     
-    func getPost(by uuid: String, completion: @escaping (Swift.Result<FeedResponse?, NetworkError>) -> Void) {
+    func getPost(by uuid: String, completion: @escaping (Swift.Result<FeedPost?, NetworkError>) -> Void) {
 //        let request = GetCurrentPostRequest(uuid)
 //        NetworkAPI.shared.sendRequest(request: request, completion: completion)
     }

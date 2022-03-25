@@ -255,7 +255,8 @@ enum Api {
              repeatCode(email: String),
              resetPass(email: String),
              confirmResetPass(email:String, pass: String, code: String),
-             updateSettings(phone: String?, name: String?)
+             updateSettings(phone: String?, name: String?),
+             changePassword(old: String, new: String)
         public var request: DataRequest {
             switch self {
             case let .signup(email, name, pass):
@@ -301,6 +302,13 @@ enum Api {
                 params["phone"] = phone
                 let request = Alamofire.request("\(API.server)/user/settings", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
                 return request.validate()
+                
+            case .changePassword(old: let old, new: let new):
+                var params: Parameters = Parameters()
+                params["old"] = old
+                params["new"] = new
+                let request = Alamofire.request("\(API.server)/auth/change_password", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
+                return request.validate()
             }
         }
     }
@@ -310,17 +318,25 @@ enum Api {
         case settings
         case updateSettings(_ model: EditedProfileModel)
         case follow(_ uuid: String)
-//        case feed(_ uuid: String)
+        
+        case feedAdvertisment
+        case feedPersonal
+        case feedAdvertismentMore(_ cursor: String)
+        case feedPersonalMore(_ cursor: String)
+        
+        case feedAdvertismentOther(_ uuid: String)
+//        case feedPersonalOther(_ uuid: String)
+        case feedAdvertismentOtherMore(uuid: String, _ cursor: String)
+//        case feedPersonalOtherMore(uuid: String, _ cursor: String)
+        
         public var request: DataRequest {
             switch self {
             case .user(let uuid):
                 let request = Alamofire.request("\(API.server)/user/\(uuid)", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
-                //request.request?.addValue(Locale.current.regionCode ?? "", forHTTPHeaderField: "LANG")
                 return request.validate()
                 
             case .settings:
                 let request = Alamofire.request("\(API.server)/user/settings", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
-                //request.request?.addValue(Locale.current.regionCode ?? "", forHTTPHeaderField: "LANG")
                 return request.validate()
             
             case .updateSettings(let model):
@@ -351,8 +367,41 @@ enum Api {
                 
             case .follow(let uuid):
                 let request = Alamofire.request("\(API.server)/user/\(uuid)/follow", method: .put, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
-                //request.request?.addValue(Locale.current.regionCode ?? "", forHTTPHeaderField: "LANG")
                 return request.validate()
+                
+            case .feedAdvertisment:
+                let request = Alamofire.request("\(API.server)/user/my/feed/adv", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .feedPersonal:
+                let request = Alamofire.request("\(API.server)/user/my/feed/personal", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .feedAdvertismentMore(let cursor):
+                let parameters: Parameters = [
+                    "cursor": "\(cursor)"
+                ]
+                let request = Alamofire.request("\(API.server)/user/my/feed/adv", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .feedPersonalMore(let cursor):
+                let parameters: Parameters = [
+                    "cursor": "\(cursor)"
+                ]
+                let request = Alamofire.request("\(API.server)/user/my/feed/personal", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .feedAdvertismentOther(let uuid):
+                let request = Alamofire.request("\(API.server)/user/\(uuid)/feed", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .feedAdvertismentOtherMore(uuid: let uuid, let cursor):
+                let parameters: Parameters = [
+                    "cursor": "\(cursor)"
+                ]
+                let request = Alamofire.request("\(API.server)/user/\(uuid)/feed", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
             }
         }
     }

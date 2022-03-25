@@ -139,6 +139,26 @@ final class AuthApiWorker {
         }
     }
     
+    func changePassword(oldPassword: String, newPassword: String, completion: @escaping (Swift.Result<ChangePasswordResponse, NetworkError>) -> Void) {
+        Api.Auth.changePassword(old: oldPassword, new: newPassword).request.responseJSON { response in
+            guard let statusCode = response.response?.statusCode
+            else {
+                return
+            }
+            switch statusCode {
+            case 200:
+                if let data = response.data,
+                   let response = try? JSONDecoder().decode(ChangePasswordResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    completion(.failure(.deserialization))
+                }
+            default: completion(.failure(.undefined))
+                
+            }
+        }
+    }
+    
     func uploadAvatar(image: UIImage, completion: @escaping (Swift.Result<Any?, NetworkError>) -> Void) {
     //        Api.profile.uploadAvatar(image: image) { result in
     //            print(result)

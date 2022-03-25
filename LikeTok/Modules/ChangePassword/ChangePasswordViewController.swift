@@ -1,29 +1,28 @@
 //
-//  ResetPasswordNewPasswordResetPasswordNewPasswordViewController.swift
+//  ChangePasswordViewController.swift
 //  LikeTok
 //
-//  Created by Danik on 24/10/2021.
-//  Copyright © 2021 LikeTok. All rights reserved.
+//  Created by Daniel on 24.03.22.
 //
 
 import UIKit
 
-final class PasswordRecoverySecondViewController: BaseViewController {
+final class ChangePasswordViewController: BaseViewController {
     
     @IBOutlet private weak var navigationLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var textLabel: UILabel!
     @IBOutlet private weak var scrollView: UIScrollView!
-    @IBOutlet private weak var enterTheCodeTextField: InsetTextField!
-    @IBOutlet private weak var enterPasswordTextField: InsetTextField!
+    @IBOutlet private weak var oldPasswordTextField: InsetTextField!
+    @IBOutlet private weak var newPasswordTextField: InsetTextField!
+    @IBOutlet private weak var newPasswordConfrimTextField: InsetTextField!
     @IBOutlet private weak var resumeButton: UIButton!
     
     private let keyboardObserver = KeyboardObserver()
     private lazy var tapWhenKeyboardAppears = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
     
-    var presenter: PasswordRecoverySecondPresenterInput!
+    var presenter: ChangePasswordPresenterInput!
 
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
         addKeyboardObservers()
@@ -59,36 +58,52 @@ final class PasswordRecoverySecondViewController: BaseViewController {
     }
     
     @IBAction private func onResumeButtonTap(_ sender: Any) {
-        guard let password = enterPasswordTextField.text,
-              let code = enterTheCodeTextField.text
+        guard let oldPassword = oldPasswordTextField.text,
+              let newPassword = newPasswordTextField.text,
+              let newPasswordConfrim = newPasswordConfrimTextField.text
         else {
             return
         }
-        presenter.resetPassword(password, code: code)
+        if newPassword == newPasswordConfrim {
+            presenter.changePassword(oldPassword: oldPassword, newPassword: newPassword)
+            showLoader()
+        } else {
+            showToast("Проверьте новый пароль", toastType: .failured)
+        }
     }
     
+    @IBAction func recoverButtonTap(_ sender: Any) {
+    
+    }
+
     @IBAction func backButtonTap(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func forgotPasswordButtonTap(_ sender: Any) {
+        let controller = PasswordRecoveryFirstAssembler.createModule()
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
 }
 
-extension PasswordRecoverySecondViewController: PasswordRecoverySecondPresenterOutput {
+extension ChangePasswordViewController: ChangePasswordPresenterOutput {
     
     func onViewDidLoad() {
-        titleLabel.text = Strings.PasswordRecovery.Second.title
+        titleLabel.text = "Смена пароля"//Strings.PasswordRecovery.Second.title
         titleLabel.textColor = Assets.blackText.color
         
-        textLabel.text = Strings.PasswordRecovery.Second.text
-        textLabel.textColor = Assets.darkGrayText.color
+        oldPasswordTextField.backgroundColor = Assets.lightGray.color
+        oldPasswordTextField.textColor = Assets.blackText.color
+//        oldPasswordTextField.placeholder = Strings.PasswordRecovery.Second.code
         
-        enterTheCodeTextField.backgroundColor = Assets.lightGray.color
-        enterTheCodeTextField.textColor = Assets.blackText.color
-        enterTheCodeTextField.placeholder = Strings.PasswordRecovery.Second.code
+        newPasswordTextField.backgroundColor = Assets.lightGray.color
+        newPasswordTextField.textColor = Assets.blackText.color
+//        newPasswordTextField.placeholder = Strings.PasswordRecovery.Second.enterThePassword
         
-        enterPasswordTextField.backgroundColor = Assets.lightGray.color
-        enterPasswordTextField.textColor = Assets.blackText.color
-        enterPasswordTextField.placeholder = Strings.PasswordRecovery.Second.enterThePassword
+        newPasswordConfrimTextField.backgroundColor = Assets.lightGray.color
+        newPasswordConfrimTextField.textColor = Assets.blackText.color
+//        newPasswordTextField.placeholder = Strings.PasswordRecovery.Second.enterThePassword
         
         resumeButton.setTitle(Strings.PasswordRecovery.Second.resume, for: .normal)
         resumeButton.setTitleColor(Assets.whiteText.color, for: .normal)
@@ -99,17 +114,19 @@ extension PasswordRecoverySecondViewController: PasswordRecoverySecondPresenterO
     }
     
     func onViewWillAppear() {
-        navigationLabel.text = "Восстановление пароля"
+        navigationLabel.text = "Смена пароля"
         navigationController?.navigationBar.isHidden = true
-        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func onResetPasswordSucess() {
-        navigationController?.popToViewController(ofClass: SignInViewController.self, animated: true)
+        hideLoader()
+        showToast("Пароль успешно изменен", toastType: .successed)
+//        navigationController?.popToViewController(ofClass: SignInViewController.self, animated: true)
     }
     
     func onResetPasswordFailure(_ error: T) {
 //        presenter.showAlert(error)
+        hideLoader()
         showToast(error.localizedDescription, toastType: .failured)
     }
     

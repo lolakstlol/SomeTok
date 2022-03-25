@@ -12,7 +12,7 @@ protocol FeedViewPresenterOutput: AnyObject {
     func setupUI()
     func updateConfigurators(_ configurators: [FeedCellConfigurator])
     func clearConfigurators()
-    func updateItem(with model: FeedResponse, at index: Int)
+    func updateItem(with model: FeedPost, at index: Int)
     func scrollToTop()
     func setupUserFeed(with index: Int)
     func setupLike(_ type: LikeType, at index: Int?)

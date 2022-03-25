@@ -204,7 +204,6 @@ extension UserSearchListViewController: UserSearchListOutput {
         collectionManager?.appendFriends(models: models)
     }
     
-    
     func onFollowSuccess(_ following: Bool, uuid: String) {
         collectionManager?.updateFollowState(following, uuid: uuid)
     }

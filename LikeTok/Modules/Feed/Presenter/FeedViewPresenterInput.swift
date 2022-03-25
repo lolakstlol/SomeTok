@@ -10,7 +10,7 @@ import UIKit.UIImage
 
 protocol FeedViewPresenterInput: BasePresenting {
     func sendMessage(_ message: String)
-    func setCurrentPost(_ post: FeedResponse)
+    func setCurrentPost(_ post: FeedPost)
     func feedIsScrollingToEnd(with offset: Int)
     func setCommentsCount(with count: Int)
     func openComments()

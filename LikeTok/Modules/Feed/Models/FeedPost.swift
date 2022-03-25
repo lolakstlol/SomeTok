@@ -14,13 +14,13 @@ struct FeedGlobalResponse: Codable {
 
 // MARK: - DataClass
 struct FeedDataClass: Codable {
-    let data: [FeedResponse]
+    let data: [FeedPost]
     let meta: FeedMeta
     let links: FeedLinks
 }
 
 // MARK: - Datum
-struct FeedResponse: Codable {
+struct FeedPost: Codable {
     let uuid: String
     let adv: Bool
     let createdAt, updatedAt: String
@@ -63,7 +63,7 @@ struct FeedPhoto: Codable {
 
 // MARK: - Media
 struct FeedMedia: Codable {
-    let uuid: String
+    let uuid: String?
     let type: FeedMediaType
     let preview: String
     let original: String?

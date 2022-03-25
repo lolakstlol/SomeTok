@@ -14,18 +14,22 @@ final class MyProfilePresenter {
     private var networkService: ProfileNetworkServiceProtocol
     private var model: ProfileModel?
     
+    private var advertismentCursor: String?
+    private var personalCursor: String?
+    
     init(_ view: MyProfilePresenterOutput, _ networkService: ProfileNetworkServiceProtocol) {
         self.view = view
         self.networkService = networkService
     }
 
     func viewDidLoad() {
-        fetchProfileData()
+
     }
     
     func viewWillAppear() {
         view.setupUI()
         fetchProfileData()
+        fetchFeedData()
     }
 
 }
@@ -45,6 +49,41 @@ private extension MyProfilePresenter {
             case .failure(let error):
                 self?.view.onFetchProfileDataFailure(error)
             }
+        }
+    }
+    
+    func fetchFeedData() {
+        let dispatchGroup = DispatchGroup()
+        
+//        DispatchQueue.main.async(group: dispatchGroup, qos: .userInitiated) {
+            dispatchGroup.enter()
+            self.networkService.feedPersonal { result in
+                switch result {
+                case .success(let model):
+                    self.personalCursor = model?.data.meta.cursor
+                    self.view.setPersonalFeed(model?.data.data ?? [])
+                    dispatchGroup.leave()
+                case .failure(let error):
+                    self.view.onFetchFeedFailrue(error)
+                    dispatchGroup.leave()
+                }
+            }
+            
+            dispatchGroup.enter()
+            self.networkService.feedAdvertisment { result in
+                switch result {
+                case .success(let model):
+                    self.advertismentCursor = model?.data.meta.cursor
+                    self.view.setAdvertismentFeed(model?.data.data ?? [])
+                    dispatchGroup.leave()
+                case .failure(let error):
+                    self.view.onFetchFeedFailrue(error)
+                    dispatchGroup.leave()
+                }
+            }
+        
+        dispatchGroup.notify(queue: .main) {
+            self.view.reloadCollectionView()
         }
     }
 }
@@ -67,3 +106,4 @@ extension MyProfilePresenter: MyProfilePresenterInput {
         view.onEditButtonTap(controller)
     }
 }
+

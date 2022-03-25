@@ -11,7 +11,7 @@ import UIKit
 import GSPlayer
 
 protocol FeedCollectionOutput: AnyObject {
-    func selectFeedItem(_ item: FeedResponse)
+    func selectFeedItem(_ item: FeedPost)
     func requestNextPosts(offset: Int)
     func attach() -> FeedCellActionsOutput
     func isMoreButtonVisible() -> Bool
@@ -25,7 +25,7 @@ final class FeedCollectionManager: NSObject {
     private var itemIndex: Int?
     private var isRefreshingFeed = false
     private var isReadyToPlay = false
-    private var currentItem: FeedResponse? {
+    private var currentItem: FeedPost? {
         guard configurators.count != 0 else {
             return nil
         }
@@ -129,7 +129,7 @@ extension FeedCollectionManager: FeedCollectionManagement {
        checkVideoState(needPlay: true)
     }
     
-    func updateItem(with model: FeedResponse, at index: Int) {
+    func updateItem(with model: FeedPost, at index: Int) {
         configurators[index].updateModel(model: model) {
             self.setupCellItems()
         }

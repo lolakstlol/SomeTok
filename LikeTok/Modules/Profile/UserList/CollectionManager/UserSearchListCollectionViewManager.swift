@@ -110,7 +110,6 @@ final class UserSearchListCollectionViewManager: NSObject {
         currentDataSourse.removeAll()
     }
     
-    
     func appendSubscribers(models: [UserListDatum]) {
          subscribersDataSourse += models
          collectionView?.reloadData()

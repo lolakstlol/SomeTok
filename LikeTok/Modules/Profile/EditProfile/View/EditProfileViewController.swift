@@ -10,6 +10,7 @@ import PhotosUI
 
 class EditProfileViewController: BaseViewController {
 
+    @IBOutlet weak var navigationLabel: UILabel!
     @IBOutlet weak var usernameTextField: InsetTextField!
     @IBOutlet weak var loginTextField: InsetTextField!
     @IBOutlet weak var emailTextField: InsetTextField!
@@ -69,8 +70,8 @@ class EditProfileViewController: BaseViewController {
         imagePickerController.mediaTypes = mediaTypes
         present(imagePickerController, animated: true, completion: nil)
     }
-
-    @objc private func doneButtonTap() {
+    
+    @IBAction func doneButtonTap(_ sender: Any) {
         showLoader()
         let newModel = EditProfileModel(avatar: avatarString,
                                         name: usernameTextField.text ?? "",
@@ -83,10 +84,11 @@ class EditProfileViewController: BaseViewController {
         presenter.onDoneButtonTap(newModel)
     }
     
-    @objc private func backButtonTap() {
+    @IBAction func backButtonTap(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+
     }
-    
+  
     @objc private func avatarDidTap() {
         presenter.avatarDidTap()
     }
@@ -137,15 +139,9 @@ extension EditProfileViewController: EditProfilePresenterOutput {
     }
     
     func setupNavigationBar() {
-        title = "Изменить профиль"
-        navigationController?.setNavigationBarHidden(false, animated: false)
-        navigationController?.navigationBar.isHidden = false
-        let backButton = UIBarButtonItem(image: Assets.backButton.image, style: .plain, target: self, action: #selector(backButtonTap))
-        let dotsBarButtonItem = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(doneButtonTap))
-        navigationItem.leftBarButtonItem = backButton
-        navigationItem.rightBarButtonItem = dotsBarButtonItem
-        navigationController?.navigationItem.rightBarButtonItem?.tintColor = .systemRed
-        navigationController?.navigationItem.leftBarButtonItem?.tintColor = .black
+        navigationLabel.text = "Изменить профиль"
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.navigationBar.isHidden = true
     }
     
     func openPickerView() {
