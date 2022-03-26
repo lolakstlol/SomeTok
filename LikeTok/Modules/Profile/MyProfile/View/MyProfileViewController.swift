@@ -60,13 +60,7 @@ final class MyProfileViewController: BaseViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
         navigationController?.navigationBar.isHidden = true
     }
-    
-//    private func setupCollectionView() {
-//        collectionView.register(UINib(nibName: ProfileCollectionViewCell.id, bundle: nil), forCellWithReuseIdentifier: ProfileCollectionViewCell.id)
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
-//    }
-    
+
     private func updateCollectionViewSize() {
         let height = collectionView.collectionViewLayout.collectionViewContentSize.height
         collectionViewHeightConstraint.constant = height
@@ -129,19 +123,19 @@ final class MyProfileViewController: BaseViewController {
     }
     
     @IBAction func openSubscribersList(_ sender: Any) {
-        let userListViewController = UserSearchListAssembler.createModule(selectedSearchType: .subscribers, baseControllerModel: BaseProfile(baseProfileType: .my, uuid: nil))
+        let userListViewController = UserSearchListAssembler.createModule(selectedSearchType: .subscribers, baseController: .my)
         userListViewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(userListViewController, animated: true)
     }
     
     @IBAction func openSubscriptionsList(_ sender: Any) {
-        let userListViewController = UserSearchListAssembler.createModule(selectedSearchType: .subscriptions, baseControllerModel: BaseProfile(baseProfileType: .my, uuid: nil))
+        let userListViewController = UserSearchListAssembler.createModule(selectedSearchType: .subscriptions,  baseController: .my)
         userListViewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(userListViewController, animated: true)
     }
     
     @IBAction func openFriendsList(_ sender: Any) {
-        let userListViewController = UserSearchListAssembler.createModule(selectedSearchType: .friends, baseControllerModel: BaseProfile(baseProfileType: .my, uuid: nil))
+        let userListViewController = UserSearchListAssembler.createModule(selectedSearchType: .friends,  baseController: .my)
         userListViewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(userListViewController, animated: true)
     }
@@ -149,7 +143,7 @@ final class MyProfileViewController: BaseViewController {
 }
 
 extension MyProfileViewController: MyProfilePresenterOutput {
-
+    
     func setupUI() {
         setupButtons()
         setupNavigationBar()
@@ -199,26 +193,35 @@ extension MyProfileViewController: MyProfilePresenterOutput {
         showToast(error.localizedDescription, toastType: .failured)
     }
     
-    func onEditButtonTap(_ controller: EditProfileViewController) {
-        controller.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(controller, animated: true)
+    func onEditButtonTap(_ viewController: EditProfileViewController) {
+        viewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func pushFeed(_ viewController: FeedViewViewController) {
+        viewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(viewController, animated: true)
+    }
     
 }
 
 
 extension MyProfileViewController: ProfileCollectionViewOutput {
-    func didChangeType(_ type: ContentType) {
+    func didChangeType(_ type: FeedViewEnterOption) {
         
+    }
+    
+    func loadMore(_ type: FeedViewEnterOption) {
+    
+    }
+    
+    func didTapVideo(_ type: FeedViewEnterOption, _ dataSourse: [FeedPost], index: Int) {
+        presenter.didTapVideo(type, dataSourse, index: index)
     }
     
     func updateEmptyLabel(_ isEmpty: Bool) {
         
     }
     
-    func loadMore(_ type: ContentType) {
-        
-    }
     
 }

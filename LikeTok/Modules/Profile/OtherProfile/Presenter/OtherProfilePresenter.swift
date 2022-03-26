@@ -10,18 +10,19 @@ import Foundation
 final class OtherProfilePresenter {
     
     private unowned let view: OtherProfilePresenterOutput
-    private var networkService: ProfileNetworkServiceProtocol
+    private var profileNetworkService: OtherProfileNetworkServiceProtocol
+    private var feedNetworkService: FeedServiceProtocol
     private var uuid: String
-    
     private var advertismentCursor: String?
     
     private var isLoadingAdvertismentPage: Bool = false
     
     private var model: OtherProfileServerDatum?
     
-    init(_ view: OtherProfilePresenterOutput, _ networkService: ProfileNetworkServiceProtocol, _ uuid: String) {
+    init(_ view: OtherProfilePresenterOutput, _ profileNetworkService: OtherProfileNetworkServiceProtocol, _ feedNetworkService: FeedServiceProtocol,_ uuid: String) {
         self.view = view
-        self.networkService = networkService
+        self.profileNetworkService = profileNetworkService
+        self.feedNetworkService = feedNetworkService
         self.uuid = uuid
     }
 
@@ -38,7 +39,7 @@ final class OtherProfilePresenter {
 
 private extension OtherProfilePresenter {
     func fetchProfileData() {
-        networkService.user(uuid) { [weak self] result in
+        profileNetworkService.user { [weak self] result in
             switch result {
             case .success(let model):
                 if let model = model?.data.data {
@@ -55,11 +56,11 @@ private extension OtherProfilePresenter {
     }
     
     func fetchUserFeed() {
-        networkService.feedAdvertisment(uuid: uuid) { result in
+        feedNetworkService.getInitialFeed(with: .zero, type: .advertisment) { result in
             switch result {
             case .success(let model):
-                self.advertismentCursor = model?.data.meta.cursor
-                self.view.setAdvertisment(model?.data.data ?? [])
+                self.advertismentCursor = model.data.meta.cursor
+                self.view.setAdvertisment(model.data.data)
                 self.view.reloadCollectionView()
             case .failure(let error):
                 self.view.onFetchFeedFailrue(error)
@@ -72,11 +73,11 @@ private extension OtherProfilePresenter {
             return
         }
         isLoadingAdvertismentPage = true
-        networkService.feedAdvertismentMore(uuid: uuid, cursor: cursor) { result in
+        feedNetworkService.getFeed(with: .zero, cursor: cursor, type: .advertisment) { result in
             switch result {
             case .success(let model):
-                self.advertismentCursor = model?.data.meta.cursor
-                self.view.appendAdvertisment(model?.data.data ?? [])
+                self.advertismentCursor = model.data.meta.cursor
+                self.view.appendAdvertisment(model.data.data)
                 self.isLoadingAdvertismentPage = false
             case .failure(let error):
                 self.view.onFetchFeedFailrue(error)
@@ -87,21 +88,32 @@ private extension OtherProfilePresenter {
 }
 
 extension OtherProfilePresenter: OtherProfilePresenterInput {
-    
+    func didTapVideo(_ collectionType: FeedViewEnterOption, _ dataSourse: [FeedPost], index: Int) {
+        var cursor = String()
+        switch collectionType {
+        case .advertisment:
+            cursor = advertismentCursor ?? ""
+        default:
+            break
+        }
+        let feedViewController = FeedViewAssembler.createModule(type: collectionType, feedService: FeedOtherNetworkService(uuid: uuid), collectionManager: FeedCollectionManager(), initialDataSourse: dataSourse, initialCursor: cursor, initialIndex: index)
+        view.pushFeed(feedViewController)
+    }
+
     func openSubscibersList() {
-        let userListViewController = UserSearchListAssembler.createModule(selectedSearchType: .subscribers, baseControllerModel: BaseProfile(baseProfileType: .other, uuid: uuid))
+        let userListViewController = UserSearchListAssembler.createModule(selectedSearchType: .subscribers, baseController: .other, uuid: uuid)
         userListViewController.hidesBottomBarWhenPushed = true
         view.pushUsersList(userListViewController)
     }
     
     func openSubsciptionsList() {
-        let userListViewController = UserSearchListAssembler.createModule(selectedSearchType: .subscriptions, baseControllerModel: BaseProfile(baseProfileType: .other, uuid: uuid))
+        let userListViewController = UserSearchListAssembler.createModule(selectedSearchType: .subscriptions, baseController: .other, uuid: uuid)
         userListViewController.hidesBottomBarWhenPushed = true
         view.pushUsersList(userListViewController)
     }
     
     func followButtonTap() {
-        networkService.follow(uuid) { [weak self] result in
+        profileNetworkService.follow { [weak self] result in
             switch result {
             case .success(let followModel):
                 if let following = followModel?.data.following {
@@ -119,7 +131,7 @@ extension OtherProfilePresenter: OtherProfilePresenterInput {
         }
     }
     
-    func loadMore(_ type: ContentType) {
+    func loadMore(_ type: FeedViewEnterOption) {
         fetchUserFeedMore()
     }
 }

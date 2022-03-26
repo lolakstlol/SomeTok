@@ -16,10 +16,10 @@ class VideoCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        imageView.image = nil
-//    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+    }
     
     func configure(with model: CategoriesPost) {
         if model.media?.count ?? 0 > 0 {

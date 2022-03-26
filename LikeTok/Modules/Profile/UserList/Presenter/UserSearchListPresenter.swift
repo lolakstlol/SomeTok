@@ -17,11 +17,6 @@ enum ProfileType {
     case other
 }
 
-struct BaseProfile {
-    let baseProfileType: ProfileType
-    let uuid: String?
-}
-
 enum UserSearchTypes {
     case subscriptions
     case subscribers
@@ -30,10 +25,10 @@ enum UserSearchTypes {
 
 final class UserSearchListPresenter {
     private unowned let view: UserSearchListOutput
-    private let userListApiWorker: UserSearchListApiWorker = UserSearchListApiWorker()
-    private let profileApiWorker: ProfileNetworkServiceProtocol = ProfileNetworkService()
+    private let userListApiWorker: UserSearchListApiWorker
+    private let userListOtherApiWorker: UserSearchListOtherApiWorker
     private var selectedType: UserSearchTypes
-    private var baseControllerModel: BaseProfile
+    private var baseController: ProfileType
     
     private var subscribersCursor: String?
     private var subscriptionsCursor: String?
@@ -43,14 +38,16 @@ final class UserSearchListPresenter {
     private var isReloadingSubscriptionsPage = false
     private var isReloadingFriendsPage = false
     
-    init(_ view: UserSearchListOutput, selectedType: UserSearchTypes, baseControllerModel: BaseProfile) {
+    init(_ view: UserSearchListOutput, _ selectedType: UserSearchTypes, _ baseController: ProfileType, _ userListApiWorker: UserSearchListApiWorker, _ userListOtherApiWorker: UserSearchListOtherApiWorker) {
         self.view = view
         self.selectedType = selectedType
-        self.baseControllerModel = baseControllerModel
+        self.baseController = baseController
+        self.userListApiWorker = userListApiWorker
+        self.userListOtherApiWorker = userListOtherApiWorker
     }
-
+    
     func viewDidLoad() {
-        view.setupUI(baseControllerModel.baseProfileType)
+        view.setupUI(baseController)
         loadSubscribers()
         loadSubscriptions()
         loadFriends()
@@ -187,12 +184,9 @@ private extension UserSearchListPresenter {
     }
     
     
-    
-    func loadSubscribers(uuid: String?) {
-        guard let uuid = uuid else {
-            return
-        }
-        userListApiWorker.loadSubscribersOther(uuid: uuid) { [weak self] result in
+
+    func loadSubscribersOther() {
+        userListOtherApiWorker.loadSubscribersOther { [weak self] result in
             switch result {
             case .success(let subscibers):
                 self?.subscribersCursor = subscibers?.data.meta.cursor
@@ -203,11 +197,8 @@ private extension UserSearchListPresenter {
         }
     }
     
-    func loadSubscriptions(uuid: String?) {
-        guard let uuid = uuid else {
-            return
-        }
-        userListApiWorker.loadSubscriptionsOther(uuid: uuid) { [weak self] result in
+    func loadSubscriptionsOther() {
+        userListOtherApiWorker.loadSubscriptionsOther { [weak self] result in
             switch result {
             case .success(let subscriptions):
                 self?.subscriptionsCursor = subscriptions?.data.meta.cursor
@@ -218,12 +209,12 @@ private extension UserSearchListPresenter {
         }
     }
     
-    func loadMoreSubscribers(uuid: String?) {
-        guard let cursor = subscribersCursor, let uuid = uuid, !isReloadingSubscribersPage else {
+    func loadMoreSubscribersOther() {
+        guard let cursor = subscribersCursor, !isReloadingSubscribersPage else {
             return
         }
         isReloadingSubscribersPage = true
-        userListApiWorker.searchSubscribers(cursor: cursor, uuid: uuid) { [weak self] result in
+        userListOtherApiWorker.searchSubscribers(cursor: cursor) { [weak self] result in
             switch result {
             case .success(let subscibers):
                 self?.subscribersCursor = subscibers?.data.meta.cursor
@@ -235,12 +226,12 @@ private extension UserSearchListPresenter {
         }
     }
     
-    func loadMoreSubscriptions(uuid: String?) {
-        guard let cursor = subscriptionsCursor, let uuid = uuid, !isReloadingSubscriptionsPage else {
+    func loadMoreSubscriptionsOther() {
+        guard let cursor = subscriptionsCursor, !isReloadingSubscriptionsPage else {
             return
         }
         isReloadingSubscriptionsPage = true
-        userListApiWorker.searchSubscriptions(cursor: cursor, uuid: uuid) { [weak self] result in
+        userListOtherApiWorker.searchSubscriptions(cursor: cursor) { [weak self] result in
             switch result {
             case .success(let subscriptions):
                 self?.subscriptionsCursor = subscriptions?.data.meta.cursor
@@ -252,11 +243,8 @@ private extension UserSearchListPresenter {
         }
     }
     
-    func searchSubscribers(predicate: String, uuid: String?) {
-        guard let uuid = uuid else {
-            return
-        }
-        userListApiWorker.searchSubscribers(predicate: predicate, uuid: uuid) { [weak self] result in
+    func searchSubscribersOther(predicate: String) {
+        userListOtherApiWorker.searchSubscribers(predicate: predicate) { [weak self] result in
             switch result {
             case .success(let subscibers):
                 self?.subscribersCursor = subscibers?.data.meta.cursor
@@ -267,11 +255,8 @@ private extension UserSearchListPresenter {
         }
     }
     
-    func searchSubscriptions(predicate: String, uuid: String?) {
-        guard let uuid = uuid else {
-            return
-        }
-        userListApiWorker.searchSubscriptions(predicate: predicate, uuid: uuid) { [weak self] result in
+    func searchSubscriptionsOther(predicate: String) {
+        userListOtherApiWorker.searchSubscriptions(predicate: predicate) { [weak self] result in
             switch result {
             case .success(let subscriptions):
                 self?.subscriptionsCursor = subscriptions?.data.meta.cursor
@@ -293,9 +278,9 @@ extension UserSearchListPresenter: UserSearchListInput {
     func loadMore(_ type: UserSearchTypes) {
         switch type {
         case .subscribers:
-            baseControllerModel.baseProfileType == .my ? loadMoreSubscribers() : loadMoreSubscribers(uuid: baseControllerModel.uuid)
+            baseController == .my ? loadMoreSubscribers() : loadMoreSubscribersOther()
         case .subscriptions:
-            baseControllerModel.baseProfileType == .my ? loadMoreSubscriptions() : loadMoreSubscriptions(uuid: baseControllerModel.uuid)
+            baseController == .my ? loadMoreSubscriptions() : loadMoreSubscriptionsOther()
         case .friends:
             loadMoreFriends()
         }
@@ -304,9 +289,9 @@ extension UserSearchListPresenter: UserSearchListInput {
     func load(_ predicate: String, type: UserSearchTypes) {
         switch type {
         case .subscribers:
-            baseControllerModel.baseProfileType == .my ? searchSubscribers(predicate: predicate) : searchSubscribers(predicate: predicate, uuid: baseControllerModel.uuid)
+            baseController == .my ? searchSubscribers(predicate: predicate) : searchSubscribersOther(predicate: predicate)
         case .subscriptions:
-            baseControllerModel.baseProfileType == .my ? searchSubscriptions(predicate: predicate) : searchSubscriptions(predicate: predicate, uuid: baseControllerModel.uuid)
+            baseController == .my ? searchSubscriptions(predicate: predicate) : searchSubscriptionsOther(predicate: predicate)
         case .friends:
             searchFriends(predicate: predicate)
         }
@@ -315,16 +300,16 @@ extension UserSearchListPresenter: UserSearchListInput {
     func load(_ type: UserSearchTypes) {
         switch type {
         case .subscribers:
-            baseControllerModel.baseProfileType == .my ? loadSubscribers() : loadSubscribers(uuid: baseControllerModel.uuid)
+            baseController == .my ? loadSubscribers() : loadSubscribersOther()
         case .subscriptions:
-            baseControllerModel.baseProfileType == .my ? loadSubscriptions() : loadSubscriptions(uuid: baseControllerModel.uuid)
+            baseController == .my ? loadSubscriptions() : loadSubscriptionsOther()
         case .friends:
             loadFriends()
         }
     }
     
     func followButtonTap(_ uuid: String) {
-        profileApiWorker.follow(uuid) { [weak self] result in
+        OtherProfileNetworkService(uuid: uuid).follow { [weak self] result in
             switch result {
             case .success(let followModel):
                 if let following = followModel?.data.following {

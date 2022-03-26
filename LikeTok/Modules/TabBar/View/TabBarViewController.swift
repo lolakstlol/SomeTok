@@ -16,7 +16,7 @@ final class TabBarViewController: UITabBarController {
         tabBar.tintColor = .black
         tabBar.unselectedItemTintColor = .gray
         navigationController?.navigationBar.isHidden = true
-        delegate = self
+//        delegate = self
         previosSelectedItem = selectedIndex
     }
     
@@ -60,8 +60,9 @@ extension TabBarViewController: TabBarPresenterOutput {
         self.selectedIndex = selected
     }
     
-    func returnToPreviositem() {
+    func returnToPreviosItem() {
         selectedIndex = previosSelectedItem ?? .zero
+        updateAppearance(appearance: .transparent)
     }
     
 }
@@ -73,6 +74,6 @@ extension TabBarViewController: UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        
+
     }
 }

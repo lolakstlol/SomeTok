@@ -40,12 +40,12 @@ final class FeedPageViewController: UIPageViewController {
         
     private lazy var pages: [(controller: UIViewController, enterOption: FeedViewEnterOption)] = {
         var controllers = [(controller: UIViewController, enterOption: FeedViewEnterOption)]()
-        let generalController = FeedViewAssembler.createModule(type: .general, feedService: FeedService(), collectionManager: FeedCollectionManager())
-        let advertismentController = FeedViewAssembler.createModule(type: .advertisment, feedService: FeedService(), collectionManager: FeedCollectionManager())
-        let subscirptionsController = FeedViewAssembler.createModule(type: .subscriptions, feedService: FeedService(), collectionManager: FeedCollectionManager())
-        controllers.append(contentsOf: [(subscirptionsController, .subscriptions),
-                                        (advertismentController, .advertisment),
-                                        (generalController, .general)])
+        let generalController = FeedViewAssembler.createModule(type: .mainAll, feedService: FeedService(), collectionManager: FeedCollectionManager())
+        let advertismentController = FeedViewAssembler.createModule(type: .mainAdvertisment, feedService: FeedService(), collectionManager: FeedCollectionManager())
+        let subscirptionsController = FeedViewAssembler.createModule(type: .mainFollowing, feedService: FeedService(), collectionManager: FeedCollectionManager())
+        controllers.append(contentsOf: [(subscirptionsController, .mainFollowing),
+                                        (advertismentController, .mainAdvertisment),
+                                        (generalController, .mainAll)])
         return controllers
     }()
     
@@ -119,7 +119,7 @@ final class FeedPageViewController: UIPageViewController {
     
     private func updateFilterButtons(with enterOption: FeedViewEnterOption) {
         switch enterOption {
-        case .general:
+        case .mainAll:
             generalButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 16)
             generalButton.titleLabel?.tintColor = .white
             advertismentButton.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
@@ -127,7 +127,7 @@ final class FeedPageViewController: UIPageViewController {
             subsciptionsButton.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
             subsciptionsButton.titleLabel?.tintColor = .systemGray5
             
-        case .advertisment:
+        case .mainAdvertisment:
             advertismentButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 16)
             advertismentButton.titleLabel?.tintColor = .white
             generalButton.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
@@ -135,41 +135,44 @@ final class FeedPageViewController: UIPageViewController {
             subsciptionsButton.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
             subsciptionsButton.titleLabel?.tintColor = .systemGray5
             
-        case .subscriptions:
+        case .mainFollowing:
             subsciptionsButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 16)
             subsciptionsButton.titleLabel?.tintColor = .white
             generalButton.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
             generalButton.titleLabel?.tintColor = .systemGray5
             advertismentButton.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 16)
             advertismentButton.titleLabel?.tintColor = .systemGray5
+            
+        default:
+            break
         }
     }
     
     // MARK: - @IBActions
     @objc private func subscribesFilterTap() {
-        if pages[currentIndex].enterOption == .subscriptions {
+        if pages[currentIndex].enterOption == .mainFollowing {
             let notificationCenter = NotificationCenter.default
             notificationCenter.post(name: .updateFeed, object: self)
         } else {
-            changeEnterOption(with: .subscriptions)
+            changeEnterOption(with: .mainFollowing)
         }
     }
     
     @objc private func advertismentFilterTap() {
-        if pages[currentIndex].enterOption == .advertisment {
+        if pages[currentIndex].enterOption == .mainAdvertisment {
             let notificationCenter = NotificationCenter.default
             notificationCenter.post(name: .updateFeed, object: self)
         } else {
-            changeEnterOption(with: .advertisment)
+            changeEnterOption(with: .mainAdvertisment)
         }
     }
     
     @objc private func generalFilterTap() {
-        if pages[currentIndex].enterOption == .general {
+        if pages[currentIndex].enterOption == .mainAll {
             let notificationCenter = NotificationCenter.default
             notificationCenter.post(name: .updateFeed, object: self)
         } else {
-            changeEnterOption(with: .general)
+            changeEnterOption(with: .mainAll)
         }
     }
     

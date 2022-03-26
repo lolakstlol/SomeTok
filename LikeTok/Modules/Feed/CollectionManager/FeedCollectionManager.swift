@@ -160,17 +160,18 @@ extension FeedCollectionManager: FeedCollectionManagement {
         setupCellItems()
     }
     
-    func scrollToTop() {
+    func scrollToIndex(_ index: Int) {
         DispatchQueue.main.async {
-            self.collectionView?.scrollToItem(at: IndexPath(item: .zero, section: .zero),
+            self.collectionView?.scrollToItem(at: IndexPath(item: index, section: .zero),
                                          at: UICollectionView.ScrollPosition(rawValue: .zero),
-                                         animated: true)
+                                         animated: false)
             if let first = self.configurators.first?.getModel() {
                 self.output?.selectFeedItem(first)
             }
             self.collectionView?.reloadData()
         }
     }
+    
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard let item = currentItem else { return }

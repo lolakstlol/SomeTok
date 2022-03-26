@@ -6,6 +6,7 @@ protocol SearchCollectionViewOutput: AnyObject {
     func openOtherProfile(_ viewController: OtherProfileViewController)
     func followButtonTap(_ uuid: String)
     func updateEmptyLabel(_ isEmpty: Bool)
+    func didTapVideo(_ dataSourse: [FeedPost], index: Int)
 }
 
 final class SearchCollectionViewManager: NSObject {
@@ -22,7 +23,7 @@ final class SearchCollectionViewManager: NSObject {
         case categories
     }
     
-    var videosDataSource: [CategoriesPost] = []
+    var videosDataSource: [FeedPost] = []
     var categoriesDataSource: [CategoriesDatum] = []
     var peeopleDataSource: [SearchAccountsDatum] = []
 
@@ -124,7 +125,7 @@ final class SearchCollectionViewManager: NSObject {
             return cell
         case .categories:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
-            cell.configure(with: categoriesDataSource[indexPath.row])
+            cell.configure(with: categoriesDataSource[indexPath.row], delegate: self)
             return cell
         }
     }
@@ -157,7 +158,7 @@ final class SearchCollectionViewManager: NSObject {
          collectionView.reloadData()
     }
     
-     func setVideos(models: [CategoriesPost]) {
+     func setVideos(models: [FeedPost]) {
          videosDataSource = models
          guard let collectionView = collectionView else {
              return
@@ -226,5 +227,11 @@ extension SearchCollectionViewManager: UICollectionViewDataSource, UICollectionV
 extension SearchCollectionViewManager: AccountCollectionViewCellDelegate {
     func followButtonTap(_ uuid: String) {
         output?.followButtonTap(uuid)
+    }
+}
+
+extension SearchCollectionViewManager: CategoryCollectionViewCellDelegate {
+    func didTapVideo(_ dataSourse: [FeedPost], index: Int) {
+        output?.didTapVideo(dataSourse, index: index)
     }
 }

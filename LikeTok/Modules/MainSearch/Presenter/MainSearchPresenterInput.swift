@@ -10,5 +10,6 @@ import Foundation
 
 protocol MainSearchPresenterInput: BasePresenting {
     func load(predict: String, type: MainSearchTypes)
+    func didTapVideo(_ dataSourse: [FeedPost], index: Int)
     func followButtonTap(_ uuid: String)
 }

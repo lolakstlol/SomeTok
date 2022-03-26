@@ -80,12 +80,6 @@ final class OtherProfileViewController: BaseViewController {
         }
     }
     
-//    private func setupCollectionView() {
-//        collectionView.register(UINib(nibName: ProfileCollectionViewCell.id, bundle: nil), forCellWithReuseIdentifier: ProfileCollectionViewCell.id)
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
-//    }
-    
     private func setupButtons() {
         subscribeButton.layer.cornerRadius = 5
         subscribeButton.clipsToBounds = true
@@ -128,17 +122,17 @@ final class OtherProfileViewController: BaseViewController {
     }
     
     @IBAction func openSubscibersList(_ sender: Any) {
-        presenter.openSubscibersList()
+//        presenter.openSubscibersList()
     }
     
     @IBAction func openSubscriptionsList(_ sender: Any) {
-        presenter.openSubsciptionsList()
+//        presenter.openSubsciptionsList()
     }
   
 }
 
 extension OtherProfileViewController: OtherProfilePresenterOutput {
-    
+
     func reloadCollectionView() {
         collectionView.reloadData()
         updateCollectionViewSize()
@@ -163,7 +157,6 @@ extension OtherProfileViewController: OtherProfilePresenterOutput {
 
     func setupUI() {
         setupNavigationBar()
-//        setupCollectionView()
         collectionManager = ProfileCollectionViewManager()
         collectionManager?.attach(collectionView, output: self)
         collectionManager?.collectionType = .advertisment
@@ -201,11 +194,20 @@ extension OtherProfileViewController: OtherProfilePresenterOutput {
         showToast(error.localizedDescription, toastType: .failured)
     }
     
+    func pushFeed(_ viewController: FeedViewViewController) {
+        viewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }
 
 extension OtherProfileViewController: ProfileCollectionViewOutput {
+
+    func didTapVideo(_ type: FeedViewEnterOption, _ dataSourse: [FeedPost], index: Int) {
+        presenter.didTapVideo(type, dataSourse, index: index)
+    }
     
-    func didChangeType(_ type: ContentType) {
+    func didChangeType(_ type: FeedViewEnterOption) {
         
     }
     
@@ -213,7 +215,7 @@ extension OtherProfileViewController: ProfileCollectionViewOutput {
         
     }
     
-    func loadMore(_ type: ContentType) {
+    func loadMore(_ type: FeedViewEnterOption) {
         presenter.loadMore(type)
     }
     

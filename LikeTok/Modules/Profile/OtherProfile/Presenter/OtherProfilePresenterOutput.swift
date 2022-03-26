@@ -19,4 +19,5 @@ protocol OtherProfilePresenterOutput: AnyObject {
     func onFollowSuccess(_ following: Bool, subscribersCount: Int)
     func onFollowFailure(_ error: NetworkError)
     func pushUsersList(_ viewController: UserSearchListViewController)
+    func pushFeed(_ viewController: FeedViewViewController)
 }

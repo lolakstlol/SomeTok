@@ -7,13 +7,19 @@
 
 import UIKit
 
+protocol CategoryCollectionViewCellDelegate: AnyObject {
+    func didTapVideo(_ dataSourse: [FeedPost], index: Int)
+}
+
 final class CategoryCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var collectionPhotosView: UICollectionView!
     @IBOutlet weak var categoryAvatar: UIImageView!
     @IBOutlet weak var categoryTitle: UILabel!
     @IBOutlet weak var moreLabel: UILabel!
-    var posts: [CategoriesPost] = []
+    
+    var posts: [FeedPost] = []
+    weak var delegate: CategoryCollectionViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,11 +36,13 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
         layout.sectionInset = UIEdgeInsets(top: .zero, left: CGFloat(sideInset), bottom: .zero, right: CGFloat(sideInset))
         collectionPhotosView.showsHorizontalScrollIndicator = false
         collectionPhotosView.dataSource = self
+        collectionPhotosView.delegate = self
         collectionPhotosView.reloadData()
         collectionPhotosView.setCollectionViewLayout(layout, animated: false)
     }
     
-    func configure(with model: CategoriesDatum) {
+    func configure(with model: CategoriesDatum, delegate: CategoryCollectionViewCellDelegate) {
+        self.delegate = delegate
         categoryTitle.text = model.name
         posts = model.posts ?? []
         collectionPhotosView.reloadData()
@@ -56,5 +64,11 @@ extension CategoryCollectionViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideoCollectionViewCell", for: indexPath) as! VideoCollectionViewCell
         cell.configure(with: posts[indexPath.row])
         return cell
+    }
+}
+
+extension CategoryCollectionViewCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didTapVideo(posts, index: indexPath.row)
     }
 }

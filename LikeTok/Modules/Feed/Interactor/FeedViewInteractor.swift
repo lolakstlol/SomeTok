@@ -186,8 +186,6 @@ protocol FeedServiceProtocol {
     func getFeed(with offset: Int, cursor: String, type: FeedViewEnterOption, completion: @escaping (Result<FeedGlobalResponse, NetworkError>) -> Void)
     func deletePostLike(postId: String, completion: @escaping (Swift.Result<LikeResponse, NetworkError>) -> Void)
     func createPostLike(postId: String, completion: @escaping (Swift.Result<LikeResponse, NetworkError>) -> Void)
-//    func getBusniessList(model: GetBusinessListRequestModel,
-//                         completion: @escaping (_ result: Result<GetBusniessListResponse?, NetworkAPI.NetworkError>) -> Void)
 }
 
 final class FeedService: FeedServiceProtocol {
@@ -218,20 +216,6 @@ final class FeedService: FeedServiceProtocol {
 //        NetworkAPI.shared.sendRequest(request: request, completion: completion)
     }
     
-    private func catchError<T: Decodable>(data: Data, type: T.Type) throws {
-        let decoder = JSONDecoder()
-        do {
-            _ = try decoder.decode(type.self, from: data)
-        } catch let decError as DecodingError {
-            print("------------...........---------------")
-            print(type.self)
-            print(decError)
-            print(decError.localizedDescription)
-            print(decError.failureReason as Any)
-            print("------------...........---------------")
-        }
-    }
-    
     func getInitialFeed(with offset: Int, type: FeedViewEnterOption, completion: @escaping (Swift.Result<FeedGlobalResponse, NetworkError>) -> Void) {
 //        let request = FeedRequest(userId, offset)
 //        Api.feed.getFeed.request.responseJSON(completionHandler: completion)
@@ -246,6 +230,8 @@ final class FeedService: FeedServiceProtocol {
                     completion(.failure(.deserialization))
                     
                 }
+            case 403:
+                completion(.failure(.notAuthorized))
             default:
                 completion(.failure(.badRequest))
                 break
@@ -295,5 +281,19 @@ final class FeedService: FeedServiceProtocol {
         }
 //        let request = DeleteLikeRequest(postId: postId)
 //        NetworkAPI.shared.sendRequest(request: request, completion: completion)
+    }
+    
+    private func catchError<T: Decodable>(data: Data, type: T.Type) throws {
+        let decoder = JSONDecoder()
+        do {
+            _ = try decoder.decode(type.self, from: data)
+        } catch let decError as DecodingError {
+            print("------------...........---------------")
+            print(type.self)
+            print(decError)
+            print(decError.localizedDescription)
+            print(decError.failureReason as Any)
+            print("------------...........---------------")
+        }
     }
 }

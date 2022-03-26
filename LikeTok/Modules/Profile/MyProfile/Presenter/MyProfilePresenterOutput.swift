@@ -16,5 +16,6 @@ protocol MyProfilePresenterOutput: AnyObject {
     func onFetchFeedFailrue(_ error: NetworkError)
     func onFetchProfileDataSuccess(_ model: ProfileModel)
     func onFetchProfileDataFailure(_ error: NetworkError)
-    func onEditButtonTap(_ controller: EditProfileViewController)
+    func onEditButtonTap(_ viewController: EditProfileViewController)
+    func pushFeed(_ viewController: FeedViewViewController)
 }

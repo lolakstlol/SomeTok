@@ -313,27 +313,54 @@ enum Api {
         }
     }
     
-    enum Profile: ApiMethod {
+    enum OtherProfile: ApiMethod {
         case user(_ uuid: String)
-        case settings
-        case updateSettings(_ model: EditedProfileModel)
         case follow(_ uuid: String)
         
-        case feedAdvertisment
-        case feedPersonal
-        case feedAdvertismentMore(_ cursor: String)
-        case feedPersonalMore(_ cursor: String)
-        
-        case feedAdvertismentOther(_ uuid: String)
-//        case feedPersonalOther(_ uuid: String)
-        case feedAdvertismentOtherMore(uuid: String, _ cursor: String)
-//        case feedPersonalOtherMore(uuid: String, _ cursor: String)
+        case getInitialFeed(type: FeedViewEnterOption, uuid: String)
+        case getFeed(cursor: String, uuid: String, type: FeedViewEnterOption)
         
         public var request: DataRequest {
             switch self {
             case .user(let uuid):
                 let request = Alamofire.request("\(API.server)/user/\(uuid)", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
                 return request.validate()
+                
+            case .follow(let uuid):
+                let request = Alamofire.request("\(API.server)/user/\(uuid)/follow", method: .put, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .getInitialFeed(_, let uuid):
+                let request = Alamofire.request("\(API.server)/user/\(uuid)/feed", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .getFeed(cursor: let cursor, uuid: let uuid, _):
+                let endPoint: String = "\(API.server)/user/\(uuid)/feed"
+                let parameters: Parameters = [
+                    "cursor": "\(cursor)"
+                ]
+            
+                let request = Alamofire.request(endPoint, method: .get, parameters: parameters, headers: Api.headers)
+                return request.validate()
+            }
+
+        }
+    }
+    
+    enum Profile: ApiMethod {
+        case settings
+        case updateSettings(_ model: EditedProfileModel)
+        
+        case getInitialFeed(type: FeedViewEnterOption)
+        case getFeed(cursor: String, type: FeedViewEnterOption)
+        
+//        case feedAdvertismentOther(_ uuid: String)
+//        case feedPersonalOther(_ uuid: String)
+//        case feedAdvertismentOtherMore(uuid: String, _ cursor: String)
+//        case feedPersonalOtherMore(uuid: String, _ cursor: String)
+        
+        public var request: DataRequest {
+            switch self {
                 
             case .settings:
                 let request = Alamofire.request("\(API.server)/user/settings", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
@@ -365,41 +392,17 @@ enum Api {
                 let request = Alamofire.request("\(API.server)/user/settings", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
                 return request.validate()
                 
-            case .follow(let uuid):
-                let request = Alamofire.request("\(API.server)/user/\(uuid)/follow", method: .put, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+            case .getInitialFeed(let type):
+                let request = Alamofire.request("\(API.server)/user/my/feed/\(type.rawValue)", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
                 return request.validate()
                 
-            case .feedAdvertisment:
-                let request = Alamofire.request("\(API.server)/user/my/feed/adv", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
-                return request.validate()
-                
-            case .feedPersonal:
-                let request = Alamofire.request("\(API.server)/user/my/feed/personal", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
-                return request.validate()
-                
-            case .feedAdvertismentMore(let cursor):
+            case .getFeed(cursor: let cursor, type: let type):
+                let endPoint: String = "\(API.server)/user/my/feed/\(type.rawValue)"
                 let parameters: Parameters = [
                     "cursor": "\(cursor)"
                 ]
-                let request = Alamofire.request("\(API.server)/user/my/feed/adv", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
-                return request.validate()
-                
-            case .feedPersonalMore(let cursor):
-                let parameters: Parameters = [
-                    "cursor": "\(cursor)"
-                ]
-                let request = Alamofire.request("\(API.server)/user/my/feed/personal", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
-                return request.validate()
-                
-            case .feedAdvertismentOther(let uuid):
-                let request = Alamofire.request("\(API.server)/user/\(uuid)/feed", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
-                return request.validate()
-                
-            case .feedAdvertismentOtherMore(uuid: let uuid, let cursor):
-                let parameters: Parameters = [
-                    "cursor": "\(cursor)"
-                ]
-                let request = Alamofire.request("\(API.server)/user/\(uuid)/feed", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+            
+                let request = Alamofire.request(endPoint, method: .get, parameters: parameters, headers: Api.headers)
                 return request.validate()
                 
             }

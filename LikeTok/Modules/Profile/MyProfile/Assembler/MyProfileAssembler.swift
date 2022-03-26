@@ -11,7 +11,8 @@ enum MyProfileAssembler {
     static func createModule() -> MyProfileViewController {
         let viewController = MyProfileViewController()
         let networkService = ProfileNetworkService()
-        let presenter = MyProfilePresenter(viewController, networkService)
+        let networkFeedService = FeedProfileNetworkService()
+        let presenter = MyProfilePresenter(viewController, networkService, networkFeedService)
         viewController.presenter = presenter
         return viewController
     }

@@ -13,15 +13,8 @@ final class FeedViewViewController: BaseViewController {
     
     // MARK: - @IBOutlets
     
+    @IBOutlet private var customNavigationView: UIView!
     @IBOutlet private var collectionView: UICollectionView!
-   
-    @IBOutlet private var messageTextView: UITextView!
-    @IBOutlet private var messageTextViewMinConstraint: NSLayoutConstraint!
-    @IBOutlet private var inputSendButton: UIButton!
-    @IBOutlet private var bottomInputConstraint: NSLayoutConstraint!
-    @IBOutlet private var hudView: UIView!
-    @IBOutlet private var hudViewLabel: UILabel!
-    @IBOutlet private var placeholderLabel: UILabel!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Public properties
@@ -40,11 +33,18 @@ final class FeedViewViewController: BaseViewController {
         super.viewWillAppear(animated)
         presenter.viewWillAppear()
         navigationController?.setNavigationBarHidden(true, animated: false)
+        setNeedsStatusBarAppearanceUpdate()
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         presenter.viewDidAppear()
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,21 +52,14 @@ final class FeedViewViewController: BaseViewController {
         presenter.viewWillDisappear()
     }
     
-    // MARK: - Private methods
-    
-    @IBAction private func sendMessage(_ sender: Any) {
-        messageTextView.resignFirstResponder()
-        presenter.sendMessage(messageTextView.text)
-        messageTextView.text = ""
-        placeholderLabel.isHidden = !messageTextView.text.isEmpty
+    @IBAction private func backButtonTap(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
+    
+    // MARK: - Private methods
     
     @objc private func updateFeed() {
         presenter.getFeedWithScrollToTop()
-    }
-    
-    @objc private func hideHover() {
-        messageTextView.resignFirstResponder()
     }
     
     @objc private func updateSettings() {
@@ -76,29 +69,16 @@ final class FeedViewViewController: BaseViewController {
     }
 }
 
-// MARK: - Keyboard logic
-
-extension FeedViewViewController {
-    @objc private func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
-            return
-        }
-        
-        let keyboardScreenEndFrame = keyboardValue.cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-        
-        bottomInputConstraint.constant = keyboardViewEndFrame.height - view.safeAreaInsets.bottom
-            + Constants.Feed.standartBottomInputConstraint
-    }
-    
-    @objc private func keyboardWillHide(notification: NSNotification) {
-        bottomInputConstraint.constant = Constants.Feed.standartBottomInputConstraint
-    }
-}
-
 // MARK: - FeedViewPresenterOutput
 
 extension FeedViewViewController: FeedViewPresenterOutput {
+    func setInitialIndex(_ index: Int) {
+        collectionManager?.scrollToIndex(index)
+    }
+    
+    func setNavigationBarHidden(_ hidden: Bool) {
+        customNavigationView.isHidden = hidden
+    }
     
     func tapScreenAction() {
 //        collectionManager?.tapScreenAction()
@@ -141,22 +121,10 @@ extension FeedViewViewController: FeedViewPresenterOutput {
     
     func setupUI() {
         showLoader()
-        
-        hudView.isHidden = true
-//        messageTextView.layer.borderColor = Asset.Colors.General.white.color.withAlphaComponent(0.6).cgColor
-//        messageTextView.delegate = self
         collectionManager?.attach(collectionView)
         collectionManager?.output = self
         
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardWillShow(notification:)),
-                                       name: UIResponder.keyboardWillShowNotification,
-                                       object: nil)
-        notificationCenter.addObserver(self,
-                                       selector: #selector(keyboardWillHide(notification:)),
-                                       name: UIResponder.keyboardWillHideNotification,
-                                       object: nil)
         notificationCenter.addObserver(self,
                                        selector: #selector(updateFeed),
                                        name: .updateFeed,
@@ -168,10 +136,6 @@ extension FeedViewViewController: FeedViewPresenterOutput {
         notificationCenter.addObserver(self,
                                        selector: #selector(updateFeed),
                                        name: .userAuthorized,
-                                       object: nil)
-        notificationCenter.addObserver(self,
-                                       selector: #selector(updateFeed),
-                                       name: .userLoggedOut,
                                        object: nil)
         
     }
@@ -186,7 +150,7 @@ extension FeedViewViewController: FeedViewPresenterOutput {
     }
     
     func scrollToTop() {
-        collectionManager?.scrollToTop()
+        collectionManager?.scrollToIndex(.zero)
     }
 }
 
@@ -259,6 +223,14 @@ extension FeedViewViewController: CommentsDelegate {
     }
 }
 
+extension FeedViewViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer.isEqual(navigationController?.interactivePopGestureRecognizer) {
+            navigationController?.popViewController(animated: true)
+        }
+        return false
+    }
+}
 
 extension Notification.Name {
     static let setFCMToken = Notification.Name("FCMToken")

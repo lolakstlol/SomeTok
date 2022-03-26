@@ -7,6 +7,133 @@
 
 import Foundation
 
+
+final class UserSearchListOtherApiWorker {
+    
+    let uuid: String
+    
+    init(uuid: String) {
+        self.uuid = uuid
+    }
+    
+    func loadSubscribersOther(completion: @escaping (Swift.Result<UserSearchListResponse?, NetworkError>) -> Void) {
+        Api.UserList.subscribersOther(uuid).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(UserSearchListResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    try? self.catchError(data: response.data!, type: UserSearchListResponse.self)
+                    completion(.failure(.deserialization))
+                }
+            case 204: completion(.failure(.noData))
+            default: completion(.failure(.undefined))
+            }
+        }
+    }
+    
+    func loadSubscriptionsOther(completion: @escaping (Swift.Result<UserSearchListResponse?, NetworkError>) -> Void) {
+        Api.UserList.subscriptionsOther(uuid).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(UserSearchListResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    try? self.catchError(data: response.data!, type: UserSearchListResponse.self)
+                    completion(.failure(.deserialization))
+                }
+            case 204: completion(.failure(.noData))
+            default: completion(.failure(.undefined))
+            }
+        }
+    }
+    
+    func searchSubscribers(predicate: String, completion: @escaping (Swift.Result<UserSearchListResponse?, NetworkError>) -> Void) {
+        Api.UserList.searchSubscribersOther(predicate, uuid).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(UserSearchListResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    try? self.catchError(data: response.data!, type: UserSearchListResponse.self)
+                    completion(.failure(.deserialization))
+                }
+            case 204: completion(.failure(.noData))
+            default: completion(.failure(.undefined))
+            }
+        }
+    }
+    
+    func searchSubscriptions(predicate: String, completion: @escaping (Swift.Result<UserSearchListResponse?, NetworkError>) -> Void) {
+        Api.UserList.searchSubscriptionsOther(predicate, uuid).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(UserSearchListResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    try? self.catchError(data: response.data!, type: UserSearchListResponse.self)
+                    completion(.failure(.deserialization))
+                }
+            case 204: completion(.failure(.noData))
+            default: completion(.failure(.undefined))
+            }
+        }
+    }
+    
+    func searchSubscribers(cursor: String, completion: @escaping (Swift.Result<UserSearchListResponse?, NetworkError>) -> Void) {
+        Api.UserList.subscribersOtherMore(cursor, uuid).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(UserSearchListResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    try? self.catchError(data: response.data!, type: UserSearchListResponse.self)
+                    completion(.failure(.deserialization))
+                }
+            case 204: completion(.failure(.noData))
+            default: completion(.failure(.undefined))
+            }
+        }
+    }
+    
+    func searchSubscriptions(cursor: String, completion: @escaping (Swift.Result<UserSearchListResponse?, NetworkError>) -> Void) {
+        Api.UserList.subscriptionsOtherMore(cursor, uuid).request.responseJSON { response in
+            let code = response.response?.statusCode ?? 0
+            switch code {
+            case 200:
+                if let data = response.data, let response = try? JSONDecoder().decode(UserSearchListResponse.self, from: data) {
+                    completion(.success(response))
+                } else {
+                    try? self.catchError(data: response.data!, type: UserSearchListResponse.self)
+                    completion(.failure(.deserialization))
+                }
+            case 204: completion(.failure(.noData))
+            default: completion(.failure(.undefined))
+            }
+        }
+    }
+    
+    private func catchError<T: Decodable>(data: Data, type: T.Type) throws {
+        let decoder = JSONDecoder()
+        do {
+            _ = try decoder.decode(type.self, from: data)
+        } catch let decError as DecodingError {
+            print("------------...........---------------")
+            print(type.self)
+            print(decError)
+            print(decError.localizedDescription)
+            print(decError.failureReason as Any)
+            print("------------...........---------------")
+        }
+    }
+}
+
+
 final class UserSearchListApiWorker {
   
     
@@ -164,112 +291,6 @@ final class UserSearchListApiWorker {
             }
         }
     }
-    
-//MARK: - Other
-    
-    
-    func loadSubscribersOther(uuid: String, completion: @escaping (Swift.Result<UserSearchListResponse?, NetworkError>) -> Void) {
-        Api.UserList.subscribersOther(uuid).request.responseJSON { response in
-            let code = response.response?.statusCode ?? 0
-            switch code {
-            case 200:
-                if let data = response.data, let response = try? JSONDecoder().decode(UserSearchListResponse.self, from: data) {
-                    completion(.success(response))
-                } else {
-                    try? self.catchError(data: response.data!, type: UserSearchListResponse.self)
-                    completion(.failure(.deserialization))
-                }
-            case 204: completion(.failure(.noData))
-            default: completion(.failure(.undefined))
-            }
-        }
-    }
-    
-    func loadSubscriptionsOther(uuid: String, completion: @escaping (Swift.Result<UserSearchListResponse?, NetworkError>) -> Void) {
-        Api.UserList.subscriptionsOther(uuid).request.responseJSON { response in
-            let code = response.response?.statusCode ?? 0
-            switch code {
-            case 200:
-                if let data = response.data, let response = try? JSONDecoder().decode(UserSearchListResponse.self, from: data) {
-                    completion(.success(response))
-                } else {
-                    try? self.catchError(data: response.data!, type: UserSearchListResponse.self)
-                    completion(.failure(.deserialization))
-                }
-            case 204: completion(.failure(.noData))
-            default: completion(.failure(.undefined))
-            }
-        }
-    }
-    
-    func searchSubscribers(predicate: String, uuid: String, completion: @escaping (Swift.Result<UserSearchListResponse?, NetworkError>) -> Void) {
-        Api.UserList.searchSubscribersOther(predicate, uuid).request.responseJSON { response in
-            let code = response.response?.statusCode ?? 0
-            switch code {
-            case 200:
-                if let data = response.data, let response = try? JSONDecoder().decode(UserSearchListResponse.self, from: data) {
-                    completion(.success(response))
-                } else {
-                    try? self.catchError(data: response.data!, type: UserSearchListResponse.self)
-                    completion(.failure(.deserialization))
-                }
-            case 204: completion(.failure(.noData))
-            default: completion(.failure(.undefined))
-            }
-        }
-    }
-    
-    func searchSubscriptions(predicate: String, uuid: String, completion: @escaping (Swift.Result<UserSearchListResponse?, NetworkError>) -> Void) {
-        Api.UserList.searchSubscriptionsOther(predicate, uuid).request.responseJSON { response in
-            let code = response.response?.statusCode ?? 0
-            switch code {
-            case 200:
-                if let data = response.data, let response = try? JSONDecoder().decode(UserSearchListResponse.self, from: data) {
-                    completion(.success(response))
-                } else {
-                    try? self.catchError(data: response.data!, type: UserSearchListResponse.self)
-                    completion(.failure(.deserialization))
-                }
-            case 204: completion(.failure(.noData))
-            default: completion(.failure(.undefined))
-            }
-        }
-    }
-    
-    func searchSubscribers(cursor: String, uuid: String, completion: @escaping (Swift.Result<UserSearchListResponse?, NetworkError>) -> Void) {
-        Api.UserList.subscribersOtherMore(cursor, uuid).request.responseJSON { response in
-            let code = response.response?.statusCode ?? 0
-            switch code {
-            case 200:
-                if let data = response.data, let response = try? JSONDecoder().decode(UserSearchListResponse.self, from: data) {
-                    completion(.success(response))
-                } else {
-                    try? self.catchError(data: response.data!, type: UserSearchListResponse.self)
-                    completion(.failure(.deserialization))
-                }
-            case 204: completion(.failure(.noData))
-            default: completion(.failure(.undefined))
-            }
-        }
-    }
-    
-    func searchSubscriptions(cursor: String, uuid: String, completion: @escaping (Swift.Result<UserSearchListResponse?, NetworkError>) -> Void) {
-        Api.UserList.subscriptionsOtherMore(cursor, uuid).request.responseJSON { response in
-            let code = response.response?.statusCode ?? 0
-            switch code {
-            case 200:
-                if let data = response.data, let response = try? JSONDecoder().decode(UserSearchListResponse.self, from: data) {
-                    completion(.success(response))
-                } else {
-                    try? self.catchError(data: response.data!, type: UserSearchListResponse.self)
-                    completion(.failure(.deserialization))
-                }
-            case 204: completion(.failure(.noData))
-            default: completion(.failure(.undefined))
-            }
-        }
-    }
-    
     
     private func catchError<T: Decodable>(data: Data, type: T.Type) throws {
         let decoder = JSONDecoder()

@@ -12,4 +12,5 @@ protocol CatalogPresenterOutput: AnyObject {
     func openSerachScreen()
     func openFiltres()
     func showCategories(categories: [CategoriesDatum])
+    func pushFeed(_ viewController: FeedViewViewController)
 }

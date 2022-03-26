@@ -9,9 +9,10 @@ import UIKit
 import class Foundation.NSObject
 
 protocol ProfileCollectionViewOutput: AnyObject {
-    func didChangeType(_ type: ContentType)
+    func didChangeType(_ type: FeedViewEnterOption)
     func updateEmptyLabel(_ isEmpty: Bool)
-    func loadMore(_ type: ContentType)
+    func loadMore(_ type: FeedViewEnterOption)
+    func didTapVideo(_ type: FeedViewEnterOption, _ dataSourse: [FeedPost], index: Int)
 }
 
 final class ProfileCollectionViewManager: NSObject {
@@ -50,7 +51,7 @@ final class ProfileCollectionViewManager: NSObject {
 
     }
     
-    var collectionType: ContentType? {
+    var collectionType: FeedViewEnterOption? {
         didSet {
             guard let collectionType = collectionType else {
                 return
@@ -187,6 +188,10 @@ extension ProfileCollectionViewManager: UICollectionViewDataSource, UICollection
 //        }
 //        let otherProfileViewController = OtherProfileAssembler.createModule(uuid)
 //        output?.openOtherProfile(otherProfileViewController)
+        guard let collectionType = collectionType else {
+            return
+        }
+        output?.didTapVideo(collectionType, currentDataSourse, index: indexPath.row)
     }
 }
 

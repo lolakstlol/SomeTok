@@ -8,9 +8,11 @@
 import Foundation
 
 enum UserSearchListAssembler {
-    static func createModule(selectedSearchType: UserSearchTypes, baseControllerModel: BaseProfile) -> UserSearchListViewController {
+    static func createModule(selectedSearchType: UserSearchTypes, baseController: ProfileType, uuid: String = String()) -> UserSearchListViewController {
         let viewController = UserSearchListViewController()
-        let presenter = UserSearchListPresenter(viewController, selectedType: selectedSearchType, baseControllerModel: baseControllerModel)
+        let userListApiWorker = UserSearchListApiWorker()
+        let userListOtherApiWorker = UserSearchListOtherApiWorker(uuid: uuid)
+        let presenter = UserSearchListPresenter(viewController, selectedSearchType, baseController, userListApiWorker, userListOtherApiWorker)
         viewController.presenter = presenter
         return viewController
     }

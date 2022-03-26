@@ -60,6 +60,12 @@ final class MainSearchPresenter {
 }
 
 extension MainSearchPresenter: MainSearchPresenterInput {
+    
+    func didTapVideo(_ dataSourse: [FeedPost], index: Int) {
+        let feedViewController = FeedViewAssembler.createModule(type: .personal, collectionManager: FeedCollectionManager(), initialDataSourse: dataSourse, initialIndex: index)
+        view.pushFeed(feedViewController)
+    }
+    
     func load(predict: String, type: MainSearchTypes) {
         switch type {
         case .people:
@@ -72,7 +78,7 @@ extension MainSearchPresenter: MainSearchPresenterInput {
     }
     
     func followButtonTap(_ uuid: String) {
-        profileApiWorker.follow(uuid) { [weak self] result in
+        OtherProfileNetworkService(uuid: uuid).follow { [weak self] result in
             switch result {
             case .success(let followModel):
                 if let following = followModel?.data.following {

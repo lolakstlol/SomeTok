@@ -7,12 +7,15 @@
 //
 
 final class FeedViewAssembler {
-    static func createModule(type: FeedViewEnterOption = .subscriptions,
+    static func createModule(type: FeedViewEnterOption = .mainFollowing,
                              feedService: FeedServiceProtocol = FeedService(),
-                             collectionManager: FeedCollectionManagement = FeedCollectionManager()) -> FeedViewViewController {
+                             collectionManager: FeedCollectionManagement = FeedCollectionManager(),
+                             initialDataSourse: [FeedPost] = [],
+                             initialCursor: String = String(),
+                             initialIndex: Int = Int()) -> FeedViewViewController {
         let viewController = FeedViewViewController()
         let interactor = FeedViewInteractor(type, feedService)
-        let presenter = FeedViewPresenter(interactor, viewController)
+        let presenter = FeedViewPresenter(interactor, viewController, initialDataSourse, initialCursor, initialIndex)
         viewController.presenter = presenter
         viewController.collectionManager = collectionManager
         return viewController
