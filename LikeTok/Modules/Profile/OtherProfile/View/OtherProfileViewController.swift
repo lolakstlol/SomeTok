@@ -157,6 +157,8 @@ extension OtherProfileViewController: OtherProfilePresenterOutput {
 
     func setupUI() {
         setupNavigationBar()
+        avatarImageView.layer.cornerRadius = 35
+        avatarImageView.clipsToBounds = true
         collectionManager = ProfileCollectionViewManager()
         collectionManager?.attach(collectionView, output: self)
         collectionManager?.collectionType = .advertisment
@@ -212,7 +214,7 @@ extension OtherProfileViewController: ProfileCollectionViewOutput {
     }
     
     func updateEmptyLabel(_ isEmpty: Bool) {
-        
+  
     }
     
     func loadMore(_ type: FeedViewEnterOption) {

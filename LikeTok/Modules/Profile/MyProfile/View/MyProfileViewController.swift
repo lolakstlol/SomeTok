@@ -21,6 +21,7 @@ final class MyProfileViewController: BaseViewController {
     @IBOutlet private var subscriptionsCountLabel: UILabel!
     @IBOutlet private var subscribersCountLabel: UILabel!
     @IBOutlet private var friendsCountLabel: UILabel!
+    @IBOutlet private var emptyLabel: UILabel!
     
     @IBOutlet private var collectionView: UICollectionView!
     
@@ -169,6 +170,14 @@ extension MyProfileViewController: MyProfilePresenterOutput {
         updateCollectionViewSize()
     }
     
+    func appendPersonal(_ model: [FeedPost]) {
+        collectionManager?.appendPersonal(models: model)
+    }
+    
+    func appendAdvertisment(_ model: [FeedPost]) {
+        collectionManager?.appendAdvertisment(models: model)
+    }
+    
     func onFetchFeedFailrue(_ error: NetworkError) {
         
     }
@@ -180,6 +189,7 @@ extension MyProfileViewController: MyProfilePresenterOutput {
         } else {
             avatarImageView.image = Assets.avatarDefaulth.image
         }
+        emptyLabel.text = "У вас пока нет публикаций"
         usernameLabel.text = model.username
         descriptionLabel.text = model.description
         subscriptionsCountLabel.text = String(model.subscriptions)
@@ -212,7 +222,7 @@ extension MyProfileViewController: ProfileCollectionViewOutput {
     }
     
     func loadMore(_ type: FeedViewEnterOption) {
-    
+        presenter.loadMore(type)
     }
     
     func didTapVideo(_ type: FeedViewEnterOption, _ dataSourse: [FeedPost], index: Int) {
@@ -220,7 +230,7 @@ extension MyProfileViewController: ProfileCollectionViewOutput {
     }
     
     func updateEmptyLabel(_ isEmpty: Bool) {
-        
+        emptyLabel.isHidden = isEmpty
     }
     
     

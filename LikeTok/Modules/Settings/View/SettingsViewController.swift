@@ -42,10 +42,6 @@ extension SettingsViewController: SettingsPresenterOutput {
         present(view, animated: true, completion: nil)
     }
     
-    func onLogout() {
-        tabBarController?.view.removeFromSuperview()
-    }
-    
     func setupUI(_ dataSourse: [(String, action: () -> ())]) {
         self.dataSourse = dataSourse
         titleLabel.text = "Настройки"

@@ -14,7 +14,7 @@ final class TabBarViewController: UITabBarController {
         presenter.viewDidLoad()
         presenter.attachInstanse(tabbar: self)
         tabBar.tintColor = .black
-        tabBar.unselectedItemTintColor = .gray
+//        tabBar.unselectedItemTintColor = .gray
         navigationController?.navigationBar.isHidden = true
 //        delegate = self
         previosSelectedItem = selectedIndex

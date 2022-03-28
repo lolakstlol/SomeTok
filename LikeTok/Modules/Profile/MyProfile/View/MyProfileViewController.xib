@@ -30,6 +30,7 @@
                 <outlet property="collectionViewHeightConstraint" destination="qd5-Mf-bFz" id="sBY-hQ-xeP"/>
                 <outlet property="descriptionLabel" destination="l0g-Aw-zpI" id="IxU-ks-wkh"/>
                 <outlet property="editButton" destination="80A-Su-SQz" id="sqa-Xu-xyc"/>
+                <outlet property="emptyLabel" destination="UhZ-6R-Pgk" id="qyp-cs-YWj"/>
                 <outlet property="friendsCountLabel" destination="P1Z-nP-wob" id="Rmc-9d-LFl"/>
                 <outlet property="navigationLabel" destination="BTh-9l-zVp" id="wYN-9S-wbu"/>
                 <outlet property="personalBottomView" destination="Odi-ff-NaJ" id="iI8-zg-nvm"/>
@@ -312,12 +313,20 @@
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhZ-6R-Pgk">
+                                    <rect key="frame" x="167" y="451.66666666666663" width="41.333333333333343" height="20"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="vRc-Gp-J2n" firstAttribute="top" secondItem="ru2-Ks-4EK" secondAttribute="top" id="0qg-Sw-mTC"/>
+                                <constraint firstItem="UhZ-6R-Pgk" firstAttribute="top" secondItem="PQs-wD-Mrh" secondAttribute="bottom" constant="200" id="AxH-8f-l4K"/>
                                 <constraint firstItem="vRc-Gp-J2n" firstAttribute="leading" secondItem="ru2-Ks-4EK" secondAttribute="leading" id="ONi-wP-IHa"/>
                                 <constraint firstItem="uSe-gf-IXb" firstAttribute="top" secondItem="PQs-wD-Mrh" secondAttribute="bottom" id="RJh-uO-iSn"/>
+                                <constraint firstItem="UhZ-6R-Pgk" firstAttribute="centerX" secondItem="ru2-Ks-4EK" secondAttribute="centerX" id="TrM-kf-sGq"/>
                                 <constraint firstAttribute="trailing" secondItem="vRc-Gp-J2n" secondAttribute="trailing" id="XCw-Bs-nhj"/>
                                 <constraint firstItem="uSe-gf-IXb" firstAttribute="leading" secondItem="ru2-Ks-4EK" secondAttribute="leading" id="hg1-RY-JQb"/>
                                 <constraint firstAttribute="trailing" secondItem="uSe-gf-IXb" secondAttribute="trailing" id="i7z-0v-xUx"/>

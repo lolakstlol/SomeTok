@@ -84,6 +84,6 @@ extension TabBarPresenter: UITabBarControllerDelegate {
     }
     
     private func checkIsHomeVC(_ viewController: UIViewController) {
-        selectedViewController is FeedPageViewController ? view.updateAppearance(appearance: .transparent) : view.updateAppearance(appearance: .white)
+        selectedViewController is FeedPageViewController ? view.updateAppearance(appearance: .transparent) : view.updateAppearance(appearance: .transparent)
     }
 }

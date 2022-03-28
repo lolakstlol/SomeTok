@@ -12,6 +12,8 @@ protocol MyProfilePresenterOutput: AnyObject {
     func setupUI()
     func setPersonalFeed(_ models: [FeedPost])
     func setAdvertismentFeed(_ models: [FeedPost])
+    func appendPersonal(_ model: [FeedPost])
+    func appendAdvertisment(_ model: [FeedPost])
     func reloadCollectionView()
     func onFetchFeedFailrue(_ error: NetworkError)
     func onFetchProfileDataSuccess(_ model: ProfileModel)

@@ -120,7 +120,11 @@ final class FeedCell: UICollectionViewCell {
     }
     
     func setupUserData(authorName: String, description: String, likesCount: Int, isLiked: Bool, commentsCount: Int) {
-        usernameLabel.text = authorName
+        if authorName == "сын дуры" {
+            usernameLabel.text = "Артем"
+        } else {
+            usernameLabel.text = authorName
+        }
         descriptionLabel.text = description
         likesCountLabel.text = String(likesCount)
         commentsCountLabel.text = String(commentsCount)

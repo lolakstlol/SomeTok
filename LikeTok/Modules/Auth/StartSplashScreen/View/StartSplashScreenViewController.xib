@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,9 +20,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="authSplashScreen" translatesAutoresizingMaskIntoConstraints="NO" id="LwR-WY-Y7w">
-                    <rect key="frame" x="52" y="372" width="310" height="162"/>
+                    <rect key="frame" x="0.0" y="252" width="414" height="416"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="162" id="5sp-cK-LpU"/>
+                        <constraint firstAttribute="height" constant="416" id="5sp-cK-LpU"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAf-LM-Qex">
@@ -43,19 +43,19 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="LwR-WY-Y7w" secondAttribute="trailing" constant="52" id="4Af-IH-NO2"/>
-                <constraint firstItem="LwR-WY-Y7w" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerYWithinMargins" id="MVh-nj-hb8"/>
+                <constraint firstAttribute="trailing" secondItem="LwR-WY-Y7w" secondAttribute="trailing" id="4Af-IH-NO2"/>
+                <constraint firstItem="LwR-WY-Y7w" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerYWithinMargins" constant="7" id="MVh-nj-hb8"/>
                 <constraint firstAttribute="bottomMargin" secondItem="LAf-LM-Qex" secondAttribute="bottom" constant="24" id="UdP-5n-BBW"/>
                 <constraint firstItem="LwR-WY-Y7w" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerXWithinMargins" id="ZKT-pO-Mvm"/>
-                <constraint firstItem="LwR-WY-Y7w" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="52" id="b9F-Nz-sxJ"/>
+                <constraint firstItem="LwR-WY-Y7w" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b9F-Nz-sxJ"/>
                 <constraint firstAttribute="trailing" secondItem="LAf-LM-Qex" secondAttribute="trailing" constant="16" id="iKV-Bc-8WS"/>
                 <constraint firstItem="LAf-LM-Qex" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="zng-un-hCk"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="126"/>
+            <point key="canvasLocation" x="131.8840579710145" y="125.89285714285714"/>
         </view>
     </objects>
     <resources>
-        <image name="authSplashScreen" width="272" height="162"/>
+        <image name="authSplashScreen" width="1200" height="1200"/>
         <namedColor name="MainRed">
             <color red="0.76470588235294112" green="0.10196078431372549" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

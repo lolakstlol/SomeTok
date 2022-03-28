@@ -12,5 +12,4 @@ protocol SettingsPresenterOutput: AnyObject {
     func setupUI(_ dataSourse: [(String, action: () -> ())])
     func showConfrimationScreen(_ view: ConfrimationViewController)
     func showPasswordRecovery(_ view: UIViewController)
-    func onLogout()
 }

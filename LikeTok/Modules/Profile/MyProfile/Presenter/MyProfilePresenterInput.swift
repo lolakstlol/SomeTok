@@ -11,4 +11,5 @@ protocol MyProfilePresenterInput: BasePresenting {
 //    func completeOnboarding()
     func editButtonTap()
     func didTapVideo(_ collectionType: FeedViewEnterOption,_ dataSourse: [FeedPost], index: Int)
+    func loadMore(_ type: FeedViewEnterOption)
 }

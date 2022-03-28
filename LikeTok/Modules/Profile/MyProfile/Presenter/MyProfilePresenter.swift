@@ -18,6 +18,9 @@ final class MyProfilePresenter {
     private var advertismentCursor: String?
     private var personalCursor: String?
     
+    private var isLoadingAdvertismentPage: Bool = false
+    private var isLoadingPersonalPage: Bool = false
+    
     init(_ view: MyProfilePresenterOutput, _ networkService: ProfileNetworkServiceProtocol, _ feedNetworkService: FeedServiceProtocol) {
         self.view = view
         self.profileNetwork = networkService
@@ -86,6 +89,43 @@ private extension MyProfilePresenter {
             self.view.reloadCollectionView()
         }
     }
+    
+    func fetchMorePersonalFeed() {
+        guard let cursor = personalCursor, !isLoadingPersonalPage else {
+            return
+        }
+        isLoadingPersonalPage = true
+        profileFeedNetwork.getFeed(with: .zero, cursor: cursor, type: .personal) { result in
+            switch result {
+            case .success(let model):
+                self.personalCursor = model.data.meta.cursor
+                self.view.appendPersonal(model.data.data)
+                self.isLoadingPersonalPage = false
+            case .failure(let error):
+                self.view.onFetchFeedFailrue(error)
+                self.isLoadingPersonalPage = false
+            }
+        }
+    }
+    
+    func fetchMoreAdvertismentFeed() {
+        guard let cursor = advertismentCursor, !isLoadingAdvertismentPage else {
+            return
+        }
+        isLoadingAdvertismentPage = true
+        profileFeedNetwork.getFeed(with: .zero, cursor: cursor, type: .advertisment) { result in
+            switch result {
+            case .success(let model):
+                self.advertismentCursor = model.data.meta.cursor
+                self.view.appendAdvertisment(model.data.data)
+                self.isLoadingAdvertismentPage = false
+            case .failure(let error):
+                self.view.onFetchFeedFailrue(error)
+                self.isLoadingAdvertismentPage = false
+            }
+        }
+    }
+    
 }
 
 extension MyProfilePresenter: MyProfilePresenterInput {
@@ -118,6 +158,17 @@ extension MyProfilePresenter: MyProfilePresenterInput {
                                          description: model.description ?? "")
         let controller = EditProfileAssembler.createModule(editModel)
         view.onEditButtonTap(controller)
+    }
+    
+    func loadMore(_ type: FeedViewEnterOption) {
+        switch type {
+        case .personal:
+            fetchMorePersonalFeed()
+        case .advertisment:
+            fetchMoreAdvertismentFeed()
+        default:
+            break
+        }
     }
 }
 

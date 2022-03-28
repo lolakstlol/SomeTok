@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -31,6 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         applicationCoordinator = makeCoordinator(window: window)
         deepLinkService.coordinator = applicationCoordinator
         applicationCoordinator?.start()
+        setupAVSession()
 //        
 //        guard let windowScene = (scene as? UIWindowScene) else { return }
 //        let window = UIWindow(windowScene: windowScene)
@@ -90,6 +92,15 @@ private extension SceneDelegate {
     
     private func subscribeNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(forceLogOut), name: .userLoggedOut, object: nil)
+    }
+    
+    private func setupAVSession() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+            try AVAudioSession.sharedInstance().setActive(true)
+         } catch {
+             debugPrint(error.localizedDescription)
+         }
     }
     
     @objc private func forceLogOut() {
