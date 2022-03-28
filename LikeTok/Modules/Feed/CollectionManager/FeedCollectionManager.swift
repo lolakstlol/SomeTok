@@ -11,7 +11,7 @@ import UIKit
 import GSPlayer
 
 protocol FeedCollectionOutput: AnyObject {
-    func selectFeedItem(_ item: FeedResponse)
+    func selectFeedItem(_ item: FeedPost)
     func requestNextPosts(offset: Int)
     func attach() -> FeedCellActionsOutput
     func isMoreButtonVisible() -> Bool
@@ -25,7 +25,7 @@ final class FeedCollectionManager: NSObject {
     private var itemIndex: Int?
     private var isRefreshingFeed = false
     private var isReadyToPlay = false
-    private var currentItem: FeedResponse? {
+    private var currentItem: FeedPost? {
         guard configurators.count != 0 else {
             return nil
         }
@@ -101,7 +101,7 @@ extension FeedCollectionManager: UICollectionViewDataSource {
 // MARK: - FeedCollectionManagement
 
 extension FeedCollectionManager: FeedCollectionManagement {
-    
+
     func attach(_ collectionView: UICollectionView) {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -117,6 +117,10 @@ extension FeedCollectionManager: FeedCollectionManagement {
         configurators[index].cell?.setupLikeState(type == .filled ? true : false)
     }
     
+    func clearConfigurators() {
+        configurators = []
+    }
+    
     func stopVideo() {
         checkVideoState(needPlay: false)
     }
@@ -125,20 +129,25 @@ extension FeedCollectionManager: FeedCollectionManagement {
        checkVideoState(needPlay: true)
     }
     
-    func updateItem(with model: FeedResponse, at index: Int) {
+    func updateItem(with model: FeedPost, at index: Int) {
         configurators[index].updateModel(model: model) {
             self.setupCellItems()
         }
     }
     
-    func update(with configurators: [FeedCellConfigurator]) {
-        self.configurators = configurators
-        collectionView?.reloadData()
-        if let index = itemIndex {
-            collectionView?.scrollToItem(at: IndexPath(row: index, section: .zero),
-                                         at: UICollectionView.ScrollPosition(rawValue: .zero),
-                                         animated: false)
+    func update(with newConfigurators: [FeedCellConfigurator]) {
+        var indexPathes = [IndexPath]()
+        for index in configurators.count..<configurators.count + newConfigurators.count {
+            indexPathes.append(IndexPath(row: index, section: .zero))
         }
+        self.configurators += newConfigurators
+        collectionView?.insertItems(at: indexPathes)
+//        collectionView?.reloadData()
+//        if let index = itemIndex {
+//            collectionView?.scrollToItem(at: IndexPath(row: index, section: .zero),
+//                                         at: UICollectionView.ScrollPosition(rawValue: .zero),
+//                                         animated: false)
+//        }
         guard let item = currentItem else {
             return
         }
@@ -151,17 +160,18 @@ extension FeedCollectionManager: FeedCollectionManagement {
         setupCellItems()
     }
     
-    func scrollToTop() {
+    func scrollToIndex(_ index: Int) {
         DispatchQueue.main.async {
-            self.collectionView?.scrollToItem(at: IndexPath(item: .zero, section: .zero),
+            self.collectionView?.scrollToItem(at: IndexPath(item: index, section: .zero),
                                          at: UICollectionView.ScrollPosition(rawValue: .zero),
-                                         animated: true)
+                                         animated: false)
             if let first = self.configurators.first?.getModel() {
                 self.output?.selectFeedItem(first)
             }
             self.collectionView?.reloadData()
         }
     }
+    
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard let item = currentItem else { return }

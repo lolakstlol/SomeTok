@@ -12,9 +12,10 @@ protocol FeedCollectionManagement: AnyObject {
     var output: FeedCollectionOutput? { get set }
     func attach(_ collectionView: UICollectionView)
     func update(with configurators: [FeedCellConfigurator])
-    func updateItem(with model: FeedResponse, at index: Int)
+    func updateItem(with model: FeedPost, at index: Int)
     func updateCellLikes(type: LikeType, at index: Int?)
-    func scrollToTop()
+    func clearConfigurators()
+    func scrollToIndex(_ index: Int)
     func stopVideo()
     func playVideo()
     func setFeedIndex(_ index: Int)

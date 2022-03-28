@@ -13,4 +13,5 @@ protocol CatalogPresenterInput: BasePresenting {
     func didChangeType(type: CategoriesType)
     func filtresDidTap()
     func fetchWithFiltrer(filter: CategoriesFiltres)
+    func didTapVideo(_ dataSourse: [FeedPost], index: Int)
 }

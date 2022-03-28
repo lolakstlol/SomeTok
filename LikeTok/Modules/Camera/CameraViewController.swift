@@ -89,7 +89,7 @@ class CameraViewController: UIViewController {
     @IBAction func backCameraButton(_ sender: Any) {
         guard let tabbar = tabBarController as? TabBarViewController else { return }
         tabbar.tabBar.isHidden = false
-        tabbar.returnToPreviositem()
+        tabbar.returnToPreviosItem()
     }
     
     @objc func appMovedToBackground() {

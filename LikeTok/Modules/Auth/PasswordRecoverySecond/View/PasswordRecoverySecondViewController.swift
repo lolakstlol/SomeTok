@@ -10,6 +10,7 @@ import UIKit
 
 final class PasswordRecoverySecondViewController: BaseViewController {
     
+    @IBOutlet private weak var navigationLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var textLabel: UILabel!
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -66,7 +67,7 @@ final class PasswordRecoverySecondViewController: BaseViewController {
         presenter.resetPassword(password, code: code)
     }
     
-    @objc private func backButton() {
+    @IBAction func backButtonTap(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
@@ -98,10 +99,9 @@ extension PasswordRecoverySecondViewController: PasswordRecoverySecondPresenterO
     }
     
     func onViewWillAppear() {
-        title = "Восстановление пароля"
-        navigationController?.navigationBar.isHidden = false
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: Assets.backButton.image, style: .plain, target: self, action: #selector(backButton))
-        navigationItem.leftBarButtonItem?.tintColor = .black
+        navigationLabel.text = "Восстановление пароля"
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func onResetPasswordSucess() {

@@ -15,7 +15,7 @@ protocol FeedViewInteractorInput: AnyObject {
     func sendMessage(_ message: String)
     func createLike()
     func deleteLike()
-    func setCurrentPost(_ post: FeedResponse)
+    func setCurrentPost(_ post: FeedPost)
     func createShareLink(postUUID: String)
     func isAuthorized() -> Bool
     func subscribe(userId: String)

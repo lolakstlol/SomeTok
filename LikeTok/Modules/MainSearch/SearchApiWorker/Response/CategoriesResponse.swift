@@ -17,7 +17,7 @@ struct CategoriesDataClass: Codable {
 struct CategoriesDatum: Codable {
     let uuid, createdAt, updatedAt, code: String?
     let name: String?
-    let posts: [CategoriesPost]?
+    let posts: [FeedPost]?
 
     enum CodingKeys: String, CodingKey {
         case uuid

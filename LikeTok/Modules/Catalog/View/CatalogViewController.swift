@@ -60,6 +60,11 @@ final class CatalogViewController: BaseViewController {
 }
 
 extension CatalogViewController: CatalogPresenterOutput {
+    func pushFeed(_ viewController: FeedViewViewController) {
+        viewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func openFiltres() {
         let vc = CatalogFiltresAssembler.createModule(currentFiltres: filtres) { newFiltres in
             self.filtres = newFiltres
@@ -154,11 +159,16 @@ extension CatalogViewController: UICollectionViewDataSource {
         if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell",
                                                           for: indexPath) as! CategoryCollectionViewCell
-            cell.configure(with: dataSource[indexPath.row])
+            cell.configure(with: dataSource[indexPath.row], delegate: self)
             return cell
         }
         return UICollectionViewCell()
     }
     
-    
+}
+
+extension CatalogViewController: CategoryCollectionViewCellDelegate {
+    func didTapVideo(_ dataSourse: [FeedPost], index: Int) {
+        presenter.didTapVideo(dataSourse, index: index)
+    }
 }

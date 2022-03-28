@@ -66,6 +66,7 @@ internal enum Assets {
   internal static let onb2 = ImageAsset(name: "onb2")
   internal static let onb3 = ImageAsset(name: "onb3")
   internal static let moreHorizontal = ImageAsset(name: "more_horizontal")
+  internal static let arrorwBlack = ImageAsset(name: "arrorw_black")
   internal static let addUnselected = ImageAsset(name: "addUnselected")
   internal static let chatSelected = ImageAsset(name: "chatSelected")
   internal static let chatUnselected = ImageAsset(name: "chatUnselected")

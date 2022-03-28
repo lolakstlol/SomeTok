@@ -14,21 +14,35 @@ import os.log
 final class FeedViewPresenter {
     private let interactor: FeedViewInteractorInput
     private weak var view: FeedViewPresenterOutput?
-    private var post: FeedResponse?
+    private var post: FeedPost?
     private var postIndex: Int?
+    private var initialDataSourse: [FeedPost]
     private var cursor: String = ""
-
+    
     init(_ interactor: FeedViewInteractorInput,
-         _ view: FeedViewPresenterOutput) {
+         _ view: FeedViewPresenterOutput,
+         _ initialDataSourse: [FeedPost],
+         _ initialCursor: String,
+         _ initialIndex: Int) {
         self.interactor = interactor
         self.view = view
+        self.initialDataSourse = initialDataSourse
+        self.cursor = initialCursor
+        self.postIndex = initialIndex
     }
 
     func viewDidLoad() {
         interactor.attach(self)
         view?.setupUI()
-        interactor.getInitialFeed(with: .zero)
-        interactor.getUser()
+        if initialDataSourse.isEmpty {
+            interactor.getInitialFeed(with: .zero)
+            interactor.getUser()
+            view?.setNavigationBarHidden(true)
+        } else {
+            setupInitialConfigurators(with: .zero)
+            view?.setNavigationBarHidden(false)
+            view?.setInitialIndex(postIndex ?? 0)
+        }
     }
     
     func viewDidAppear() {
@@ -54,6 +68,39 @@ final class FeedViewPresenter {
         }
     }
     
+    private func setupInitialConfigurators(with offset: Int) {
+        guard !initialDataSourse.isEmpty else {
+            return
+        }
+//        self.cursor = response.data.meta.cursor ?? ""
+        var feedConfigurators = [FeedCellConfigurator]()
+        initialDataSourse.forEach {
+            var isMainFeed = true
+            switch interactor.type {
+            case .mainAdvertisment, .mainAll:
+                isMainFeed = false
+            default:
+                isMainFeed = true
+            }
+            let configurator = FeedCellConfigurator($0, isMainFeed: isMainFeed)
+            feedConfigurators.append(configurator)
+        }
+        guard feedConfigurators.count != .zero else { return }
+        DispatchQueue.main.async {
+            self.view?.hideActivityIndicator()
+            if offset != .zero, self.interactor.configurators != nil {
+                self.interactor.configurators! += feedConfigurators
+                self.view?.updateConfigurators(feedConfigurators)//self.interactor.configurators ?? [])
+            } else {
+                if let post = self.initialDataSourse.first {
+                    self.interactor.setCurrentPost(post)
+                }
+                self.interactor.configurators = feedConfigurators
+                self.view?.updateConfigurators(feedConfigurators)
+            }
+        }
+    }
+    
     @objc private func userWasSubscribed(notification: NSNotification) {
 //        guard let isSubscribed = notification.userInfo?[post?.user.userId ?? ""] as? Bool else { return }
 //        post?.user.isSubscribed = isSubscribed
@@ -73,17 +120,14 @@ extension FeedViewPresenter: FeedViewPresenterInput {
 //            interactor.subscribe(userId: post.user.userId)
     }
     
-    func updateFeedType(_ type: FeedViewEnterOption) {
-        interactor.updateType(type)
-        getFeedWithScrollToTop()
-    }
+//    func updateFeedEnterOption(_ enterOption: FeedViewEnterOption){
+////        interactor.updateType(type)
+////        getFeedWithScrollToTop()
+//        delegate?.didChangedPage(with: enterOption)
+//    }
     
     func screenTapAction() {
         interactor.screenTapAction()
-    }
-    
-    func floatingBasketTouchUpInside() {
-//        router.presentPurchasesCheckoutScreen()
     }
     
     func shouldShowFilledLikes() -> Bool {
@@ -92,7 +136,7 @@ extension FeedViewPresenter: FeedViewPresenterInput {
     
     func shouldShowActivityIndicator() -> Bool {
         switch self.interactor.type {
-        case .subscriptions:
+        case .mainFollowing:
             return true
         default:
             return false
@@ -104,16 +148,7 @@ extension FeedViewPresenter: FeedViewPresenterInput {
         guard let post = self.post, let index = self.postIndex else { return }
         self.view?.updateItem(with: post, at: index)
     }
-    
-    func addressLabelTouchUpInside() {
-//        switch self.interactor.type {
-//        case .main:
-//            router.presentLocationModule()
-//        default:
-//            return
-//        }
-    }
-    
+
     func likeTouchUpInside(_ type: LikeActionType) {
         guard interactor.isAuthorized(), let post = post else {
 //            router.presentAuthModule {}
@@ -142,6 +177,9 @@ extension FeedViewPresenter: FeedViewPresenterInput {
     }
     
     func feedIsScrollingToEnd(with offset: Int) {
+        guard !cursor.isEmpty else {
+            return
+        }
         interactor.getFeed(with: offset, cursor: cursor)
     }
     
@@ -186,15 +224,8 @@ extension FeedViewPresenter: FeedViewPresenterInput {
 //            }
 //        }
     }
-    
-    func sendMessage(_ message: String) {
-//        let formattedMessage = message.stringByAdjustingString()
-//        if formattedMessage.trimmingCharacters(in: .whitespacesAndNewlines) != "" {
-//            interactor.sendMessage(formattedMessage)
-//        }
-    }
-    
-    func setCurrentPost(_ post: FeedResponse) {
+
+    func setCurrentPost(_ post: FeedPost) {
         self.post = post
         interactor.setCurrentPost(post)
         postIndex = (interactor.configurators?.firstIndex(where: { $0.getModel().uuid == post.uuid })) ?? .zero
@@ -213,8 +244,10 @@ extension FeedViewPresenter: FeedViewPresenterInput {
     }
     
     func getFeedWithScrollToTop() {
+//        interactor.configurators = []
         interactor.getInitialFeed(with: .zero)
         view?.scrollToTop()
+        view?.clearConfigurators()
     }
     
     func shareLink(link: String) {
@@ -270,7 +303,7 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
         view?.playVideo()
     }
     
-    func didReceivedPost(with result: Result<FeedResponse?, NetworkError>) {
+    func didReceivedPost(with result: Result<FeedPost?, NetworkError>) {
         switch result {
          case .success(let response):
              guard let categoriesRespone = response else {
@@ -279,7 +312,7 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
              }
              var isMainFeed = true
              switch interactor.type {
-             case .general, .advertisment:
+             case .mainAll, .mainAdvertisment:
                  isMainFeed = false
              default:
                  isMainFeed = true
@@ -309,14 +342,14 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
         case .success(let response):
             let categoriesRespone = response.data.data
             self.cursor = response.data.meta.cursor ?? ""
-            DispatchQueue.main.async {
-                self.view?.updateConfigurators([])
-            }
+//            DispatchQueue.main.async {
+//                self.view?.updateConfigurators([])
+//            }
             var feedConfigurators = [FeedCellConfigurator]()
             categoriesRespone.forEach {
                 var isMainFeed = true
                 switch interactor.type {
-                case .advertisment, .general:
+                case .mainAdvertisment, .mainAll:
                     isMainFeed = false
                 default:
                     isMainFeed = true
@@ -329,7 +362,7 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
                 self.view?.hideActivityIndicator()
                 if offset != .zero, self.interactor.configurators != nil {
                     self.interactor.configurators! += feedConfigurators
-                    self.view?.updateConfigurators(self.interactor.configurators ?? [])
+                    self.view?.updateConfigurators(feedConfigurators)//self.interactor.configurators ?? [])
                 } else {
                     if let post = categoriesRespone.first {
                         self.interactor.setCurrentPost(post)
@@ -339,7 +372,12 @@ extension FeedViewPresenter: FeedViewInteractorOutput {
                 }
             }
         case .failure(let error):
-            feedFailureBlock(error: error)
+            switch error {
+            case .notAuthorized:
+                NotificationCenter.default.post(name: .userLoggedOut, object: self)
+            default:
+                feedFailureBlock(error: error)
+            }
         }
     }
     

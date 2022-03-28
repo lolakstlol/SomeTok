@@ -146,7 +146,7 @@ final class FeedCell: UICollectionViewCell {
             DispatchQueue.main.async {
                 self.playerView.play(for: videoURL)
                 self.playerView.isHidden = false
-                self.playerView.volume = 0.0
+//                self.playerView.volume = 0.0
                 self.playImageView.isHidden = true
             }
         } else {
