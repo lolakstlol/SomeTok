@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AcoountCollectionViewCellDelegate: AnyObject {
+protocol AccountCollectionViewCellDelegate: AnyObject {
     func followButtonTap(_ uuid: String)
 }
 
@@ -20,7 +20,7 @@ final class AccountsCollectionViewCell: UICollectionViewCell {
     
     private var uuid: String?
     
-    weak var delegate: AcoountCollectionViewCellDelegate?
+    weak var delegate: AccountCollectionViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,7 +49,7 @@ final class AccountsCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configure(with model: SearchAccountsDatum, delegate: AcoountCollectionViewCellDelegate) {
+    func configure(with model: SearchAccountsDatum, delegate: AccountCollectionViewCellDelegate) {
         self.delegate = delegate
         self.uuid = model.uuid
         updateSubscribeButton(isFollow: model.isFollow)

@@ -160,7 +160,7 @@ extension MainSearchViewController: MainSearchPresenterOutput {
         collectionManager?.setCategories(models: models)
     }
     
-    func setVideos(models: [CategoriesPost]) {
+    func setVideos(models: [FeedPost]) {
         collectionManager?.setVideos(models: models)
     }
     
@@ -171,9 +171,18 @@ extension MainSearchViewController: MainSearchPresenterOutput {
     func onFollowFailure(_ error: NetworkError) {
         showToast(error.localizedDescription, toastType: .failured)
     }
+    
+    func pushFeed(_ viewController: FeedViewViewController) {
+        viewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 extension MainSearchViewController: SearchCollectionViewOutput {
+    func didTapVideo(_ dataSourse: [FeedPost], index: Int) {
+        presenter.didTapVideo(dataSourse, index: index)
+    }
+    
     func updateEmptyLabel(_ isEmpty: Bool) {
         emptyLabel.isHidden = isEmpty
     }

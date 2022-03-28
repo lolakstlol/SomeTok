@@ -9,8 +9,7 @@
 import UIKit.UIImage
 
 protocol FeedViewPresenterInput: BasePresenting {
-    func sendMessage(_ message: String)
-    func setCurrentPost(_ post: FeedResponse)
+    func setCurrentPost(_ post: FeedPost)
     func feedIsScrollingToEnd(with offset: Int)
     func setCommentsCount(with count: Int)
     func openComments()
@@ -19,15 +18,12 @@ protocol FeedViewPresenterInput: BasePresenting {
 
     func closeButtonTouchUpInside()
     func profileTouchUpInside()
-    func updateFeedType(_ type: FeedViewEnterOption)
     func likeTouchUpInside(_ type: LikeActionType)
     func shareTouchUpInside(postUUID: String)
     func moreTouchUpInside()
     func subscribeTapAction()
     func screenTapAction()
-    func addressLabelTouchUpInside()
-    func floatingBasketTouchUpInside()
-    
+
     func isMoreButtonVisible() -> Bool
     func shouldShowActivityIndicator() -> Bool
     func shouldShowFilledLikes() -> Bool

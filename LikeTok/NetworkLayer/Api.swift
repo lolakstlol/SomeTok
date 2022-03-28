@@ -255,7 +255,8 @@ enum Api {
              repeatCode(email: String),
              resetPass(email: String),
              confirmResetPass(email:String, pass: String, code: String),
-             updateSettings(phone: String?, name: String?)
+             updateSettings(phone: String?, name: String?),
+             changePassword(old: String, new: String)
         public var request: DataRequest {
             switch self {
             case let .signup(email, name, pass):
@@ -301,25 +302,68 @@ enum Api {
                 params["phone"] = phone
                 let request = Alamofire.request("\(API.server)/user/settings", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
                 return request.validate()
+                
+            case .changePassword(old: let old, new: let new):
+                var params: Parameters = Parameters()
+                params["old"] = old
+                params["new"] = new
+                let request = Alamofire.request("\(API.server)/auth/change_password", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
+                return request.validate()
             }
         }
     }
     
-    enum Profile: ApiMethod {
+    enum OtherProfile: ApiMethod {
         case user(_ uuid: String)
-        case settings
-        case updateSettings(_ model: EditedProfileModel)
         case follow(_ uuid: String)
+        
+        case getInitialFeed(type: FeedViewEnterOption, uuid: String)
+        case getFeed(cursor: String, uuid: String, type: FeedViewEnterOption)
+        
         public var request: DataRequest {
             switch self {
             case .user(let uuid):
                 let request = Alamofire.request("\(API.server)/user/\(uuid)", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
-                //request.request?.addValue(Locale.current.regionCode ?? "", forHTTPHeaderField: "LANG")
                 return request.validate()
+                
+            case .follow(let uuid):
+                let request = Alamofire.request("\(API.server)/user/\(uuid)/follow", method: .put, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .getInitialFeed(_, let uuid):
+                let request = Alamofire.request("\(API.server)/user/\(uuid)/feed", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .getFeed(cursor: let cursor, uuid: let uuid, _):
+                let endPoint: String = "\(API.server)/user/\(uuid)/feed"
+                let parameters: Parameters = [
+                    "cursor": "\(cursor)"
+                ]
+            
+                let request = Alamofire.request(endPoint, method: .get, parameters: parameters, headers: Api.headers)
+                return request.validate()
+            }
+
+        }
+    }
+    
+    enum Profile: ApiMethod {
+        case settings
+        case updateSettings(_ model: EditedProfileModel)
+        
+        case getInitialFeed(type: FeedViewEnterOption)
+        case getFeed(cursor: String, type: FeedViewEnterOption)
+        
+//        case feedAdvertismentOther(_ uuid: String)
+//        case feedPersonalOther(_ uuid: String)
+//        case feedAdvertismentOtherMore(uuid: String, _ cursor: String)
+//        case feedPersonalOtherMore(uuid: String, _ cursor: String)
+        
+        public var request: DataRequest {
+            switch self {
                 
             case .settings:
                 let request = Alamofire.request("\(API.server)/user/settings", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
-                //request.request?.addValue(Locale.current.regionCode ?? "", forHTTPHeaderField: "LANG")
                 return request.validate()
             
             case .updateSettings(let model):
@@ -348,9 +392,135 @@ enum Api {
                 let request = Alamofire.request("\(API.server)/user/settings", method: .put, parameters: params, encoding: JSONEncoding.default, headers: Api.headers)
                 return request.validate()
                 
-            case .follow(let uuid):
-                let request = Alamofire.request("\(API.server)/user/\(uuid)/follow", method: .put, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
-                //request.request?.addValue(Locale.current.regionCode ?? "", forHTTPHeaderField: "LANG")
+            case .getInitialFeed(let type):
+                let request = Alamofire.request("\(API.server)/user/my/feed/\(type.rawValue)", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .getFeed(cursor: let cursor, type: let type):
+                let endPoint: String = "\(API.server)/user/my/feed/\(type.rawValue)"
+                let parameters: Parameters = [
+                    "cursor": "\(cursor)"
+                ]
+            
+                let request = Alamofire.request(endPoint, method: .get, parameters: parameters, headers: Api.headers)
+                return request.validate()
+                
+            }
+        }
+    }
+    
+    enum UserList: ApiMethod {
+        case subscriptions
+        case subscribers
+        case friends
+        
+        case subscriptionsMore(_ cursor: String)
+        case subscribersMore(_ cursor: String)
+        case friendsMore(_ cursor: String)
+        
+        case searchSubscriptions(_ predicate: String)
+        case searchSubscribers(_ predicate: String)
+        case searchFriends(_ predicate: String)
+        
+        
+        case subscriptionsOther(_ uuid: String)
+        case subscribersOther(_ uuid: String)
+        
+        case subscriptionsOtherMore(_ cursor: String, _ uuid: String)
+        case subscribersOtherMore(_ cursor: String, _ uuid: String)
+        
+        case searchSubscriptionsOther(_ predicate: String, _ uuid: String)
+        case searchSubscribersOther(_ predicate: String, _ uuid: String)
+        
+        public var request: DataRequest {
+            switch self {
+            case .subscriptions:
+                let request = Alamofire.request("\(API.server)/user/subscriptions", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+            case .subscribers:
+                let request = Alamofire.request("\(API.server)/user/subscribers", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+            case .friends:
+                let request = Alamofire.request("\(API.server)/user/friends", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .subscriptionsMore(let cursor):
+                let parameters: Parameters = [
+                    "cursor": "\(cursor)"
+                ]
+                let request = Alamofire.request("\(API.server)/user/subscriptions", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .subscribersMore(let cursor):
+                let parameters: Parameters = [
+                    "cursor": "\(cursor)"
+                ]
+                let request = Alamofire.request("\(API.server)/user/subscribers", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .friendsMore(let cursor):
+                let parameters: Parameters = [
+                    "cursor": "\(cursor)"
+                ]
+                let request = Alamofire.request("\(API.server)/user/friends", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .searchSubscriptions(let predicate):
+                let parameters: Parameters = [
+                    "name": "\(predicate)"
+                ]
+                let request = Alamofire.request("\(API.server)/user/subscriptions/search", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .searchSubscribers(let predicate):
+                let parameters: Parameters = [
+                    "name": "\(predicate)"
+                ]
+                let request = Alamofire.request("\(API.server)/user/subscribers/search", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .searchFriends(let predicate):
+                let parameters: Parameters = [
+                    "name": "\(predicate)"
+                ]
+                let request = Alamofire.request("\(API.server)/user/friends/search", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+                
+            case .subscriptionsOther(let uuid):
+                let request = Alamofire.request("\(API.server)/user/subscriptions", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .subscribersOther(let uuid):
+                let request = Alamofire.request("\(API.server)/user/subscribers", method: .get, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .subscriptionsOtherMore(let cursor, let uuid):
+                let parameters: Parameters = [
+                    "cursor": "\(cursor)"
+                ]
+                let request = Alamofire.request("\(API.server)/user/subscriptions", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .subscribersOtherMore(let cursor, let uuid):
+                let parameters: Parameters = [
+                    "cursor": "\(cursor)"
+                ]
+                let request = Alamofire.request("\(API.server)/user/subscribers", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .searchSubscriptionsOther(let predicate, let uuid):
+                let parameters: Parameters = [
+                    "name": "\(predicate)"
+                ]
+                let request = Alamofire.request("\(API.server)/user/subscriptions/search", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
+                return request.validate()
+                
+            case .searchSubscribersOther(let predicate, let uuid):
+                let parameters: Parameters = [
+                    "name": "\(predicate)"
+                ]
+                let request = Alamofire.request("\(API.server)/user/subscribers/search", method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: Api.headers)
                 return request.validate()
             }
         }

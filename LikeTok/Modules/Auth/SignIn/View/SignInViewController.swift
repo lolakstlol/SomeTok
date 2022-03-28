@@ -44,7 +44,8 @@ final class SignInViewController: BaseViewController {
     @IBAction func loginDidTap(_ sender: Any) {
         if let mail = loginTextField.text,
            let pass = passwordTextField.text {
-        presenter.loginDidTap(email: mail, pass: pass)
+            presenter.loginDidTap(email: mail, pass: pass)
+            showLoader()
         } else {
            // handle
         }
@@ -62,6 +63,7 @@ final class SignInViewController: BaseViewController {
 extension SignInViewController: SignInPresenterOutput {
     
     func onSignInFailed(_ error: String) {
+        hideLoader()
         showToast(error, toastType: .failured)
     }
     

@@ -69,4 +69,9 @@ extension CatalogPresenter: CatalogPresenterInput {
     func searchDidTap() {
         view.openSerachScreen()
     }
+    
+    func didTapVideo(_ dataSourse: [FeedPost], index: Int) {
+        let feedViewController = FeedViewAssembler.createModule(type: .catalog, initialDataSourse: dataSourse, initialIndex: index)
+        view.pushFeed(feedViewController)
+    }
 }

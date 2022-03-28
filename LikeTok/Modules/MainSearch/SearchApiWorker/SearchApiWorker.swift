@@ -1,15 +1,15 @@
 import Foundation
 
 final class SearchApiWorker {
-    func searchTags(tag: String, completion: @escaping (Swift.Result<SearchTagsResponse?, NetworkError>) -> Void) {
+    func searchTags(tag: String, completion: @escaping (Swift.Result<FeedGlobalResponse?, NetworkError>) -> Void) {
         Api.Catalog.searchVideos(tag: tag).request.responseJSON { response in
             let code = response.response?.statusCode ?? 0
             switch code {
             case 200:
-                if let data = response.data, let response = try? JSONDecoder().decode(SearchTagsResponse.self, from: data) {
+                if let data = response.data, let response = try? JSONDecoder().decode(FeedGlobalResponse.self, from: data) {
                     completion(.success(response))
                 } else {
-                    try? self.catchError(data: response.data!, type: SearchTagsResponse.self)
+                    try? self.catchError(data: response.data!, type: FeedGlobalResponse.self)
                     completion(.failure(.deserialization))
                 }
             case 204: completion(.failure(.noData))

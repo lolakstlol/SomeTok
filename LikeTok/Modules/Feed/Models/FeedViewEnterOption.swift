@@ -7,7 +7,15 @@
 //
 
 enum FeedViewEnterOption: String {
-    case general = "all"
-    case advertisment = "adver"
-    case subscriptions = "following"
+    // main feed
+    case mainAll = "all"
+    case mainAdvertisment = "adver"
+    case mainFollowing = "following"
+
+    //my feed
+    case personal = "personal"
+    case advertisment = "adv"
+
+    //catalog
+    case catalog = "catalog"
 }

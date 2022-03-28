@@ -209,6 +209,23 @@ public enum Strings {
     /// Что такое “Личная публикация”?
     public static let title = Strings.tr("Localizable", "UploadAbout.title")
   }
+
+  public enum UserList {
+    /// Друзья
+    public static let friends = Strings.tr("Localizable", "UserList.friends")
+    /// Подписчики
+    public static let subscribers = Strings.tr("Localizable", "UserList.subscribers")
+    /// Подписки
+    public static let subscriptions = Strings.tr("Localizable", "UserList.subscriptions")
+    public enum Empty {
+      /// Друзья не найдены
+      public static let friends = Strings.tr("Localizable", "UserList.Empty.friends")
+      /// Подписчики не найдены
+      public static let subscribers = Strings.tr("Localizable", "UserList.Empty.subscribers")
+      /// Подписки не найдены
+      public static let subscriptions = Strings.tr("Localizable", "UserList.Empty.subscriptions")
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
