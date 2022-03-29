@@ -161,7 +161,10 @@ extension FeedCollectionManager: FeedCollectionManagement {
     }
     
     func scrollToIndex(_ index: Int) {
-        DispatchQueue.main.async {
+        guard configurators.count > 0 else {
+            return
+        }
+//        DispatchQueue.main.async {
             self.collectionView?.scrollToItem(at: IndexPath(item: index, section: .zero),
                                          at: UICollectionView.ScrollPosition(rawValue: .zero),
                                          animated: false)
@@ -169,7 +172,7 @@ extension FeedCollectionManager: FeedCollectionManagement {
                 self.output?.selectFeedItem(first)
             }
             self.collectionView?.reloadData()
-        }
+//        }
     }
     
     
